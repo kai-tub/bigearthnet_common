@@ -5,8 +5,8 @@ on:
     types: [published]
 
 # required since it is started from a previous workflow
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+# env:
+#   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   upload_assets:
