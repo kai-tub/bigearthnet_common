@@ -1,3 +1,15 @@
+# v0.1.0 (Thu Dec 23 2021)
+
+#### 🚀 Enhancement
+
+- Trying publishing to PyPI [#1](https://github.com/kai-tub/bigearthnet_common/pull/1) ([@kai-tub](https://github.com/kai-tub))
+
+#### Authors: 1
+
+- Kai Norman Clasen ([@kai-tub](https://github.com/kai-tub))
+
+---
+
 # v0.0.1 (Thu Dec 23 2021)
 
 :tada: This release contains work from a new contributor! :tada:
