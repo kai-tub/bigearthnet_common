@@ -23,6 +23,6 @@ jobs:
         with:
           poetry-version: 1.1.12
       - name: Build package
-        uses: poetry build
+        run: poetry build
       - name: Publish
-        uses: poetry publish --username ${{ secrets.PYPI_USER }} --password ${{ secrets.PYPI_PWD }}
+        run: poetry publish --username ${{ secrets.PYPI_USER }} --password ${{ secrets.PYPI_PWD }}
