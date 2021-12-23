@@ -1,0 +1,27 @@
+version: "3"
+services:
+  fastai:
+    &fastai
+    restart: unless-stopped
+    working_dir: /data
+    image: fastai/codespaces
+    logging:
+      driver: json-file
+      options:
+        max-size: 50m
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/data/
+
+  jekyll:
+    <<: *fastai
+    ports:
+      - "4000:4000"
+    #  bash -c "cp -r docs_src docs
+    #  && nbdev_build_docs && cd docs
+    #  && bundle i
+    #  && chmod -R u+rwx . && bundle exec jekyll serve --host 0.0.0.0"
+    command: >
+      bash -c "cd docs && bundle i && chmod -R u+rwx . && bundle exec jekyll
+      serve --host 0.0.0.0"

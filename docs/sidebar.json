@@ -1,0 +1,9 @@
+{
+  "bigearthnet_common": {
+    "Overview": "/",
+    "BigEarthNet Constants": "constants.html",
+    "BigEarthNet Base Functions": "base.html",
+    "BigEarthNet GeoDataFrame Builder": "gdf_builder.html",
+    "BigEarthNet Subset Builder": "subset_builder.html"
+  }
+}
