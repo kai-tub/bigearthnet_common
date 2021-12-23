@@ -55,6 +55,6 @@ jobs:
         run: git fetch --unshallow --tags
       - name: Run release script
         run: bash .auto/run_auto.sh
-        # env:
-        #   # To be able to trigger next publish event
-        #   GITHUB_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+        env:
+          # To be able to trigger publish event
+          GITHUB_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
