@@ -44,7 +44,7 @@ matplotlib = "*"
 mapclassify = "*"
 
 [tool.poetry.scripts]
-gdf_builder = "bigearthnet_common.gdf_builder:_run_gdf_cli"
+ben_gdf_builder = "bigearthnet_common.gdf_builder:_run_gdf_cli"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
