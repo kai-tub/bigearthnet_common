@@ -16,28 +16,16 @@ import fastcore.all as fc
 import geopandas
 import pandas as pd
 import rich.traceback
-from pydantic import (
-    DirectoryPath,
-    FilePath,
-    PositiveInt,
-    conint,
-    validate_arguments,
-)
+import typer
+from pydantic import DirectoryPath, FilePath, PositiveInt, conint, validate_arguments
+from rich.progress import Progress, SpinnerColumn, TextColumn, TimeElapsedColumn
 
 from .base import (
+    _download_and_cache_url,
     box_from_ul_lr_coords,
     parse_datetime,
-    _download_and_cache_url,
 )
 from .constants import COUNTRIES, COUNTRIES_ISO_A2
-
-from rich.progress import (
-    SpinnerColumn,
-    TimeElapsedColumn,
-    TextColumn,
-    Progress,
-)
-
 
 rich.traceback.install(show_locals=True)
 
@@ -94,7 +82,7 @@ def ben_patch_to_gdf(
 
 def ben_patch_to_reprojected_gdf(
     patch_path: Union[FilePath, DirectoryPath], target_proj: str = "epsg:4326"
-):
+) -> geopandas.GeoDataFrame:
     """
     Calls `ben_patch_to_gdf` and simply reprojects the resulting GeoDataFrame afterwards to the
     given `target_proj`.
@@ -149,7 +137,7 @@ _ROUGH_BEN_S2_RE = re.compile(r"S\d\w_[^_]+_\d+T\d+_\d+_\d+")
 
 # Cell
 @validate_arguments
-def get_patch_directories(dir_path: DirectoryPath):
+def get_patch_directories(dir_path: DirectoryPath) -> List[Path]:
     """
     Tries to find all patch directories in the provided `dir_path`.
     The function will use a semi-relaxed regex matching procedure.
@@ -340,7 +328,7 @@ def _remove_snow_cloud_patches(gdf):
     return gdf[~(snowy | cloudy)]
 
 
-def remove_bad_ben_gdf_entries(gdf: geopandas.GeoDataFrame):
+def remove_bad_ben_gdf_entries(gdf: geopandas.GeoDataFrame) -> geopandas.GeoDataFrame:
     """
     It will ensure that the returned frame will only contain patches that
     also have labels for the 19 label version.
@@ -397,7 +385,7 @@ def extend_ben_parquet(
     ben_parquet_path: Path,
     output_name: str = "extended_ben_gdf.parquet",
     verbose: bool = True,
-):
+) -> Path:
     """
     Extend an existing BigEarthNet-style parquet file.
 
@@ -423,7 +411,7 @@ def remove_discouraged_parquet_entries(
     ben_parquet_path: Path,
     output_name: str = "cleaned_ben_gdf.parquet",
     verbose: bool = True,
-):
+) -> Path:
     """
     Remove entries of an existing BigEarthNet-style parquet file.
 
@@ -450,7 +438,7 @@ def build_recommended_parquet(
     add_metadata: bool = True,
     output_path: Path = "final_ben.parquet",
     **kwargs,
-):
+) -> Path:
     """
     ! Generate the recommended GeoDataFrame and save
     it as a parquet file.
@@ -493,9 +481,8 @@ def build_recommended_parquet(
 
 
 # Cell
-if __name__ == "__main__" and not fc.IN_IPYTHON:
-    import typer
 
+def _run_gdf_cli() -> None:
     app = typer.Typer()
     # hack command registration here
     # to better test the underlying function
@@ -504,3 +491,6 @@ if __name__ == "__main__" and not fc.IN_IPYTHON:
     app.command()(remove_discouraged_parquet_entries)
     app.command()(extend_ben_parquet)
     app()
+
+if __name__ == "__main__" and not fc.IN_IPYTHON:
+    _run_gdf_cli()
