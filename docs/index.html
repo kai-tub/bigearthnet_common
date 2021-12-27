@@ -6,8 +6,8 @@ title: Common BigEarthNet Tools
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "A personal collection of common BigEarthNet functions"
-description: "A personal collection of common BigEarthNet functions"
+summary: "A personal collection of common tools to interact with the BigEarthNet dataset."
+description: "A personal collection of common tools to interact with the BigEarthNet dataset."
 nb_path: "nbs/index.ipynb"
 ---
 <!--
@@ -34,7 +34,7 @@ nb_path: "nbs/index.ipynb"
 <p>This library provides a collection of high-level tools to better work with the <a href="bigearth.net">BigEarthNet</a> dataset.</p>
 <p><code>ben_common</code> tries to accomplish three goals:</p>
 <ol>
-<li>Collect most relevant <em>constants</em> into a single place to reduce the time spent looking for these, like:<ul>
+<li>Collect the most relevant <em>constants</em> into a single place to reduce the time spent looking for these, like:<ul>
 <li>The 19 or 43 class nomenclature strings</li>
 <li>URL</li>
 <li>Band statistics (mean/variance) as integer and float</li>
@@ -47,7 +47,7 @@ nb_path: "nbs/index.ipynb"
 <li>Provide functions to enrich GeoDataFrames with often required BigEarthNet metadata (like the season or country of the patch)</li>
 </ul>
 </li>
-<li>Simplify the building procedure by providing a command line interface with reproducible results</li>
+<li>Simplify the building procedure by providing a command-line interface with reproducible results</li>
 </ol>
 
 </div>
@@ -55,16 +55,22 @@ nb_path: "nbs/index.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Deep-Learning">Deep Learning<a class="anchor-link" href="#Deep-Learning"> </a></h2><p>One of the main purposes of the dataset is to allow deep learning researchers and practictioners to easily train their model on multi-spectral satellite data.
+<h2 id="Deep-Learning">Deep Learning<a class="anchor-link" href="#Deep-Learning"> </a></h2><p>One of the main purposes of the dataset is to allow deep learning researchers and practitioners to train their model on multi-spectral satellite data easily.
 In that regard, there is a general recommendation to drop patches that are covered by seasonal snow or clouds.
 Also, the novel 19-class nomenclature should be preferred over the original 43-class nomenclature.
 As a result of these recommendations, some patches have to be <em>excluded</em> from the original raw BigEarthNet dataset that is provided at <a href="bigearth.net">BigEarthNet</a>.
 This is especially important for higher-level statistical analysis.</p>
-<p>To simplify the procedure of pre-converting the json metadata files, the library provides a single command that will generate a recommended GeoDataFrame with extra metadata (country/season data of each patch), while dropping all patches that are not recommended for deep learning research.</p>
+<p>To simplify the procedure of pre-converting the json metadata files, the library provides a single command that will generate a recommended GeoDataFrame with extra metadata (country/season data of each patch) while dropping all patches that are not recommended for deep learning research.</p>
 <p>To generate such a GeoDataFrame and store it as an <code>parquet</code> file, use:</p>
-<p><code>python -m bigearthnet_common.gdf_builder build-recommended-parquet</code></p>
-<p>If you want to simply read the raw json files and convert those to a GeoDataFrame file, without dropping any patches or adding any metadata, use:</p>
-<p><code>python -m bigearthnet_common.gdf_builder build-raw-ben-parquet</code></p>
+<ul>
+<li><code>gdf_builder build-recommended-parquet</code> (available after installing package) or</li>
+<li><code>python -m bigearthnet_common.gdf_builder build-recommended-parquet</code></li>
+</ul>
+<p>If you want to read the raw json files and convert those to a GeoDataFrame file, without dropping any patches or adding any metadata, use:</p>
+<ul>
+<li><code>gdf_builder build-raw-ben-parquet</code> (available after installing package) or</li>
+<li><code>python -m bigearthnet_common.gdf_builder build-raw-ben-parquet</code></li>
+</ul>
 
 </div>
 </div>
@@ -74,7 +80,7 @@ This is especially important for higher-level statistical analysis.</p>
 <h2 id="Local-Installation">Local Installation<a class="anchor-link" href="#Local-Installation"> </a></h2><p>Use <a href="https://github.com/casey/just#installation">just</a> to install the package or run steps from <code>justfile</code> directly.
 Requires <a href="https://github.com/mamba-org/mamba">mamba</a> (highly recommended) or <a href="https://python-poetry.org/docs/basic-usage/">poetry</a> to be installed.</p>
 <h2 id="Local-Documentation">Local Documentation<a class="anchor-link" href="#Local-Documentation"> </a></h2><p>{% include note.html content='Building and serving the documentation requires <code>Docker</code> to be installed!' %}
-After creating the <code>ben_common_env</code> environment, simply run</p>
+After creating the <code>ben_common_env</code> environment, run</p>
 <div class="highlight"><pre><span></span>docker-compose up
 </pre></div>
 <p>Or with <code>just</code>:</p>
@@ -85,7 +91,7 @@ After creating the <code>ben_common_env</code> environment, simply run</p>
 <li><a href="http://0.0.0.0:4000/bigearthnet_common/">http://0.0.0.0:4000/bigearthnet_common/</a> or </li>
 <li><a href="http://localhost:4000/bigearthnet_common/">http://localhost:4000/bigearthnet_common/</a> (WSL).</li>
 </ul>
-<p>To review the source code, please take a look at the corresponding <code>ipynb</code> notebook from the <code>nbs</code> folder.
+<p>To review the source code, please look at the corresponding <code>ipynb</code> notebook from the <code>nbs</code> folder.
 These notebooks include extensive documentation, visualizations, and tests.
 The automatically generated Python files are available in the <code>bigearthnet_common</code> module.</p>
 
