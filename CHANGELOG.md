@@ -1,3 +1,15 @@
+# v0.1.1 (Mon Dec 27 2021)
+
+#### 🐛 Bug Fix
+
+- Expose gdf_builder to CLI via `scripts` interface [#2](https://github.com/kai-tub/bigearthnet_common/pull/2) ([@kai-tub](https://github.com/kai-tub))
+
+#### Authors: 1
+
+- Kai Norman Clasen ([@kai-tub](https://github.com/kai-tub))
+
+---
+
 # v0.1.0 (Thu Dec 23 2021)
 
 #### 🚀 Enhancement
