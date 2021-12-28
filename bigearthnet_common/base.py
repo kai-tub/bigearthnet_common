@@ -4,7 +4,8 @@ __all__ = ['USER_DIR', 'parse_datetime', 'box_from_ul_lr_coords', 'PATCHES_WITH_
            'PATCHES_WITH_CLOUD_AND_SHADOW_URL', 'get_patches_with_seasonal_snow', 'get_patches_with_cloud_and_shadow',
            'is_snowy_patch', 'is_cloudy_shadowy_patch', 'patches_from_original_train_split',
            'patches_from_original_validation_split', 'patches_from_original_test_split',
-           'get_original_split_from_patch_name', 'old2new_labels']
+           'get_original_split_from_patch_name', 'old2new_labels', 'ben_19_labels_to_multi_hot',
+           'ben_43_labels_to_multi_hot']
 
 # Cell
 import functools
@@ -13,7 +14,7 @@ import warnings
 from datetime import datetime
 from numbers import Real
 from pathlib import Path
-from typing import List, Optional, Set, Tuple, Union
+from typing import List, Optional, Set, Tuple, Union, Sequence
 
 import appdirs
 import dateutil
@@ -25,6 +26,7 @@ from fastcore.dispatch import typedispatch
 from pydantic import AnyHttpUrl, validate_arguments
 from shapely.geometry import LineString, Point, Polygon, box
 
+import bigearthnet_common.constants as ben_constants
 from .constants import OLD2NEW_LABELS_DICT
 
 
@@ -262,7 +264,7 @@ def _old2new_label(old_label: str) -> Optional[str]:
     return OLD2NEW_LABELS_DICT[old_label]
 
 
-def old2new_labels(old_labels: List[str]) -> Optional[List[str]]:
+def old2new_labels(old_labels: Sequence[str]) -> Optional[List[str]]:
     """
     Converts a list of old-style BigEarthNet labels
     to a list of labels.
@@ -282,3 +284,43 @@ def old2new_labels(old_labels: List[str]) -> Optional[List[str]]:
         )
         new_labels = None
     return new_labels
+
+
+# Cell
+@validate_arguments
+def ben_19_labels_to_multi_hot(labels: Sequence[str]) -> List[float]:
+    """
+    Convenience function that converts an input sequence of labels into
+    a multi-hot encoded vector.
+    The naturally ordered label list is used as an encoder reference
+    - `bigearthnet_common.NEW_LABELS`
+
+    If an unknown label is given, a `KeyError` is raised.
+
+    Be aware that this approach assumes that **all** labels are actually used in the dataset!
+    This is not necessarily the case if you are using a subset!
+    For example, the "Agro-forestry areas" class is only present in Portugal and in no other country!
+    """
+    idxs = [ben_constants.NEW_LABELS_TO_IDX[label] for label in labels]
+    multi_hot = fc.L([0] * len(ben_constants.NEW_LABELS))
+    multi_hot[idxs] = 1.
+    return list(multi_hot)
+
+@validate_arguments
+def ben_43_labels_to_multi_hot(labels: Sequence[str]) -> List[float]:
+    """
+    Convenience function that converts an input sequence of labels into
+    a multi-hot encoded vector.
+    The naturally ordered label list is used as an encoder reference
+    - `bigearthnet_common.OLD_LABELS`
+
+    If an unknown label is given, a `KeyError` is raised.
+
+    Be aware that this approach assumes that **all** labels are actually used in the dataset!
+    This is not necessarily the case if you are using a subset!
+    For example, the "Agro-forestry areas" class is only present in Portugal and in no other country!
+    """
+    idxs = [ben_constants.OLD_LABELS_TO_IDX[label] for label in labels]
+    multi_hot = fc.L([0] * len(ben_constants.OLD_LABELS))
+    multi_hot[idxs] = 1.
+    return list(multi_hot)

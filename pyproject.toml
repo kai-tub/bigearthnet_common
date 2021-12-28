@@ -7,8 +7,7 @@ license = "Apache-2.0"
 readme = "README.md"
 homepage = "https://github.com/kai-tub/bigearthnet_common"
 repository = "https://github.com/kai-tub/bigearthnet_common"
-# TODO: add this to the documentation page!
-# documentation = ""
+documentation = "https://kai-tub.github.io/bigearthnet_common/"
 keywords = ["geopandas", "ben", "bigearthnet", "script"]
 include = [
     "LICENSE",

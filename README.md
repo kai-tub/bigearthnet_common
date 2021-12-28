@@ -31,12 +31,12 @@ To simplify the procedure of pre-converting the json metadata files, the library
 
 To generate such a GeoDataFrame and store it as an `parquet` file, use:
 
-- `gdf_builder build-recommended-parquet` (available after installing package) or
+- `ben_gdf_builder build-recommended-parquet` (available after installing package) or
 - `python -m bigearthnet_common.gdf_builder build-recommended-parquet`
 
 If you want to read the raw json files and convert those to a GeoDataFrame file, without dropping any patches or adding any metadata, use:
 
-- `gdf_builder build-raw-ben-parquet` (available after installing package) or
+- `ben_gdf_builder build-raw-ben-parquet` (available after installing package) or
 - `python -m bigearthnet_common.gdf_builder build-raw-ben-parquet`
 
 

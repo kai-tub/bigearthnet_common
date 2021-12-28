@@ -62,7 +62,7 @@ def ben_patch_to_gdf(
     except json.JSONDecodeError:
         raise ValueError(f"Error trying to read json from: ", json_path)
 
-    original_json_elements = {"acquisition_date", "coordinates", "labels", "projection"}
+    original_json_elements = {"acquisition_date", "coordinates", "labels", "projection", "tile_source"}
     missing_elements = original_json_elements - complete_data.keys()
     if len(missing_elements) > 0:
         raise ValueError(f"{json_path} is missing entries!", missing_elements)

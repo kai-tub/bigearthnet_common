@@ -75,6 +75,13 @@ nb_path: "nbs/01a_constants.ipynb"
     
 <div class="cell border-box-sizing code_cell rendered">
 
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
 <div class="output_wrapper">
 <div class="output">
 
@@ -82,7 +89,7 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="print_all_constants" class="doc_header"><code>print_all_constants</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/constants.py#L243" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>print_all_constants</code>()</p>
+<h4 id="print_all_constants" class="doc_header"><code>print_all_constants</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/constants.py#L256" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>print_all_constants</code>()</p>
 </blockquote>
 <p>A function that shows all of the pre-defined constants of the library.</p>
 
@@ -107,218 +114,471 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
-    <span style="color: #008000; text-decoration-color: #008000">'OLD2NEW_LABELS_DICT'</span>: <span style="font-weight: bold">{</span>
-        <span style="color: #008000; text-decoration-color: #008000">'Continuous urban fabric'</span>: <span style="color: #008000; text-decoration-color: #008000">'Urban fabric'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Discontinuous urban fabric'</span>: <span style="color: #008000; text-decoration-color: #008000">'Urban fabric'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Industrial or commercial units'</span>: <span style="color: #008000; text-decoration-color: #008000">'Industrial or commercial units'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Non-irrigated arable land'</span>: <span style="color: #008000; text-decoration-color: #008000">'Arable land'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Permanently irrigated land'</span>: <span style="color: #008000; text-decoration-color: #008000">'Arable land'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rice fields'</span>: <span style="color: #008000; text-decoration-color: #008000">'Arable land'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Vineyards'</span>: <span style="color: #008000; text-decoration-color: #008000">'Permanent crops'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Fruit trees and berry plantations'</span>: <span style="color: #008000; text-decoration-color: #008000">'Permanent crops'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Olive groves'</span>: <span style="color: #008000; text-decoration-color: #008000">'Permanent crops'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Annual crops associated with permanent crops'</span>: <span style="color: #008000; text-decoration-color: #008000">'Permanent crops'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Pastures'</span>: <span style="color: #008000; text-decoration-color: #008000">'Pastures'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Complex cultivation patterns'</span>: <span style="color: #008000; text-decoration-color: #008000">'Complex cultivation patterns'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Land principally occupied by agriculture, with significant areas of natural </span>
-<span style="color: #008000; text-decoration-color: #008000">vegetation'</span>: <span style="color: #008000; text-decoration-color: #008000">'Land principally occupied by agriculture, with significant areas of natural </span>
-<span style="color: #008000; text-decoration-color: #008000">vegetation'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Agro-forestry areas'</span>: <span style="color: #008000; text-decoration-color: #008000">'Agro-forestry areas'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Broad-leaved forest'</span>: <span style="color: #008000; text-decoration-color: #008000">'Broad-leaved forest'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Coniferous forest'</span>: <span style="color: #008000; text-decoration-color: #008000">'Coniferous forest'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Mixed forest'</span>: <span style="color: #008000; text-decoration-color: #008000">'Mixed forest'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Natural grassland'</span>: <span style="color: #008000; text-decoration-color: #008000">'Natural grassland and sparsely vegetated areas'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Sparsely vegetated areas'</span>: <span style="color: #008000; text-decoration-color: #008000">'Natural grassland and sparsely vegetated areas'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Moors and heathland'</span>: <span style="color: #008000; text-decoration-color: #008000">'Moors, heathland and sclerophyllous vegetation'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Sclerophyllous vegetation'</span>: <span style="color: #008000; text-decoration-color: #008000">'Moors, heathland and sclerophyllous vegetation'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Transitional woodland/shrub'</span>: <span style="color: #008000; text-decoration-color: #008000">'Transitional woodland, shrub'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Beaches, dunes, sands'</span>: <span style="color: #008000; text-decoration-color: #008000">'Beaches, dunes, sands'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Inland marshes'</span>: <span style="color: #008000; text-decoration-color: #008000">'Inland wetlands'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Peatbogs'</span>: <span style="color: #008000; text-decoration-color: #008000">'Inland wetlands'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Salt marshes'</span>: <span style="color: #008000; text-decoration-color: #008000">'Coastal wetlands'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Salines'</span>: <span style="color: #008000; text-decoration-color: #008000">'Coastal wetlands'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Water courses'</span>: <span style="color: #008000; text-decoration-color: #008000">'Inland waters'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Water bodies'</span>: <span style="color: #008000; text-decoration-color: #008000">'Inland waters'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Coastal lagoons'</span>: <span style="color: #008000; text-decoration-color: #008000">'Marine waters'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Estuaries'</span>: <span style="color: #008000; text-decoration-color: #008000">'Marine waters'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Sea and ocean'</span>: <span style="color: #008000; text-decoration-color: #008000">'Marine waters'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Airports'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Bare rock'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Dump sites'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Port areas'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Road and rail networks and associated land'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Mineral extraction sites'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Construction sites'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Sport and leisure facilities'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Burnt areas'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Intertidal flats'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Green urban areas'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">OLD2NEW_LABELS_DICT:
+<span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'Continuous urban fabric'</span>: <span style="color: #008000; text-decoration-color: #008000">'Urban fabric'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Discontinuous urban fabric'</span>: <span style="color: #008000; text-decoration-color: #008000">'Urban fabric'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Industrial or commercial units'</span>: <span style="color: #008000; text-decoration-color: #008000">'Industrial or commercial units'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Non-irrigated arable land'</span>: <span style="color: #008000; text-decoration-color: #008000">'Arable land'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Permanently irrigated land'</span>: <span style="color: #008000; text-decoration-color: #008000">'Arable land'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Rice fields'</span>: <span style="color: #008000; text-decoration-color: #008000">'Arable land'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Vineyards'</span>: <span style="color: #008000; text-decoration-color: #008000">'Permanent crops'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Fruit trees and berry plantations'</span>: <span style="color: #008000; text-decoration-color: #008000">'Permanent crops'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Olive groves'</span>: <span style="color: #008000; text-decoration-color: #008000">'Permanent crops'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Annual crops associated with permanent crops'</span>: <span style="color: #008000; text-decoration-color: #008000">'Permanent crops'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Pastures'</span>: <span style="color: #008000; text-decoration-color: #008000">'Pastures'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Complex cultivation patterns'</span>: <span style="color: #008000; text-decoration-color: #008000">'Complex cultivation patterns'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Land principally occupied by agriculture, with significant areas of natural vegetation'</span>:
+<span style="color: #008000; text-decoration-color: #008000">'Land principally occupied by agriculture, with significant areas of natural vegetation'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Agro-forestry areas'</span>: <span style="color: #008000; text-decoration-color: #008000">'Agro-forestry areas'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Broad-leaved forest'</span>: <span style="color: #008000; text-decoration-color: #008000">'Broad-leaved forest'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Coniferous forest'</span>: <span style="color: #008000; text-decoration-color: #008000">'Coniferous forest'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Mixed forest'</span>: <span style="color: #008000; text-decoration-color: #008000">'Mixed forest'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Natural grassland'</span>: <span style="color: #008000; text-decoration-color: #008000">'Natural grassland and sparsely vegetated areas'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Sparsely vegetated areas'</span>: <span style="color: #008000; text-decoration-color: #008000">'Natural grassland and sparsely vegetated areas'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Moors and heathland'</span>: <span style="color: #008000; text-decoration-color: #008000">'Moors, heathland and sclerophyllous vegetation'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Sclerophyllous vegetation'</span>: <span style="color: #008000; text-decoration-color: #008000">'Moors, heathland and sclerophyllous vegetation'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Transitional woodland/shrub'</span>: <span style="color: #008000; text-decoration-color: #008000">'Transitional woodland, shrub'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Beaches, dunes, sands'</span>: <span style="color: #008000; text-decoration-color: #008000">'Beaches, dunes, sands'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Inland marshes'</span>: <span style="color: #008000; text-decoration-color: #008000">'Inland wetlands'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Peatbogs'</span>: <span style="color: #008000; text-decoration-color: #008000">'Inland wetlands'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Salt marshes'</span>: <span style="color: #008000; text-decoration-color: #008000">'Coastal wetlands'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Salines'</span>: <span style="color: #008000; text-decoration-color: #008000">'Coastal wetlands'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Water courses'</span>: <span style="color: #008000; text-decoration-color: #008000">'Inland waters'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Water bodies'</span>: <span style="color: #008000; text-decoration-color: #008000">'Inland waters'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Coastal lagoons'</span>: <span style="color: #008000; text-decoration-color: #008000">'Marine waters'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Estuaries'</span>: <span style="color: #008000; text-decoration-color: #008000">'Marine waters'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Sea and ocean'</span>: <span style="color: #008000; text-decoration-color: #008000">'Marine waters'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Airports'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Bare rock'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Dump sites'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Port areas'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Road and rail networks and associated land'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Mineral extraction sites'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Construction sites'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Sport and leisure facilities'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Burnt areas'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Intertidal flats'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Green urban areas'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>
+<span style="font-weight: bold">}</span>
+</pre>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">OLD_LABELS:
+<span style="font-weight: bold">[</span>
+    <span style="color: #008000; text-decoration-color: #008000">'Agro-forestry areas'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Airports'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Annual crops associated with permanent crops'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Bare rock'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Beaches, dunes, sands'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Broad-leaved forest'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Burnt areas'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Coastal lagoons'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Complex cultivation patterns'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Coniferous forest'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Construction sites'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Continuous urban fabric'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Discontinuous urban fabric'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Dump sites'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Estuaries'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Fruit trees and berry plantations'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Green urban areas'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Industrial or commercial units'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Inland marshes'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Intertidal flats'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Land principally occupied by agriculture, with significant areas of natural vegetation'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Mineral extraction sites'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Mixed forest'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Moors and heathland'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Natural grassland'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Non-irrigated arable land'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Olive groves'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Pastures'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Peatbogs'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Permanently irrigated land'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Port areas'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Rice fields'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Road and rail networks and associated land'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Salines'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Salt marshes'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Sclerophyllous vegetation'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Sea and ocean'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Sparsely vegetated areas'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Sport and leisure facilities'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Transitional woodland/shrub'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Vineyards'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Water bodies'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Water courses'</span>
+<span style="font-weight: bold">]</span>
+</pre>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">NEW_LABELS:
+<span style="font-weight: bold">[</span>
+    <span style="color: #008000; text-decoration-color: #008000">'Agro-forestry areas'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Arable land'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Beaches, dunes, sands'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Broad-leaved forest'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Coastal wetlands'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Complex cultivation patterns'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Coniferous forest'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Industrial or commercial units'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Inland waters'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Inland wetlands'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Land principally occupied by agriculture, with significant areas of natural vegetation'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Marine waters'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Mixed forest'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Moors, heathland and sclerophyllous vegetation'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Natural grassland and sparsely vegetated areas'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Pastures'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Permanent crops'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Transitional woodland, shrub'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Urban fabric'</span>
+<span style="font-weight: bold">]</span>
+</pre>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">MAX_VALUES_BY_DTYPE_STR:
+<span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'uint8'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">255</span>, <span style="color: #008000; text-decoration-color: #008000">'uint16'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">65535</span>, <span style="color: #008000; text-decoration-color: #008000">'uint32'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4294967295</span>, <span style="color: #008000; text-decoration-color: #008000">'float32'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.0</span>, <span style="color: #008000; text-decoration-color: #008000">'float64'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.0</span><span style="font-weight: bold">}</span>
+</pre>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">URL: <span style="color: #0000ff; text-decoration-color: #0000ff; text-decoration: underline">http://bigearth.net/downloads/BigEarthNet-v1.0.tar.gz</span>
+</pre>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BAND_STATS:
+<span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'mean'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'B01'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">340.76769064</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B02'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">429.9430203</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B03'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">614.21682446</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B04'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">590.23569706</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B05'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">950.68368468</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B06'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1792.46290469</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B07'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2075.46795189</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B08'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2218.94553375</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B8A'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2266.46036911</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B09'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2246.0605464</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B11'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1594.42694882</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B12'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1009.32729131</span>
     <span style="font-weight: bold">}</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'OLD_LABELS'</span>: <span style="font-weight: bold">[</span>
-        <span style="color: #008000; text-decoration-color: #008000">'Agro-forestry areas'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Airports'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Annual crops associated with permanent crops'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Bare rock'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Beaches, dunes, sands'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Broad-leaved forest'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Burnt areas'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Coastal lagoons'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Complex cultivation patterns'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Coniferous forest'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Construction sites'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Continuous urban fabric'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Discontinuous urban fabric'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Dump sites'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Estuaries'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Fruit trees and berry plantations'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Green urban areas'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Industrial or commercial units'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Inland marshes'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Intertidal flats'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Land principally occupied by agriculture, with significant areas of natural </span>
-<span style="color: #008000; text-decoration-color: #008000">vegetation'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Mineral extraction sites'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Mixed forest'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Moors and heathland'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Natural grassland'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Non-irrigated arable land'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Olive groves'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Pastures'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Peatbogs'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Permanently irrigated land'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Port areas'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rice fields'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Road and rail networks and associated land'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Salines'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Salt marshes'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Sclerophyllous vegetation'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Sea and ocean'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Sparsely vegetated areas'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Sport and leisure facilities'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Transitional woodland/shrub'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Vineyards'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Water bodies'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Water courses'</span>
-    <span style="font-weight: bold">]</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'NEW_LABELS'</span>: <span style="font-weight: bold">[</span>
-        <span style="color: #008000; text-decoration-color: #008000">'Agro-forestry areas'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Arable land'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Beaches, dunes, sands'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Broad-leaved forest'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Coastal wetlands'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Complex cultivation patterns'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Coniferous forest'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Industrial or commercial units'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Inland waters'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Inland wetlands'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Land principally occupied by agriculture, with significant areas of natural </span>
-<span style="color: #008000; text-decoration-color: #008000">vegetation'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Marine waters'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Mixed forest'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Moors, heathland and sclerophyllous vegetation'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Natural grassland and sparsely vegetated areas'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Pastures'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Permanent crops'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Transitional woodland, shrub'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Urban fabric'</span>
-    <span style="font-weight: bold">]</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'MAX_VALUES_BY_DTYPE_STR'</span>: <span style="font-weight: bold">{</span>
-        <span style="color: #008000; text-decoration-color: #008000">'uint8'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">255</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'uint16'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">65535</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'uint32'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4294967295</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'float32'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.0</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'float64'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.0</span>
+    <span style="color: #008000; text-decoration-color: #008000">'std'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'B01'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">554.81258967</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B02'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">572.41639287</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B03'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">582.87945694</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B04'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">675.88746967</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B05'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">729.89827633</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B06'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1096.01480586</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B07'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1273.45393088</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B08'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1365.45589904</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B8A'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1356.13789355</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B09'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1302.3292881</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B11'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1079.19066363</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B12'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">818.86747235</span>
+    <span style="font-weight: bold">}</span>
+<span style="font-weight: bold">}</span>
+</pre>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BAND_STATS_FLOAT32:
+<span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'mean'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'B01'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.005199781653162433</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B02'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.006560509961089494</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B03'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.009372347973754483</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B04'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.009006419425650416</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B05'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.014506503161364157</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B06'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.02735123071168078</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B07'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.03166961092378119</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B08'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.033858938487067974</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B8A'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.03458396840024414</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B09'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.03427268705882353</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B11'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.024329395724727244</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B12'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.015401347239032578</span>
     <span style="font-weight: bold">}</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'URL'</span>: <span style="color: #008000; text-decoration-color: #008000">'http://bigearth.net/downloads/BigEarthNet-v1.0.tar.gz'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'BAND_STATS'</span>: <span style="font-weight: bold">{</span>
-        <span style="color: #008000; text-decoration-color: #008000">'mean'</span>: <span style="font-weight: bold">{</span>
-            <span style="color: #008000; text-decoration-color: #008000">'B01'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">340.76769064</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B02'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">429.9430203</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B03'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">614.21682446</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B04'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">590.23569706</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B05'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">950.68368468</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B06'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1792.46290469</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B07'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2075.46795189</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B08'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2218.94553375</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B8A'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2266.46036911</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B09'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2246.0605464</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B11'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1594.42694882</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B12'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1009.32729131</span>
-        <span style="font-weight: bold">}</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'std'</span>: <span style="font-weight: bold">{</span>
-            <span style="color: #008000; text-decoration-color: #008000">'B01'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">554.81258967</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B02'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">572.41639287</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B03'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">582.87945694</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B04'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">675.88746967</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B05'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">729.89827633</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B06'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1096.01480586</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B07'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1273.45393088</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B08'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1365.45589904</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B8A'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1356.13789355</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B09'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1302.3292881</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B11'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1079.19066363</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B12'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">818.86747235</span>
-        <span style="font-weight: bold">}</span>
-    <span style="font-weight: bold">}</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'BAND_STATS_FLOAT32'</span>: <span style="font-weight: bold">{</span>
-        <span style="color: #008000; text-decoration-color: #008000">'mean'</span>: <span style="font-weight: bold">{</span>
-            <span style="color: #008000; text-decoration-color: #008000">'B01'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.005199781653162433</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B02'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.006560509961089494</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B03'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.009372347973754483</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B04'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.009006419425650416</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B05'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.014506503161364157</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B06'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.02735123071168078</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B07'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.03166961092378119</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B08'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.033858938487067974</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B8A'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.03458396840024414</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B09'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.03427268705882353</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B11'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.024329395724727244</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B12'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.015401347239032578</span>
-        <span style="font-weight: bold">}</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'std'</span>: <span style="font-weight: bold">{</span>
-            <span style="color: #008000; text-decoration-color: #008000">'B01'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.008465897454337377</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B02'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.008734514272831312</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B03'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.008894170396581979</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B04'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.010313381699397267</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B05'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.011137533780880447</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B06'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.01672411392172122</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B07'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.01943166141573205</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B08'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.02083552146242466</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B8A'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.02069333781261921</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B09'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.019872271123826963</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B11'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.016467393967040514</span>,
-            <span style="color: #008000; text-decoration-color: #008000">'B12'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.012495116691081101</span>
-        <span style="font-weight: bold">}</span>
-    <span style="font-weight: bold">}</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'BEN_CHANNELS'</span>: <span style="font-weight: bold">[</span>
-        <span style="color: #008000; text-decoration-color: #008000">'B01'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'B02'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'B03'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'B04'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'B05'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'B06'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'B07'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'B08'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'B8A'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'B09'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'B11'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'B12'</span>
-    <span style="font-weight: bold">]</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'BEN_RGB_CHANNELS'</span>: <span style="font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'B04'</span>, <span style="color: #008000; text-decoration-color: #008000">'B03'</span>, <span style="color: #008000; text-decoration-color: #008000">'B02'</span><span style="font-weight: bold">]</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'COUNTRIES'</span>: <span style="font-weight: bold">[</span>
-        <span style="color: #008000; text-decoration-color: #008000">'Austria'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Belgium'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Finland'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Ireland'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Kosovo'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Lithuania'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Luxembourg'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Portugal'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Serbia'</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Switzerland'</span>
-    <span style="font-weight: bold">]</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'COUNTRIES_ISO_A2'</span>: <span style="font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'AT'</span>, <span style="color: #008000; text-decoration-color: #008000">'BE'</span>, <span style="color: #008000; text-decoration-color: #008000">'FI'</span>, <span style="color: #008000; text-decoration-color: #008000">'IE'</span>, <span style="color: #008000; text-decoration-color: #008000">'XK'</span>, <span style="color: #008000; text-decoration-color: #008000">'LT'</span>, <span style="color: #008000; text-decoration-color: #008000">'LU'</span>, <span style="color: #008000; text-decoration-color: #008000">'PT'</span>, <span style="color: #008000; text-decoration-color: #008000">'RS'</span>, <span style="color: #008000; text-decoration-color: #008000">'CH'</span><span style="font-weight: bold">]</span>
+    <span style="color: #008000; text-decoration-color: #008000">'std'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'B01'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.008465897454337377</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B02'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.008734514272831312</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B03'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.008894170396581979</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B04'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.010313381699397267</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B05'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.011137533780880447</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B06'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.01672411392172122</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B07'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.01943166141573205</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B08'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.02083552146242466</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B8A'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.02069333781261921</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B09'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.019872271123826963</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B11'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.016467393967040514</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'B12'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.012495116691081101</span>
+    <span style="font-weight: bold">}</span>
+<span style="font-weight: bold">}</span>
+</pre>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_CHANNELS:
+<span style="font-weight: bold">(</span><span style="color: #008000; text-decoration-color: #008000">'B01'</span>, <span style="color: #008000; text-decoration-color: #008000">'B02'</span>, <span style="color: #008000; text-decoration-color: #008000">'B03'</span>, <span style="color: #008000; text-decoration-color: #008000">'B04'</span>, <span style="color: #008000; text-decoration-color: #008000">'B05'</span>, <span style="color: #008000; text-decoration-color: #008000">'B06'</span>, <span style="color: #008000; text-decoration-color: #008000">'B07'</span>, <span style="color: #008000; text-decoration-color: #008000">'B08'</span>, <span style="color: #008000; text-decoration-color: #008000">'B8A'</span>, <span style="color: #008000; text-decoration-color: #008000">'B09'</span>, <span style="color: #008000; text-decoration-color: #008000">'B11'</span>, <span style="color: #008000; text-decoration-color: #008000">'B12'</span><span style="font-weight: bold">)</span>
+</pre>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_RGB_CHANNELS:
+<span style="font-weight: bold">(</span><span style="color: #008000; text-decoration-color: #008000">'B04'</span>, <span style="color: #008000; text-decoration-color: #008000">'B03'</span>, <span style="color: #008000; text-decoration-color: #008000">'B02'</span><span style="font-weight: bold">)</span>
+</pre>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">COUNTRIES:
+<span style="font-weight: bold">(</span>
+    <span style="color: #008000; text-decoration-color: #008000">'Austria'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Belgium'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Finland'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Ireland'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Kosovo'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Lithuania'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Luxembourg'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Portugal'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Serbia'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Switzerland'</span>
+<span style="font-weight: bold">)</span>
+</pre>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">COUNTRIES_ISO_A2:
+<span style="font-weight: bold">(</span><span style="color: #008000; text-decoration-color: #008000">'AT'</span>, <span style="color: #008000; text-decoration-color: #008000">'BE'</span>, <span style="color: #008000; text-decoration-color: #008000">'FI'</span>, <span style="color: #008000; text-decoration-color: #008000">'IE'</span>, <span style="color: #008000; text-decoration-color: #008000">'XK'</span>, <span style="color: #008000; text-decoration-color: #008000">'LT'</span>, <span style="color: #008000; text-decoration-color: #008000">'LU'</span>, <span style="color: #008000; text-decoration-color: #008000">'PT'</span>, <span style="color: #008000; text-decoration-color: #008000">'RS'</span>, <span style="color: #008000; text-decoration-color: #008000">'CH'</span><span style="font-weight: bold">)</span>
+</pre>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_43_CLASSES_SIZE: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">590326</span>
+</pre>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_19_CLASSES_SIZE: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>
+</pre>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_SNOWY_PATCHES_COUNT: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">61707</span>
+</pre>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_CLOUDY_OR_SHADOWY_PATCHES_COUNT: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">9280</span>
+</pre>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_NO_19_CLASS_TARGET_COUNT: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">57</span>
+</pre>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_COMPLETE_SIZE: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">590326</span>
+</pre>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_RECOMMENDED_SIZE: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">519284</span>
+</pre>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">OLD_LABELS_TO_IDX:
+<span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'Agro-forestry areas'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Airports'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Annual crops associated with permanent crops'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Bare rock'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Beaches, dunes, sands'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Broad-leaved forest'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Burnt areas'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Coastal lagoons'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Complex cultivation patterns'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Coniferous forest'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">9</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Construction sites'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Continuous urban fabric'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">11</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Discontinuous urban fabric'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">12</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Dump sites'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Estuaries'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">14</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Fruit trees and berry plantations'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Green urban areas'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Industrial or commercial units'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">17</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Inland marshes'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Intertidal flats'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">19</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Land principally occupied by agriculture, with significant areas of natural vegetation'</span>:
+<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Mineral extraction sites'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">21</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Mixed forest'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">22</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Moors and heathland'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Natural grassland'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">24</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Non-irrigated arable land'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">25</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Olive groves'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">26</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Pastures'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">27</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Peatbogs'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">28</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Permanently irrigated land'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">29</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Port areas'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">30</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Rice fields'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">31</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Road and rail networks and associated land'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Salines'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">33</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Salt marshes'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">34</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Sclerophyllous vegetation'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Sea and ocean'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Sparsely vegetated areas'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Sport and leisure facilities'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">38</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Transitional woodland/shrub'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">39</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Vineyards'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">40</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Water bodies'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">41</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Water courses'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">42</span>
+<span style="font-weight: bold">}</span>
+</pre>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">NEW_LABELS_TO_IDX:
+<span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'Agro-forestry areas'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Arable land'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Beaches, dunes, sands'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Broad-leaved forest'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Coastal wetlands'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Complex cultivation patterns'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Coniferous forest'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Industrial or commercial units'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Inland waters'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Inland wetlands'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">9</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Land principally occupied by agriculture, with significant areas of natural vegetation'</span>:
+<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Marine waters'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">11</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Mixed forest'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">12</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Moors, heathland and sclerophyllous vegetation'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Natural grassland and sparsely vegetated areas'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">14</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Pastures'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Permanent crops'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Transitional woodland, shrub'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">17</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Urban fabric'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18</span>
 <span style="font-weight: bold">}</span>
 </pre>
 
