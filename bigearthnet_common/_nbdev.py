@@ -53,13 +53,11 @@ index = {"OLD2NEW_LABELS_DICT": "01a_constants.ipynb",
          "build_raw_ben_parquet": "01c_gdf_builder.ipynb",
          "extend_ben_parquet": "01c_gdf_builder.ipynb",
          "remove_discouraged_parquet_entries": "01c_gdf_builder.ipynb",
-         "build_recommended_parquet": "01c_gdf_builder.ipynb",
-         "recurse_link_files": "01d_subset_builder.ipynb"}
+         "build_recommended_parquet": "01c_gdf_builder.ipynb"}
 
 modules = ["constants.py",
            "base.py",
-           "gdf_builder.py",
-           "subset_builder.py"]
+           "gdf_builder.py"]
 
 doc_url = "https://k.clasen.github.io/bigearthnet_common/"
 
