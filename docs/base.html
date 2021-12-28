@@ -26,21 +26,6 @@ nb_path: "nbs/01b_base.ipynb"
     
 <div class="cell border-box-sizing code_cell rendered">
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/home/kai/git/bigearthnet_common/ben_common_env/lib/python3.7/site-packages/pyproj/__init__.py:89: UserWarning: pyproj unable to set database path.
-  _pyproj_global_context_initialize()
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     {% endraw %}
 
@@ -84,7 +69,7 @@ nb_path: "nbs/01b_base.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="parse_datetime" class="doc_header"><code>parse_datetime</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/base.py#L51" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>parse_datetime</code>(<strong><code>inp</code></strong>:<code>Union</code>[<code>str</code>, <code>datetime</code>])</p>
+<h4 id="parse_datetime" class="doc_header"><code>parse_datetime</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/base.py#L53" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>parse_datetime</code>(<strong><code>inp</code></strong>:<code>Union</code>[<code>str</code>, <code>datetime</code>])</p>
 </blockquote>
 <p>Parses an input into a <code>datetime</code> object.
 Will try its best to infer the correct format from a string.
@@ -157,7 +142,7 @@ Otherwise it will raise an error.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="box_from_ul_lr_coords" class="doc_header"><code>box_from_ul_lr_coords</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/base.py#L88" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>box_from_ul_lr_coords</code>(<strong><code>ulx</code></strong>:<code>Real</code>, <strong><code>uly</code></strong>:<code>Real</code>, <strong><code>lrx</code></strong>:<code>Real</code>, <strong><code>lry</code></strong>:<code>Real</code>)</p>
+<h4 id="box_from_ul_lr_coords" class="doc_header"><code>box_from_ul_lr_coords</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/base.py#L90" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>box_from_ul_lr_coords</code>(<strong><code>ulx</code></strong>:<code>Real</code>, <strong><code>uly</code></strong>:<code>Real</code>, <strong><code>lrx</code></strong>:<code>Real</code>, <strong><code>lry</code></strong>:<code>Real</code>)</p>
 </blockquote>
 <p>Build a box (<code>Polygon</code>) from upper left x/y and lower right x/y coordinates.</p>
 <p>This specification is the default BigEarthNet style.</p>
@@ -241,7 +226,7 @@ All functions use caches to guarantee fast lookups, so feel free to use them on 
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_patches_with_seasonal_snow" class="doc_header"><code>get_patches_with_seasonal_snow</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/base.py#L126" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_patches_with_seasonal_snow</code>(<strong><code>force_download</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
+<h4 id="get_patches_with_seasonal_snow" class="doc_header"><code>get_patches_with_seasonal_snow</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/base.py#L128" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_patches_with_seasonal_snow</code>(<strong><code>force_download</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
 </blockquote>
 <p>List all patches with seasonal snow from <strong>original</strong> BigEarthNet dataset.</p>
 
@@ -266,7 +251,7 @@ All functions use caches to guarantee fast lookups, so feel free to use them on 
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_patches_with_cloud_and_shadow" class="doc_header"><code>get_patches_with_cloud_and_shadow</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/base.py#L134" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_patches_with_cloud_and_shadow</code>(<strong><code>force_download</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
+<h4 id="get_patches_with_cloud_and_shadow" class="doc_header"><code>get_patches_with_cloud_and_shadow</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/base.py#L136" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_patches_with_cloud_and_shadow</code>(<strong><code>force_download</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
 </blockquote>
 <p>List all patches with cloud and shadow from <strong>original</strong> BigEarthNet dataset.</p>
 
@@ -295,10 +280,10 @@ All functions use caches to guarantee fast lookups, so feel free to use them on 
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">snow_patches</span> <span class="o">=</span> <span class="n">get_patches_with_seasonal_snow</span><span class="p">()</span>
-<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">snow_patches</span><span class="p">)</span> <span class="o">==</span> <span class="mi">61_707</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">snow_patches</span><span class="p">)</span> <span class="o">==</span> <span class="n">ben_constants</span><span class="o">.</span><span class="n">BEN_SNOWY_PATCHES_COUNT</span>
 
 <span class="n">cloud_and_shadow_patches</span> <span class="o">=</span> <span class="n">get_patches_with_cloud_and_shadow</span><span class="p">()</span>
-<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">cloud_and_shadow_patches</span><span class="p">)</span> <span class="o">==</span> <span class="mi">9_280</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">cloud_and_shadow_patches</span><span class="p">)</span> <span class="o">==</span> <span class="n">ben_constants</span><span class="o">.</span><span class="n">BEN_CLOUDY_OR_SHADOWY_PATCHES_COUNT</span>
 </pre></div>
 
     </div>
@@ -319,7 +304,7 @@ All functions use caches to guarantee fast lookups, so feel free to use them on 
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="is_snowy_patch" class="doc_header"><code>is_snowy_patch</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/base.py#L143" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>is_snowy_patch</code>(<strong><code>patch_name</code></strong>:<code>str</code>)</p>
+<h4 id="is_snowy_patch" class="doc_header"><code>is_snowy_patch</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/base.py#L145" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>is_snowy_patch</code>(<strong><code>patch_name</code></strong>:<code>str</code>)</p>
 </blockquote>
 <p>Fast function that checks whether <code>patch_name</code> is a patch
 that contains a lot of seasonal snow.</p>
@@ -345,7 +330,7 @@ that contains a lot of seasonal snow.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="is_cloudy_shadowy_patch" class="doc_header"><code>is_cloudy_shadowy_patch</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/base.py#L152" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>is_cloudy_shadowy_patch</code>(<strong><code>patch_name</code></strong>:<code>str</code>)</p>
+<h4 id="is_cloudy_shadowy_patch" class="doc_header"><code>is_cloudy_shadowy_patch</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/base.py#L154" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>is_cloudy_shadowy_patch</code>(<strong><code>patch_name</code></strong>:<code>str</code>)</p>
 </blockquote>
 <p>Fast function that checks whether <code>patch_name</code> is a patch
 that contains a lot of shadow or is obstructed by clouds.</p>
@@ -378,7 +363,7 @@ that contains a lot of shadow or is obstructed by clouds.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="patches_from_original_train_split" class="doc_header"><code>patches_from_original_train_split</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/base.py#L162" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>patches_from_original_train_split</code>(<strong><code>split_url</code></strong>:<code>AnyHttpUrl</code>=<em><code>'https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/splits/train.csv'</code></em>, <strong><code>force_download</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
+<h4 id="patches_from_original_train_split" class="doc_header"><code>patches_from_original_train_split</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/base.py#L164" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>patches_from_original_train_split</code>(<strong><code>split_url</code></strong>:<code>AnyHttpUrl</code>=<em><code>'https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/splits/train.csv'</code></em>, <strong><code>force_download</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
 </blockquote>
 <p>List all train patches from the original train/validation/test split.
 There are two possible sources:</p>
@@ -410,7 +395,7 @@ But this may change in the future!</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="patches_from_original_validation_split" class="doc_header"><code>patches_from_original_validation_split</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/base.py#L181" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>patches_from_original_validation_split</code>(<strong><code>split_url</code></strong>:<code>AnyHttpUrl</code>=<em><code>'https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/splits/val.csv'</code></em>, <strong><code>force_download</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
+<h4 id="patches_from_original_validation_split" class="doc_header"><code>patches_from_original_validation_split</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/base.py#L183" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>patches_from_original_validation_split</code>(<strong><code>split_url</code></strong>:<code>AnyHttpUrl</code>=<em><code>'https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/splits/val.csv'</code></em>, <strong><code>force_download</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
 </blockquote>
 <p>List all validation patches from the original train/validation/test split.
 There are two possible sources:</p>
@@ -442,7 +427,7 @@ But this may change in the future!</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="patches_from_original_test_split" class="doc_header"><code>patches_from_original_test_split</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/base.py#L200" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>patches_from_original_test_split</code>(<strong><code>split_url</code></strong>:<code>AnyHttpUrl</code>=<em><code>'https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/splits/test.csv'</code></em>, <strong><code>force_download</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
+<h4 id="patches_from_original_test_split" class="doc_header"><code>patches_from_original_test_split</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/base.py#L202" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>patches_from_original_test_split</code>(<strong><code>split_url</code></strong>:<code>AnyHttpUrl</code>=<em><code>'https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/splits/test.csv'</code></em>, <strong><code>force_download</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
 </blockquote>
 <p>List all test patches from the original train/validation/test split.
 There are two possible sources:</p>
@@ -481,7 +466,7 @@ But this may change in the future!</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_original_split_from_patch_name" class="doc_header"><code>get_original_split_from_patch_name</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/base.py#L220" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_original_split_from_patch_name</code>(<strong><code>patch</code></strong>:<code>str</code>)</p>
+<h4 id="get_original_split_from_patch_name" class="doc_header"><code>get_original_split_from_patch_name</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/base.py#L222" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_original_split_from_patch_name</code>(<strong><code>patch</code></strong>:<code>str</code>)</p>
 </blockquote>
 <p>Returns "train"/"validation"/"test" or <code>None</code>.
 The value is retrieved from the original BigEarthNet
@@ -542,7 +527,7 @@ While writing this function there was no difference between the
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="old2new_labels" class="doc_header"><code>old2new_labels</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/base.py#L265" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>old2new_labels</code>(<strong><code>old_labels</code></strong>:<code>List</code>[<code>str</code>])</p>
+<h4 id="old2new_labels" class="doc_header"><code>old2new_labels</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/base.py#L267" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>old2new_labels</code>(<strong><code>old_labels</code></strong>:<code>Sequence</code>[<code>str</code>])</p>
 </blockquote>
 <p>Converts a list of old-style BigEarthNet labels
 to a list of labels.</p>
@@ -574,6 +559,122 @@ then the function will return <code>None</code> and raise a user warning.</p>
 </div>
 </div>
 </div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="ben_19_labels_to_multi_hot" class="doc_header"><code>ben_19_labels_to_multi_hot</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/base.py#L290" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ben_19_labels_to_multi_hot</code>(<strong><code>labels</code></strong>:<code>Sequence</code>[<code>str</code>])</p>
+</blockquote>
+<p>Convenience function that converts an input sequence of labels into
+a multi-hot encoded vector.
+The naturally ordered label list is used as an encoder reference</p>
+<ul>
+<li><code>bigearthnet_common.NEW_LABELS</code></li>
+</ul>
+<p>If an unknown label is given, a <code>KeyError</code> is raised.</p>
+<p>Be aware that this approach assumes that <strong>all</strong> labels are actually used in the dataset!
+This is not necessarily the case if you are using a subset!
+For example, the "Agro-forestry areas" class is only present in Portugal and in no other country!</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="ben_43_labels_to_multi_hot" class="doc_header"><code>ben_43_labels_to_multi_hot</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/base.py#L309" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ben_43_labels_to_multi_hot</code>(<strong><code>labels</code></strong>:<code>Sequence</code>[<code>str</code>])</p>
+</blockquote>
+<p>Convenience function that converts an input sequence of labels into
+a multi-hot encoded vector.
+The naturally ordered label list is used as an encoder reference</p>
+<ul>
+<li><code>bigearthnet_common.OLD_LABELS</code></li>
+</ul>
+<p>If an unknown label is given, a <code>KeyError</code> is raised.</p>
+<p>Be aware that this approach assumes that <strong>all</strong> labels are actually used in the dataset!
+This is not necessarily the case if you are using a subset!
+For example, the "Agro-forestry areas" class is only present in Portugal and in no other country!</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">agro</span> <span class="o">=</span> <span class="n">ben_19_labels_to_multi_hot</span><span class="p">((</span><span class="s2">&quot;Agro-forestry areas&quot;</span><span class="p">,</span> <span class="p">))</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">agro</span><span class="p">)</span> <span class="o">==</span> <span class="mi">19</span>
+<span class="k">assert</span> <span class="n">agro</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1.0</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">agro</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+
+<span class="n">multi</span> <span class="o">=</span> <span class="n">ben_19_labels_to_multi_hot</span><span class="p">((</span><span class="s2">&quot;Agro-forestry areas&quot;</span><span class="p">,</span> <span class="s2">&quot;Arable land&quot;</span><span class="p">))</span>
+<span class="k">assert</span> <span class="n">multi</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1.0</span>
+<span class="k">assert</span> <span class="n">multi</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1.0</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">multi</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
+
+<span class="k">with</span> <span class="n">fc</span><span class="o">.</span><span class="n">ExceptionExpected</span><span class="p">(</span><span class="n">ex</span><span class="o">=</span><span class="ne">KeyError</span><span class="p">):</span>
+    <span class="n">ben_19_labels_to_multi_hot</span><span class="p">([</span><span class="s2">&quot;Airports&quot;</span><span class="p">])</span>
+
+<span class="n">agro43</span> <span class="o">=</span> <span class="n">ben_43_labels_to_multi_hot</span><span class="p">((</span><span class="s2">&quot;Agro-forestry areas&quot;</span><span class="p">,</span> <span class="p">))</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">agro43</span><span class="p">)</span> <span class="o">==</span> <span class="mi">43</span>
+<span class="k">assert</span> <span class="n">agro43</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1.0</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">agro43</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+
+<span class="n">multi43</span> <span class="o">=</span> <span class="n">ben_43_labels_to_multi_hot</span><span class="p">((</span><span class="s2">&quot;Agro-forestry areas&quot;</span><span class="p">,</span> <span class="s2">&quot;Airports&quot;</span><span class="p">))</span>
+<span class="k">assert</span> <span class="n">multi43</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1.0</span>
+<span class="k">assert</span> <span class="n">multi43</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1.0</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">multi43</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
+
+<span class="k">with</span> <span class="n">fc</span><span class="o">.</span><span class="n">ExceptionExpected</span><span class="p">(</span><span class="n">ex</span><span class="o">=</span><span class="ne">KeyError</span><span class="p">):</span>
+    <span class="n">ben_43_labels_to_multi_hot</span><span class="p">([</span><span class="s2">&quot;Arable land&quot;</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 </div>
  
 
