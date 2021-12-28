@@ -1,3 +1,15 @@
+# v0.1.2 (Tue Dec 28 2021)
+
+#### 🐛 Bug Fix
+
+- Fix tile source bug [#5](https://github.com/kai-tub/bigearthnet_common/pull/5) ([@kai-tub](https://github.com/kai-tub))
+
+#### Authors: 1
+
+- Kai Norman Clasen ([@kai-tub](https://github.com/kai-tub))
+
+---
+
 # v0.1.1 (Mon Dec 27 2021)
 
 #### 🐛 Bug Fix
