@@ -63,12 +63,12 @@ This is especially important for higher-level statistical analysis.</p>
 <p>To simplify the procedure of pre-converting the json metadata files, the library provides a single command that will generate a recommended GeoDataFrame with extra metadata (country/season data of each patch) while dropping all patches that are not recommended for deep learning research.</p>
 <p>To generate such a GeoDataFrame and store it as an <code>parquet</code> file, use:</p>
 <ul>
-<li><code>gdf_builder build-recommended-parquet</code> (available after installing package) or</li>
+<li><code>ben_gdf_builder build-recommended-parquet</code> (available after installing package) or</li>
 <li><code>python -m bigearthnet_common.gdf_builder build-recommended-parquet</code></li>
 </ul>
 <p>If you want to read the raw json files and convert those to a GeoDataFrame file, without dropping any patches or adding any metadata, use:</p>
 <ul>
-<li><code>gdf_builder build-raw-ben-parquet</code> (available after installing package) or</li>
+<li><code>ben_gdf_builder build-raw-ben-parquet</code> (available after installing package) or</li>
 <li><code>python -m bigearthnet_common.gdf_builder build-raw-ben-parquet</code></li>
 </ul>
 
