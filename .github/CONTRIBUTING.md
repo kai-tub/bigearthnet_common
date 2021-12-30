@@ -1,4 +1,4 @@
-# Contributing to the `bigearthnet_common`
+# Contributing to the `bigearthnet_common` library
 This project is a community effort, and everyone is welcome to contribute!
 
 If you are interested in contributing, there are many ways to help out:
