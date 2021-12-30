@@ -1,3 +1,15 @@
+# v0.2.0 (Thu Dec 30 2021)
+
+#### 🚀 Enhancement
+
+- Add clc lvls [#6](https://github.com/kai-tub/bigearthnet_common/pull/6) ([@kai-tub](https://github.com/kai-tub))
+
+#### Authors: 1
+
+- Kai Norman Clasen ([@kai-tub](https://github.com/kai-tub))
+
+---
+
 # v0.1.2 (Tue Dec 28 2021)
 
 #### 🐛 Bug Fix
