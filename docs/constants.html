@@ -96,7 +96,43 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="print_all_constants" class="doc_header"><code>print_all_constants</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/constants.py#L342" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>print_all_constants</code>()</p>
+<h4 id="smart_pprint" class="doc_header"><code>smart_pprint</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/constants.py#L385" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>smart_pprint</code>(<strong><code>name</code></strong>, <strong><code>value</code></strong>)</p>
+</blockquote>
+<p>A small <code>rich.print</code> wrapper that tries to guess a good representation
+for variable named <code>name</code> with the given <code>value</code>.
+If no match is found, the function will simply call <code>rich.print</code> under the hood.
+Lists of basic types will be printed as a single column list, whereas simple
+dictionaries will be printed as two-column tables, for example.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="print_all_constants" class="doc_header"><code>print_all_constants</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/constants.py#L396" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>print_all_constants</code>()</p>
 </blockquote>
 <p>A function that shows all of the pre-defined constants of the library.</p>
 
@@ -114,6 +150,13 @@ nb_path: "nbs/01a_constants.ipynb"
     
 <div class="cell border-box-sizing code_cell rendered">
 
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
 <div class="output_wrapper">
 <div class="output">
 
@@ -121,55 +164,59 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">CLC_LV3_TO_LV2:
-<span style="font-weight: bold">{</span>
-    <span style="color: #008000; text-decoration-color: #008000">'Agro-forestry areas'</span>: <span style="color: #008000; text-decoration-color: #008000">'Heterogeneous agricultural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Airports'</span>: <span style="color: #008000; text-decoration-color: #008000">'Industrial, comercial and transport units'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Annual crops associated with permanent crops'</span>: <span style="color: #008000; text-decoration-color: #008000">'Heterogeneous agricultural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Bare rock'</span>: <span style="color: #008000; text-decoration-color: #008000">'Open spaces with little or no vegetation'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Beaches, dunes, sands'</span>: <span style="color: #008000; text-decoration-color: #008000">'Open spaces with little or no vegetation'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Broad-leaved forest'</span>: <span style="color: #008000; text-decoration-color: #008000">'Forest'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Burnt areas'</span>: <span style="color: #008000; text-decoration-color: #008000">'Open spaces with little or no vegetation'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Coastal lagoons'</span>: <span style="color: #008000; text-decoration-color: #008000">'Marine waters'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Complex cultivation patterns'</span>: <span style="color: #008000; text-decoration-color: #008000">'Heterogeneous agricultural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Coniferous forest'</span>: <span style="color: #008000; text-decoration-color: #008000">'Forest'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Construction sites'</span>: <span style="color: #008000; text-decoration-color: #008000">'Mine, dump and construction sites'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Continuous urban fabric'</span>: <span style="color: #008000; text-decoration-color: #008000">'Urban fabric'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Discontinuous urban fabric'</span>: <span style="color: #008000; text-decoration-color: #008000">'Urban fabric'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Dump sites'</span>: <span style="color: #008000; text-decoration-color: #008000">'Mine, dump and construction sites'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Estuaries'</span>: <span style="color: #008000; text-decoration-color: #008000">'Marine waters'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Fruit trees and berry plantations'</span>: <span style="color: #008000; text-decoration-color: #008000">'Permanent crops'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Green urban areas'</span>: <span style="color: #008000; text-decoration-color: #008000">'Artificial, non-agricultural vegetated areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Industrial or commercial units'</span>: <span style="color: #008000; text-decoration-color: #008000">'Industrial, comercial and transport units'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Inland marshes'</span>: <span style="color: #008000; text-decoration-color: #008000">'Inland wetlands'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Intertidal flats'</span>: <span style="color: #008000; text-decoration-color: #008000">'Coastal wetlands'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Land principally occupied by agriculture, with significant areas of natural vegetation'</span>:
-<span style="color: #008000; text-decoration-color: #008000">'Heterogeneous agricultural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Mineral extraction sites'</span>: <span style="color: #008000; text-decoration-color: #008000">'Mine, dump and construction sites'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Mixed forest'</span>: <span style="color: #008000; text-decoration-color: #008000">'Forest'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Moors and heathland'</span>: <span style="color: #008000; text-decoration-color: #008000">'Shrub and/or herbaceous vegetation associations'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Natural grassland'</span>: <span style="color: #008000; text-decoration-color: #008000">'Shrub and/or herbaceous vegetation associations'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Non-irrigated arable land'</span>: <span style="color: #008000; text-decoration-color: #008000">'Arable land'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Olive groves'</span>: <span style="color: #008000; text-decoration-color: #008000">'Permanent crops'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Pastures'</span>: <span style="color: #008000; text-decoration-color: #008000">'Pastures'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Peatbogs'</span>: <span style="color: #008000; text-decoration-color: #008000">'Inland wetlands'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Permanently irrigated land'</span>: <span style="color: #008000; text-decoration-color: #008000">'Arable land'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Port areas'</span>: <span style="color: #008000; text-decoration-color: #008000">'Industrial, comercial and transport units'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Rice fields'</span>: <span style="color: #008000; text-decoration-color: #008000">'Arable land'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Road and rail networks and associated land'</span>: <span style="color: #008000; text-decoration-color: #008000">'Industrial, comercial and transport </span>
-<span style="color: #008000; text-decoration-color: #008000">units'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Salines'</span>: <span style="color: #008000; text-decoration-color: #008000">'Coastal wetlands'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Salt marshes'</span>: <span style="color: #008000; text-decoration-color: #008000">'Coastal wetlands'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Sclerophyllous vegetation'</span>: <span style="color: #008000; text-decoration-color: #008000">'Shrub and/or herbaceous vegetation associations'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Sea and ocean'</span>: <span style="color: #008000; text-decoration-color: #008000">'Marine waters'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Sparsely vegetated areas'</span>: <span style="color: #008000; text-decoration-color: #008000">'Open spaces with little or no vegetation'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Sport and leisure facilities'</span>: <span style="color: #008000; text-decoration-color: #008000">'Artificial, non-agricultural vegetated areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Transitional woodland/shrub'</span>: <span style="color: #008000; text-decoration-color: #008000">'Shrub and/or herbaceous vegetation associations'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Vineyards'</span>: <span style="color: #008000; text-decoration-color: #008000">'Permanent crops'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Water bodies'</span>: <span style="color: #008000; text-decoration-color: #008000">'Inland waters'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Water courses'</span>: <span style="color: #008000; text-decoration-color: #008000">'Inland waters'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Glaciers and perpetual snow'</span>: <span style="color: #008000; text-decoration-color: #008000">'Open spaces with little or no vegetation'</span>
-<span style="font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-style: italic">                                     OLD2NEW_LABELS_DICT                                     </span>
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Continuous urban fabric                     ┃ Urban fabric                                ┃
+│ Discontinuous urban fabric                  │ Urban fabric                                │
+│ Industrial or commercial units              │ Industrial or commercial units              │
+│ Non-irrigated arable land                   │ Arable land                                 │
+│ Permanently irrigated land                  │ Arable land                                 │
+│ Rice fields                                 │ Arable land                                 │
+│ Vineyards                                   │ Permanent crops                             │
+│ Fruit trees and berry plantations           │ Permanent crops                             │
+│ Olive groves                                │ Permanent crops                             │
+│ Annual crops associated with permanent      │ Permanent crops                             │
+│ crops                                       │                                             │
+│ Pastures                                    │ Pastures                                    │
+│ Complex cultivation patterns                │ Complex cultivation patterns                │
+│ Land principally occupied by agriculture,   │ Land principally occupied by agriculture,   │
+│ with significant areas of natural           │ with significant areas of natural           │
+│ vegetation                                  │ vegetation                                  │
+│ Agro-forestry areas                         │ Agro-forestry areas                         │
+│ Broad-leaved forest                         │ Broad-leaved forest                         │
+│ Coniferous forest                           │ Coniferous forest                           │
+│ Mixed forest                                │ Mixed forest                                │
+│ Natural grassland                           │ Natural grassland and sparsely vegetated    │
+│                                             │ areas                                       │
+│ Sparsely vegetated areas                    │ Natural grassland and sparsely vegetated    │
+│                                             │ areas                                       │
+│ Moors and heathland                         │ Moors, heathland and sclerophyllous         │
+│                                             │ vegetation                                  │
+│ Sclerophyllous vegetation                   │ Moors, heathland and sclerophyllous         │
+│                                             │ vegetation                                  │
+│ Transitional woodland/shrub                 │ Transitional woodland, shrub                │
+│ Beaches, dunes, sands                       │ Beaches, dunes, sands                       │
+│ Inland marshes                              │ Inland wetlands                             │
+│ Peatbogs                                    │ Inland wetlands                             │
+│ Salt marshes                                │ Coastal wetlands                            │
+│ Salines                                     │ Coastal wetlands                            │
+│ Water courses                               │ Inland waters                               │
+│ Water bodies                                │ Inland waters                               │
+│ Coastal lagoons                             │ Marine waters                               │
+│ Estuaries                                   │ Marine waters                               │
+│ Sea and ocean                               │ Marine waters                               │
+│ Airports                                    │ None                                        │
+│ Bare rock                                   │ None                                        │
+│ Dump sites                                  │ None                                        │
+│ Port areas                                  │ None                                        │
+│ Road and rail networks and associated land  │ None                                        │
+│ Mineral extraction sites                    │ None                                        │
+│ Construction sites                          │ None                                        │
+│ Sport and leisure facilities                │ None                                        │
+│ Burnt areas                                 │ None                                        │
+│ Intertidal flats                            │ None                                        │
+│ Green urban areas                           │ None                                        │
+└─────────────────────────────────────────────┴─────────────────────────────────────────────┘
 </pre>
 
 </div>
@@ -180,24 +227,53 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">CLC_LV2_TO_LV1:
-<span style="font-weight: bold">{</span>
-    <span style="color: #008000; text-decoration-color: #008000">'Urban fabric'</span>: <span style="color: #008000; text-decoration-color: #008000">'Artificial Surfaces'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Industrial, comercial and transport units'</span>: <span style="color: #008000; text-decoration-color: #008000">'Artificial Surfaces'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Mine, dump and construction sites'</span>: <span style="color: #008000; text-decoration-color: #008000">'Artificial Surfaces'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Artificial, non-agricultural vegetated areas'</span>: <span style="color: #008000; text-decoration-color: #008000">'Artificial Surfaces'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Arable land'</span>: <span style="color: #008000; text-decoration-color: #008000">'Agricultural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Permanent crops'</span>: <span style="color: #008000; text-decoration-color: #008000">'Agricultural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Pastures'</span>: <span style="color: #008000; text-decoration-color: #008000">'Agricultural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Heterogeneous agricultural areas'</span>: <span style="color: #008000; text-decoration-color: #008000">'Agricultural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Forest'</span>: <span style="color: #008000; text-decoration-color: #008000">'Forest and seminatural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Shrub and/or herbaceous vegetation associations'</span>: <span style="color: #008000; text-decoration-color: #008000">'Forest and seminatural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Open spaces with little or no vegetation'</span>: <span style="color: #008000; text-decoration-color: #008000">'Forest and seminatural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Inland wetlands'</span>: <span style="color: #008000; text-decoration-color: #008000">'Wetlands'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Coastal wetlands'</span>: <span style="color: #008000; text-decoration-color: #008000">'Wetlands'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Inland waters'</span>: <span style="color: #008000; text-decoration-color: #008000">'Water bodies'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Marine waters'</span>: <span style="color: #008000; text-decoration-color: #008000">'Water bodies'</span>
-<span style="font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃<span style="font-weight: bold"> OLD_LABELS                                                                             </span>┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Agro-forestry areas                                                                    │
+│ Airports                                                                               │
+│ Annual crops associated with permanent crops                                           │
+│ Bare rock                                                                              │
+│ Beaches, dunes, sands                                                                  │
+│ Broad-leaved forest                                                                    │
+│ Burnt areas                                                                            │
+│ Coastal lagoons                                                                        │
+│ Complex cultivation patterns                                                           │
+│ Coniferous forest                                                                      │
+│ Construction sites                                                                     │
+│ Continuous urban fabric                                                                │
+│ Discontinuous urban fabric                                                             │
+│ Dump sites                                                                             │
+│ Estuaries                                                                              │
+│ Fruit trees and berry plantations                                                      │
+│ Green urban areas                                                                      │
+│ Industrial or commercial units                                                         │
+│ Inland marshes                                                                         │
+│ Intertidal flats                                                                       │
+│ Land principally occupied by agriculture, with significant areas of natural vegetation │
+│ Mineral extraction sites                                                               │
+│ Mixed forest                                                                           │
+│ Moors and heathland                                                                    │
+│ Natural grassland                                                                      │
+│ Non-irrigated arable land                                                              │
+│ Olive groves                                                                           │
+│ Pastures                                                                               │
+│ Peatbogs                                                                               │
+│ Permanently irrigated land                                                             │
+│ Port areas                                                                             │
+│ Rice fields                                                                            │
+│ Road and rail networks and associated land                                             │
+│ Salines                                                                                │
+│ Salt marshes                                                                           │
+│ Sclerophyllous vegetation                                                              │
+│ Sea and ocean                                                                          │
+│ Sparsely vegetated areas                                                               │
+│ Sport and leisure facilities                                                           │
+│ Transitional woodland/shrub                                                            │
+│ Vineyards                                                                              │
+│ Water bodies                                                                           │
+│ Water courses                                                                          │
+└────────────────────────────────────────────────────────────────────────────────────────┘
 </pre>
 
 </div>
@@ -208,53 +284,29 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">CLC_LV3_LABELS:
-<span style="font-weight: bold">(</span>
-    <span style="color: #008000; text-decoration-color: #008000">'Agro-forestry areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Airports'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Annual crops associated with permanent crops'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Bare rock'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Beaches, dunes, sands'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Broad-leaved forest'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Burnt areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Coastal lagoons'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Complex cultivation patterns'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Coniferous forest'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Construction sites'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Continuous urban fabric'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Discontinuous urban fabric'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Dump sites'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Estuaries'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Fruit trees and berry plantations'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Green urban areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Industrial or commercial units'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Inland marshes'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Intertidal flats'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Land principally occupied by agriculture, with significant areas of natural vegetation'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Mineral extraction sites'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Mixed forest'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Moors and heathland'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Natural grassland'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Non-irrigated arable land'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Olive groves'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Pastures'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Peatbogs'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Permanently irrigated land'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Port areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Rice fields'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Road and rail networks and associated land'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Salines'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Salt marshes'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Sclerophyllous vegetation'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Sea and ocean'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Sparsely vegetated areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Sport and leisure facilities'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Transitional woodland/shrub'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Vineyards'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Water bodies'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Water courses'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Glaciers and perpetual snow'</span>
-<span style="font-weight: bold">)</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃<span style="font-weight: bold"> NEW_LABELS                                                                             </span>┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Agro-forestry areas                                                                    │
+│ Arable land                                                                            │
+│ Beaches, dunes, sands                                                                  │
+│ Broad-leaved forest                                                                    │
+│ Coastal wetlands                                                                       │
+│ Complex cultivation patterns                                                           │
+│ Coniferous forest                                                                      │
+│ Industrial or commercial units                                                         │
+│ Inland waters                                                                          │
+│ Inland wetlands                                                                        │
+│ Land principally occupied by agriculture, with significant areas of natural vegetation │
+│ Marine waters                                                                          │
+│ Mixed forest                                                                           │
+│ Moors, heathland and sclerophyllous vegetation                                         │
+│ Natural grassland and sparsely vegetated areas                                         │
+│ Pastures                                                                               │
+│ Permanent crops                                                                        │
+│ Transitional woodland, shrub                                                           │
+│ Urban fabric                                                                           │
+└────────────────────────────────────────────────────────────────────────────────────────┘
 </pre>
 
 </div>
@@ -265,24 +317,53 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">CLC_LV2_LABELS:
-<span style="font-weight: bold">(</span>
-    <span style="color: #008000; text-decoration-color: #008000">'Urban fabric'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Industrial, comercial and transport units'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Mine, dump and construction sites'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Artificial, non-agricultural vegetated areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Arable land'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Permanent crops'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Pastures'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Heterogeneous agricultural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Forest'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Shrub and/or herbaceous vegetation associations'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Open spaces with little or no vegetation'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Inland wetlands'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Coastal wetlands'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Inland waters'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Marine waters'</span>
-<span style="font-weight: bold">)</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-style: italic">                                      OLD_LABELS_TO_IDX                                      </span>
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━┓
+┃ Agro-forestry areas                                                                  ┃ 0  ┃
+│ Airports                                                                             │ 1  │
+│ Annual crops associated with permanent crops                                         │ 2  │
+│ Bare rock                                                                            │ 3  │
+│ Beaches, dunes, sands                                                                │ 4  │
+│ Broad-leaved forest                                                                  │ 5  │
+│ Burnt areas                                                                          │ 6  │
+│ Coastal lagoons                                                                      │ 7  │
+│ Complex cultivation patterns                                                         │ 8  │
+│ Coniferous forest                                                                    │ 9  │
+│ Construction sites                                                                   │ 10 │
+│ Continuous urban fabric                                                              │ 11 │
+│ Discontinuous urban fabric                                                           │ 12 │
+│ Dump sites                                                                           │ 13 │
+│ Estuaries                                                                            │ 14 │
+│ Fruit trees and berry plantations                                                    │ 15 │
+│ Green urban areas                                                                    │ 16 │
+│ Industrial or commercial units                                                       │ 17 │
+│ Inland marshes                                                                       │ 18 │
+│ Intertidal flats                                                                     │ 19 │
+│ Land principally occupied by agriculture, with significant areas of natural          │ 20 │
+│ vegetation                                                                           │    │
+│ Mineral extraction sites                                                             │ 21 │
+│ Mixed forest                                                                         │ 22 │
+│ Moors and heathland                                                                  │ 23 │
+│ Natural grassland                                                                    │ 24 │
+│ Non-irrigated arable land                                                            │ 25 │
+│ Olive groves                                                                         │ 26 │
+│ Pastures                                                                             │ 27 │
+│ Peatbogs                                                                             │ 28 │
+│ Permanently irrigated land                                                           │ 29 │
+│ Port areas                                                                           │ 30 │
+│ Rice fields                                                                          │ 31 │
+│ Road and rail networks and associated land                                           │ 32 │
+│ Salines                                                                              │ 33 │
+│ Salt marshes                                                                         │ 34 │
+│ Sclerophyllous vegetation                                                            │ 35 │
+│ Sea and ocean                                                                        │ 36 │
+│ Sparsely vegetated areas                                                             │ 37 │
+│ Sport and leisure facilities                                                         │ 38 │
+│ Transitional woodland/shrub                                                          │ 39 │
+│ Vineyards                                                                            │ 40 │
+│ Water bodies                                                                         │ 41 │
+│ Water courses                                                                        │ 42 │
+└──────────────────────────────────────────────────────────────────────────────────────┴────┘
 </pre>
 
 </div>
@@ -293,14 +374,29 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">CLC_LV1_LABELS:
-<span style="font-weight: bold">(</span>
-    <span style="color: #008000; text-decoration-color: #008000">'Wetlands'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Artificial Surfaces'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Agricultural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Water bodies'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Forest and seminatural areas'</span>
-<span style="font-weight: bold">)</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-style: italic">                                      NEW_LABELS_TO_IDX                                      </span>
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━┓
+┃ Agro-forestry areas                                                                  ┃ 0  ┃
+│ Arable land                                                                          │ 1  │
+│ Beaches, dunes, sands                                                                │ 2  │
+│ Broad-leaved forest                                                                  │ 3  │
+│ Coastal wetlands                                                                     │ 4  │
+│ Complex cultivation patterns                                                         │ 5  │
+│ Coniferous forest                                                                    │ 6  │
+│ Industrial or commercial units                                                       │ 7  │
+│ Inland waters                                                                        │ 8  │
+│ Inland wetlands                                                                      │ 9  │
+│ Land principally occupied by agriculture, with significant areas of natural          │ 10 │
+│ vegetation                                                                           │    │
+│ Marine waters                                                                        │ 11 │
+│ Mixed forest                                                                         │ 12 │
+│ Moors, heathland and sclerophyllous vegetation                                       │ 13 │
+│ Natural grassland and sparsely vegetated areas                                       │ 14 │
+│ Pastures                                                                             │ 15 │
+│ Permanent crops                                                                      │ 16 │
+│ Transitional woodland, shrub                                                         │ 17 │
+│ Urban fabric                                                                         │ 18 │
+└──────────────────────────────────────────────────────────────────────────────────────┴────┘
 </pre>
 
 </div>
@@ -311,7 +407,62 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">CLC_LV3_COUNT: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">44</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-style: italic">                                       CLC_LV3_TO_LV2                                        </span>
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Agro-forestry areas                         ┃ Heterogeneous agricultural areas            ┃
+│ Airports                                    │ Industrial, comercial and transport units   │
+│ Annual crops associated with permanent      │ Heterogeneous agricultural areas            │
+│ crops                                       │                                             │
+│ Bare rock                                   │ Open spaces with little or no vegetation    │
+│ Beaches, dunes, sands                       │ Open spaces with little or no vegetation    │
+│ Broad-leaved forest                         │ Forest                                      │
+│ Burnt areas                                 │ Open spaces with little or no vegetation    │
+│ Coastal lagoons                             │ Marine waters                               │
+│ Complex cultivation patterns                │ Heterogeneous agricultural areas            │
+│ Coniferous forest                           │ Forest                                      │
+│ Construction sites                          │ Mine, dump and construction sites           │
+│ Continuous urban fabric                     │ Urban fabric                                │
+│ Discontinuous urban fabric                  │ Urban fabric                                │
+│ Dump sites                                  │ Mine, dump and construction sites           │
+│ Estuaries                                   │ Marine waters                               │
+│ Fruit trees and berry plantations           │ Permanent crops                             │
+│ Green urban areas                           │ Artificial, non-agricultural vegetated      │
+│                                             │ areas                                       │
+│ Industrial or commercial units              │ Industrial, comercial and transport units   │
+│ Inland marshes                              │ Inland wetlands                             │
+│ Intertidal flats                            │ Coastal wetlands                            │
+│ Land principally occupied by agriculture,   │ Heterogeneous agricultural areas            │
+│ with significant areas of natural           │                                             │
+│ vegetation                                  │                                             │
+│ Mineral extraction sites                    │ Mine, dump and construction sites           │
+│ Mixed forest                                │ Forest                                      │
+│ Moors and heathland                         │ Shrub and/or herbaceous vegetation          │
+│                                             │ associations                                │
+│ Natural grassland                           │ Shrub and/or herbaceous vegetation          │
+│                                             │ associations                                │
+│ Non-irrigated arable land                   │ Arable land                                 │
+│ Olive groves                                │ Permanent crops                             │
+│ Pastures                                    │ Pastures                                    │
+│ Peatbogs                                    │ Inland wetlands                             │
+│ Permanently irrigated land                  │ Arable land                                 │
+│ Port areas                                  │ Industrial, comercial and transport units   │
+│ Rice fields                                 │ Arable land                                 │
+│ Road and rail networks and associated land  │ Industrial, comercial and transport units   │
+│ Salines                                     │ Coastal wetlands                            │
+│ Salt marshes                                │ Coastal wetlands                            │
+│ Sclerophyllous vegetation                   │ Shrub and/or herbaceous vegetation          │
+│                                             │ associations                                │
+│ Sea and ocean                               │ Marine waters                               │
+│ Sparsely vegetated areas                    │ Open spaces with little or no vegetation    │
+│ Sport and leisure facilities                │ Artificial, non-agricultural vegetated      │
+│                                             │ areas                                       │
+│ Transitional woodland/shrub                 │ Shrub and/or herbaceous vegetation          │
+│                                             │ associations                                │
+│ Vineyards                                   │ Permanent crops                             │
+│ Water bodies                                │ Inland waters                               │
+│ Water courses                               │ Inland waters                               │
+│ Glaciers and perpetual snow                 │ Open spaces with little or no vegetation    │
+└─────────────────────────────────────────────┴─────────────────────────────────────────────┘
 </pre>
 
 </div>
@@ -322,7 +473,24 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">CLC_LV2_COUNT: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-style: italic">                                  CLC_LV2_TO_LV1                                  </span>
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Urban fabric                                    ┃ Artificial Surfaces          ┃
+│ Industrial, comercial and transport units       │ Artificial Surfaces          │
+│ Mine, dump and construction sites               │ Artificial Surfaces          │
+│ Artificial, non-agricultural vegetated areas    │ Artificial Surfaces          │
+│ Arable land                                     │ Agricultural areas           │
+│ Permanent crops                                 │ Agricultural areas           │
+│ Pastures                                        │ Agricultural areas           │
+│ Heterogeneous agricultural areas                │ Agricultural areas           │
+│ Forest                                          │ Forest and seminatural areas │
+│ Shrub and/or herbaceous vegetation associations │ Forest and seminatural areas │
+│ Open spaces with little or no vegetation        │ Forest and seminatural areas │
+│ Inland wetlands                                 │ Wetlands                     │
+│ Coastal wetlands                                │ Wetlands                     │
+│ Inland waters                                   │ Water bodies                 │
+│ Marine waters                                   │ Water bodies                 │
+└─────────────────────────────────────────────────┴──────────────────────────────┘
 </pre>
 
 </div>
@@ -333,7 +501,54 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">CLC_LV1_COUNT: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-style: italic">                                       CLC_LV3_TO_LV1                                        </span>
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Agro-forestry areas                                        ┃ Agricultural areas           ┃
+│ Airports                                                   │ Artificial Surfaces          │
+│ Annual crops associated with permanent crops               │ Agricultural areas           │
+│ Bare rock                                                  │ Forest and seminatural areas │
+│ Beaches, dunes, sands                                      │ Forest and seminatural areas │
+│ Broad-leaved forest                                        │ Forest and seminatural areas │
+│ Burnt areas                                                │ Forest and seminatural areas │
+│ Coastal lagoons                                            │ Water bodies                 │
+│ Complex cultivation patterns                               │ Agricultural areas           │
+│ Coniferous forest                                          │ Forest and seminatural areas │
+│ Construction sites                                         │ Artificial Surfaces          │
+│ Continuous urban fabric                                    │ Artificial Surfaces          │
+│ Discontinuous urban fabric                                 │ Artificial Surfaces          │
+│ Dump sites                                                 │ Artificial Surfaces          │
+│ Estuaries                                                  │ Water bodies                 │
+│ Fruit trees and berry plantations                          │ Agricultural areas           │
+│ Green urban areas                                          │ Artificial Surfaces          │
+│ Industrial or commercial units                             │ Artificial Surfaces          │
+│ Inland marshes                                             │ Wetlands                     │
+│ Intertidal flats                                           │ Wetlands                     │
+│ Land principally occupied by agriculture, with significant │ Agricultural areas           │
+│ areas of natural vegetation                                │                              │
+│ Mineral extraction sites                                   │ Artificial Surfaces          │
+│ Mixed forest                                               │ Forest and seminatural areas │
+│ Moors and heathland                                        │ Forest and seminatural areas │
+│ Natural grassland                                          │ Forest and seminatural areas │
+│ Non-irrigated arable land                                  │ Agricultural areas           │
+│ Olive groves                                               │ Agricultural areas           │
+│ Pastures                                                   │ Agricultural areas           │
+│ Peatbogs                                                   │ Wetlands                     │
+│ Permanently irrigated land                                 │ Agricultural areas           │
+│ Port areas                                                 │ Artificial Surfaces          │
+│ Rice fields                                                │ Agricultural areas           │
+│ Road and rail networks and associated land                 │ Artificial Surfaces          │
+│ Salines                                                    │ Wetlands                     │
+│ Salt marshes                                               │ Wetlands                     │
+│ Sclerophyllous vegetation                                  │ Forest and seminatural areas │
+│ Sea and ocean                                              │ Water bodies                 │
+│ Sparsely vegetated areas                                   │ Forest and seminatural areas │
+│ Sport and leisure facilities                               │ Artificial Surfaces          │
+│ Transitional woodland/shrub                                │ Forest and seminatural areas │
+│ Vineyards                                                  │ Agricultural areas           │
+│ Water bodies                                               │ Water bodies                 │
+│ Water courses                                              │ Water bodies                 │
+│ Glaciers and perpetual snow                                │ Forest and seminatural areas │
+└────────────────────────────────────────────────────────────┴──────────────────────────────┘
 </pre>
 
 </div>
@@ -344,53 +559,54 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">OLD2NEW_LABELS_DICT:
-<span style="font-weight: bold">{</span>
-    <span style="color: #008000; text-decoration-color: #008000">'Continuous urban fabric'</span>: <span style="color: #008000; text-decoration-color: #008000">'Urban fabric'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Discontinuous urban fabric'</span>: <span style="color: #008000; text-decoration-color: #008000">'Urban fabric'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Industrial or commercial units'</span>: <span style="color: #008000; text-decoration-color: #008000">'Industrial or commercial units'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Non-irrigated arable land'</span>: <span style="color: #008000; text-decoration-color: #008000">'Arable land'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Permanently irrigated land'</span>: <span style="color: #008000; text-decoration-color: #008000">'Arable land'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Rice fields'</span>: <span style="color: #008000; text-decoration-color: #008000">'Arable land'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Vineyards'</span>: <span style="color: #008000; text-decoration-color: #008000">'Permanent crops'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Fruit trees and berry plantations'</span>: <span style="color: #008000; text-decoration-color: #008000">'Permanent crops'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Olive groves'</span>: <span style="color: #008000; text-decoration-color: #008000">'Permanent crops'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Annual crops associated with permanent crops'</span>: <span style="color: #008000; text-decoration-color: #008000">'Permanent crops'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Pastures'</span>: <span style="color: #008000; text-decoration-color: #008000">'Pastures'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Complex cultivation patterns'</span>: <span style="color: #008000; text-decoration-color: #008000">'Complex cultivation patterns'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Land principally occupied by agriculture, with significant areas of natural vegetation'</span>:
-<span style="color: #008000; text-decoration-color: #008000">'Land principally occupied by agriculture, with significant areas of natural vegetation'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Agro-forestry areas'</span>: <span style="color: #008000; text-decoration-color: #008000">'Agro-forestry areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Broad-leaved forest'</span>: <span style="color: #008000; text-decoration-color: #008000">'Broad-leaved forest'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Coniferous forest'</span>: <span style="color: #008000; text-decoration-color: #008000">'Coniferous forest'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Mixed forest'</span>: <span style="color: #008000; text-decoration-color: #008000">'Mixed forest'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Natural grassland'</span>: <span style="color: #008000; text-decoration-color: #008000">'Natural grassland and sparsely vegetated areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Sparsely vegetated areas'</span>: <span style="color: #008000; text-decoration-color: #008000">'Natural grassland and sparsely vegetated areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Moors and heathland'</span>: <span style="color: #008000; text-decoration-color: #008000">'Moors, heathland and sclerophyllous vegetation'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Sclerophyllous vegetation'</span>: <span style="color: #008000; text-decoration-color: #008000">'Moors, heathland and sclerophyllous vegetation'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Transitional woodland/shrub'</span>: <span style="color: #008000; text-decoration-color: #008000">'Transitional woodland, shrub'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Beaches, dunes, sands'</span>: <span style="color: #008000; text-decoration-color: #008000">'Beaches, dunes, sands'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Inland marshes'</span>: <span style="color: #008000; text-decoration-color: #008000">'Inland wetlands'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Peatbogs'</span>: <span style="color: #008000; text-decoration-color: #008000">'Inland wetlands'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Salt marshes'</span>: <span style="color: #008000; text-decoration-color: #008000">'Coastal wetlands'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Salines'</span>: <span style="color: #008000; text-decoration-color: #008000">'Coastal wetlands'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Water courses'</span>: <span style="color: #008000; text-decoration-color: #008000">'Inland waters'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Water bodies'</span>: <span style="color: #008000; text-decoration-color: #008000">'Inland waters'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Coastal lagoons'</span>: <span style="color: #008000; text-decoration-color: #008000">'Marine waters'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Estuaries'</span>: <span style="color: #008000; text-decoration-color: #008000">'Marine waters'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Sea and ocean'</span>: <span style="color: #008000; text-decoration-color: #008000">'Marine waters'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Airports'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Bare rock'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Dump sites'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Port areas'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Road and rail networks and associated land'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Mineral extraction sites'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Construction sites'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Sport and leisure facilities'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Burnt areas'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Intertidal flats'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Green urban areas'</span>: <span style="color: #800080; text-decoration-color: #800080; font-style: italic">None</span>
-<span style="font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃<span style="font-weight: bold"> CLC_LV3_LABELS                                                                         </span>┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Agro-forestry areas                                                                    │
+│ Airports                                                                               │
+│ Annual crops associated with permanent crops                                           │
+│ Bare rock                                                                              │
+│ Beaches, dunes, sands                                                                  │
+│ Broad-leaved forest                                                                    │
+│ Burnt areas                                                                            │
+│ Coastal lagoons                                                                        │
+│ Complex cultivation patterns                                                           │
+│ Coniferous forest                                                                      │
+│ Construction sites                                                                     │
+│ Continuous urban fabric                                                                │
+│ Discontinuous urban fabric                                                             │
+│ Dump sites                                                                             │
+│ Estuaries                                                                              │
+│ Fruit trees and berry plantations                                                      │
+│ Green urban areas                                                                      │
+│ Industrial or commercial units                                                         │
+│ Inland marshes                                                                         │
+│ Intertidal flats                                                                       │
+│ Land principally occupied by agriculture, with significant areas of natural vegetation │
+│ Mineral extraction sites                                                               │
+│ Mixed forest                                                                           │
+│ Moors and heathland                                                                    │
+│ Natural grassland                                                                      │
+│ Non-irrigated arable land                                                              │
+│ Olive groves                                                                           │
+│ Pastures                                                                               │
+│ Peatbogs                                                                               │
+│ Permanently irrigated land                                                             │
+│ Port areas                                                                             │
+│ Rice fields                                                                            │
+│ Road and rail networks and associated land                                             │
+│ Salines                                                                                │
+│ Salt marshes                                                                           │
+│ Sclerophyllous vegetation                                                              │
+│ Sea and ocean                                                                          │
+│ Sparsely vegetated areas                                                               │
+│ Sport and leisure facilities                                                           │
+│ Transitional woodland/shrub                                                            │
+│ Vineyards                                                                              │
+│ Water bodies                                                                           │
+│ Water courses                                                                          │
+│ Glaciers and perpetual snow                                                            │
+└────────────────────────────────────────────────────────────────────────────────────────┘
 </pre>
 
 </div>
@@ -401,52 +617,25 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">OLD_LABELS:
-<span style="font-weight: bold">[</span>
-    <span style="color: #008000; text-decoration-color: #008000">'Agro-forestry areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Airports'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Annual crops associated with permanent crops'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Bare rock'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Beaches, dunes, sands'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Broad-leaved forest'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Burnt areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Coastal lagoons'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Complex cultivation patterns'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Coniferous forest'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Construction sites'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Continuous urban fabric'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Discontinuous urban fabric'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Dump sites'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Estuaries'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Fruit trees and berry plantations'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Green urban areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Industrial or commercial units'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Inland marshes'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Intertidal flats'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Land principally occupied by agriculture, with significant areas of natural vegetation'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Mineral extraction sites'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Mixed forest'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Moors and heathland'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Natural grassland'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Non-irrigated arable land'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Olive groves'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Pastures'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Peatbogs'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Permanently irrigated land'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Port areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Rice fields'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Road and rail networks and associated land'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Salines'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Salt marshes'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Sclerophyllous vegetation'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Sea and ocean'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Sparsely vegetated areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Sport and leisure facilities'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Transitional woodland/shrub'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Vineyards'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Water bodies'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Water courses'</span>
-<span style="font-weight: bold">]</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃<span style="font-weight: bold"> CLC_LV2_LABELS                                  </span>┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Urban fabric                                    │
+│ Industrial, comercial and transport units       │
+│ Mine, dump and construction sites               │
+│ Artificial, non-agricultural vegetated areas    │
+│ Arable land                                     │
+│ Permanent crops                                 │
+│ Pastures                                        │
+│ Heterogeneous agricultural areas                │
+│ Forest                                          │
+│ Shrub and/or herbaceous vegetation associations │
+│ Open spaces with little or no vegetation        │
+│ Inland wetlands                                 │
+│ Coastal wetlands                                │
+│ Inland waters                                   │
+│ Marine waters                                   │
+└─────────────────────────────────────────────────┘
 </pre>
 
 </div>
@@ -457,28 +646,15 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">NEW_LABELS:
-<span style="font-weight: bold">[</span>
-    <span style="color: #008000; text-decoration-color: #008000">'Agro-forestry areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Arable land'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Beaches, dunes, sands'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Broad-leaved forest'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Coastal wetlands'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Complex cultivation patterns'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Coniferous forest'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Industrial or commercial units'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Inland waters'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Inland wetlands'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Land principally occupied by agriculture, with significant areas of natural vegetation'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Marine waters'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Mixed forest'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Moors, heathland and sclerophyllous vegetation'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Natural grassland and sparsely vegetated areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Pastures'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Permanent crops'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Transitional woodland, shrub'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Urban fabric'</span>
-<span style="font-weight: bold">]</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃<span style="font-weight: bold"> CLC_LV1_LABELS               </span>┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Artificial Surfaces          │
+│ Water bodies                 │
+│ Forest and seminatural areas │
+│ Wetlands                     │
+│ Agricultural areas           │
+└──────────────────────────────┘
 </pre>
 
 </div>
@@ -489,53 +665,7 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">OLD_LABELS_TO_IDX:
-<span style="font-weight: bold">{</span>
-    <span style="color: #008000; text-decoration-color: #008000">'Agro-forestry areas'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Airports'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Annual crops associated with permanent crops'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Bare rock'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Beaches, dunes, sands'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Broad-leaved forest'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Burnt areas'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Coastal lagoons'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Complex cultivation patterns'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Coniferous forest'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">9</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Construction sites'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Continuous urban fabric'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">11</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Discontinuous urban fabric'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">12</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Dump sites'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Estuaries'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">14</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Fruit trees and berry plantations'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Green urban areas'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Industrial or commercial units'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">17</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Inland marshes'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Intertidal flats'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">19</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Land principally occupied by agriculture, with significant areas of natural vegetation'</span>:
-<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Mineral extraction sites'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">21</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Mixed forest'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">22</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Moors and heathland'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Natural grassland'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">24</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Non-irrigated arable land'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">25</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Olive groves'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">26</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Pastures'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">27</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Peatbogs'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">28</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Permanently irrigated land'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">29</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Port areas'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">30</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Rice fields'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">31</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Road and rail networks and associated land'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Salines'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">33</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Salt marshes'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">34</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Sclerophyllous vegetation'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Sea and ocean'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Sparsely vegetated areas'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Sport and leisure facilities'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">38</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Transitional woodland/shrub'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">39</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Vineyards'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">40</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Water bodies'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">41</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Water courses'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">42</span>
-<span style="font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">CLC_LV3_COUNT:  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">44</span>
 </pre>
 
 </div>
@@ -546,29 +676,7 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">NEW_LABELS_TO_IDX:
-<span style="font-weight: bold">{</span>
-    <span style="color: #008000; text-decoration-color: #008000">'Agro-forestry areas'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Arable land'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Beaches, dunes, sands'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Broad-leaved forest'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Coastal wetlands'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Complex cultivation patterns'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Coniferous forest'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Industrial or commercial units'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Inland waters'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Inland wetlands'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">9</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Land principally occupied by agriculture, with significant areas of natural vegetation'</span>:
-<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Marine waters'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">11</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Mixed forest'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">12</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Moors, heathland and sclerophyllous vegetation'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Natural grassland and sparsely vegetated areas'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">14</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Pastures'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Permanent crops'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Transitional woodland, shrub'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">17</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Urban fabric'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18</span>
-<span style="font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">CLC_LV2_COUNT:  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15</span>
 </pre>
 
 </div>
@@ -579,8 +687,7 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">MAX_VALUES_BY_DTYPE_STR:
-<span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'uint8'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">255</span>, <span style="color: #008000; text-decoration-color: #008000">'uint16'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">65535</span>, <span style="color: #008000; text-decoration-color: #008000">'uint32'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4294967295</span>, <span style="color: #008000; text-decoration-color: #008000">'float32'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.0</span>, <span style="color: #008000; text-decoration-color: #008000">'float64'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.0</span><span style="font-weight: bold">}</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">CLC_LV1_COUNT:  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5</span>
 </pre>
 
 </div>
@@ -591,7 +698,14 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">URL: <span style="color: #0000ff; text-decoration-color: #0000ff; text-decoration: underline">http://bigearth.net/downloads/BigEarthNet-v1.0.tar.gz</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-style: italic">MAX_VALUES_BY_DTYPE_STR </span>
+┏━━━━━━━━━┳━━━━━━━━━━━━┓
+┃ uint8   ┃ 255        ┃
+│ uint16  │ 65535      │
+│ uint32  │ 4294967295 │
+│ float32 │ 1.0        │
+│ float64 │ 1.0        │
+└─────────┴────────────┘
 </pre>
 
 </div>
@@ -602,7 +716,18 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BAND_STATS:
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">URL:  <span style="color: #0000ff; text-decoration-color: #0000ff; text-decoration: underline">http://bigearth.net/downloads/BigEarthNet-v1.0.tar.gz</span>
+</pre>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BAND_STATS: 
 <span style="font-weight: bold">{</span>
     <span style="color: #008000; text-decoration-color: #008000">'mean'</span>: <span style="font-weight: bold">{</span>
         <span style="color: #008000; text-decoration-color: #008000">'B01'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">340.76769064</span>,
@@ -643,7 +768,7 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BAND_STATS_FLOAT32:
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BAND_STATS_FLOAT32: 
 <span style="font-weight: bold">{</span>
     <span style="color: #008000; text-decoration-color: #008000">'mean'</span>: <span style="font-weight: bold">{</span>
         <span style="color: #008000; text-decoration-color: #008000">'B01'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.005199781653162433</span>,
@@ -684,8 +809,22 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_CHANNELS:
-<span style="font-weight: bold">(</span><span style="color: #008000; text-decoration-color: #008000">'B01'</span>, <span style="color: #008000; text-decoration-color: #008000">'B02'</span>, <span style="color: #008000; text-decoration-color: #008000">'B03'</span>, <span style="color: #008000; text-decoration-color: #008000">'B04'</span>, <span style="color: #008000; text-decoration-color: #008000">'B05'</span>, <span style="color: #008000; text-decoration-color: #008000">'B06'</span>, <span style="color: #008000; text-decoration-color: #008000">'B07'</span>, <span style="color: #008000; text-decoration-color: #008000">'B08'</span>, <span style="color: #008000; text-decoration-color: #008000">'B8A'</span>, <span style="color: #008000; text-decoration-color: #008000">'B09'</span>, <span style="color: #008000; text-decoration-color: #008000">'B11'</span>, <span style="color: #008000; text-decoration-color: #008000">'B12'</span><span style="font-weight: bold">)</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━┓
+┃<span style="font-weight: bold"> BEN_CHANNELS </span>┃
+┡━━━━━━━━━━━━━━┩
+│ B01          │
+│ B02          │
+│ B03          │
+│ B04          │
+│ B05          │
+│ B06          │
+│ B07          │
+│ B08          │
+│ B8A          │
+│ B09          │
+│ B11          │
+│ B12          │
+└──────────────┘
 </pre>
 
 </div>
@@ -696,8 +835,13 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_RGB_CHANNELS:
-<span style="font-weight: bold">(</span><span style="color: #008000; text-decoration-color: #008000">'B04'</span>, <span style="color: #008000; text-decoration-color: #008000">'B03'</span>, <span style="color: #008000; text-decoration-color: #008000">'B02'</span><span style="font-weight: bold">)</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━┓
+┃<span style="font-weight: bold"> BEN_RGB_CHANNELS </span>┃
+┡━━━━━━━━━━━━━━━━━━┩
+│ B04              │
+│ B03              │
+│ B02              │
+└──────────────────┘
 </pre>
 
 </div>
@@ -708,19 +852,20 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">COUNTRIES:
-<span style="font-weight: bold">(</span>
-    <span style="color: #008000; text-decoration-color: #008000">'Austria'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Belgium'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Finland'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Ireland'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Kosovo'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Lithuania'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Luxembourg'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Portugal'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Serbia'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Switzerland'</span>
-<span style="font-weight: bold">)</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━┓
+┃<span style="font-weight: bold"> COUNTRIES   </span>┃
+┡━━━━━━━━━━━━━┩
+│ Austria     │
+│ Belgium     │
+│ Finland     │
+│ Ireland     │
+│ Kosovo      │
+│ Lithuania   │
+│ Luxembourg  │
+│ Portugal    │
+│ Serbia      │
+│ Switzerland │
+└─────────────┘
 </pre>
 
 </div>
@@ -731,8 +876,20 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">COUNTRIES_ISO_A2:
-<span style="font-weight: bold">(</span><span style="color: #008000; text-decoration-color: #008000">'AT'</span>, <span style="color: #008000; text-decoration-color: #008000">'BE'</span>, <span style="color: #008000; text-decoration-color: #008000">'FI'</span>, <span style="color: #008000; text-decoration-color: #008000">'IE'</span>, <span style="color: #008000; text-decoration-color: #008000">'XK'</span>, <span style="color: #008000; text-decoration-color: #008000">'LT'</span>, <span style="color: #008000; text-decoration-color: #008000">'LU'</span>, <span style="color: #008000; text-decoration-color: #008000">'PT'</span>, <span style="color: #008000; text-decoration-color: #008000">'RS'</span>, <span style="color: #008000; text-decoration-color: #008000">'CH'</span><span style="font-weight: bold">)</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━┓
+┃<span style="font-weight: bold"> COUNTRIES_ISO_A2 </span>┃
+┡━━━━━━━━━━━━━━━━━━┩
+│ AT               │
+│ BE               │
+│ FI               │
+│ IE               │
+│ XK               │
+│ LT               │
+│ LU               │
+│ PT               │
+│ RS               │
+│ CH               │
+└──────────────────┘
 </pre>
 
 </div>
@@ -743,7 +900,7 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_COMPLETE_SIZE: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">590326</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_COMPLETE_SIZE:  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">590326</span>
 </pre>
 
 </div>
@@ -754,7 +911,7 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_SNOWY_PATCHES_COUNT: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">61707</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_SNOWY_PATCHES_COUNT:  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">61707</span>
 </pre>
 
 </div>
@@ -765,7 +922,7 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_CLOUDY_OR_SHADOWY_PATCHES_COUNT: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">9280</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_CLOUDY_OR_SHADOWY_PATCHES_COUNT:  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">9280</span>
 </pre>
 
 </div>
@@ -776,7 +933,7 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_NO_19_CLASS_TARGET_COUNT: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">57</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_NO_19_CLASS_TARGET_COUNT:  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">57</span>
 </pre>
 
 </div>
@@ -787,66 +944,40 @@ nb_path: "nbs/01a_constants.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_RECOMMENDED_SIZE: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">519284</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_RECOMMENDED_SIZE:  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">519284</span>
 </pre>
 
 </div>
 
 </div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
 
 <div class="output_area">
 
 
-<div class="output_html rendered_html output_subarea ">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">CLC_LV3_TO_LV1:
-<span style="font-weight: bold">{</span>
-    <span style="color: #008000; text-decoration-color: #008000">'Agro-forestry areas'</span>: <span style="color: #008000; text-decoration-color: #008000">'Agricultural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Airports'</span>: <span style="color: #008000; text-decoration-color: #008000">'Artificial Surfaces'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Annual crops associated with permanent crops'</span>: <span style="color: #008000; text-decoration-color: #008000">'Agricultural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Bare rock'</span>: <span style="color: #008000; text-decoration-color: #008000">'Forest and seminatural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Beaches, dunes, sands'</span>: <span style="color: #008000; text-decoration-color: #008000">'Forest and seminatural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Broad-leaved forest'</span>: <span style="color: #008000; text-decoration-color: #008000">'Forest and seminatural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Burnt areas'</span>: <span style="color: #008000; text-decoration-color: #008000">'Forest and seminatural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Coastal lagoons'</span>: <span style="color: #008000; text-decoration-color: #008000">'Water bodies'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Complex cultivation patterns'</span>: <span style="color: #008000; text-decoration-color: #008000">'Agricultural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Coniferous forest'</span>: <span style="color: #008000; text-decoration-color: #008000">'Forest and seminatural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Construction sites'</span>: <span style="color: #008000; text-decoration-color: #008000">'Artificial Surfaces'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Continuous urban fabric'</span>: <span style="color: #008000; text-decoration-color: #008000">'Artificial Surfaces'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Discontinuous urban fabric'</span>: <span style="color: #008000; text-decoration-color: #008000">'Artificial Surfaces'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Dump sites'</span>: <span style="color: #008000; text-decoration-color: #008000">'Artificial Surfaces'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Estuaries'</span>: <span style="color: #008000; text-decoration-color: #008000">'Water bodies'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Fruit trees and berry plantations'</span>: <span style="color: #008000; text-decoration-color: #008000">'Agricultural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Green urban areas'</span>: <span style="color: #008000; text-decoration-color: #008000">'Artificial Surfaces'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Industrial or commercial units'</span>: <span style="color: #008000; text-decoration-color: #008000">'Artificial Surfaces'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Inland marshes'</span>: <span style="color: #008000; text-decoration-color: #008000">'Wetlands'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Intertidal flats'</span>: <span style="color: #008000; text-decoration-color: #008000">'Wetlands'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Land principally occupied by agriculture, with significant areas of natural vegetation'</span>:
-<span style="color: #008000; text-decoration-color: #008000">'Agricultural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Mineral extraction sites'</span>: <span style="color: #008000; text-decoration-color: #008000">'Artificial Surfaces'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Mixed forest'</span>: <span style="color: #008000; text-decoration-color: #008000">'Forest and seminatural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Moors and heathland'</span>: <span style="color: #008000; text-decoration-color: #008000">'Forest and seminatural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Natural grassland'</span>: <span style="color: #008000; text-decoration-color: #008000">'Forest and seminatural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Non-irrigated arable land'</span>: <span style="color: #008000; text-decoration-color: #008000">'Agricultural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Olive groves'</span>: <span style="color: #008000; text-decoration-color: #008000">'Agricultural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Pastures'</span>: <span style="color: #008000; text-decoration-color: #008000">'Agricultural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Peatbogs'</span>: <span style="color: #008000; text-decoration-color: #008000">'Wetlands'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Permanently irrigated land'</span>: <span style="color: #008000; text-decoration-color: #008000">'Agricultural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Port areas'</span>: <span style="color: #008000; text-decoration-color: #008000">'Artificial Surfaces'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Rice fields'</span>: <span style="color: #008000; text-decoration-color: #008000">'Agricultural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Road and rail networks and associated land'</span>: <span style="color: #008000; text-decoration-color: #008000">'Artificial Surfaces'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Salines'</span>: <span style="color: #008000; text-decoration-color: #008000">'Wetlands'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Salt marshes'</span>: <span style="color: #008000; text-decoration-color: #008000">'Wetlands'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Sclerophyllous vegetation'</span>: <span style="color: #008000; text-decoration-color: #008000">'Forest and seminatural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Sea and ocean'</span>: <span style="color: #008000; text-decoration-color: #008000">'Water bodies'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Sparsely vegetated areas'</span>: <span style="color: #008000; text-decoration-color: #008000">'Forest and seminatural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Sport and leisure facilities'</span>: <span style="color: #008000; text-decoration-color: #008000">'Artificial Surfaces'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Transitional woodland/shrub'</span>: <span style="color: #008000; text-decoration-color: #008000">'Forest and seminatural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Vineyards'</span>: <span style="color: #008000; text-decoration-color: #008000">'Agricultural areas'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Water bodies'</span>: <span style="color: #008000; text-decoration-color: #008000">'Water bodies'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Water courses'</span>: <span style="color: #008000; text-decoration-color: #008000">'Water bodies'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'Glaciers and perpetual snow'</span>: <span style="color: #008000; text-decoration-color: #008000">'Forest and seminatural areas'</span>
-<span style="font-weight: bold">}</span>
-</pre>
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="constants_prompt" class="doc_header"><code>constants_prompt</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/constants.py#L441" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>constants_prompt</code>()</p>
+</blockquote>
+<p>A smart prompt to quickly display common BigEarthNet constants.</p>
 
 </div>
 
@@ -854,6 +985,13 @@ nb_path: "nbs/01a_constants.ipynb"
 
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}

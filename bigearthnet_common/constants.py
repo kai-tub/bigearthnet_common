@@ -6,7 +6,7 @@ __all__ = ['OLD2NEW_LABELS_DICT', 'OLD_LABELS', 'NEW_LABELS', 'OLD_LABELS_TO_IDX
            'BAND_STATS_FLOAT32', 'BEN_CHANNELS', 'BEN_10m_CHANNELS', 'BEN_20m_CHANNELS', 'BEN_10m_20m_CHANNELS',
            'BEN_30m_CHANNELS', 'BEN_RGB_CHANNELS', 'COUNTRIES', 'COUNTRIES_ISO_A2', 'BEN_COMPLETE_SIZE',
            'BEN_SNOWY_PATCHES_COUNT', 'BEN_CLOUDY_OR_SHADOWY_PATCHES_COUNT', 'BEN_NO_19_CLASS_TARGET_COUNT',
-           'BEN_RECOMMENDED_SIZE', 'print_all_constants']
+           'BEN_RECOMMENDED_SIZE', 'smart_pprint', 'print_all_constants', 'constants_prompt']
 
 # Cell
 import fastcore.all as fc
@@ -337,16 +337,114 @@ BEN_NO_19_CLASS_TARGET_COUNT = 57
 BEN_RECOMMENDED_SIZE = 519_284
 
 # Cell
+from rich.table import Table
+from functools import singledispatch
+from collections.abc import Mapping, Sequence
+
+def _single_column_table(col_name, rows):
+    t = Table(col_name)
+    for row in rows:
+        t.add_row(row)
+    return t
+
+def _simple_dict_table(header, dictionary):
+    t = Table(title=header, show_header=False)
+    for k, v in dictionary.items():
+        t.add_row(k, str(v))
+    return t
+
+def _default_pprint(value, name):
+    rich.print(f"{name}: ", value)
+
+@singledispatch
+def _smart_pprint(value, name):
+    _default_pprint(value, name)
+
+@_smart_pprint.register
+def _(value: Mapping, name):
+    if all(isinstance(v, (str, int, float)) or v is None for v in value.values()):
+        t = _simple_dict_table(name, value)
+        rich.print(t)
+    else:
+        _default_pprint(value, name)
+
+@_smart_pprint.register
+def _(value: str, name):
+    # default_pprint str and not call Sequence branch
+    _default_pprint(value, name)
+
+@_smart_pprint.register
+def _(value: Sequence, name):
+    if all(isinstance(entry, str) for entry in value):
+        t = _single_column_table(name, value)
+        rich.print(t)
+    else:
+        _default_pprint(value, name)
 
 
+def smart_pprint(name, value):
+    """
+    A small `rich.print` wrapper that tries to guess a good representation
+    for variable named `name` with the given `value`.
+    If no match is found, the function will simply call `rich.print` under the hood.
+    Lists of basic types will be printed as a single column list, whereas simple
+    dictionaries will be printed as two-column tables, for example.
+    """
+    _smart_pprint(value, name)
+
+# Cell
 def print_all_constants():
     """
     A function that shows all of the pre-defined constants of the library.
     """
-    for k, v in globals().items():
-        if not k.startswith("_") and k.upper() == k:
-            rich.print(f"{k}:", v)
+    ben_constants = {k: v for k, v in globals().items() if not k.startswith("_") and k.upper() == k}
+    for k, v in ben_constants.items():
+        smart_pprint(k, v)
 
+# Cell
+from rich.prompt import Prompt
 
-if __name__ == "__main__":
-    print_all_constants()
+class _ManyChoicesPrompt(Prompt):
+    def make_prompt(self, default):
+        """Make prompt text with many choices
+        Args:
+            default (DefaultType): Default value.
+        Returns:
+            Text: Text to display in prompt.
+        """
+        prompt = self.prompt.copy()
+        prompt.end = ""
+
+        if self.show_choices and self.choices:
+            _choices = "\n\t".join(self.choices)
+            choices = f"\n\t{_choices}\n"
+            prompt.append(" ")
+            prompt.append(choices, "prompt.choices")
+
+        if (
+            default != ...
+            and self.show_default
+            and isinstance(default, (str, self.response_type))
+        ):
+            prompt.append(" ")
+            _default = self.render_default(default)
+            prompt.append(_default)
+
+        prompt.append(self.prompt_suffix)
+
+        return prompt
+
+# Cell
+from rich.prompt import Prompt
+import fastcore.all as fc
+
+def constants_prompt():
+    """
+    A smart prompt to quickly display common BigEarthNet constants.
+    """
+    ben_constants = {k: v for k, v in globals().items() if not k.startswith("_") and k.upper() == k}
+    k = _ManyChoicesPrompt.ask("What constant do you want to see?", choices=ben_constants.keys())
+    smart_pprint(k, ben_constants[k])
+
+if __name__ == "__main__" and not fc.IN_IPYTHON:
+    constants_prompt()
