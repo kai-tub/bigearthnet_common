@@ -2,8 +2,8 @@ repository: k.clasen/bigearthnet_common
 output: web
 topnav_title: bigearthnet_common
 site_title: bigearthnet_common
-company_name: Put your copyright information here
-description: A description of your project
+company_name: Kai Norman Clasen
+description: A personal collection of common BigEarthNet tools
 # Set to false to disable KaTeX math
 use_math: true
 # Add Google analytics id if you have one and want to use it here
@@ -20,7 +20,7 @@ exclude:
   - .idea/
   - .gitignore
   - vendor
- 
+
 exclude: [vendor]
 
 highlighter: rouge
@@ -61,6 +61,6 @@ sidebars:
 
 plugins:
     - jekyll-remote-theme
-    
+
 remote_theme: fastai/nbdev-jekyll-theme
 baseurl: /bigearthnet_common/

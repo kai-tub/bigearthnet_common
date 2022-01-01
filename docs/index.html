@@ -36,6 +36,7 @@ nb_path: "nbs/index.ipynb"
 [![Tests](https://img.shields.io/github/workflow/status/kai-tub/bigearthnet_common/CI?color=dark-green&label=%20Tests)](https://github.com/kai-tub/bigearthnet_common/actions/workflows/main.yml)
 [![License](https://img.shields.io/pypi/l/bigearthnet_common?color=dark-green)](https://github.com/kai-tub/bigearthnet_common/blob/main/LICENSE)
 [![PyPI version](https://badge.fury.io/py/bigearthnet-common.svg)](https://pypi.org/project/bigearthnet-common/)
+[![Conda Version](https://img.shields.io/conda/vn/conda-forge/bigearthnet-common?color=dark-green)](https://anaconda.org/conda-forge/bigearthnet-common)
 [![Auto Release](https://img.shields.io/badge/release-auto.svg?colorA=888888&colorB=9B065A&label=auto&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAACzElEQVR4AYXBW2iVBQAA4O+/nLlLO9NM7JSXasko2ASZMaKyhRKEDH2ohxHVWy6EiIiiLOgiZG9CtdgG0VNQoJEXRogVgZYylI1skiKVITPTTtnv3M7+v8UvnG3M+r7APLIRxStn69qzqeBBrMYyBDiL4SD0VeFmRwtrkrI5IjP0F7rjzrSjvbTqwubiLZffySrhRrSghBJa8EBYY0NyLJt8bDBOtzbEY72TldQ1kRm6otana8JK3/kzN/3V/NBPU6HsNnNlZAz/ukOalb0RBJKeQnykd7LiX5Fp/YXuQlfUuhXbg8Di5GL9jbXFq/tLa86PpxPhAPrwCYaiorS8L/uuPJh1hZFbcR8mewrx0d7JShr3F7pNW4vX0GRakKWVk7taDq7uPvFWw8YkMcPVb+vfvfRZ1i7zqFwjtmFouL72y6C/0L0Ie3GvaQXRyYVB3YZNE32/+A/D9bVLcRB3yw3hkRCdaDUtFl6Ykr20aaLvKoqIXUdbMj6GFzAmdxfWx9iIRrkDr1f27cFONGMUo/gRI/jNbIMYxJOoR1cY0OGaVPb5z9mlKbyJP/EsdmIXvsFmM7Ql42nEblX3xI1BbYbTkXCqRnxUbgzPo4T7sQBNeBG7zbAiDI8nWfZDhQWYCG4PFr+HMBQ6l5VPJybeRyJXwsdYJ/cRnlJV0yB4ZlUYtFQIkMZnst8fRrPcKezHCblz2IInMIkPzbbyb9mW42nWInc2xmE0y61AJ06oGsXL5rcOK1UdCbEXiVwNXsEy/6+EbaiVG8eeEAfxvaoSBnCH61uOD7BS1Ul8ESHBKWxCrdyd6EYNKihgEVrwOAbQruoytuBYIFfAc3gVN6iawhjKyNCEpYhVJXgbOzARyaU4hCtYizq5EI1YgiUoIlT1B7ZjByqmRWYbwtdYjoWoN7+LOIQefIqKawLzK6ID69GGpQgwhhEcwGGUzfEPAiPqsCXadFsAAAAASUVORK5CYII=)](https://github.com/intuit/auto)
 </div>
 </div>
@@ -54,8 +55,8 @@ nb_path: "nbs/index.ipynb"
 <li>etc.</li>
 </ul>
 </li>
-<li>Provide parsing functions to convert the metadata json files to a <a href="https://geopandas.org/en/stable/">geopandas</a> <a href="https://geopandas.org/en/stable/getting_started/introduction.html">GeoDataFrame's</a>.<ul>
-<li>Allow for easy top-level statistical analysis of the data in a familiar <em>pandas</em>-style </li>
+<li>Provide parsing functions to convert the metadata JSON files to a <a href="https://geopandas.org/en/stable/">geopandas</a> <a href="https://geopandas.org/en/stable/getting_started/introduction.html">GeoDataFrame</a>.<ul>
+<li>Allow for easy top-level statistical analysis of the data in a familiar <em>pandas</em>-style</li>
 <li>Provide functions to enrich GeoDataFrames with often required BigEarthNet metadata (like the season or country of the patch)</li>
 </ul>
 </li>
@@ -67,18 +68,38 @@ nb_path: "nbs/index.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Deep-Learning">Deep Learning<a class="anchor-link" href="#Deep-Learning"> </a></h2><p>One of the main purposes of the dataset is to allow deep learning researchers and practitioners to train their model on multi-spectral satellite data easily.
+<h2 id="Installation">Installation<a class="anchor-link" href="#Installation"> </a></h2><p>I strongly recommend to use <a href="https://github.com/mamba-org/mamba">mamba</a> or <code>conda</code> with <a href="https://github.com/conda-forge/miniforge">miniforge</a> to install the package with:</p>
+<ul>
+<li><code>mamba/conda install bigearthnet-common -c conda-forge</code></li>
+</ul>
+<p>As the <code>bigearthnet_common</code> tool is built on top of <code>geopandas</code> the same restrictions apply.
+For more details please review the <a href="https://geopandas.org/en/stable/getting_started/install.html">geopandas installation documentation</a>.</p>
+<p>The package is also available via PyPI and could be installed with:</p>
+<ul>
+<li><code>pip install bigearthnet_common</code> (not recommended)</li>
+</ul>
+<h2 id="TL;DR">TL;DR<a class="anchor-link" href="#TL;DR"> </a></h2><p>The most relevant functions are exposed as CLI entry points.
+To quickly search for BigEarthNet constants of interest, call:</p>
+<ul>
+<li><code>ben_constants_prompt</code> or</li>
+<li><code>python -m bigearthnet_common.constants</code></li>
+</ul>
+<p>To build the tabular data, use:</p>
+<ul>
+<li><code>ben_gdf_builder --help</code> or</li>
+<li><code>python -m bigearthnet_common.ben_gdf_builder --help</code></li>
+</ul>
+<h2 id="Deep-Learning">Deep Learning<a class="anchor-link" href="#Deep-Learning"> </a></h2><p>One of the primary purposes of the dataset is to allow deep learning researchers and practitioners to train their models on multi-spectral satellite data.
 In that regard, there is a general recommendation to drop patches that are covered by seasonal snow or clouds.
 Also, the novel 19-class nomenclature should be preferred over the original 43-class nomenclature.
-As a result of these recommendations, some patches have to be <em>excluded</em> from the original raw BigEarthNet dataset that is provided at <a href="bigearth.net">BigEarthNet</a>.
-This is especially important for higher-level statistical analysis.</p>
-<p>To simplify the procedure of pre-converting the json metadata files, the library provides a single command that will generate a recommended GeoDataFrame with extra metadata (country/season data of each patch) while dropping all patches that are not recommended for deep learning research.</p>
+As a result of these recommendations, some patches have to be <em>excluded</em> from the original raw BigEarthNet dataset that is provided at <a href="bigearth.net">BigEarthNet</a>.</p>
+<p>To simplify the procedure of pre-converting the JSON metadata files, the library provides a single command that will generate a recommended GeoDataFrame with extra metadata (country/season data of each patch) while dropping all patches that are not recommended for deep learning research.</p>
 <p>To generate such a GeoDataFrame and store it as an <code>parquet</code> file, use:</p>
 <ul>
 <li><code>ben_gdf_builder build-recommended-parquet</code> (available after installing package) or</li>
 <li><code>python -m bigearthnet_common.gdf_builder build-recommended-parquet</code></li>
 </ul>
-<p>If you want to read the raw json files and convert those to a GeoDataFrame file, without dropping any patches or adding any metadata, use:</p>
+<p>If you want to read the raw JSON files and convert those to a GeoDataFrame file without dropping any patches or adding any metadata, use:</p>
 <ul>
 <li><code>ben_gdf_builder build-raw-ben-parquet</code> (available after installing package) or</li>
 <li><code>python -m bigearthnet_common.gdf_builder build-raw-ben-parquet</code></li>
@@ -89,23 +110,11 @@ This is especially important for higher-level statistical analysis.</p>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Local-Installation">Local Installation<a class="anchor-link" href="#Local-Installation"> </a></h2><p>Use <a href="https://github.com/casey/just#installation">just</a> to install the package or run steps from <code>justfile</code> directly.
-Requires <a href="https://github.com/mamba-org/mamba">mamba</a> (highly recommended) or <a href="https://python-poetry.org/docs/basic-usage/">poetry</a> to be installed.</p>
-<h2 id="Local-Documentation">Local Documentation<a class="anchor-link" href="#Local-Documentation"> </a></h2><p>{% include note.html content='Building and serving the documentation requires <code>Docker</code> to be installed!' %}
-After creating the <code>ben_common_env</code> environment, run</p>
-<div class="highlight"><pre><span></span>docker-compose up
-</pre></div>
-<p>Or with <code>just</code>:</p>
-<div class="highlight"><pre><span></span>just docs
-</pre></div>
-<p>After running the command, the documentation server will be available at</p>
-<ul>
-<li><a href="http://0.0.0.0:4000/bigearthnet_common/">http://0.0.0.0:4000/bigearthnet_common/</a> or </li>
-<li><a href="http://localhost:4000/bigearthnet_common/">http://localhost:4000/bigearthnet_common/</a> (WSL).</li>
-</ul>
-<p>To review the source code, please look at the corresponding <code>ipynb</code> notebook from the <code>nbs</code> folder.
+<h2 id="Contributing">Contributing<a class="anchor-link" href="#Contributing"> </a></h2><p>Contributions are always welcome!</p>
+<p>Please look at the corresponding <code>ipynb</code> notebook from the <code>nbs</code> folder to review the source code.
 These notebooks include extensive documentation, visualizations, and tests.
 The automatically generated Python files are available in the <code>bigearthnet_common</code> module.</p>
+<p>More information is available in the <a href="https://github.com/kai-tub/bigearthnet_common/blob/main/.github/CONTRIBUTING.md">contributing guidelines</a> document.</p>
 
 </div>
 </div>

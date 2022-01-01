@@ -435,9 +435,6 @@ class _ManyChoicesPrompt(Prompt):
         return prompt
 
 # Cell
-from rich.prompt import Prompt
-import fastcore.all as fc
-
 def constants_prompt():
     """
     A smart prompt to quickly display common BigEarthNet constants.
