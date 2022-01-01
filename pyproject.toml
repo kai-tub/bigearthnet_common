@@ -44,6 +44,7 @@ mapclassify = "*"
 
 [tool.poetry.scripts]
 ben_gdf_builder = "bigearthnet_common.gdf_builder:_run_gdf_cli"
+ben_constant_prompt = "bigearthnet_common.constants:constants_prompt"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
