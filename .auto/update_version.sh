@@ -28,5 +28,9 @@ fi
 newVersion=$( bash "${scriptFolder}/semvertool.sh" bump "$bumpType" "$currentVersion" )
 
 sed -r -i "s/(version = ).*/\1\"${newVersion}\"/g" -- pyproject.toml
+# manually update version in nbdev config file
+sed -r -i "s/(version = ).*/\1${newVersion}/g" -- settings.ini
+# and manually set __version__ in __init__.py to not rely on nbdev
+sed -r -i "s/(__version__ = ).*/\1\"${newVersion}\"/g" -- bigearthnet_common/__init__.py
 # Files will be commited via `auto` tool
 git add .
