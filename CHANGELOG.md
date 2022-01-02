@@ -1,3 +1,15 @@
+# v0.3.1 (Sun Jan 02 2022)
+
+#### 🐛 Bug Fix
+
+- Update documentation and fix wrong `__version__` [#10](https://github.com/kai-tub/bigearthnet_common/pull/10) ([@kai-tub](https://github.com/kai-tub))
+
+#### Authors: 1
+
+- Kai Norman Clasen ([@kai-tub](https://github.com/kai-tub))
+
+---
+
 # v0.3.0 (Sat Jan 01 2022)
 
 #### 🚀 Enhancement
