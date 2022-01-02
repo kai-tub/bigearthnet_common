@@ -74,8 +74,8 @@ modules = ["constants.py",
            "base.py",
            "gdf_builder.py"]
 
-doc_url = "https://k.clasen.github.io/bigearthnet_common/"
+doc_url = "https://kai-tub.github.io/bigearthnet_common/"
 
-git_url = "https://github.com/k.clasen/bigearthnet_common/tree/main/"
+git_url = "https://github.com/kai-tub/bigearthnet_common/tree/main/"
 
 def custom_doc_links(name): return None
