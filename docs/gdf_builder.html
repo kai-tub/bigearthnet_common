@@ -26,16 +26,47 @@ nb_path: "nbs/01c_gdf_builder.ipynb"
     
 <div class="cell border-box-sizing code_cell rendered">
 
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Geometry-utils">Geometry utils<a class="anchor-link" href="#Geometry-utils"> </a></h2>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
 <div class="output_wrapper">
 <div class="output">
 
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/home/kai/git/bigearthnet_common/ben_common_env/lib/python3.7/site-packages/geopandas/_compat.py:115: UserWarning: The Shapely GEOS version (3.9.1-CAPI-1.14.2) is incompatible with the GEOS version PyGEOS was compiled with (3.10.1-CAPI-1.16.0). Conversions between both will be slow.
-  shapely_geos_version, geos_capi_version_string
-</pre>
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="box_from_ul_lr_coords" class="doc_header"><code>box_from_ul_lr_coords</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L54" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>box_from_ul_lr_coords</code>(<strong><code>ulx</code></strong>:<code>Real</code>, <strong><code>uly</code></strong>:<code>Real</code>, <strong><code>lrx</code></strong>:<code>Real</code>, <strong><code>lry</code></strong>:<code>Real</code>)</p>
+</blockquote>
+<p>Build a box (<code>Polygon</code>) from upper left x/y and lower right x/y coordinates.</p>
+<p>This specification is the default BigEarthNet style.</p>
+
 </div>
+
 </div>
 
 </div>
@@ -47,6 +78,26 @@ nb_path: "nbs/01c_gdf_builder.ipynb"
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">b1</span> <span class="o">=</span> <span class="n">box_from_ul_lr_coords</span><span class="p">(</span><span class="n">ulx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">uly</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">lrx</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">lry</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">b2</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">b1</span><span class="p">,</span> <span class="n">Polygon</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">b1</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">b2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
 
 </div>
     {% endraw %}
@@ -68,13 +119,13 @@ nb_path: "nbs/01c_gdf_builder.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ben_patch_to_gdf" class="doc_header"><code>ben_patch_to_gdf</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L36" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ben_patch_to_gdf</code>(<strong><code>patch_path</code></strong>:<code>Union</code>[<code>FilePath</code>, <code>DirectoryPath</code>])</p>
+<h4 id="ben_s2_patch_to_gdf" class="doc_header"><code>ben_s2_patch_to_gdf</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L63" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ben_s2_patch_to_gdf</code>(<strong><code>patch_path</code></strong>:<code>Union</code>[<code>FilePath</code>, <code>DirectoryPath</code>])</p>
 </blockquote>
 <p>Given the filepath to a BigEarthNet json <code>_metadata_labels</code> file, or
 to the containing patch folder, the function will return a single row GeoDataFrame.</p>
 <p>The filepath is necessary, as only the filename contains the patch name.</p>
 <p>The datetime will be parsed with best effort and guaranteed to be in the format
-'YYYY-MM-DD hh-mm-ss'</p>
+'YYYY-MM-DD hh-mm-ss' (different to BEN-S1!)</p>
 <p>The coordinates that indicate the upper-left-x/y and lower-right-x/y will be converted
 into a <code>shapely.Polygon</code>.</p>
 <p>The coordinate reference system (CRS) will be equivalent to the one given in the json file.
@@ -101,13 +152,75 @@ Or with other words, the data is not reprojected!</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ben_patch_to_reprojected_gdf" class="doc_header"><code>ben_patch_to_reprojected_gdf</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L83" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ben_patch_to_reprojected_gdf</code>(<strong><code>patch_path</code></strong>:<code>Union</code>[<code>FilePath</code>, <code>DirectoryPath</code>], <strong><code>target_proj</code></strong>:<code>str</code>=<em><code>'epsg:4326'</code></em>)</p>
+<h4 id="ben_s1_patch_to_gdf" class="doc_header"><code>ben_s1_patch_to_gdf</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L99" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ben_s1_patch_to_gdf</code>(<strong><code>patch_path</code></strong>:<code>Union</code>[<code>FilePath</code>, <code>DirectoryPath</code>])</p>
 </blockquote>
-<p>Calls <a href="/bigearthnet_common/gdf_builder.html#ben_patch_to_gdf"><code>ben_patch_to_gdf</code></a> and simply reprojects the resulting GeoDataFrame afterwards to the
+<p>Given the filepath to a BigEarthNet json <code>_metadata_labels</code> file, or
+to the containing patch folder, the function will return a single row GeoDataFrame.</p>
+<p>The filepath is necessary, as only the filename contains the patch name.</p>
+<p>The datetime will be parsed with best effort and guaranteed to be in the format
+'YYYY-MM-DDThh-mm-ss' (different to Ben-S2!)</p>
+<p>The coordinates that indicate the upper-left-x/y and lower-right-x/y will be converted
+into a <code>shapely.Polygon</code>.</p>
+<p>The coordinate reference system (CRS) will be equivalent to the one given in the json file.
+Or with other words, the data is not reprojected!</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="ben_s2_patch_to_reprojected_gdf" class="doc_header"><code>ben_s2_patch_to_reprojected_gdf</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L136" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ben_s2_patch_to_reprojected_gdf</code>(<strong><code>patch_path</code></strong>:<code>Union</code>[<code>FilePath</code>, <code>DirectoryPath</code>], <strong><code>target_proj</code></strong>:<code>str</code>=<em><code>'epsg:4326'</code></em>)</p>
+</blockquote>
+<p>Calls <a href="/bigearthnet_common/gdf_builder.html#ben_s2_patch_to_gdf"><code>ben_s2_patch_to_gdf</code></a> and simply reprojects the resulting GeoDataFrame afterwards to the
 given <code>target_proj</code>.</p>
 <p>This is a tiny wrapper to ensure that the generated BEN GeoDataFrame's can be concatenated and have a
 common coordinate reference system.</p>
-<p>See <a href="/bigearthnet_common/gdf_builder.html#ben_patch_to_gdf"><code>ben_patch_to_gdf</code></a> for more details.</p>
+<p>See <a href="/bigearthnet_common/gdf_builder.html#ben_s2_patch_to_gdf"><code>ben_s2_patch_to_gdf</code></a> for more details.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="ben_s1_patch_to_reprojected_gdf" class="doc_header"><code>ben_s1_patch_to_reprojected_gdf</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L150" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ben_s1_patch_to_reprojected_gdf</code>(<strong><code>patch_path</code></strong>:<code>Union</code>[<code>FilePath</code>, <code>DirectoryPath</code>], <strong><code>target_proj</code></strong>:<code>str</code>=<em><code>'epsg:4326'</code></em>)</p>
+</blockquote>
+<p>Calls <a href="/bigearthnet_common/gdf_builder.html#ben_s1_patch_to_gdf"><code>ben_s1_patch_to_gdf</code></a> and simply reprojects the resulting GeoDataFrame afterwards to the
+given <code>target_proj</code>.</p>
+<p>This is a tiny wrapper to ensure that the generated BEN GeoDataFrame's can be concatenated and have a
+common coordinate reference system.</p>
+<p>See <a href="/bigearthnet_common/gdf_builder.html#ben_s1_patch_to_gdf"><code>ben_s1_patch_to_gdf</code></a> for more details.</p>
 
 </div>
 
@@ -133,7 +246,7 @@ common coordinate reference system.</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">ben_patch_to_gdf</span><span class="p">(</span><span class="n">test_json</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">ben_s2_patch_to_gdf</span><span class="p">(</span><span class="n">test_json</span><span class="p">)</span>
 <span class="n">gdf</span>
 </pre></div>
 
@@ -223,7 +336,7 @@ common coordinate reference system.</p>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe src="about:blank" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" data-html=%3C%21DOCTYPE%20html%3E%0A%3Chead%3E%20%20%20%20%0A%20%20%20%20%3Cmeta%20http-equiv%3D%22content-type%22%20content%3D%22text/html%3B%20charset%3DUTF-8%22%20/%3E%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%3Cscript%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20L_NO_TOUCH%20%3D%20false%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20L_DISABLE_3D%20%3D%20false%3B%0A%20%20%20%20%20%20%20%20%3C/script%3E%0A%20%20%20%20%0A%20%20%20%20%3Cstyle%3Ehtml%2C%20body%20%7Bwidth%3A%20100%25%3Bheight%3A%20100%25%3Bmargin%3A%200%3Bpadding%3A%200%3B%7D%3C/style%3E%0A%20%20%20%20%3Cstyle%3E%23map%20%7Bposition%3Aabsolute%3Btop%3A0%3Bbottom%3A0%3Bright%3A0%3Bleft%3A0%3B%7D%3C/style%3E%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//cdn.jsdelivr.net/npm/leaflet%401.6.0/dist/leaflet.js%22%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//code.jquery.com/jquery-1.12.4.min.js%22%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js%22%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js%22%3E%3C/script%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//cdn.jsdelivr.net/npm/leaflet%401.6.0/dist/leaflet.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css%22/%3E%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20initial-scale%3D1.0%2C%20maximum-scale%3D1.0%2C%20user-scalable%3Dno%22%20/%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cstyle%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23map_c3aae3eace3246278c60527b0909134e%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20position%3A%20relative%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20width%3A%20100.0%25%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20height%3A%20100.0%25%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20left%3A%200.0%25%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20top%3A%200.0%25%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C/style%3E%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cstyle%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.foliumtooltip%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.foliumtooltip%20table%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20margin%3A%20auto%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.foliumtooltip%20tr%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20text-align%3A%20left%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.foliumtooltip%20th%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20padding%3A%202px%3B%20padding-right%3A%208px%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/style%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%3C/head%3E%0A%3Cbody%3E%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22folium-map%22%20id%3D%22map_c3aae3eace3246278c60527b0909134e%22%20%3E%3C/div%3E%0A%20%20%20%20%20%20%20%20%0A%3C/body%3E%0A%3Cscript%3E%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20map_c3aae3eace3246278c60527b0909134e%20%3D%20L.map%28%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22map_c3aae3eace3246278c60527b0909134e%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20center%3A%20%5B52.30844257308861%2C%20-6.890685612519352%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20crs%3A%20L.CRS.EPSG3857%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20zoom%3A%2010%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20zoomControl%3A%20true%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20preferCanvas%3A%20false%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20L.control.scale%28%29.addTo%28map_c3aae3eace3246278c60527b0909134e%29%3B%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20tile_layer_cf38cfef63904db387dcbd5a2305361a%20%3D%20L.tileLayer%28%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22https%3A//%7Bs%7D.tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7B%22attribution%22%3A%20%22Data%20by%20%5Cu0026copy%3B%20%5Cu003ca%20href%3D%5C%22http%3A//openstreetmap.org%5C%22%5Cu003eOpenStreetMap%5Cu003c/a%5Cu003e%2C%20under%20%5Cu003ca%20href%3D%5C%22http%3A//www.openstreetmap.org/copyright%5C%22%5Cu003eODbL%5Cu003c/a%5Cu003e.%22%2C%20%22detectRetina%22%3A%20false%2C%20%22maxNativeZoom%22%3A%2018%2C%20%22maxZoom%22%3A%2018%2C%20%22minZoom%22%3A%200%2C%20%22noWrap%22%3A%20false%2C%20%22opacity%22%3A%201%2C%20%22subdomains%22%3A%20%22abc%22%2C%20%22tms%22%3A%20false%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%29.addTo%28map_c3aae3eace3246278c60527b0909134e%29%3B%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20map_c3aae3eace3246278c60527b0909134e.fitBounds%28%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B%5B52.30289483030577%2C%20-6.899736490283037%5D%2C%20%5B52.313990315871465%2C%20-6.881634734755667%5D%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7B%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%29%3B%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20function%20geo_json_170c28cb3e54401d9c63c0c992f70fe1_styler%28feature%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20switch%28feature.id%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20default%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%7B%22fillOpacity%22%3A%200.5%2C%20%22weight%22%3A%202%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20function%20geo_json_170c28cb3e54401d9c63c0c992f70fe1_highlighter%28feature%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20switch%28feature.id%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20default%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%7B%22fillOpacity%22%3A%200.75%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20function%20geo_json_170c28cb3e54401d9c63c0c992f70fe1_pointToLayer%28feature%2C%20latlng%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20opts%20%3D%20%7B%22bubblingMouseEvents%22%3A%20true%2C%20%22color%22%3A%20%22%233388ff%22%2C%20%22dashArray%22%3A%20null%2C%20%22dashOffset%22%3A%20null%2C%20%22fill%22%3A%20true%2C%20%22fillColor%22%3A%20%22%233388ff%22%2C%20%22fillOpacity%22%3A%200.2%2C%20%22fillRule%22%3A%20%22evenodd%22%2C%20%22lineCap%22%3A%20%22round%22%2C%20%22lineJoin%22%3A%20%22round%22%2C%20%22opacity%22%3A%201.0%2C%20%22radius%22%3A%202%2C%20%22stroke%22%3A%20true%2C%20%22weight%22%3A%203%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20let%20style%20%3D%20geo_json_170c28cb3e54401d9c63c0c992f70fe1_styler%28feature%29%0A%20%20%20%20%20%20%20%20%20%20%20%20Object.assign%28opts%2C%20style%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20new%20L.CircleMarker%28latlng%2C%20opts%29%0A%20%20%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20%20%20function%20geo_json_170c28cb3e54401d9c63c0c992f70fe1_onEachFeature%28feature%2C%20layer%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20layer.on%28%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20mouseout%3A%20function%28e%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%28typeof%20e.target.setStyle%20%3D%3D%3D%20%22function%22%29%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20geo_json_170c28cb3e54401d9c63c0c992f70fe1.resetStyle%28e.target%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20mouseover%3A%20function%28e%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%28typeof%20e.target.setStyle%20%3D%3D%3D%20%22function%22%29%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20highlightStyle%20%3D%20geo_json_170c28cb3e54401d9c63c0c992f70fe1_highlighter%28e.target.feature%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20e.target.setStyle%28highlightStyle%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%29%3B%0A%20%20%20%20%20%20%20%20%7D%3B%0A%20%20%20%20%20%20%20%20var%20geo_json_170c28cb3e54401d9c63c0c992f70fe1%20%3D%20L.geoJson%28null%2C%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20onEachFeature%3A%20geo_json_170c28cb3e54401d9c63c0c992f70fe1_onEachFeature%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3A%20geo_json_170c28cb3e54401d9c63c0c992f70fe1_styler%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20pointToLayer%3A%20geo_json_170c28cb3e54401d9c63c0c992f70fe1_pointToLayer%0A%20%20%20%20%20%20%20%20%7D%29%3B%0A%0A%20%20%20%20%20%20%20%20function%20geo_json_170c28cb3e54401d9c63c0c992f70fe1_add%20%28data%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20geo_json_170c28cb3e54401d9c63c0c992f70fe1%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.addData%28data%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.addTo%28map_c3aae3eace3246278c60527b0909134e%29%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20geo_json_170c28cb3e54401d9c63c0c992f70fe1_add%28%7B%22bbox%22%3A%20%5B-6.899736490283037%2C%2052.30289483030577%2C%20-6.881634734755667%2C%2052.313990315871465%5D%2C%20%22features%22%3A%20%5B%7B%22bbox%22%3A%20%5B-6.899736490283037%2C%2052.30289483030577%2C%20-6.881634734755667%2C%2052.313990315871465%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B%5B%5B-6.88214950301242%2C%2052.30289483030577%5D%2C%20%5B-6.881634734755667%2C%2052.31367603525128%5D%2C%20%5B-6.899225989052316%2C%2052.313990315871465%5D%2C%20%5B-6.899736490283037%2C%2052.30320898948728%5D%2C%20%5B-6.88214950301242%2C%2052.30289483030577%5D%5D%5D%2C%20%22type%22%3A%20%22Polygon%22%7D%2C%20%22id%22%3A%20%220%22%2C%20%22properties%22%3A%20%7B%22acquisition_date%22%3A%20%222017-06-17%2011%3A33%3A21%22%2C%20%22labels%22%3A%20%5B%22Non-irrigated%20arable%20land%22%2C%20%22Pastures%22%5D%2C%20%22name%22%3A%20%22S2A_MSIL2A_20170617T113321_36_85%22%2C%20%22tile_source%22%3A%20%22S2A_MSIL1C_20170617T113321_N0205_R080_T29UPU_20170617T113319.SAFE%22%7D%2C%20%22type%22%3A%20%22Feature%22%7D%5D%2C%20%22type%22%3A%20%22FeatureCollection%22%7D%29%3B%0A%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20geo_json_170c28cb3e54401d9c63c0c992f70fe1.bindTooltip%28%0A%20%20%20%20function%28layer%29%7B%0A%20%20%20%20let%20div%20%3D%20L.DomUtil.create%28%27div%27%29%3B%0A%20%20%20%20%0A%20%20%20%20let%20handleObject%20%3D%20feature%3D%3Etypeof%28feature%29%3D%3D%27object%27%20%3F%20JSON.stringify%28feature%29%20%3A%20feature%3B%0A%20%20%20%20let%20fields%20%3D%20%5B%22labels%22%2C%20%22tile_source%22%2C%20%22acquisition_date%22%2C%20%22name%22%5D%3B%0A%20%20%20%20let%20aliases%20%3D%20%5B%22labels%22%2C%20%22tile_source%22%2C%20%22acquisition_date%22%2C%20%22name%22%5D%3B%0A%20%20%20%20let%20table%20%3D%20%27%3Ctable%3E%27%20%2B%0A%20%20%20%20%20%20%20%20String%28%0A%20%20%20%20%20%20%20%20fields.map%28%0A%20%20%20%20%20%20%20%20%28v%2Ci%29%3D%3E%0A%20%20%20%20%20%20%20%20%60%3Ctr%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cth%3E%24%7Baliases%5Bi%5D%7D%3C/th%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Ctd%3E%24%7BhandleObject%28layer.feature.properties%5Bv%5D%29%7D%3C/td%3E%0A%20%20%20%20%20%20%20%20%3C/tr%3E%60%29.join%28%27%27%29%29%0A%20%20%20%20%2B%27%3C/table%3E%27%3B%0A%20%20%20%20div.innerHTML%3Dtable%3B%0A%20%20%20%20%0A%20%20%20%20return%20div%0A%20%20%20%20%7D%0A%20%20%20%20%2C%7B%22className%22%3A%20%22foliumtooltip%22%2C%20%22sticky%22%3A%20true%7D%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%3C/script%3E onload="this.contentDocument.open();this.contentDocument.write(    decodeURIComponent(this.getAttribute('data-html')));this.contentDocument.close();" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div>
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe src="about:blank" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" data-html=%3C%21DOCTYPE%20html%3E%0A%3Chead%3E%20%20%20%20%0A%20%20%20%20%3Cmeta%20http-equiv%3D%22content-type%22%20content%3D%22text/html%3B%20charset%3DUTF-8%22%20/%3E%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%3Cscript%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20L_NO_TOUCH%20%3D%20false%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20L_DISABLE_3D%20%3D%20false%3B%0A%20%20%20%20%20%20%20%20%3C/script%3E%0A%20%20%20%20%0A%20%20%20%20%3Cstyle%3Ehtml%2C%20body%20%7Bwidth%3A%20100%25%3Bheight%3A%20100%25%3Bmargin%3A%200%3Bpadding%3A%200%3B%7D%3C/style%3E%0A%20%20%20%20%3Cstyle%3E%23map%20%7Bposition%3Aabsolute%3Btop%3A0%3Bbottom%3A0%3Bright%3A0%3Bleft%3A0%3B%7D%3C/style%3E%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//cdn.jsdelivr.net/npm/leaflet%401.6.0/dist/leaflet.js%22%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//code.jquery.com/jquery-1.12.4.min.js%22%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js%22%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js%22%3E%3C/script%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//cdn.jsdelivr.net/npm/leaflet%401.6.0/dist/leaflet.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css%22/%3E%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20initial-scale%3D1.0%2C%20maximum-scale%3D1.0%2C%20user-scalable%3Dno%22%20/%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cstyle%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23map_0df6f15a98884d23a20af8e3ed7324d4%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20position%3A%20relative%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20width%3A%20100.0%25%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20height%3A%20100.0%25%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20left%3A%200.0%25%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20top%3A%200.0%25%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C/style%3E%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cstyle%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.foliumtooltip%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.foliumtooltip%20table%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20margin%3A%20auto%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.foliumtooltip%20tr%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20text-align%3A%20left%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.foliumtooltip%20th%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20padding%3A%202px%3B%20padding-right%3A%208px%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/style%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%3C/head%3E%0A%3Cbody%3E%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22folium-map%22%20id%3D%22map_0df6f15a98884d23a20af8e3ed7324d4%22%20%3E%3C/div%3E%0A%20%20%20%20%20%20%20%20%0A%3C/body%3E%0A%3Cscript%3E%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20map_0df6f15a98884d23a20af8e3ed7324d4%20%3D%20L.map%28%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22map_0df6f15a98884d23a20af8e3ed7324d4%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20center%3A%20%5B52.30844257308861%2C%20-6.890685612519352%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20crs%3A%20L.CRS.EPSG3857%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20zoom%3A%2010%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20zoomControl%3A%20true%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20preferCanvas%3A%20false%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20L.control.scale%28%29.addTo%28map_0df6f15a98884d23a20af8e3ed7324d4%29%3B%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20tile_layer_84b02c13f54a4d0e83524854eaf50e69%20%3D%20L.tileLayer%28%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22https%3A//%7Bs%7D.tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7B%22attribution%22%3A%20%22Data%20by%20%5Cu0026copy%3B%20%5Cu003ca%20href%3D%5C%22http%3A//openstreetmap.org%5C%22%5Cu003eOpenStreetMap%5Cu003c/a%5Cu003e%2C%20under%20%5Cu003ca%20href%3D%5C%22http%3A//www.openstreetmap.org/copyright%5C%22%5Cu003eODbL%5Cu003c/a%5Cu003e.%22%2C%20%22detectRetina%22%3A%20false%2C%20%22maxNativeZoom%22%3A%2018%2C%20%22maxZoom%22%3A%2018%2C%20%22minZoom%22%3A%200%2C%20%22noWrap%22%3A%20false%2C%20%22opacity%22%3A%201%2C%20%22subdomains%22%3A%20%22abc%22%2C%20%22tms%22%3A%20false%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%29.addTo%28map_0df6f15a98884d23a20af8e3ed7324d4%29%3B%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20map_0df6f15a98884d23a20af8e3ed7324d4.fitBounds%28%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B%5B52.30289483030577%2C%20-6.899736490283037%5D%2C%20%5B52.313990315871465%2C%20-6.881634734755667%5D%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7B%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%29%3B%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20function%20geo_json_d51fca9cf21047ac82d0311b037909fe_styler%28feature%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20switch%28feature.id%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20default%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%7B%22fillOpacity%22%3A%200.5%2C%20%22weight%22%3A%202%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20function%20geo_json_d51fca9cf21047ac82d0311b037909fe_highlighter%28feature%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20switch%28feature.id%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20default%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%7B%22fillOpacity%22%3A%200.75%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20function%20geo_json_d51fca9cf21047ac82d0311b037909fe_pointToLayer%28feature%2C%20latlng%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20opts%20%3D%20%7B%22bubblingMouseEvents%22%3A%20true%2C%20%22color%22%3A%20%22%233388ff%22%2C%20%22dashArray%22%3A%20null%2C%20%22dashOffset%22%3A%20null%2C%20%22fill%22%3A%20true%2C%20%22fillColor%22%3A%20%22%233388ff%22%2C%20%22fillOpacity%22%3A%200.2%2C%20%22fillRule%22%3A%20%22evenodd%22%2C%20%22lineCap%22%3A%20%22round%22%2C%20%22lineJoin%22%3A%20%22round%22%2C%20%22opacity%22%3A%201.0%2C%20%22radius%22%3A%202%2C%20%22stroke%22%3A%20true%2C%20%22weight%22%3A%203%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20let%20style%20%3D%20geo_json_d51fca9cf21047ac82d0311b037909fe_styler%28feature%29%0A%20%20%20%20%20%20%20%20%20%20%20%20Object.assign%28opts%2C%20style%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20new%20L.CircleMarker%28latlng%2C%20opts%29%0A%20%20%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20%20%20function%20geo_json_d51fca9cf21047ac82d0311b037909fe_onEachFeature%28feature%2C%20layer%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20layer.on%28%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20mouseout%3A%20function%28e%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%28typeof%20e.target.setStyle%20%3D%3D%3D%20%22function%22%29%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20geo_json_d51fca9cf21047ac82d0311b037909fe.resetStyle%28e.target%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20mouseover%3A%20function%28e%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%28typeof%20e.target.setStyle%20%3D%3D%3D%20%22function%22%29%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20highlightStyle%20%3D%20geo_json_d51fca9cf21047ac82d0311b037909fe_highlighter%28e.target.feature%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20e.target.setStyle%28highlightStyle%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%29%3B%0A%20%20%20%20%20%20%20%20%7D%3B%0A%20%20%20%20%20%20%20%20var%20geo_json_d51fca9cf21047ac82d0311b037909fe%20%3D%20L.geoJson%28null%2C%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20onEachFeature%3A%20geo_json_d51fca9cf21047ac82d0311b037909fe_onEachFeature%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3A%20geo_json_d51fca9cf21047ac82d0311b037909fe_styler%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20pointToLayer%3A%20geo_json_d51fca9cf21047ac82d0311b037909fe_pointToLayer%0A%20%20%20%20%20%20%20%20%7D%29%3B%0A%0A%20%20%20%20%20%20%20%20function%20geo_json_d51fca9cf21047ac82d0311b037909fe_add%20%28data%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20geo_json_d51fca9cf21047ac82d0311b037909fe%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.addData%28data%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.addTo%28map_0df6f15a98884d23a20af8e3ed7324d4%29%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20geo_json_d51fca9cf21047ac82d0311b037909fe_add%28%7B%22bbox%22%3A%20%5B-6.899736490283037%2C%2052.30289483030577%2C%20-6.881634734755667%2C%2052.313990315871465%5D%2C%20%22features%22%3A%20%5B%7B%22bbox%22%3A%20%5B-6.899736490283037%2C%2052.30289483030577%2C%20-6.881634734755667%2C%2052.313990315871465%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B%5B%5B-6.88214950301242%2C%2052.30289483030577%5D%2C%20%5B-6.881634734755667%2C%2052.31367603525128%5D%2C%20%5B-6.899225989052316%2C%2052.313990315871465%5D%2C%20%5B-6.899736490283037%2C%2052.30320898948728%5D%2C%20%5B-6.88214950301242%2C%2052.30289483030577%5D%5D%5D%2C%20%22type%22%3A%20%22Polygon%22%7D%2C%20%22id%22%3A%20%220%22%2C%20%22properties%22%3A%20%7B%22acquisition_date%22%3A%20%222017-06-17%2011%3A33%3A21%22%2C%20%22labels%22%3A%20%5B%22Non-irrigated%20arable%20land%22%2C%20%22Pastures%22%5D%2C%20%22name%22%3A%20%22S2A_MSIL2A_20170617T113321_36_85%22%2C%20%22tile_source%22%3A%20%22S2A_MSIL1C_20170617T113321_N0205_R080_T29UPU_20170617T113319.SAFE%22%7D%2C%20%22type%22%3A%20%22Feature%22%7D%5D%2C%20%22type%22%3A%20%22FeatureCollection%22%7D%29%3B%0A%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20geo_json_d51fca9cf21047ac82d0311b037909fe.bindTooltip%28%0A%20%20%20%20function%28layer%29%7B%0A%20%20%20%20let%20div%20%3D%20L.DomUtil.create%28%27div%27%29%3B%0A%20%20%20%20%0A%20%20%20%20let%20handleObject%20%3D%20feature%3D%3Etypeof%28feature%29%3D%3D%27object%27%20%3F%20JSON.stringify%28feature%29%20%3A%20feature%3B%0A%20%20%20%20let%20fields%20%3D%20%5B%22labels%22%2C%20%22tile_source%22%2C%20%22acquisition_date%22%2C%20%22name%22%5D%3B%0A%20%20%20%20let%20aliases%20%3D%20%5B%22labels%22%2C%20%22tile_source%22%2C%20%22acquisition_date%22%2C%20%22name%22%5D%3B%0A%20%20%20%20let%20table%20%3D%20%27%3Ctable%3E%27%20%2B%0A%20%20%20%20%20%20%20%20String%28%0A%20%20%20%20%20%20%20%20fields.map%28%0A%20%20%20%20%20%20%20%20%28v%2Ci%29%3D%3E%0A%20%20%20%20%20%20%20%20%60%3Ctr%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cth%3E%24%7Baliases%5Bi%5D%7D%3C/th%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Ctd%3E%24%7BhandleObject%28layer.feature.properties%5Bv%5D%29%7D%3C/td%3E%0A%20%20%20%20%20%20%20%20%3C/tr%3E%60%29.join%28%27%27%29%29%0A%20%20%20%20%2B%27%3C/table%3E%27%3B%0A%20%20%20%20div.innerHTML%3Dtable%3B%0A%20%20%20%20%0A%20%20%20%20return%20div%0A%20%20%20%20%7D%0A%20%20%20%20%2C%7B%22className%22%3A%20%22foliumtooltip%22%2C%20%22sticky%22%3A%20true%7D%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%3C/script%3E onload="this.contentDocument.open();this.contentDocument.write(    decodeURIComponent(this.getAttribute('data-html')));this.contentDocument.close();" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div>
 </div>
 
 </div>
@@ -245,9 +358,9 @@ common coordinate reference system.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="build_gdf_from_patch_paths" class="doc_header"><code>build_gdf_from_patch_paths</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L99" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_gdf_from_patch_paths</code>(<strong><code>patch_paths</code></strong>:<code>List</code>[<code>Path</code>], <strong><code>n_workers</code></strong>:<code>PositiveInt</code>=<em><code>8</code></em>, <strong><code>progress</code></strong>:<code>bool</code>=<em><code>True</code></em>, <strong><code>target_proj</code></strong>:<code>str</code>=<em><code>'epsg:4326'</code></em>)</p>
+<h4 id="build_gdf_from_s2_patch_paths" class="doc_header"><code>build_gdf_from_s2_patch_paths</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L198" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_gdf_from_s2_patch_paths</code>(<strong><code>paths</code></strong>:<code>List</code>[<code>Path</code>], <strong><code>n_workers</code></strong>:<code>PositiveInt</code>=<em><code>8</code></em>, <strong><code>progress</code></strong>:<code>bool</code>=<em><code>True</code></em>, <strong><code>target_proj</code></strong>:<code>str</code>=<em><code>'epsg:4326'</code></em>)</p>
 </blockquote>
-<p>Build a single <code>geopandas.GeoDataFrame</code> from the BEN json files.
+<p>Build a single <code>geopandas.GeoDataFrame</code> from the BEN-S2 json files.
 The code will run in parallel and use <code>n_workers</code> processes.
 By default a progress-bar will be shown.</p>
 <p>From personal experience, the ideal number of workers is 8 in most cases.
@@ -256,48 +369,7 @@ More than 8 usually leads to only minor improvements and with n_workers &gt; 12
 the performance usually degrades.</p>
 <p>The function returns a single GDF with all patches reprojected to <code>target_proj</code>,
 which is <code>epsg:4326</code> by default.</p>
-
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_patch_directories" class="doc_header"><code>get_patch_directories</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L139" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_patch_directories</code>(<strong><code>dir_path</code></strong>:<code>DirectoryPath</code>)</p>
-</blockquote>
-<p>Tries to find all patch directories in the provided <code>dir_path</code>.
-The function will use a semi-relaxed regex matching procedure.</p>
-<p>Warning:
-It is currently only verified for BEN-S2 patches.</p>
+<p>If the directory contains no S2 patch-folders, an <code>ValueError</code> is raised.</p>
 
 </div>
 
@@ -320,10 +392,80 @@ It is currently only verified for BEN-S2 patches.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_gdf_from_patch_dir" class="doc_header"><code>get_gdf_from_patch_dir</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L151" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_gdf_from_patch_dir</code>(<strong><code>dir_path</code></strong>:<code>DirectoryPath</code>, <strong><code>n_workers</code></strong>:<code>PositiveInt</code>=<em><code>8</code></em>, <strong><code>progress</code></strong>:<code>bool</code>=<em><code>True</code></em>, <strong><code>target_proj</code></strong>:<code>str</code>=<em><code>'epsg:4326'</code></em>)</p>
+<h4 id="build_gdf_from_s1_patch_paths" class="doc_header"><code>build_gdf_from_s1_patch_paths</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L221" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_gdf_from_s1_patch_paths</code>(<strong><code>paths</code></strong>:<code>List</code>[<code>Path</code>], <strong><code>n_workers</code></strong>:<code>PositiveInt</code>=<em><code>8</code></em>, <strong><code>progress</code></strong>:<code>bool</code>=<em><code>True</code></em>, <strong><code>target_proj</code></strong>:<code>str</code>=<em><code>'epsg:4326'</code></em>)</p>
 </blockquote>
-<p>Searches through <code>dir_path</code> to assemble a BEN-style <code>GeoDataFrame</code>.
-Wraps around <code>get_patch_directory</code> and <a href="/bigearthnet_common/gdf_builder.html#build_gdf_from_patch_paths"><code>build_gdf_from_patch_paths</code></a>.</p>
+<p>Build a single <code>geopandas.GeoDataFrame</code> from the BEN-S1 json files.
+The code will run in parallel and use <code>n_workers</code> processes.
+By default a progress-bar will be shown.</p>
+<p>From personal experience, the ideal number of workers is 8 in most cases.
+For laptops with fewer cores, 2 or 4 <code>n_workers</code> should be set.
+More than 8 usually leads to only minor improvements and with n_workers &gt; 12
+the performance usually degrades.</p>
+<p>The function returns a single GDF with all patches reprojected to <code>target_proj</code>,
+which is <code>epsg:4326</code> by default.</p>
+<p>If the directory contains no S2 patch-folders, an <code>ValueError</code> is raised.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="get_gdf_from_s2_patch_dir" class="doc_header"><code>get_gdf_from_s2_patch_dir</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L245" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_gdf_from_s2_patch_dir</code>(<strong><code>dir_path</code></strong>:<code>DirectoryPath</code>, <strong><code>n_workers</code></strong>:<code>PositiveInt</code>=<em><code>8</code></em>, <strong><code>progress</code></strong>:<code>bool</code>=<em><code>True</code></em>, <strong><code>target_proj</code></strong>:<code>str</code>=<em><code>'epsg:4326'</code></em>)</p>
+</blockquote>
+<p>Searches through <code>dir_path</code> to assemble a BEN-S2-style <code>GeoDataFrame</code>.
+Will only consider correctly named directories.
+Wraps around <code>get_s2_patch_directory</code> and <a href="/bigearthnet_common/gdf_builder.html#build_gdf_from_s2_patch_paths"><code>build_gdf_from_s2_patch_paths</code></a>.</p>
+<p>Raises an error if an empty GeoDataFrame would be produced.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="get_gdf_from_s1_patch_dir" class="doc_header"><code>get_gdf_from_s1_patch_dir</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L260" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_gdf_from_s1_patch_dir</code>(<strong><code>dir_path</code></strong>:<code>DirectoryPath</code>, <strong><code>n_workers</code></strong>:<code>PositiveInt</code>=<em><code>8</code></em>, <strong><code>progress</code></strong>:<code>bool</code>=<em><code>True</code></em>, <strong><code>target_proj</code></strong>:<code>str</code>=<em><code>'epsg:4326'</code></em>)</p>
+</blockquote>
+<p>Searches through <code>dir_path</code> to assemble a BEN-S1-style <code>GeoDataFrame</code>.
+Will only consider correctly named directories.
+Wraps around <code>get_s1_patch_directory</code> and <a href="/bigearthnet_common/gdf_builder.html#build_gdf_from_s1_patch_paths"><code>build_gdf_from_s1_patch_paths</code></a>.</p>
 <p>Raises an error if an empty GeoDataFrame would be produced.</p>
 
 </div>
@@ -350,7 +492,7 @@ Wraps around <code>get_patch_directory</code> and <a href="/bigearthnet_common/g
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">get_gdf_from_patch_dir</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">get_gdf_from_s2_patch_dir</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">)</span>
 <span class="c1"># polygons are become too small on default zoom level</span>
 <span class="c1"># show a simple representative point of the polygon instead</span>
 <span class="n">marker_gdf</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -369,7 +511,42 @@ Wraps around <code>get_patch_directory</code> and <a href="/bigearthnet_common/g
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe src="about:blank" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" data-html=%3C%21DOCTYPE%20html%3E%0A%3Chead%3E%20%20%20%20%0A%20%20%20%20%3Cmeta%20http-equiv%3D%22content-type%22%20content%3D%22text/html%3B%20charset%3DUTF-8%22%20/%3E%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%3Cscript%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20L_NO_TOUCH%20%3D%20false%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20L_DISABLE_3D%20%3D%20false%3B%0A%20%20%20%20%20%20%20%20%3C/script%3E%0A%20%20%20%20%0A%20%20%20%20%3Cstyle%3Ehtml%2C%20body%20%7Bwidth%3A%20100%25%3Bheight%3A%20100%25%3Bmargin%3A%200%3Bpadding%3A%200%3B%7D%3C/style%3E%0A%20%20%20%20%3Cstyle%3E%23map%20%7Bposition%3Aabsolute%3Btop%3A0%3Bbottom%3A0%3Bright%3A0%3Bleft%3A0%3B%7D%3C/style%3E%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//cdn.jsdelivr.net/npm/leaflet%401.6.0/dist/leaflet.js%22%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//code.jquery.com/jquery-1.12.4.min.js%22%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js%22%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js%22%3E%3C/script%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//cdn.jsdelivr.net/npm/leaflet%401.6.0/dist/leaflet.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css%22/%3E%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20initial-scale%3D1.0%2C%20maximum-scale%3D1.0%2C%20user-scalable%3Dno%22%20/%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cstyle%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23map_c3854d4d56454912878d2303b1df7b61%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20position%3A%20relative%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20width%3A%20100.0%25%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20height%3A%20100.0%25%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20left%3A%200.0%25%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20top%3A%200.0%25%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C/style%3E%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cstyle%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.foliumtooltip%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.foliumtooltip%20table%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20margin%3A%20auto%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.foliumtooltip%20tr%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20text-align%3A%20left%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.foliumtooltip%20th%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20padding%3A%202px%3B%20padding-right%3A%208px%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/style%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%3C/head%3E%0A%3Cbody%3E%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22folium-map%22%20id%3D%22map_c3854d4d56454912878d2303b1df7b61%22%20%3E%3C/div%3E%0A%20%20%20%20%20%20%20%20%0A%3C/body%3E%0A%3Cscript%3E%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20map_c3854d4d56454912878d2303b1df7b61%20%3D%20L.map%28%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22map_c3854d4d56454912878d2303b1df7b61%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20center%3A%20%5B52.11559609161934%2C%2010.86149489531085%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20crs%3A%20L.CRS.EPSG3857%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20zoom%3A%2010%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20zoomControl%3A%20true%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20preferCanvas%3A%20false%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20L.control.scale%28%29.addTo%28map_c3854d4d56454912878d2303b1df7b61%29%3B%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20tile_layer_45f962ed9ac642e6a26b33361195d2a1%20%3D%20L.tileLayer%28%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22https%3A//%7Bs%7D.tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7B%22attribution%22%3A%20%22Data%20by%20%5Cu0026copy%3B%20%5Cu003ca%20href%3D%5C%22http%3A//openstreetmap.org%5C%22%5Cu003eOpenStreetMap%5Cu003c/a%5Cu003e%2C%20under%20%5Cu003ca%20href%3D%5C%22http%3A//www.openstreetmap.org/copyright%5C%22%5Cu003eODbL%5Cu003c/a%5Cu003e.%22%2C%20%22detectRetina%22%3A%20false%2C%20%22maxNativeZoom%22%3A%2018%2C%20%22maxZoom%22%3A%2018%2C%20%22minZoom%22%3A%200%2C%20%22noWrap%22%3A%20false%2C%20%22opacity%22%3A%201%2C%20%22subdomains%22%3A%20%22abc%22%2C%20%22tms%22%3A%20false%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%29.addTo%28map_c3854d4d56454912878d2303b1df7b61%29%3B%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20map_c3854d4d56454912878d2303b1df7b61.fitBounds%28%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B%5B39.36376104689367%2C%20-8.213206798221538%5D%2C%20%5B64.867431136345%2C%2029.936196588843238%5D%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7B%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%29%3B%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20function%20geo_json_b2a043b1d7b4496f80c6878efdf1b0e4_styler%28feature%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20switch%28feature.id%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20default%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%7B%22fillOpacity%22%3A%200.5%2C%20%22weight%22%3A%202%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20function%20geo_json_b2a043b1d7b4496f80c6878efdf1b0e4_highlighter%28feature%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20switch%28feature.id%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20default%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%7B%22fillOpacity%22%3A%200.75%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20function%20geo_json_b2a043b1d7b4496f80c6878efdf1b0e4_pointToLayer%28feature%2C%20latlng%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20opts%20%3D%20%7B%22fill%22%3A%20true%2C%20%22radius%22%3A%202%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20let%20style%20%3D%20geo_json_b2a043b1d7b4496f80c6878efdf1b0e4_styler%28feature%29%0A%20%20%20%20%20%20%20%20%20%20%20%20Object.assign%28opts%2C%20style%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20new%20L.Marker%28latlng%2C%20opts%29%0A%20%20%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20%20%20function%20geo_json_b2a043b1d7b4496f80c6878efdf1b0e4_onEachFeature%28feature%2C%20layer%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20layer.on%28%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20mouseout%3A%20function%28e%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%28typeof%20e.target.setStyle%20%3D%3D%3D%20%22function%22%29%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20geo_json_b2a043b1d7b4496f80c6878efdf1b0e4.resetStyle%28e.target%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20mouseover%3A%20function%28e%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%28typeof%20e.target.setStyle%20%3D%3D%3D%20%22function%22%29%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20highlightStyle%20%3D%20geo_json_b2a043b1d7b4496f80c6878efdf1b0e4_highlighter%28e.target.feature%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20e.target.setStyle%28highlightStyle%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%29%3B%0A%20%20%20%20%20%20%20%20%7D%3B%0A%20%20%20%20%20%20%20%20var%20geo_json_b2a043b1d7b4496f80c6878efdf1b0e4%20%3D%20L.geoJson%28null%2C%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20onEachFeature%3A%20geo_json_b2a043b1d7b4496f80c6878efdf1b0e4_onEachFeature%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3A%20geo_json_b2a043b1d7b4496f80c6878efdf1b0e4_styler%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20pointToLayer%3A%20geo_json_b2a043b1d7b4496f80c6878efdf1b0e4_pointToLayer%0A%20%20%20%20%20%20%20%20%7D%29%3B%0A%0A%20%20%20%20%20%20%20%20function%20geo_json_b2a043b1d7b4496f80c6878efdf1b0e4_add%20%28data%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20geo_json_b2a043b1d7b4496f80c6878efdf1b0e4%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.addData%28data%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.addTo%28map_c3854d4d56454912878d2303b1df7b61%29%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20geo_json_b2a043b1d7b4496f80c6878efdf1b0e4_add%28%7B%22bbox%22%3A%20%5B-8.213206798221538%2C%2039.36376104689367%2C%2029.936196588843238%2C%2064.867431136345%5D%2C%20%22features%22%3A%20%5B%7B%22bbox%22%3A%20%5B-8.213206798221538%2C%2039.36376104689367%2C%20-8.213206798221538%2C%2039.36376104689367%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B-8.213206798221538%2C%2039.36376104689367%5D%2C%20%22type%22%3A%20%22Point%22%7D%2C%20%22id%22%3A%20%220%22%2C%20%22properties%22%3A%20%7B%22acquisition_date%22%3A%20%222017-12-21%2011%3A25%3A01%22%2C%20%22labels%22%3A%20%5B%22Complex%20cultivation%20patterns%22%2C%20%22Land%20principally%20occupied%20by%20agriculture%2C%20with%20significant%20areas%20of%20natural%20vegetation%22%2C%20%22Broad-leaved%20forest%22%2C%20%22Transitional%20woodland/shrub%22%5D%2C%20%22name%22%3A%20%22S2A_MSIL2A_20171221T112501_56_35%22%2C%20%22tile_source%22%3A%20%22S2A_MSIL1C_20171221T112501_N0206_R037_T29SND_20171221T114356.SAFE%22%7D%2C%20%22type%22%3A%20%22Feature%22%7D%2C%20%7B%22bbox%22%3A%20%5B29.604485355453956%2C%2064.867431136345%2C%2029.604485355453956%2C%2064.867431136345%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B29.604485355453956%2C%2064.867431136345%5D%2C%20%22type%22%3A%20%22Point%22%7D%2C%20%22id%22%3A%20%221%22%2C%20%22properties%22%3A%20%7B%22acquisition_date%22%3A%20%222018-05-10%2009%3A40%3A33%22%2C%20%22labels%22%3A%20%5B%22Coniferous%20forest%22%2C%20%22Peatbogs%22%5D%2C%20%22name%22%3A%20%22S2A_MSIL2A_20180510T94033_19_86%22%2C%20%22tile_source%22%3A%20%22S2A_MSIL1C_20180510T94033_N0206_R036_T35WPN_20180510T114116.SAFE%22%7D%2C%20%22type%22%3A%20%22Feature%22%7D%2C%20%7B%22bbox%22%3A%20%5B-6.890686649586739%2C%2052.30844251236928%2C%20-6.890686649586739%2C%2052.30844251236928%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B-6.890686649586739%2C%2052.30844251236928%5D%2C%20%22type%22%3A%20%22Point%22%7D%2C%20%22id%22%3A%20%222%22%2C%20%22properties%22%3A%20%7B%22acquisition_date%22%3A%20%222017-06-17%2011%3A33%3A21%22%2C%20%22labels%22%3A%20%5B%22Non-irrigated%20arable%20land%22%2C%20%22Pastures%22%5D%2C%20%22name%22%3A%20%22S2A_MSIL2A_20170617T113321_36_85%22%2C%20%22tile_source%22%3A%20%22S2A_MSIL1C_20170617T113321_N0205_R080_T29UPU_20170617T113319.SAFE%22%7D%2C%20%22type%22%3A%20%22Feature%22%7D%2C%20%7B%22bbox%22%3A%20%5B25.061582874332363%2C%2056.219499068259196%2C%2025.061582874332363%2C%2056.219499068259196%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B25.061582874332363%2C%2056.219499068259196%5D%2C%20%22type%22%3A%20%22Point%22%7D%2C%20%22id%22%3A%20%223%22%2C%20%22properties%22%3A%20%7B%22acquisition_date%22%3A%20%222017-09-27%2009%3A40%3A19%22%2C%20%22labels%22%3A%20%5B%22Land%20principally%20occupied%20by%20agriculture%2C%20with%20significant%20areas%20of%20natural%20vegetation%22%2C%20%22Broad-leaved%20forest%22%2C%20%22Mixed%20forest%22%2C%20%22Transitional%20woodland/shrub%22%5D%2C%20%22name%22%3A%20%22S2B_MSIL2A_20170927T094019_66_56%22%2C%20%22tile_source%22%3A%20%22S2B_MSIL1C_20170927T094019_N0205_R036_T35VLC_20170927T094016.SAFE%22%7D%2C%20%22type%22%3A%20%22Feature%22%7D%2C%20%7B%22bbox%22%3A%20%5B21.49223428565407%2C%2044.72608040968221%2C%2021.49223428565407%2C%2044.72608040968221%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B21.49223428565407%2C%2044.72608040968221%5D%2C%20%22type%22%3A%20%22Point%22%7D%2C%20%22id%22%3A%20%224%22%2C%20%22properties%22%3A%20%7B%22acquisition_date%22%3A%20%222017-09-14%2009%3A30%3A29%22%2C%20%22labels%22%3A%20%5B%22Non-irrigated%20arable%20land%22%2C%20%22Land%20principally%20occupied%20by%20agriculture%2C%20with%20significant%20areas%20of%20natural%20vegetation%22%2C%20%22Broad-leaved%20forest%22%5D%2C%20%22name%22%3A%20%22S2B_MSIL2A_20170914T093029_32_39%22%2C%20%22tile_source%22%3A%20%22S2B_MSIL1C_20170914T093029_N0205_R136_T34TEQ_20170914T093654.SAFE%22%7D%2C%20%22type%22%3A%20%22Feature%22%7D%2C%20%7B%22bbox%22%3A%20%5B-6.758362574665499%2C%2053.179993317824106%2C%20-6.758362574665499%2C%2053.179993317824106%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B-6.758362574665499%2C%2053.179993317824106%5D%2C%20%22type%22%3A%20%22Point%22%7D%2C%20%22id%22%3A%20%225%22%2C%20%22properties%22%3A%20%7B%22acquisition_date%22%3A%20%222018-04-21%2011%3A43%3A49%22%2C%20%22labels%22%3A%20%5B%22Non-irrigated%20arable%20land%22%2C%20%22Pastures%22%2C%20%22Broad-leaved%20forest%22%5D%2C%20%22name%22%3A%20%22S2B_MSIL2A_20180421T114349_41_4%22%2C%20%22tile_source%22%3A%20%22S2B_MSIL1C_20180421T114349_N0206_R123_T29UPU_20180421T134219.SAFE%22%7D%2C%20%22type%22%3A%20%22Feature%22%7D%2C%20%7B%22bbox%22%3A%20%5B-6.680849684127433%2C%2052.61743383004935%2C%20-6.680849684127433%2C%2052.61743383004935%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B-6.680849684127433%2C%2052.61743383004935%5D%2C%20%22type%22%3A%20%22Point%22%7D%2C%20%22id%22%3A%20%226%22%2C%20%22properties%22%3A%20%7B%22acquisition_date%22%3A%20%222018-04-21%2011%3A43%3A49%22%2C%20%22labels%22%3A%20%5B%22Non-irrigated%20arable%20land%22%2C%20%22Pastures%22%5D%2C%20%22name%22%3A%20%22S2B_MSIL2A_20180421T114349_47_56%22%2C%20%22tile_source%22%3A%20%22S2B_MSIL1C_20180421T114349_N0206_R123_T29UPU_20180421T134219.SAFE%22%7D%2C%20%22type%22%3A%20%22Feature%22%7D%2C%20%7B%22bbox%22%3A%20%5B29.936196588843238%2C%2062.781146375803544%2C%2029.936196588843238%2C%2062.781146375803544%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B29.936196588843238%2C%2062.781146375803544%5D%2C%20%22type%22%3A%20%22Point%22%7D%2C%20%22id%22%3A%20%227%22%2C%20%22properties%22%3A%20%7B%22acquisition_date%22%3A%20%222017-09-24%2009%3A30%3A21%22%2C%20%22labels%22%3A%20%5B%22Broad-leaved%20forest%22%2C%20%22Mixed%20forest%22%5D%2C%20%22name%22%3A%20%22S2B_MSIL2A_20170924T93021_41_29%22%2C%20%22tile_source%22%3A%20%22S2B_MSIL1C_20170924T93021_N0205_R136_T35VPK_20170924T093132.SAFE%22%7D%2C%20%22type%22%3A%20%22Feature%22%7D%2C%20%7B%22bbox%22%3A%20%5B21.65187303011116%2C%2044.09490137175899%2C%2021.65187303011116%2C%2044.09490137175899%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B21.65187303011116%2C%2044.09490137175899%5D%2C%20%22type%22%3A%20%22Point%22%7D%2C%20%22id%22%3A%20%228%22%2C%20%22properties%22%3A%20%7B%22acquisition_date%22%3A%20%222018-05-02%2009%3A30%3A39%22%2C%20%22labels%22%3A%20%5B%22Complex%20cultivation%20patterns%22%2C%20%22Land%20principally%20occupied%20by%20agriculture%2C%20with%20significant%20areas%20of%20natural%20vegetation%22%2C%20%22Broad-leaved%20forest%22%2C%20%22Transitional%20woodland/shrub%22%5D%2C%20%22name%22%3A%20%22S2B_MSIL2A_20180502T093039_43_14%22%2C%20%22tile_source%22%3A%20%22S2B_MSIL1C_20180502T093039_N0206_R136_T34TEP_20180502T113747.SAFE%22%7D%2C%20%22type%22%3A%20%22Feature%22%7D%2C%20%7B%22bbox%22%3A%20%5B27.9593411132371%2C%2060.81928291963718%2C%2027.9593411132371%2C%2060.81928291963718%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B27.9593411132371%2C%2060.81928291963718%5D%2C%20%22type%22%3A%20%22Point%22%7D%2C%20%22id%22%3A%20%229%22%2C%20%22properties%22%3A%20%7B%22acquisition_date%22%3A%20%222017-09-24%2009%3A30%3A19%22%2C%20%22labels%22%3A%20%5B%22Coniferous%20forest%22%2C%20%22Transitional%20woodland/shrub%22%5D%2C%20%22name%22%3A%20%22S2B_MSIL2A_20170924T093019_43_47%22%2C%20%22tile_source%22%3A%20%22S2B_MSIL1C_20170924T093019_N0205_R136_T35VNH_20170924T093132.SAFE%22%7D%2C%20%22type%22%3A%20%22Feature%22%7D%2C%20%7B%22bbox%22%3A%20%5B-7.442302856994679%2C%2052.64068597587841%2C%20-7.442302856994679%2C%2052.64068597587841%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B-7.442302856994679%2C%2052.64068597587841%5D%2C%20%22type%22%3A%20%22Point%22%7D%2C%20%22id%22%3A%20%2210%22%2C%20%22properties%22%3A%20%7B%22acquisition_date%22%3A%20%222017-06-17%2011%3A33%3A21%22%2C%20%22labels%22%3A%20%5B%22Pastures%22%5D%2C%20%22name%22%3A%20%22S2A_MSIL2A_20170617T113321_4_55%22%2C%20%22tile_source%22%3A%20%22S2A_MSIL1C_20170617T113321_N0205_R080_T29UPU_20170617T113319.SAFE%22%7D%2C%20%22type%22%3A%20%22Feature%22%7D%5D%2C%20%22type%22%3A%20%22FeatureCollection%22%7D%29%3B%0A%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20geo_json_b2a043b1d7b4496f80c6878efdf1b0e4.bindTooltip%28%0A%20%20%20%20function%28layer%29%7B%0A%20%20%20%20let%20div%20%3D%20L.DomUtil.create%28%27div%27%29%3B%0A%20%20%20%20%0A%20%20%20%20let%20handleObject%20%3D%20feature%3D%3Etypeof%28feature%29%3D%3D%27object%27%20%3F%20JSON.stringify%28feature%29%20%3A%20feature%3B%0A%20%20%20%20let%20fields%20%3D%20%5B%22labels%22%2C%20%22tile_source%22%2C%20%22acquisition_date%22%2C%20%22name%22%5D%3B%0A%20%20%20%20let%20aliases%20%3D%20%5B%22labels%22%2C%20%22tile_source%22%2C%20%22acquisition_date%22%2C%20%22name%22%5D%3B%0A%20%20%20%20let%20table%20%3D%20%27%3Ctable%3E%27%20%2B%0A%20%20%20%20%20%20%20%20String%28%0A%20%20%20%20%20%20%20%20fields.map%28%0A%20%20%20%20%20%20%20%20%28v%2Ci%29%3D%3E%0A%20%20%20%20%20%20%20%20%60%3Ctr%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cth%3E%24%7Baliases%5Bi%5D%7D%3C/th%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Ctd%3E%24%7BhandleObject%28layer.feature.properties%5Bv%5D%29%7D%3C/td%3E%0A%20%20%20%20%20%20%20%20%3C/tr%3E%60%29.join%28%27%27%29%29%0A%20%20%20%20%2B%27%3C/table%3E%27%3B%0A%20%20%20%20div.innerHTML%3Dtable%3B%0A%20%20%20%20%0A%20%20%20%20return%20div%0A%20%20%20%20%7D%0A%20%20%20%20%2C%7B%22className%22%3A%20%22foliumtooltip%22%2C%20%22sticky%22%3A%20true%7D%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%3C/script%3E onload="this.contentDocument.open();this.contentDocument.write(    decodeURIComponent(this.getAttribute('data-html')));this.contentDocument.close();" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div>
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe src="about:blank" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" data-html=%3C%21DOCTYPE%20html%3E%0A%3Chead%3E%20%20%20%20%0A%20%20%20%20%3Cmeta%20http-equiv%3D%22content-type%22%20content%3D%22text/html%3B%20charset%3DUTF-8%22%20/%3E%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%3Cscript%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20L_NO_TOUCH%20%3D%20false%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20L_DISABLE_3D%20%3D%20false%3B%0A%20%20%20%20%20%20%20%20%3C/script%3E%0A%20%20%20%20%0A%20%20%20%20%3Cstyle%3Ehtml%2C%20body%20%7Bwidth%3A%20100%25%3Bheight%3A%20100%25%3Bmargin%3A%200%3Bpadding%3A%200%3B%7D%3C/style%3E%0A%20%20%20%20%3Cstyle%3E%23map%20%7Bposition%3Aabsolute%3Btop%3A0%3Bbottom%3A0%3Bright%3A0%3Bleft%3A0%3B%7D%3C/style%3E%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//cdn.jsdelivr.net/npm/leaflet%401.6.0/dist/leaflet.js%22%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//code.jquery.com/jquery-1.12.4.min.js%22%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js%22%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js%22%3E%3C/script%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//cdn.jsdelivr.net/npm/leaflet%401.6.0/dist/leaflet.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css%22/%3E%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20initial-scale%3D1.0%2C%20maximum-scale%3D1.0%2C%20user-scalable%3Dno%22%20/%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cstyle%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23map_0d72808793df4d90a342f98277d3eb6a%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20position%3A%20relative%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20width%3A%20100.0%25%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20height%3A%20100.0%25%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20left%3A%200.0%25%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20top%3A%200.0%25%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C/style%3E%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cstyle%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.foliumtooltip%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.foliumtooltip%20table%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20margin%3A%20auto%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.foliumtooltip%20tr%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20text-align%3A%20left%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.foliumtooltip%20th%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20padding%3A%202px%3B%20padding-right%3A%208px%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/style%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%3C/head%3E%0A%3Cbody%3E%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22folium-map%22%20id%3D%22map_0d72808793df4d90a342f98277d3eb6a%22%20%3E%3C/div%3E%0A%20%20%20%20%20%20%20%20%0A%3C/body%3E%0A%3Cscript%3E%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20map_0d72808793df4d90a342f98277d3eb6a%20%3D%20L.map%28%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22map_0d72808793df4d90a342f98277d3eb6a%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20center%3A%20%5B50.09152198326542%2C%209.873067157507782%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20crs%3A%20L.CRS.EPSG3857%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20zoom%3A%2010%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20zoomControl%3A%20true%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20preferCanvas%3A%20false%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20L.control.scale%28%29.addTo%28map_0d72808793df4d90a342f98277d3eb6a%29%3B%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20tile_layer_600827cdc1cc4fc0a2e74bd51de62546%20%3D%20L.tileLayer%28%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22https%3A//%7Bs%7D.tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7B%22attribution%22%3A%20%22Data%20by%20%5Cu0026copy%3B%20%5Cu003ca%20href%3D%5C%22http%3A//openstreetmap.org%5C%22%5Cu003eOpenStreetMap%5Cu003c/a%5Cu003e%2C%20under%20%5Cu003ca%20href%3D%5C%22http%3A//www.openstreetmap.org/copyright%5C%22%5Cu003eODbL%5Cu003c/a%5Cu003e.%22%2C%20%22detectRetina%22%3A%20false%2C%20%22maxNativeZoom%22%3A%2018%2C%20%22maxZoom%22%3A%2018%2C%20%22minZoom%22%3A%200%2C%20%22noWrap%22%3A%20false%2C%20%22opacity%22%3A%201%2C%20%22subdomains%22%3A%20%22abc%22%2C%20%22tms%22%3A%20false%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%29.addTo%28map_0d72808793df4d90a342f98277d3eb6a%29%3B%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20map_0d72808793df4d90a342f98277d3eb6a.fitBounds%28%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B%5B39.36376104689367%2C%20-8.213206798221538%5D%2C%20%5B60.81928291963718%2C%2027.9593411132371%5D%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7B%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%29%3B%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20function%20geo_json_bb2cd37fe1234fa38fb687c170acc396_styler%28feature%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20switch%28feature.id%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20default%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%7B%22fillOpacity%22%3A%200.5%2C%20%22weight%22%3A%202%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20function%20geo_json_bb2cd37fe1234fa38fb687c170acc396_highlighter%28feature%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20switch%28feature.id%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20default%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%7B%22fillOpacity%22%3A%200.75%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20function%20geo_json_bb2cd37fe1234fa38fb687c170acc396_pointToLayer%28feature%2C%20latlng%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20opts%20%3D%20%7B%22fill%22%3A%20true%2C%20%22radius%22%3A%202%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20let%20style%20%3D%20geo_json_bb2cd37fe1234fa38fb687c170acc396_styler%28feature%29%0A%20%20%20%20%20%20%20%20%20%20%20%20Object.assign%28opts%2C%20style%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20new%20L.Marker%28latlng%2C%20opts%29%0A%20%20%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20%20%20function%20geo_json_bb2cd37fe1234fa38fb687c170acc396_onEachFeature%28feature%2C%20layer%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20layer.on%28%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20mouseout%3A%20function%28e%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%28typeof%20e.target.setStyle%20%3D%3D%3D%20%22function%22%29%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20geo_json_bb2cd37fe1234fa38fb687c170acc396.resetStyle%28e.target%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20mouseover%3A%20function%28e%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%28typeof%20e.target.setStyle%20%3D%3D%3D%20%22function%22%29%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20highlightStyle%20%3D%20geo_json_bb2cd37fe1234fa38fb687c170acc396_highlighter%28e.target.feature%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20e.target.setStyle%28highlightStyle%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%29%3B%0A%20%20%20%20%20%20%20%20%7D%3B%0A%20%20%20%20%20%20%20%20var%20geo_json_bb2cd37fe1234fa38fb687c170acc396%20%3D%20L.geoJson%28null%2C%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20onEachFeature%3A%20geo_json_bb2cd37fe1234fa38fb687c170acc396_onEachFeature%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3A%20geo_json_bb2cd37fe1234fa38fb687c170acc396_styler%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20pointToLayer%3A%20geo_json_bb2cd37fe1234fa38fb687c170acc396_pointToLayer%0A%20%20%20%20%20%20%20%20%7D%29%3B%0A%0A%20%20%20%20%20%20%20%20function%20geo_json_bb2cd37fe1234fa38fb687c170acc396_add%20%28data%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20geo_json_bb2cd37fe1234fa38fb687c170acc396%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.addData%28data%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.addTo%28map_0d72808793df4d90a342f98277d3eb6a%29%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20geo_json_bb2cd37fe1234fa38fb687c170acc396_add%28%7B%22bbox%22%3A%20%5B-8.213206798221538%2C%2039.36376104689367%2C%2027.9593411132371%2C%2060.81928291963718%5D%2C%20%22features%22%3A%20%5B%7B%22bbox%22%3A%20%5B-8.213206798221538%2C%2039.36376104689367%2C%20-8.213206798221538%2C%2039.36376104689367%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B-8.213206798221538%2C%2039.36376104689367%5D%2C%20%22type%22%3A%20%22Point%22%7D%2C%20%22id%22%3A%20%220%22%2C%20%22properties%22%3A%20%7B%22acquisition_date%22%3A%20%222017-12-21%2011%3A25%3A01%22%2C%20%22labels%22%3A%20%5B%22Complex%20cultivation%20patterns%22%2C%20%22Land%20principally%20occupied%20by%20agriculture%2C%20with%20significant%20areas%20of%20natural%20vegetation%22%2C%20%22Broad-leaved%20forest%22%2C%20%22Transitional%20woodland/shrub%22%5D%2C%20%22name%22%3A%20%22S2A_MSIL2A_20171221T112501_56_35%22%2C%20%22tile_source%22%3A%20%22S2A_MSIL1C_20171221T112501_N0206_R037_T29SND_20171221T114356.SAFE%22%7D%2C%20%22type%22%3A%20%22Feature%22%7D%2C%20%7B%22bbox%22%3A%20%5B-6.890686649586739%2C%2052.30844251236928%2C%20-6.890686649586739%2C%2052.30844251236928%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B-6.890686649586739%2C%2052.30844251236928%5D%2C%20%22type%22%3A%20%22Point%22%7D%2C%20%22id%22%3A%20%221%22%2C%20%22properties%22%3A%20%7B%22acquisition_date%22%3A%20%222017-06-17%2011%3A33%3A21%22%2C%20%22labels%22%3A%20%5B%22Non-irrigated%20arable%20land%22%2C%20%22Pastures%22%5D%2C%20%22name%22%3A%20%22S2A_MSIL2A_20170617T113321_36_85%22%2C%20%22tile_source%22%3A%20%22S2A_MSIL1C_20170617T113321_N0205_R080_T29UPU_20170617T113319.SAFE%22%7D%2C%20%22type%22%3A%20%22Feature%22%7D%2C%20%7B%22bbox%22%3A%20%5B25.061582874332363%2C%2056.219499068259196%2C%2025.061582874332363%2C%2056.219499068259196%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B25.061582874332363%2C%2056.219499068259196%5D%2C%20%22type%22%3A%20%22Point%22%7D%2C%20%22id%22%3A%20%222%22%2C%20%22properties%22%3A%20%7B%22acquisition_date%22%3A%20%222017-09-27%2009%3A40%3A19%22%2C%20%22labels%22%3A%20%5B%22Land%20principally%20occupied%20by%20agriculture%2C%20with%20significant%20areas%20of%20natural%20vegetation%22%2C%20%22Broad-leaved%20forest%22%2C%20%22Mixed%20forest%22%2C%20%22Transitional%20woodland/shrub%22%5D%2C%20%22name%22%3A%20%22S2B_MSIL2A_20170927T094019_66_56%22%2C%20%22tile_source%22%3A%20%22S2B_MSIL1C_20170927T094019_N0205_R036_T35VLC_20170927T094016.SAFE%22%7D%2C%20%22type%22%3A%20%22Feature%22%7D%2C%20%7B%22bbox%22%3A%20%5B21.49223428565407%2C%2044.72608040968221%2C%2021.49223428565407%2C%2044.72608040968221%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B21.49223428565407%2C%2044.72608040968221%5D%2C%20%22type%22%3A%20%22Point%22%7D%2C%20%22id%22%3A%20%223%22%2C%20%22properties%22%3A%20%7B%22acquisition_date%22%3A%20%222017-09-14%2009%3A30%3A29%22%2C%20%22labels%22%3A%20%5B%22Non-irrigated%20arable%20land%22%2C%20%22Land%20principally%20occupied%20by%20agriculture%2C%20with%20significant%20areas%20of%20natural%20vegetation%22%2C%20%22Broad-leaved%20forest%22%5D%2C%20%22name%22%3A%20%22S2B_MSIL2A_20170914T093029_32_39%22%2C%20%22tile_source%22%3A%20%22S2B_MSIL1C_20170914T093029_N0205_R136_T34TEQ_20170914T093654.SAFE%22%7D%2C%20%22type%22%3A%20%22Feature%22%7D%2C%20%7B%22bbox%22%3A%20%5B-6.758362574665499%2C%2053.179993317824106%2C%20-6.758362574665499%2C%2053.179993317824106%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B-6.758362574665499%2C%2053.179993317824106%5D%2C%20%22type%22%3A%20%22Point%22%7D%2C%20%22id%22%3A%20%224%22%2C%20%22properties%22%3A%20%7B%22acquisition_date%22%3A%20%222018-04-21%2011%3A43%3A49%22%2C%20%22labels%22%3A%20%5B%22Non-irrigated%20arable%20land%22%2C%20%22Pastures%22%2C%20%22Broad-leaved%20forest%22%5D%2C%20%22name%22%3A%20%22S2B_MSIL2A_20180421T114349_41_4%22%2C%20%22tile_source%22%3A%20%22S2B_MSIL1C_20180421T114349_N0206_R123_T29UPU_20180421T134219.SAFE%22%7D%2C%20%22type%22%3A%20%22Feature%22%7D%2C%20%7B%22bbox%22%3A%20%5B-6.680849684127433%2C%2052.61743383004935%2C%20-6.680849684127433%2C%2052.61743383004935%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B-6.680849684127433%2C%2052.61743383004935%5D%2C%20%22type%22%3A%20%22Point%22%7D%2C%20%22id%22%3A%20%225%22%2C%20%22properties%22%3A%20%7B%22acquisition_date%22%3A%20%222018-04-21%2011%3A43%3A49%22%2C%20%22labels%22%3A%20%5B%22Non-irrigated%20arable%20land%22%2C%20%22Pastures%22%5D%2C%20%22name%22%3A%20%22S2B_MSIL2A_20180421T114349_47_56%22%2C%20%22tile_source%22%3A%20%22S2B_MSIL1C_20180421T114349_N0206_R123_T29UPU_20180421T134219.SAFE%22%7D%2C%20%22type%22%3A%20%22Feature%22%7D%2C%20%7B%22bbox%22%3A%20%5B21.65187303011116%2C%2044.09490137175899%2C%2021.65187303011116%2C%2044.09490137175899%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B21.65187303011116%2C%2044.09490137175899%5D%2C%20%22type%22%3A%20%22Point%22%7D%2C%20%22id%22%3A%20%226%22%2C%20%22properties%22%3A%20%7B%22acquisition_date%22%3A%20%222018-05-02%2009%3A30%3A39%22%2C%20%22labels%22%3A%20%5B%22Complex%20cultivation%20patterns%22%2C%20%22Land%20principally%20occupied%20by%20agriculture%2C%20with%20significant%20areas%20of%20natural%20vegetation%22%2C%20%22Broad-leaved%20forest%22%2C%20%22Transitional%20woodland/shrub%22%5D%2C%20%22name%22%3A%20%22S2B_MSIL2A_20180502T093039_43_14%22%2C%20%22tile_source%22%3A%20%22S2B_MSIL1C_20180502T093039_N0206_R136_T34TEP_20180502T113747.SAFE%22%7D%2C%20%22type%22%3A%20%22Feature%22%7D%2C%20%7B%22bbox%22%3A%20%5B27.9593411132371%2C%2060.81928291963718%2C%2027.9593411132371%2C%2060.81928291963718%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B27.9593411132371%2C%2060.81928291963718%5D%2C%20%22type%22%3A%20%22Point%22%7D%2C%20%22id%22%3A%20%227%22%2C%20%22properties%22%3A%20%7B%22acquisition_date%22%3A%20%222017-09-24%2009%3A30%3A19%22%2C%20%22labels%22%3A%20%5B%22Coniferous%20forest%22%2C%20%22Transitional%20woodland/shrub%22%5D%2C%20%22name%22%3A%20%22S2B_MSIL2A_20170924T093019_43_47%22%2C%20%22tile_source%22%3A%20%22S2B_MSIL1C_20170924T093019_N0205_R136_T35VNH_20170924T093132.SAFE%22%7D%2C%20%22type%22%3A%20%22Feature%22%7D%2C%20%7B%22bbox%22%3A%20%5B-7.442302856994679%2C%2052.64068597587841%2C%20-7.442302856994679%2C%2052.64068597587841%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B-7.442302856994679%2C%2052.64068597587841%5D%2C%20%22type%22%3A%20%22Point%22%7D%2C%20%22id%22%3A%20%228%22%2C%20%22properties%22%3A%20%7B%22acquisition_date%22%3A%20%222017-06-17%2011%3A33%3A21%22%2C%20%22labels%22%3A%20%5B%22Pastures%22%5D%2C%20%22name%22%3A%20%22S2A_MSIL2A_20170617T113321_4_55%22%2C%20%22tile_source%22%3A%20%22S2A_MSIL1C_20170617T113321_N0205_R080_T29UPU_20170617T113319.SAFE%22%7D%2C%20%22type%22%3A%20%22Feature%22%7D%5D%2C%20%22type%22%3A%20%22FeatureCollection%22%7D%29%3B%0A%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20geo_json_bb2cd37fe1234fa38fb687c170acc396.bindTooltip%28%0A%20%20%20%20function%28layer%29%7B%0A%20%20%20%20let%20div%20%3D%20L.DomUtil.create%28%27div%27%29%3B%0A%20%20%20%20%0A%20%20%20%20let%20handleObject%20%3D%20feature%3D%3Etypeof%28feature%29%3D%3D%27object%27%20%3F%20JSON.stringify%28feature%29%20%3A%20feature%3B%0A%20%20%20%20let%20fields%20%3D%20%5B%22labels%22%2C%20%22tile_source%22%2C%20%22acquisition_date%22%2C%20%22name%22%5D%3B%0A%20%20%20%20let%20aliases%20%3D%20%5B%22labels%22%2C%20%22tile_source%22%2C%20%22acquisition_date%22%2C%20%22name%22%5D%3B%0A%20%20%20%20let%20table%20%3D%20%27%3Ctable%3E%27%20%2B%0A%20%20%20%20%20%20%20%20String%28%0A%20%20%20%20%20%20%20%20fields.map%28%0A%20%20%20%20%20%20%20%20%28v%2Ci%29%3D%3E%0A%20%20%20%20%20%20%20%20%60%3Ctr%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cth%3E%24%7Baliases%5Bi%5D%7D%3C/th%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Ctd%3E%24%7BhandleObject%28layer.feature.properties%5Bv%5D%29%7D%3C/td%3E%0A%20%20%20%20%20%20%20%20%3C/tr%3E%60%29.join%28%27%27%29%29%0A%20%20%20%20%2B%27%3C/table%3E%27%3B%0A%20%20%20%20div.innerHTML%3Dtable%3B%0A%20%20%20%20%0A%20%20%20%20return%20div%0A%20%20%20%20%7D%0A%20%20%20%20%2C%7B%22className%22%3A%20%22foliumtooltip%22%2C%20%22sticky%22%3A%20true%7D%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%3C/script%3E onload="this.contentDocument.open();this.contentDocument.write(    decodeURIComponent(this.getAttribute('data-html')));this.contentDocument.close();" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">get_gdf_from_s1_patch_dir</span><span class="p">(</span><span class="n">s1_test_dataset</span><span class="p">)</span>
+<span class="c1"># if polygons are close enough together, they could be plotted</span>
+<span class="c1"># together</span>
+<span class="n">marker_gdf</span><span class="o">.</span><span class="n">explore</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe src="about:blank" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" data-html=%3C%21DOCTYPE%20html%3E%0A%3Chead%3E%20%20%20%20%0A%20%20%20%20%3Cmeta%20http-equiv%3D%22content-type%22%20content%3D%22text/html%3B%20charset%3DUTF-8%22%20/%3E%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%3Cscript%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20L_NO_TOUCH%20%3D%20false%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20L_DISABLE_3D%20%3D%20false%3B%0A%20%20%20%20%20%20%20%20%3C/script%3E%0A%20%20%20%20%0A%20%20%20%20%3Cstyle%3Ehtml%2C%20body%20%7Bwidth%3A%20100%25%3Bheight%3A%20100%25%3Bmargin%3A%200%3Bpadding%3A%200%3B%7D%3C/style%3E%0A%20%20%20%20%3Cstyle%3E%23map%20%7Bposition%3Aabsolute%3Btop%3A0%3Bbottom%3A0%3Bright%3A0%3Bleft%3A0%3B%7D%3C/style%3E%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//cdn.jsdelivr.net/npm/leaflet%401.6.0/dist/leaflet.js%22%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//code.jquery.com/jquery-1.12.4.min.js%22%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js%22%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js%22%3E%3C/script%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//cdn.jsdelivr.net/npm/leaflet%401.6.0/dist/leaflet.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css%22/%3E%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20initial-scale%3D1.0%2C%20maximum-scale%3D1.0%2C%20user-scalable%3Dno%22%20/%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cstyle%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23map_81ad914c147a4d0ab739d1c8f88055e7%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20position%3A%20relative%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20width%3A%20100.0%25%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20height%3A%20100.0%25%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20left%3A%200.0%25%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20top%3A%200.0%25%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C/style%3E%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cstyle%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.foliumtooltip%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.foliumtooltip%20table%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20margin%3A%20auto%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.foliumtooltip%20tr%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20text-align%3A%20left%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.foliumtooltip%20th%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20padding%3A%202px%3B%20padding-right%3A%208px%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/style%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%3C/head%3E%0A%3Cbody%3E%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22folium-map%22%20id%3D%22map_81ad914c147a4d0ab739d1c8f88055e7%22%20%3E%3C/div%3E%0A%20%20%20%20%20%20%20%20%0A%3C/body%3E%0A%3Cscript%3E%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20map_81ad914c147a4d0ab739d1c8f88055e7%20%3D%20L.map%28%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22map_81ad914c147a4d0ab739d1c8f88055e7%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20center%3A%20%5B48.30319821747365%2C%2013.298184854337872%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20crs%3A%20L.CRS.EPSG3857%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20zoom%3A%2010%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20zoomControl%3A%20true%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20preferCanvas%3A%20false%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20L.control.scale%28%29.addTo%28map_81ad914c147a4d0ab739d1c8f88055e7%29%3B%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20tile_layer_30a354217ff54e7a865e124ce5de1108%20%3D%20L.tileLayer%28%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22https%3A//%7Bs%7D.tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7B%22attribution%22%3A%20%22Data%20by%20%5Cu0026copy%3B%20%5Cu003ca%20href%3D%5C%22http%3A//openstreetmap.org%5C%22%5Cu003eOpenStreetMap%5Cu003c/a%5Cu003e%2C%20under%20%5Cu003ca%20href%3D%5C%22http%3A//www.openstreetmap.org/copyright%5C%22%5Cu003eODbL%5Cu003c/a%5Cu003e.%22%2C%20%22detectRetina%22%3A%20false%2C%20%22maxNativeZoom%22%3A%2018%2C%20%22maxZoom%22%3A%2018%2C%20%22minZoom%22%3A%200%2C%20%22noWrap%22%3A%20false%2C%20%22opacity%22%3A%201%2C%20%22subdomains%22%3A%20%22abc%22%2C%20%22tms%22%3A%20false%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%29.addTo%28map_81ad914c147a4d0ab739d1c8f88055e7%29%3B%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20map_81ad914c147a4d0ab739d1c8f88055e7.fitBounds%28%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B%5B48.29240693337016%2C%2013.29782602748517%5D%2C%20%5B48.31398950157714%2C%2013.298543681190576%5D%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7B%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%29%3B%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20function%20geo_json_2cb3a5a79b0143cda3a35de7e1bba32a_styler%28feature%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20switch%28feature.id%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20default%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%7B%22fillOpacity%22%3A%200.5%2C%20%22weight%22%3A%202%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20function%20geo_json_2cb3a5a79b0143cda3a35de7e1bba32a_highlighter%28feature%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20switch%28feature.id%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20default%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%7B%22fillOpacity%22%3A%200.75%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20function%20geo_json_2cb3a5a79b0143cda3a35de7e1bba32a_pointToLayer%28feature%2C%20latlng%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20opts%20%3D%20%7B%22bubblingMouseEvents%22%3A%20true%2C%20%22color%22%3A%20%22%233388ff%22%2C%20%22dashArray%22%3A%20null%2C%20%22dashOffset%22%3A%20null%2C%20%22fill%22%3A%20true%2C%20%22fillColor%22%3A%20%22%233388ff%22%2C%20%22fillOpacity%22%3A%200.2%2C%20%22fillRule%22%3A%20%22evenodd%22%2C%20%22lineCap%22%3A%20%22round%22%2C%20%22lineJoin%22%3A%20%22round%22%2C%20%22opacity%22%3A%201.0%2C%20%22radius%22%3A%202%2C%20%22stroke%22%3A%20true%2C%20%22weight%22%3A%203%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20let%20style%20%3D%20geo_json_2cb3a5a79b0143cda3a35de7e1bba32a_styler%28feature%29%0A%20%20%20%20%20%20%20%20%20%20%20%20Object.assign%28opts%2C%20style%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20new%20L.CircleMarker%28latlng%2C%20opts%29%0A%20%20%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20%20%20function%20geo_json_2cb3a5a79b0143cda3a35de7e1bba32a_onEachFeature%28feature%2C%20layer%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20layer.on%28%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20mouseout%3A%20function%28e%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%28typeof%20e.target.setStyle%20%3D%3D%3D%20%22function%22%29%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20geo_json_2cb3a5a79b0143cda3a35de7e1bba32a.resetStyle%28e.target%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20mouseover%3A%20function%28e%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%28typeof%20e.target.setStyle%20%3D%3D%3D%20%22function%22%29%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20highlightStyle%20%3D%20geo_json_2cb3a5a79b0143cda3a35de7e1bba32a_highlighter%28e.target.feature%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20e.target.setStyle%28highlightStyle%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%29%3B%0A%20%20%20%20%20%20%20%20%7D%3B%0A%20%20%20%20%20%20%20%20var%20geo_json_2cb3a5a79b0143cda3a35de7e1bba32a%20%3D%20L.geoJson%28null%2C%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20onEachFeature%3A%20geo_json_2cb3a5a79b0143cda3a35de7e1bba32a_onEachFeature%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3A%20geo_json_2cb3a5a79b0143cda3a35de7e1bba32a_styler%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20pointToLayer%3A%20geo_json_2cb3a5a79b0143cda3a35de7e1bba32a_pointToLayer%0A%20%20%20%20%20%20%20%20%7D%29%3B%0A%0A%20%20%20%20%20%20%20%20function%20geo_json_2cb3a5a79b0143cda3a35de7e1bba32a_add%20%28data%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20geo_json_2cb3a5a79b0143cda3a35de7e1bba32a%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.addData%28data%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.addTo%28map_81ad914c147a4d0ab739d1c8f88055e7%29%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20geo_json_2cb3a5a79b0143cda3a35de7e1bba32a_add%28%7B%22bbox%22%3A%20%5B13.29782602748517%2C%2048.29240693337016%2C%2013.298543681190576%2C%2048.31398950157714%5D%2C%20%22features%22%3A%20%5B%7B%22bbox%22%3A%20%5B13.298184960077597%2C%2048.30319822865112%2C%2013.298184960077597%2C%2048.30319822865112%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B13.298184960077597%2C%2048.30319822865112%5D%2C%20%22type%22%3A%20%22Point%22%7D%2C%20%22id%22%3A%20%220%22%2C%20%22properties%22%3A%20%7B%22acquisition_time%22%3A%20%222017-06-13T16%3A50%3A43%22%2C%20%22corresponding_s2_patch%22%3A%20%22S2A_MSIL2A_20170613T101031_61_40%22%2C%20%22labels%22%3A%20%5B%22Discontinuous%20urban%20fabric%22%2C%20%22Non-irrigated%20arable%20land%22%2C%20%22Land%20principally%20occupied%20by%20agriculture%2C%20with%20significant%20areas%20of%20natural%20vegetation%22%2C%20%22Broad-leaved%20forest%22%2C%20%22Inland%20marshes%22%2C%20%22Water%20courses%22%5D%2C%20%22name%22%3A%20%22S1A_IW_GRDH_1SDV_20170613T165043_33UUP_61_40%22%2C%20%22scene_source%22%3A%20%22S1A_IW_GRDH_1SDV_20170613T165043_20170613T165108_017018_01C579_7EEC%22%7D%2C%20%22type%22%3A%20%22Feature%22%7D%2C%20%7B%22bbox%22%3A%20%5B13.29782602748517%2C%2048.31398950157714%2C%2013.29782602748517%2C%2048.31398950157714%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B13.29782602748517%2C%2048.31398950157714%5D%2C%20%22type%22%3A%20%22Point%22%7D%2C%20%22id%22%3A%20%221%22%2C%20%22properties%22%3A%20%7B%22acquisition_time%22%3A%20%222017-06-13T16%3A50%3A43%22%2C%20%22corresponding_s2_patch%22%3A%20%22S2A_MSIL2A_20170613T101031_61_39%22%2C%20%22labels%22%3A%20%5B%22Non-irrigated%20arable%20land%22%2C%20%22Broad-leaved%20forest%22%2C%20%22Water%20courses%22%5D%2C%20%22name%22%3A%20%22S1A_IW_GRDH_1SDV_20170613T165043_33UUP_61_39%22%2C%20%22scene_source%22%3A%20%22S1A_IW_GRDH_1SDV_20170613T165043_20170613T165108_017018_01C579_7EEC%22%7D%2C%20%22type%22%3A%20%22Feature%22%7D%2C%20%7B%22bbox%22%3A%20%5B13.298543681190576%2C%2048.29240693337016%2C%2013.298543681190576%2C%2048.29240693337016%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B13.298543681190576%2C%2048.29240693337016%5D%2C%20%22type%22%3A%20%22Point%22%7D%2C%20%22id%22%3A%20%222%22%2C%20%22properties%22%3A%20%7B%22acquisition_time%22%3A%20%222017-06-13T16%3A50%3A43%22%2C%20%22corresponding_s2_patch%22%3A%20%22S2A_MSIL2A_20170613T101031_61_41%22%2C%20%22labels%22%3A%20%5B%22Discontinuous%20urban%20fabric%22%2C%20%22Non-irrigated%20arable%20land%22%2C%20%22Broad-leaved%20forest%22%2C%20%22Coniferous%20forest%22%5D%2C%20%22name%22%3A%20%22S1A_IW_GRDH_1SDV_20170613T165043_33UUP_61_41%22%2C%20%22scene_source%22%3A%20%22S1A_IW_GRDH_1SDV_20170613T165043_20170613T165108_017018_01C579_7EEC%22%7D%2C%20%22type%22%3A%20%22Feature%22%7D%5D%2C%20%22type%22%3A%20%22FeatureCollection%22%7D%29%3B%0A%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20geo_json_2cb3a5a79b0143cda3a35de7e1bba32a.bindTooltip%28%0A%20%20%20%20function%28layer%29%7B%0A%20%20%20%20let%20div%20%3D%20L.DomUtil.create%28%27div%27%29%3B%0A%20%20%20%20%0A%20%20%20%20let%20handleObject%20%3D%20feature%3D%3Etypeof%28feature%29%3D%3D%27object%27%20%3F%20JSON.stringify%28feature%29%20%3A%20feature%3B%0A%20%20%20%20let%20fields%20%3D%20%5B%22labels%22%2C%20%22corresponding_s2_patch%22%2C%20%22scene_source%22%2C%20%22acquisition_time%22%2C%20%22name%22%5D%3B%0A%20%20%20%20let%20aliases%20%3D%20%5B%22labels%22%2C%20%22corresponding_s2_patch%22%2C%20%22scene_source%22%2C%20%22acquisition_time%22%2C%20%22name%22%5D%3B%0A%20%20%20%20let%20table%20%3D%20%27%3Ctable%3E%27%20%2B%0A%20%20%20%20%20%20%20%20String%28%0A%20%20%20%20%20%20%20%20fields.map%28%0A%20%20%20%20%20%20%20%20%28v%2Ci%29%3D%3E%0A%20%20%20%20%20%20%20%20%60%3Ctr%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cth%3E%24%7Baliases%5Bi%5D%7D%3C/th%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Ctd%3E%24%7BhandleObject%28layer.feature.properties%5Bv%5D%29%7D%3C/td%3E%0A%20%20%20%20%20%20%20%20%3C/tr%3E%60%29.join%28%27%27%29%29%0A%20%20%20%20%2B%27%3C/table%3E%27%3B%0A%20%20%20%20div.innerHTML%3Dtable%3B%0A%20%20%20%20%0A%20%20%20%20return%20div%0A%20%20%20%20%7D%0A%20%20%20%20%2C%7B%22className%22%3A%20%22foliumtooltip%22%2C%20%22sticky%22%3A%20true%7D%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%3C/script%3E onload="this.contentDocument.open();this.contentDocument.write(    decodeURIComponent(this.getAttribute('data-html')));this.contentDocument.close();" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div>
 </div>
 
 </div>
@@ -410,7 +587,7 @@ Wraps around <code>get_patch_directory</code> and <a href="/bigearthnet_common/g
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_ben_countries_gdf" class="doc_header"><code>get_ben_countries_gdf</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L184" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_ben_countries_gdf</code>()</p>
+<h4 id="get_ben_countries_gdf" class="doc_header"><code>get_ben_countries_gdf</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L294" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_ben_countries_gdf</code>()</p>
 </blockquote>
 <p>Return a <code>GeoDataFrame</code> that includes the shapes of each
 country from the BigEarthNet dataset.</p>
@@ -445,7 +622,7 @@ country from the BigEarthNet dataset.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="assign_to_ben_country" class="doc_header"><code>assign_to_ben_country</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L199" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>assign_to_ben_country</code>(<strong><code>gdf</code></strong>:<code>GeoDataFrame</code>, <strong><code>crs</code></strong>:<code>str</code>=<em><code>'epsg:3035'</code></em>)</p>
+<h4 id="assign_to_ben_country" class="doc_header"><code>assign_to_ben_country</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L309" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>assign_to_ben_country</code>(<strong><code>gdf</code></strong>:<code>GeoDataFrame</code>, <strong><code>crs</code></strong>:<code>str</code>=<em><code>'epsg:3035'</code></em>)</p>
 </blockquote>
 <p>Takes a GeoDataFrame as an input and appends a <code>country</code> column.
 The <code>country</code> column indicates the closest BEN country.</p>
@@ -535,7 +712,7 @@ and a good heuristic to assign the patch to the country with the largest overlap
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Season" class="doc_header"><code>Season</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L241" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Enum</code> = [Winter, Spring, Summer, Fall]</p>
+<h2 id="Season" class="doc_header"><code>Season</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L351" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Enum</code> = [Winter, Spring, Summer, Fall]</p>
 </blockquote>
 <p>A simple season class.</p>
 
@@ -560,7 +737,7 @@ and a good heuristic to assign the patch to the country with the largest overlap
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="tfm_month_to_season" class="doc_header"><code>tfm_month_to_season</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L264" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>tfm_month_to_season</code>(<strong><code>dates</code></strong>:<code>Series</code>)</p>
+<h4 id="tfm_month_to_season" class="doc_header"><code>tfm_month_to_season</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L374" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>tfm_month_to_season</code>(<strong><code>dates</code></strong>:<code>Series</code>)</p>
 </blockquote>
 <p>Uses simple mathmatical formula to transform date
 to seasons string given their months.</p>
@@ -628,7 +805,7 @@ that we are on the northern hemisphere.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="filter_season" class="doc_header"><code>filter_season</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L276" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>filter_season</code>(<strong><code>df</code></strong>, <strong><code>date_col</code></strong>:<code>str</code>, <strong><code>season</code></strong>:<a href="/bigearthnet_common/gdf_builder.html#Season"><code>Season</code></a>)</p>
+<h4 id="filter_season" class="doc_header"><code>filter_season</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L386" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>filter_season</code>(<strong><code>df</code></strong>, <strong><code>date_col</code></strong>:<code>str</code>, <strong><code>season</code></strong>:<a href="/bigearthnet_common/gdf_builder.html#Season"><code>Season</code></a>)</p>
 </blockquote>
 
 </div>
@@ -701,11 +878,50 @@ that we are on the northern hemisphere.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="add_full_ben_metadata" class="doc_header"><code>add_full_ben_metadata</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L291" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>add_full_ben_metadata</code>(<strong><code>gdf</code></strong>:<code>GeoDataFrame</code>)</p>
+<h4 id="add_full_ben_s1_metadata" class="doc_header"><code>add_full_ben_s1_metadata</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L421" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>add_full_ben_s1_metadata</code>(<strong><code>gdf</code></strong>:<code>GeoDataFrame</code>)</p>
 </blockquote>
 <p>This is a wrapper around many functions from this library.
-It requires an input <code>GeoDataFrame</code> in <em>BigEarthNet</em> style.</p>
-<p>See <a href="/bigearthnet_common/gdf_builder.html#get_gdf_from_patch_dir"><code>get_gdf_from_patch_dir</code></a> for details to create a new <code>GeoDataFrame</code>.
+It requires an input <code>GeoDataFrame</code> in <em>S1-BigEarthNet</em> style.</p>
+<p>See <a href="/bigearthnet_common/gdf_builder.html#get_gdf_from_s1_patch_dir"><code>get_gdf_from_s1_patch_dir</code></a> for details to create a new <code>GeoDataFrame</code>.
+This function adds the following columns:</p>
+<ul>
+<li><code>snow</code>: <code>bool</code> - Whether or not the patch contains seasonal snow</li>
+<li><code>cloud_or_shadow</code>: <code>bool</code> - Whether or not the patch contains clouds/shadows</li>
+<li><code>original_split</code>: One of: <code>train|validation|test|None</code>; Indicates to which
+  split the patch was originally assigned to</li>
+<li><code>new_labels</code>: <code>label|None</code> - The 19-label nomenclature or None if
+  no target labels exist.</li>
+<li><code>country</code>: <code>str</code> - The name of the BigEarthNet country the patch belongs to.</li>
+<li><code>season</code>: <code>str</code> - The season in which the tile was aquired.</li>
+</ul>
+<p>In short, the function will add all the available metadata.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="add_full_ben_s2_metadata" class="doc_header"><code>add_full_ben_s2_metadata</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L449" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>add_full_ben_s2_metadata</code>(<strong><code>gdf</code></strong>:<code>GeoDataFrame</code>)</p>
+</blockquote>
+<p>This is a wrapper around many functions from this library.
+It requires an input <code>GeoDataFrame</code> in <em>S2-BigEarthNet</em> style.</p>
+<p>See <a href="/bigearthnet_common/gdf_builder.html#get_gdf_from_s2_patch_dir"><code>get_gdf_from_s2_patch_dir</code></a> for details to create a new <code>GeoDataFrame</code>.
 This function adds the following columns:</p>
 <ul>
 <li><code>snow</code>: <code>bool</code> - Whether or not the patch contains seasonal snow</li>
@@ -760,7 +976,7 @@ These patches are:</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="remove_bad_ben_gdf_entries" class="doc_header"><code>remove_bad_ben_gdf_entries</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L331" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>remove_bad_ben_gdf_entries</code>(<strong><code>gdf</code></strong>:<code>GeoDataFrame</code>)</p>
+<h4 id="remove_bad_ben_gdf_entries" class="doc_header"><code>remove_bad_ben_gdf_entries</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L483" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>remove_bad_ben_gdf_entries</code>(<strong><code>gdf</code></strong>:<code>GeoDataFrame</code>)</p>
 </blockquote>
 <p>It will ensure that the returned frame will only contain patches that
 also have labels for the 19 label version.</p>
@@ -771,6 +987,7 @@ The patches that do not contain any <code>new_labels</code> are dropped.</p>
 Also patches that are covered by seasonal snow or clouds/shadows
 are removed if present.</p>
 <p>The dataframe will be reindexed.</p>
+<p>Note: This function applies to both S1 and S2 BigEarthNet dataframes!</p>
 
 </div>
 
@@ -807,12 +1024,12 @@ are removed if present.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="build_raw_ben_parquet" class="doc_header"><code>build_raw_ben_parquet</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L359" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_raw_ben_parquet</code>(<strong><code>ben_path</code></strong>:<code>Path</code>, <strong><code>output_path</code></strong>:<code>Path</code>=<em><code>Path('raw_ben_gdf.parquet')</code></em>, <strong><code>n_workers</code></strong>:<code>int</code>=<em><code>8</code></em>, <strong><code>target_proj</code></strong>:<code>str</code>=<em><code>'epsg:4326'</code></em>, <strong><code>verbose</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
+<h4 id="build_raw_ben_s2_parquet" class="doc_header"><code>build_raw_ben_s2_parquet</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L513" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_raw_ben_s2_parquet</code>(<strong><code>ben_path</code></strong>:<code>Path</code>, <strong><code>output_path</code></strong>:<code>Path</code>=<em><code>Path('raw_ben_s2_gdf.parquet')</code></em>, <strong><code>n_workers</code></strong>:<code>int</code>=<em><code>8</code></em>, <strong><code>target_proj</code></strong>:<code>str</code>=<em><code>'epsg:4326'</code></em>, <strong><code>verbose</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
 </blockquote>
-<p>Create a fresh BigEarthNet-style parquet file
+<p>Create a fresh BigEarthNet-S2-style parquet file
 from all the image patches in the root <code>ben_path</code> folder.
 The output will be written to <code>output_path</code>.</p>
-<p>The default output is <code>raw_ben_gdf</code> in the current directory.</p>
+<p>The default output is <code>raw_ben_s2_gdf</code> in the current directory.</p>
 <p>The other options are only for advanced use.
 Returns the resolved output path.</p>
 
@@ -837,12 +1054,42 @@ Returns the resolved output path.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="extend_ben_parquet" class="doc_header"><code>extend_ben_parquet</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L384" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>extend_ben_parquet</code>(<strong><code>ben_parquet_path</code></strong>:<code>Path</code>, <strong><code>output_name</code></strong>:<code>str</code>=<em><code>'extended_ben_gdf.parquet'</code></em>, <strong><code>verbose</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
+<h4 id="build_raw_ben_s1_parquet" class="doc_header"><code>build_raw_ben_s1_parquet</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L537" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_raw_ben_s1_parquet</code>(<strong><code>ben_path</code></strong>:<code>Path</code>, <strong><code>output_path</code></strong>:<code>Path</code>=<em><code>Path('raw_ben_s1_gdf.parquet')</code></em>, <strong><code>n_workers</code></strong>:<code>int</code>=<em><code>8</code></em>, <strong><code>target_proj</code></strong>:<code>str</code>=<em><code>'epsg:4326'</code></em>, <strong><code>verbose</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
 </blockquote>
-<p>Extend an existing BigEarthNet-style parquet file.</p>
+<p>Create a fresh BigEarthNet-S1-style parquet file
+from all the image patches in the root <code>ben_path</code> folder.
+The output will be written to <code>output_path</code>.</p>
+<p>The default output is <code>raw_ben_s1_gdf</code> in the current directory.</p>
+<p>The other options are only for advanced use.
+Returns the resolved output path.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="extend_ben_s2_parquet" class="doc_header"><code>extend_ben_s2_parquet</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L562" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>extend_ben_s2_parquet</code>(<strong><code>ben_parquet_path</code></strong>:<code>Path</code>, <strong><code>output_name</code></strong>:<code>str</code>=<em><code>'extended_ben_s2_gdf.parquet'</code></em>, <strong><code>verbose</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
+</blockquote>
+<p>Extend an existing BigEarthNet-S2-style parquet file.</p>
 <p>The output will be written next to <code>ben_parquet_path</code> with the file
 <code>output_name</code>.
-The default name is <code>extended_ben_gdf</code>.</p>
+The default name is <code>extended_ben_s2_gdf</code>.</p>
 <p>This function heavily relies on the structure of the parquet file.
 It should only be used on parquet files that were build with this library!
 Use the functions of this package directly to have more control!</p>
@@ -868,9 +1115,40 @@ Use the functions of this package directly to have more control!</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="remove_discouraged_parquet_entries" class="doc_header"><code>remove_discouraged_parquet_entries</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L410" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>remove_discouraged_parquet_entries</code>(<strong><code>ben_parquet_path</code></strong>:<code>Path</code>, <strong><code>output_name</code></strong>:<code>str</code>=<em><code>'cleaned_ben_gdf.parquet'</code></em>, <strong><code>verbose</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
+<h4 id="extend_ben_s1_parquet" class="doc_header"><code>extend_ben_s1_parquet</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L587" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>extend_ben_s1_parquet</code>(<strong><code>ben_parquet_path</code></strong>:<code>Path</code>, <strong><code>output_name</code></strong>:<code>str</code>=<em><code>'extended_ben_s1_gdf.parquet'</code></em>, <strong><code>verbose</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
 </blockquote>
-<p>Remove entries of an existing BigEarthNet-style parquet file.</p>
+<p>Extend an existing BigEarthNet-S1-style parquet file.</p>
+<p>The output will be written next to <code>ben_parquet_path</code> with the file
+<code>output_name</code>.
+The default name is <code>extended_ben_s1_gdf</code>.</p>
+<p>This function heavily relies on the structure of the parquet file.
+It should only be used on parquet files that were build with this library!
+Use the functions of this package directly to have more control!</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="remove_discouraged_parquet_entries" class="doc_header"><code>remove_discouraged_parquet_entries</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L613" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>remove_discouraged_parquet_entries</code>(<strong><code>ben_parquet_path</code></strong>:<code>Path</code>, <strong><code>output_name</code></strong>:<code>str</code>=<em><code>'cleaned_ben_gdf.parquet'</code></em>, <strong><code>verbose</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
+</blockquote>
+<p>Remove entries of an existing BigEarthNet-style (S1 or S2) parquet file.</p>
 <p>The output will be written next to <code>ben_parquet_path</code> with the file
 <code>output_name</code>.
 The default name is <code>cleaned_ben_gdf.parquet</code>.</p>
@@ -898,15 +1176,51 @@ The default name is <code>cleaned_ben_gdf.parquet</code>.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="build_recommended_parquet" class="doc_header"><code>build_recommended_parquet</code><a href="https://github.com/k.clasen/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L435" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_recommended_parquet</code>(<strong><code>ben_path</code></strong>:<code>Path</code>, <strong><code>add_metadata</code></strong>:<code>bool</code>=<em><code>True</code></em>, <strong><code>output_path</code></strong>:<code>Path</code>=<em><code>'final_ben.parquet'</code></em>, <strong><code>n_workers</code></strong>:<code>int</code>=<em><code>8</code></em>, <strong><code>target_proj</code></strong>:<code>str</code>=<em><code>'epsg:4326'</code></em>, <strong><code>verbose</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
+<h4 id="build_recommended_s2_parquet" class="doc_header"><code>build_recommended_s2_parquet</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L638" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_recommended_s2_parquet</code>(<strong><code>ben_path</code></strong>:<code>Path</code>, <strong><code>add_metadata</code></strong>:<code>bool</code>=<em><code>True</code></em>, <strong><code>output_path</code></strong>:<code>Path</code>=<em><code>'final_ben_s2.parquet'</code></em>, <strong><code>n_workers</code></strong>:<code>int</code>=<em><code>8</code></em>, <strong><code>target_proj</code></strong>:<code>str</code>=<em><code>'epsg:4326'</code></em>, <strong><code>verbose</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
 </blockquote>
-<p>! Generate the recommended GeoDataFrame and save
+<p>Generate the recommended S2-GeoDataFrame and save
 it as a parquet file.</p>
-<p>It will call <a href="/bigearthnet_common/gdf_builder.html#build_raw_ben_parquet"><code>build_raw_ben_parquet</code></a> under the hood and remove
+<p>It will call <a href="/bigearthnet_common/gdf_builder.html#build_raw_ben_s2_parquet"><code>build_raw_ben_s2_parquet</code></a> under the hood and remove
 patches that are not recommended for DL.
 If <code>add_metadata</code> is set, the GeoDataFrame will be
 enriched with extra information, such as Country and Season of the patch.
-See <a href="/bigearthnet_common/gdf_builder.html#add_full_ben_metadata"><code>add_full_ben_metadata</code></a> for more information.</p>
+See <code>add_full_ben_metadata</code> for more information.</p>
+<p>This tool will store all intermediate results in a temporary directory.
+This temporary directory will be printed to allow accessing these
+intermediate results if necessary.
+The resulting GeoDataFrame will be copied to <code>output_path</code>.</p>
+<p>The other keyword arguments should usually be left untouched.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="build_recommended_s1_parquet" class="doc_header"><code>build_recommended_s1_parquet</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/gdf_builder.py#L685" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_recommended_s1_parquet</code>(<strong><code>ben_path</code></strong>:<code>Path</code>, <strong><code>add_metadata</code></strong>:<code>bool</code>=<em><code>True</code></em>, <strong><code>output_path</code></strong>:<code>Path</code>=<em><code>'final_ben_s1.parquet'</code></em>, <strong><code>n_workers</code></strong>:<code>int</code>=<em><code>8</code></em>, <strong><code>target_proj</code></strong>:<code>str</code>=<em><code>'epsg:4326'</code></em>, <strong><code>verbose</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
+</blockquote>
+<p>Generate the recommended S1-GeoDataFrame and save
+it as a parquet file.</p>
+<p>It will call <a href="/bigearthnet_common/gdf_builder.html#build_raw_ben_s1_parquet"><code>build_raw_ben_s1_parquet</code></a> under the hood and remove
+patches that are not recommended for DL.
+If <code>add_metadata</code> is set, the GeoDataFrame will be
+enriched with extra information, such as Country and Season of the patch.
+See <code>add_full_ben_metadata</code> for more information.</p>
 <p>This tool will store all intermediate results in a temporary directory.
 This temporary directory will be printed to allow accessing these
 intermediate results if necessary.
