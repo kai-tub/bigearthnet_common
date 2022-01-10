@@ -1,3 +1,15 @@
+# v1.0.1 (Mon Jan 10 2022)
+
+#### 🐛 Bug Fix
+
+- Allow rich=11 too [#14](https://github.com/kai-tub/bigearthnet_common/pull/14) ([@kai-tub](https://github.com/kai-tub))
+
+#### Authors: 1
+
+- Kai Norman Clasen ([@kai-tub](https://github.com/kai-tub))
+
+---
+
 # v1.0.0 (Mon Jan 10 2022)
 
 #### 💥 Breaking Change
