@@ -1,3 +1,15 @@
+# v1.0.0 (Mon Jan 10 2022)
+
+#### 💥 Breaking Change
+
+- Split up package [#13](https://github.com/kai-tub/bigearthnet_common/pull/13) ([@kai-tub](https://github.com/kai-tub))
+
+#### Authors: 1
+
+- Kai Norman Clasen ([@kai-tub](https://github.com/kai-tub))
+
+---
+
 # v0.3.1 (Sun Jan 02 2022)
 
 #### 🐛 Bug Fix
