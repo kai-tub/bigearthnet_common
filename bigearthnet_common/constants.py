@@ -4,14 +4,16 @@ __all__ = ['OLD2NEW_LABELS_DICT', 'OLD_LABELS', 'NEW_LABELS', 'OLD_LABELS_TO_IDX
            'CLC_LV3_TO_LV2', 'CLC_LV2_TO_LV1', 'CLC_LV3_TO_LV1', 'CLC_LV3_LABELS', 'CLC_LV2_LABELS', 'CLC_LV1_LABELS',
            'CLC_LV3_COUNT', 'CLC_LV2_COUNT', 'CLC_LV1_COUNT', 'MAX_VALUES_BY_DTYPE_STR', 'URL', 'BAND_STATS',
            'BAND_STATS_FLOAT32', 'BEN_CHANNELS', 'BEN_10m_CHANNELS', 'BEN_20m_CHANNELS', 'BEN_10m_20m_CHANNELS',
-           'BEN_30m_CHANNELS', 'BEN_RGB_CHANNELS', 'COUNTRIES', 'COUNTRIES_ISO_A2', 'BEN_COMPLETE_SIZE',
-           'BEN_SNOWY_PATCHES_COUNT', 'BEN_CLOUDY_OR_SHADOWY_PATCHES_COUNT', 'BEN_NO_19_CLASS_TARGET_COUNT',
-           'BEN_RECOMMENDED_SIZE', 'smart_pprint', 'print_all_constants', 'constants_prompt']
+           'BEN_30m_CHANNELS', 'BEN_RGB_CHANNELS', 'BEN_S1_V1_0_JSON_KEYS', 'BEN_S2_V1_0_JSON_KEYS', 'COUNTRIES',
+           'COUNTRIES_ISO_A2', 'BEN_COMPLETE_SIZE', 'BEN_SNOWY_PATCHES_COUNT', 'BEN_CLOUDY_OR_SHADOWY_PATCHES_COUNT',
+           'BEN_NO_19_CLASS_TARGET_COUNT', 'BEN_RECOMMENDED_SIZE', 'BEN_S2_RE', 'BEN_S1_RE', 'smart_pprint',
+           'print_all_constants', 'constants_prompt']
 
 # Cell
 import fastcore.all as fc
 import natsort
 import rich
+import re
 
 
 # Cell
@@ -180,10 +182,7 @@ CLC_LV2_TO_LV1 = {
     "Marine waters": "Water bodies",
 }
 
-CLC_LV3_TO_LV1 = {
-    lv3: CLC_LV2_TO_LV1[lv2]
-    for lv3, lv2 in CLC_LV3_TO_LV2.items()
-}
+CLC_LV3_TO_LV1 = {lv3: CLC_LV2_TO_LV1[lv2] for lv3, lv2 in CLC_LV3_TO_LV2.items()}
 
 CLC_LV3_LABELS = tuple(CLC_LV3_TO_LV2.keys())
 CLC_LV2_LABELS = tuple(CLC_LV2_TO_LV1.keys())
@@ -193,6 +192,7 @@ CLC_LV1_LABELS = tuple(set(CLC_LV2_TO_LV1.values()))
 CLC_LV3_COUNT = 44
 CLC_LV2_COUNT = 15
 CLC_LV1_COUNT = 5
+
 
 # Cell
 # Inspired by
@@ -299,6 +299,27 @@ BEN_RGB_CHANNELS = (
 
 
 # Cell
+BEN_S1_V1_0_JSON_KEYS = {
+    "acquisition_time",
+    "coordinates",
+    "labels",
+    "projection",
+    "scene_source",
+    "corresponding_s2_patch",
+}
+
+# note that there is a small difference between S1/S2
+# acquisition_time vs acquisition_date
+BEN_S2_V1_0_JSON_KEYS = {
+    "acquisition_date",
+    "coordinates",
+    "labels",
+    "projection",
+    "tile_source",
+}
+
+
+# Cell
 COUNTRIES = (
     "Austria",
     "Belgium",
@@ -336,10 +357,72 @@ BEN_CLOUDY_OR_SHADOWY_PATCHES_COUNT = 9_280
 BEN_NO_19_CLASS_TARGET_COUNT = 57
 BEN_RECOMMENDED_SIZE = 519_284
 
+
+# Cell
+
+# From: https://depositonce.tu-berlin.de/bitstream/11303/11261/3/BigEarthNetManual.pdf
+# Ignoring the mistakenly leading 0 in vertical and horizontal patch.
+# TODO: Check if this applies to _all_ S2 patches!
+
+BEN_S2_RE = re.compile(
+    r"""
+        (?P<sentinel_mission>S2[AB])
+        _
+        MSIL2A # Sentinel-2 data product
+        _
+        (?P<year>\d{4})
+        (?P<month>\d{2})
+        (?P<day>\d{2})
+        T
+        (?P<hour>\d{2})
+        (?P<minute>\d{2})
+        (?P<second>\d{2})
+        _
+        (?P<horizontal_id>\d{1,2})
+        _
+        (?P<vertical_id>\d{1,2})
+    """,
+    re.VERBOSE,
+)
+
+# Cell
+
+# TODO: Check if this applies to _all_ S1 patches!
+# https://sentinels.copernicus.eu/web/sentinel/user-guides/sentinel-1-sar/naming-conventions
+BEN_S1_RE = re.compile(
+    r"""
+        (?P<sentinel_mission>S1[AB])
+        _
+        IW # Interferometric Wide swath
+        _
+        GRDH # Ground-Range-Detection High Resolution
+        _
+        1   # processing level 1
+        S   # Product class Standard
+        DV  # Polarisation dual VV+VH polarisation
+        _
+        (?P<year>\d{4})
+        (?P<month>\d{2})
+        (?P<day>\d{2})
+        T
+        (?P<hour>\d{2})
+        (?P<minute>\d{2})
+        (?P<second>\d{2})
+        _
+        (?P<sentinel_2_l1c_tile_area>\w{5})
+        _
+        (?P<horizontal_id>\d{1,2})
+        _
+        (?P<vertical_id>\d{1,2})
+    """,
+    re.VERBOSE,
+)
+
 # Cell
 from rich.table import Table
 from functools import singledispatch
 from collections.abc import Mapping, Sequence
+
 
 def _single_column_table(col_name, rows):
     t = Table(col_name)
@@ -347,18 +430,22 @@ def _single_column_table(col_name, rows):
         t.add_row(row)
     return t
 
+
 def _simple_dict_table(header, dictionary):
     t = Table(title=header, show_header=False)
     for k, v in dictionary.items():
         t.add_row(k, str(v))
     return t
 
+
 def _default_pprint(value, name):
     rich.print(f"{name}: ", value)
+
 
 @singledispatch
 def _smart_pprint(value, name):
     _default_pprint(value, name)
+
 
 @_smart_pprint.register
 def _(value: Mapping, name):
@@ -368,10 +455,12 @@ def _(value: Mapping, name):
     else:
         _default_pprint(value, name)
 
+
 @_smart_pprint.register
 def _(value: str, name):
     # default_pprint str and not call Sequence branch
     _default_pprint(value, name)
+
 
 @_smart_pprint.register
 def _(value: Sequence, name):
@@ -392,17 +481,22 @@ def smart_pprint(name, value):
     """
     _smart_pprint(value, name)
 
+
 # Cell
 def print_all_constants():
     """
     A function that shows all of the pre-defined constants of the library.
     """
-    ben_constants = {k: v for k, v in globals().items() if not k.startswith("_") and k.upper() == k}
+    ben_constants = {
+        k: v for k, v in globals().items() if not k.startswith("_") and k.upper() == k
+    }
     for k, v in ben_constants.items():
         smart_pprint(k, v)
 
+
 # Cell
 from rich.prompt import Prompt
+
 
 class _ManyChoicesPrompt(Prompt):
     def make_prompt(self, default):
@@ -434,14 +528,20 @@ class _ManyChoicesPrompt(Prompt):
 
         return prompt
 
+
 # Cell
 def constants_prompt():
     """
     A smart prompt to quickly display common BigEarthNet constants.
     """
-    ben_constants = {k: v for k, v in globals().items() if not k.startswith("_") and k.upper() == k}
-    k = _ManyChoicesPrompt.ask("What constant do you want to see?", choices=ben_constants.keys())
+    ben_constants = {
+        k: v for k, v in globals().items() if not k.startswith("_") and k.upper() == k
+    }
+    k = _ManyChoicesPrompt.ask(
+        "What constant do you want to see?", choices=ben_constants.keys()
+    )
     smart_pprint(k, ben_constants[k])
+
 
 if __name__ == "__main__" and not fc.IN_IPYTHON:
     constants_prompt()
