@@ -15,11 +15,11 @@ import warnings
 from datetime import datetime
 from pathlib import Path
 from typing import List, Optional, Set, Union, Sequence, Dict
+import csv
 
 import appdirs
 import dateutil
 import fastcore.all as fc
-import pandas as pd
 from fastcore.basics import compose
 from fastcore.dispatch import typedispatch
 from pydantic import AnyHttpUrl, validate_arguments, FilePath, DirectoryPath
@@ -172,13 +172,9 @@ def _conv_single_col_csv_to_set(
     Set `force_download` to re-download the file.
     """
     fp = _download_and_cache_url(url, force_download=force_download)
-    series = pd.read_csv(
-        fp,
-        names=[name],
-        squeeze=True,
-    )
-    return set(series.values)
-
+    with open(fp, mode="r") as csv_file:
+        reader = csv.DictReader(csv_file, fieldnames=[name])
+        return {row[name] for row in reader}
 
 @functools.lru_cache()
 def get_patches_with_seasonal_snow(force_download: bool = False) -> Set:

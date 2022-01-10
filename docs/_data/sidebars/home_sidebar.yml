@@ -15,9 +15,6 @@ entries:
     - output: web,pdf
       title: BigEarthNet Base Functions
       url: base.html
-    - output: web,pdf
-      title: BigEarthNet GeoDataFrame Builder
-      url: gdf_builder.html
     output: web
     title: bigearthnet_common
   output: web

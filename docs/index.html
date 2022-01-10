@@ -43,7 +43,7 @@ nb_path: "nbs/index.ipynb"
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This library provides a collection of high-level tools to better work with the <a href="bigearth.net">BigEarthNet</a> dataset.</p>
-<p><code>ben_common</code> tries to accomplish three goals:</p>
+<p><code>bigearthnet_common</code> tries to:</p>
 <ol>
 <li>Collect the most relevant <em>constants</em> into a single place to reduce the time spent looking for these, like:<ul>
 <li>The 19 or 43 class nomenclature strings</li>
@@ -53,12 +53,14 @@ nb_path: "nbs/index.ipynb"
 <li>etc.</li>
 </ul>
 </li>
-<li>Provide parsing functions to convert the metadata JSON files to a <a href="https://geopandas.org/en/stable/">geopandas</a> <a href="https://geopandas.org/en/stable/getting_started/introduction.html">GeoDataFrame</a>.<ul>
-<li>Allow for easy top-level statistical analysis of the data in a familiar <em>pandas</em>-style</li>
-<li>Provide functions to enrich GeoDataFrames with often required BigEarthNet metadata (like the season or country of the patch)</li>
+<li>Provide common metadata related functions<ul>
+<li>Safe JSON parser for S1/S2</li>
+<li>Get the original split</li>
+<li>Get a list of snowy/cloudy patches</li>
+<li>Convert the <em>old</em> labels to thew <em>new</em> label nomenclature</li>
+<li>Generate multi-hot encoded label views</li>
 </ul>
 </li>
-<li>Simplify the building procedure by providing a command-line interface with reproducible results</li>
 </ol>
 
 </div>
@@ -66,41 +68,15 @@ nb_path: "nbs/index.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Installation">Installation<a class="anchor-link" href="#Installation"> </a></h2><p>I strongly recommend to use <a href="https://github.com/mamba-org/mamba">mamba</a> or <code>conda</code> with <a href="https://github.com/conda-forge/miniforge">miniforge</a> to install the package with:</p>
+<h2 id="Installation">Installation<a class="anchor-link" href="#Installation"> </a></h2><p>The package is available via PyPI and can be installed with:</p>
 <ul>
-<li><code>mamba/conda install bigearthnet-common -c conda-forge</code></li>
+<li><code>pip install bigearthnet_common</code></li>
 </ul>
-<p>As the <code>bigearthnet_common</code> tool is built on top of <code>geopandas</code> the same restrictions apply.
-For more details please review the <a href="https://geopandas.org/en/stable/getting_started/install.html">geopandas installation documentation</a>.</p>
-<p>The package is also available via PyPI and could be installed with:</p>
-<ul>
-<li><code>pip install bigearthnet_common</code> (not recommended)</li>
-</ul>
-<h2 id="TL;DR">TL;DR<a class="anchor-link" href="#TL;DR"> </a></h2><p>The most relevant functions are exposed as CLI entry points.
-To quickly search for BigEarthNet constants of interest, call:</p>
+<p>The package has <em>Python-only</em> dependencies and should cause no issues in more complex Conda environments with various binaries.</p>
+<h2 id="Review-constants">Review constants<a class="anchor-link" href="#Review-constants"> </a></h2><p>To quickly search for BigEarthNet constants of interest, call:</p>
 <ul>
 <li><code>ben_constants_prompt</code> or</li>
 <li><code>python -m bigearthnet_common.constants</code></li>
-</ul>
-<p>To build the tabular data, use:</p>
-<ul>
-<li><code>ben_gdf_builder --help</code> or</li>
-<li><code>python -m bigearthnet_common.ben_gdf_builder --help</code></li>
-</ul>
-<h2 id="Deep-Learning">Deep Learning<a class="anchor-link" href="#Deep-Learning"> </a></h2><p>One of the primary purposes of the dataset is to allow deep learning researchers and practitioners to train their models on multi-spectral satellite data.
-In that regard, there is a general recommendation to drop patches that are covered by seasonal snow or clouds.
-Also, the novel 19-class nomenclature should be preferred over the original 43-class nomenclature.
-As a result of these recommendations, some patches have to be <em>excluded</em> from the original raw BigEarthNet dataset that is provided at <a href="bigearth.net">BigEarthNet</a>.</p>
-<p>To simplify the procedure of pre-converting the JSON metadata files, the library provides a single command that will generate a recommended GeoDataFrame with extra metadata (country/season data of each patch) while dropping all patches that are not recommended for deep learning research.</p>
-<p>To generate such a GeoDataFrame and store it as an <code>parquet</code> file, use:</p>
-<ul>
-<li><code>ben_gdf_builder build-recommended-parquet</code> (available after installing package) or</li>
-<li><code>python -m bigearthnet_common.gdf_builder build-recommended-parquet</code></li>
-</ul>
-<p>If you want to read the raw JSON files and convert those to a GeoDataFrame file without dropping any patches or adding any metadata, use:</p>
-<ul>
-<li><code>ben_gdf_builder build-raw-ben-parquet</code> (available after installing package) or</li>
-<li><code>python -m bigearthnet_common.gdf_builder build-raw-ben-parquet</code></li>
 </ul>
 
 </div>

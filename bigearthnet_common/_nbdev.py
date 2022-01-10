@@ -58,36 +58,10 @@ index = {"OLD2NEW_LABELS_DICT": "01a_constants.ipynb",
          "get_original_split_from_patch_name": "01b_base.ipynb",
          "old2new_labels": "01b_base.ipynb",
          "ben_19_labels_to_multi_hot": "01b_base.ipynb",
-         "ben_43_labels_to_multi_hot": "01b_base.ipynb",
-         "COUNTRIES_URL": "01c_gdf_builder.ipynb",
-         "box_from_ul_lr_coords": "01c_gdf_builder.ipynb",
-         "ben_s2_patch_to_gdf": "01c_gdf_builder.ipynb",
-         "ben_s1_patch_to_gdf": "01c_gdf_builder.ipynb",
-         "ben_s2_patch_to_reprojected_gdf": "01c_gdf_builder.ipynb",
-         "ben_s1_patch_to_reprojected_gdf": "01c_gdf_builder.ipynb",
-         "build_gdf_from_s2_patch_paths": "01c_gdf_builder.ipynb",
-         "build_gdf_from_s1_patch_paths": "01c_gdf_builder.ipynb",
-         "get_gdf_from_s2_patch_dir": "01c_gdf_builder.ipynb",
-         "get_gdf_from_s1_patch_dir": "01c_gdf_builder.ipynb",
-         "get_ben_countries_gdf": "01c_gdf_builder.ipynb",
-         "assign_to_ben_country": "01c_gdf_builder.ipynb",
-         "Season": "01c_gdf_builder.ipynb",
-         "tfm_month_to_season": "01c_gdf_builder.ipynb",
-         "filter_season": "01c_gdf_builder.ipynb",
-         "add_full_ben_s1_metadata": "01c_gdf_builder.ipynb",
-         "add_full_ben_s2_metadata": "01c_gdf_builder.ipynb",
-         "remove_bad_ben_gdf_entries": "01c_gdf_builder.ipynb",
-         "build_raw_ben_s2_parquet": "01c_gdf_builder.ipynb",
-         "build_raw_ben_s1_parquet": "01c_gdf_builder.ipynb",
-         "extend_ben_s2_parquet": "01c_gdf_builder.ipynb",
-         "extend_ben_s1_parquet": "01c_gdf_builder.ipynb",
-         "remove_discouraged_parquet_entries": "01c_gdf_builder.ipynb",
-         "build_recommended_s2_parquet": "01c_gdf_builder.ipynb",
-         "build_recommended_s1_parquet": "01c_gdf_builder.ipynb"}
+         "ben_43_labels_to_multi_hot": "01b_base.ipynb"}
 
 modules = ["constants.py",
-           "base.py",
-           "gdf_builder.py"]
+           "base.py"]
 
 doc_url = "https://kai-tub.github.io/bigearthnet_common/"
 

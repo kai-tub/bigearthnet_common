@@ -409,7 +409,7 @@ BEN_S1_RE = re.compile(
         (?P<minute>\d{2})
         (?P<second>\d{2})
         _
-        33UUP   # TODO: Understand what this is!
+        (?P<sentinel_2_l1c_tile_area>\w{5})
         _
         (?P<horizontal_id>\d{1,2})
         _

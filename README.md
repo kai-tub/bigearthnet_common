@@ -10,7 +10,7 @@
 
 This library provides a collection of high-level tools to better work with the [BigEarthNet](bigearth.net) dataset.
 
-`ben_common` tries to accomplish three goals:
+`bigearthnet_common` tries to:
 
 1. Collect the most relevant _constants_ into a single place to reduce the time spent looking for these, like:
    - The 19 or 43 class nomenclature strings
@@ -18,50 +18,23 @@ This library provides a collection of high-level tools to better work with the [
    - Band statistics (mean/variance) as integer and float
    - Channel names
    - etc.
-2. Provide parsing functions to convert the metadata JSON files to a [geopandas](https://geopandas.org/en/stable/) [GeoDataFrame](https://geopandas.org/en/stable/getting_started/introduction.html).
-   - Allow for easy top-level statistical analysis of the data in a familiar _pandas_-style
-   - Provide functions to enrich GeoDataFrames with often required BigEarthNet metadata (like the season or country of the patch)
-3. Simplify the building procedure by providing a command-line interface with reproducible results
+2. Provide common metadata related functions
+   - Safe JSON parser for S1/S2
+   - Get the original split
+   - Get a list of snowy/cloudy patches
+   - Convert the _old_ labels to thew _new_ label nomenclature
+   - Generate multi-hot encoded label views
 
 ## Installation
-I strongly recommend to use [mamba](https://github.com/mamba-org/mamba) or `conda` with [miniforge](https://github.com/conda-forge/miniforge) to install the package with:
-- `mamba/conda install bigearthnet-common -c conda-forge`
+The package is available via PyPI and can be installed with:
+- `pip install bigearthnet_common`
 
-As the `bigearthnet_common` tool is built on top of `geopandas` the same restrictions apply.
-For more details please review the [geopandas installation documentation](https://geopandas.org/en/stable/getting_started/install.html).
+The package has _Python-only_ dependencies and should cause no issues in more complex Conda environments with various binaries.
 
-The package is also available via PyPI and could be installed with:
-- `pip install bigearthnet_common` (not recommended)
-
-## TL;DR
-The most relevant functions are exposed as CLI entry points.
+## Review constants
 To quickly search for BigEarthNet constants of interest, call:
 - `ben_constants_prompt` or
 - `python -m bigearthnet_common.constants`
-
-To build the tabular data, use:
-- `ben_gdf_builder --help` or
-- `python -m bigearthnet_common.ben_gdf_builder --help`
-
-
-## Deep Learning
-
-One of the primary purposes of the dataset is to allow deep learning researchers and practitioners to train their models on multi-spectral satellite data.
-In that regard, there is a general recommendation to drop patches that are covered by seasonal snow or clouds.
-Also, the novel 19-class nomenclature should be preferred over the original 43-class nomenclature.
-As a result of these recommendations, some patches have to be _excluded_ from the original raw BigEarthNet dataset that is provided at [BigEarthNet](bigearth.net).
-
-To simplify the procedure of pre-converting the JSON metadata files, the library provides a single command that will generate a recommended GeoDataFrame with extra metadata (country/season data of each patch) while dropping all patches that are not recommended for deep learning research.
-
-To generate such a GeoDataFrame and store it as an `parquet` file, use:
-
-- `ben_gdf_builder build-recommended-parquet` (available after installing package) or
-- `python -m bigearthnet_common.gdf_builder build-recommended-parquet`
-
-If you want to read the raw JSON files and convert those to a GeoDataFrame file without dropping any patches or adding any metadata, use:
-
-- `ben_gdf_builder build-raw-ben-parquet` (available after installing package) or
-- `python -m bigearthnet_common.gdf_builder build-raw-ben-parquet`
 
 ## Contributing
 

@@ -8,7 +8,7 @@ readme = "README.md"
 homepage = "https://github.com/kai-tub/bigearthnet_common"
 repository = "https://github.com/kai-tub/bigearthnet_common"
 documentation = "https://kai-tub.github.io/bigearthnet_common/"
-keywords = ["geopandas", "ben", "bigearthnet", "script"]
+keywords = ["ben", "bigearthnet", "script", "tools"]
 include = [
     "LICENSE",
 ]
@@ -17,14 +17,10 @@ include = [
 [tool.poetry.dependencies]
 # geopandas deprecated Python 3.6
 python = "^3.7"
-# pandas is implicit dependency of geopandas
-geopandas = "^0.10"
 rich = "^10"
 pydantic = "^1.8"
 fastcore = "^1.3"
 natsort = "^8"
-pygeos = "^0.12"
-pyarrow = "^6"
 appdirs = "^1.4"
 # typer is only required for CLI interface, but can
 # be listed as true dependency in my opinion
@@ -37,13 +33,8 @@ nbdev = "^1.1"
 jupyter_client = "<6.1.13"
 black = "*"
 isort = "*"
-# Strictly speaking, I do not require these in the library
-folium = "*"
-matplotlib = "*"
-mapclassify = "*"
 
 [tool.poetry.scripts]
-ben_gdf_builder = "bigearthnet_common.gdf_builder:_run_gdf_cli"
 ben_constant_prompt = "bigearthnet_common.constants:constants_prompt"
 
 [build-system]
