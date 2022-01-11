@@ -43,13 +43,6 @@ nb_path: "nbs/01b_base.ipynb"
 </div>
     {% endraw %}
 
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-</div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Safe-JSON-Parsing">Safe JSON Parsing<a class="anchor-link" href="#Safe-JSON-Parsing"> </a></h2><p>A couple of safe parsing functions that guarantee flexible reading of the default BigEarthNet json entries.</p>
@@ -135,7 +128,7 @@ Otherwise it will raise an error.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="read_S1_json" class="doc_header"><code>read_S1_json</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L110" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>read_S1_json</code>(<strong><code>json_fp</code></strong>:<code>FilePath</code>)</p>
+<h4 id="read_S1_json" class="doc_header"><code>read_S1_json</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L112" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>read_S1_json</code>(<strong><code>json_fp</code></strong>:<code>FilePath</code>)</p>
 </blockquote>
 <p>A helper function that <em>safely</em> reads a BigEarthNet-S1 json file.
 It will ensure that all expected entries are present and only read those
@@ -166,7 +159,7 @@ from version: S1_v1.0. A coordinates key is named <code>lly</code> and it should
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="read_S2_json" class="doc_header"><code>read_S2_json</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L127" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>read_S2_json</code>(<strong><code>json_fp</code></strong>:<code>FilePath</code>)</p>
+<h4 id="read_S2_json" class="doc_header"><code>read_S2_json</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L130" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>read_S2_json</code>(<strong><code>json_fp</code></strong>:<code>FilePath</code>)</p>
 </blockquote>
 <p>A helper function that <em>safely</em> reads a BigEarthNet-S1 json file.
 It will ensure that all expected entries are present and only read those
@@ -209,7 +202,7 @@ or partially deleted.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_s2_patch_directories" class="doc_header"><code>get_s2_patch_directories</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L138" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s2_patch_directories</code>(<strong><code>dir_path</code></strong>:<code>DirectoryPath</code>)</p>
+<h4 id="get_s2_patch_directories" class="doc_header"><code>get_s2_patch_directories</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L142" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s2_patch_directories</code>(<strong><code>dir_path</code></strong>:<code>DirectoryPath</code>)</p>
 </blockquote>
 <p>Will find all S2 patch directories in the provided <code>dir_path</code>.
 Only directories that strictly cohere to the naming convention will be returned.</p>
@@ -235,7 +228,7 @@ Only directories that strictly cohere to the naming convention will be returned.
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_s1_patch_directories" class="doc_header"><code>get_s1_patch_directories</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L146" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s1_patch_directories</code>(<strong><code>dir_path</code></strong>:<code>DirectoryPath</code>)</p>
+<h4 id="get_s1_patch_directories" class="doc_header"><code>get_s1_patch_directories</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L155" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s1_patch_directories</code>(<strong><code>dir_path</code></strong>:<code>DirectoryPath</code>)</p>
 </blockquote>
 <p>Will find all S1 patch directories in the provided <code>dir_path</code>.
 Only directories that strictly cohere to the naming convention will be returned.</p>
@@ -299,9 +292,11 @@ All functions use caches to guarantee fast lookups, so feel free to use them on 
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_patches_with_seasonal_snow" class="doc_header"><code>get_patches_with_seasonal_snow</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L179" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_patches_with_seasonal_snow</code>(<strong><code>force_download</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
+<h4 id="get_complete_s1_to_s2_patch_name_mapping" class="doc_header"><code>get_complete_s1_to_s2_patch_name_mapping</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L211" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_complete_s1_to_s2_patch_name_mapping</code>()</p>
 </blockquote>
-<p>List all patches with seasonal snow from <strong>original</strong> BigEarthNet dataset.</p>
+<p>Load entire Sentinel-1 to Sentinel-2 BigEarthNet patch name mapping.</p>
+<p>Returns:
+    Dict[str, str]: Sentinel-1 patch name keys with corresponding Sentinel-2 patch name as value</p>
 
 </div>
 
@@ -324,9 +319,180 @@ All functions use caches to guarantee fast lookups, so feel free to use them on 
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_patches_with_cloud_and_shadow" class="doc_header"><code>get_patches_with_cloud_and_shadow</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L187" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_patches_with_cloud_and_shadow</code>(<strong><code>force_download</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
+<h4 id="get_complete_s2_to_s1_patch_name_mapping" class="doc_header"><code>get_complete_s2_to_s1_patch_name_mapping</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L221" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_complete_s2_to_s1_patch_name_mapping</code>()</p>
 </blockquote>
-<p>List all patches with cloud and shadow from <strong>original</strong> BigEarthNet dataset.</p>
+<p>Load entire Sentinel-2 to Sentinel-1 BigEarthNet patch name mapping.</p>
+<p>Returns:
+    Dict[str, str]: Sentinel-2 patch name keys with corresponding Sentinel-1 patch name as value</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="s1_to_s2_patch_name" class="doc_header"><code>s1_to_s2_patch_name</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L231" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s1_to_s2_patch_name</code>(<strong><code>s1_patch_name</code></strong>:<code>str</code>)</p>
+</blockquote>
+<p>Convert BigEarthNet Sentinel-1 patch name to Sentinel-2 patch name.
+The function caches intermediate results.
+The function should be highly performant.</p>
+<p>Args:
+    s1_patch_name (str): complete BigEarthNet Sentinel-1 patch name</p>
+<p>Returns:
+    str: Corresponding Sentinel-2 patch name</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="s2_to_s1_patch_name" class="doc_header"><code>s2_to_s1_patch_name</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L246" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s2_to_s1_patch_name</code>(<strong><code>s2_patch_name</code></strong>:<code>str</code>)</p>
+</blockquote>
+<p>Convert BigEarthNet Sentinel-2 patch name to Sentinel-1 patch name.
+The function caches intermediate results.
+The function should be highly performant.</p>
+<p>Args:
+    s2_patch_name (str): complete BigEarthNet Sentinel-2 patch name</p>
+<p>Returns:
+    str: Corresponding Sentinel-1 patch name</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="get_s2_patches_with_seasonal_snow" class="doc_header"><code>get_s2_patches_with_seasonal_snow</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L281" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s2_patches_with_seasonal_snow</code>()</p>
+</blockquote>
+<p>List all patches with seasonal snow from <strong>original</strong> BigEarthNet-S2 dataset.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="get_s2_patches_with_cloud_and_shadow" class="doc_header"><code>get_s2_patches_with_cloud_and_shadow</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L287" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s2_patches_with_cloud_and_shadow</code>()</p>
+</blockquote>
+<p>List all patches with cloud and shadow from <strong>original</strong> BigEarthNet-S2 dataset.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="get_s1_patches_with_seasonal_snow" class="doc_header"><code>get_s1_patches_with_seasonal_snow</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L293" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s1_patches_with_seasonal_snow</code>()</p>
+</blockquote>
+<p>List all patches with seasonal snow from <strong>original</strong> BigEarthNet-S1 dataset.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="get_s1_patches_with_cloud_and_shadow" class="doc_header"><code>get_s1_patches_with_cloud_and_shadow</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L300" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s1_patches_with_cloud_and_shadow</code>()</p>
+</blockquote>
+<p>List all patches with cloud and shadow from <strong>original</strong> BigEarthNet-S1 dataset.</p>
 
 </div>
 
@@ -352,11 +518,21 @@ All functions use caches to guarantee fast lookups, so feel free to use them on 
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">snow_patches</span> <span class="o">=</span> <span class="n">get_patches_with_seasonal_snow</span><span class="p">()</span>
-<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">snow_patches</span><span class="p">)</span> <span class="o">==</span> <span class="n">ben_constants</span><span class="o">.</span><span class="n">BEN_SNOWY_PATCHES_COUNT</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s2_snow_patches</span> <span class="o">=</span> <span class="n">get_s2_patches_with_seasonal_snow</span><span class="p">()</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">s2_snow_patches</span><span class="p">)</span> <span class="o">==</span> <span class="n">ben_constants</span><span class="o">.</span><span class="n">BEN_SNOWY_PATCHES_COUNT</span>
+<span class="n">s1_snow_patches</span> <span class="o">=</span> <span class="n">get_s1_patches_with_seasonal_snow</span><span class="p">()</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">s1_snow_patches</span><span class="p">)</span> <span class="o">==</span> <span class="n">ben_constants</span><span class="o">.</span><span class="n">BEN_SNOWY_PATCHES_COUNT</span>
 
-<span class="n">cloud_and_shadow_patches</span> <span class="o">=</span> <span class="n">get_patches_with_cloud_and_shadow</span><span class="p">()</span>
-<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">cloud_and_shadow_patches</span><span class="p">)</span> <span class="o">==</span> <span class="n">ben_constants</span><span class="o">.</span><span class="n">BEN_CLOUDY_OR_SHADOWY_PATCHES_COUNT</span>
+<span class="n">s2_cloud_and_shadow_patches</span> <span class="o">=</span> <span class="n">get_s2_patches_with_cloud_and_shadow</span><span class="p">()</span>
+<span class="k">assert</span> <span class="p">(</span>
+    <span class="nb">len</span><span class="p">(</span><span class="n">s2_cloud_and_shadow_patches</span><span class="p">)</span>
+    <span class="o">==</span> <span class="n">ben_constants</span><span class="o">.</span><span class="n">BEN_CLOUDY_OR_SHADOWY_PATCHES_COUNT</span>
+<span class="p">)</span>
+<span class="n">s1_cloud_and_shadow_patches</span> <span class="o">=</span> <span class="n">get_s1_patches_with_cloud_and_shadow</span><span class="p">()</span>
+<span class="k">assert</span> <span class="p">(</span>
+    <span class="nb">len</span><span class="p">(</span><span class="n">s1_cloud_and_shadow_patches</span><span class="p">)</span>
+    <span class="o">==</span> <span class="n">ben_constants</span><span class="o">.</span><span class="n">BEN_CLOUDY_OR_SHADOWY_PATCHES_COUNT</span>
+<span class="p">)</span>
 </pre></div>
 
     </div>
@@ -377,10 +553,11 @@ All functions use caches to guarantee fast lookups, so feel free to use them on 
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="is_snowy_patch" class="doc_header"><code>is_snowy_patch</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L196" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>is_snowy_patch</code>(<strong><code>patch_name</code></strong>:<code>str</code>)</p>
+<h4 id="is_snowy_patch" class="doc_header"><code>is_snowy_patch</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L308" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>is_snowy_patch</code>(<strong><code>patch_name</code></strong>:<code>str</code>)</p>
 </blockquote>
 <p>Fast function that checks whether <code>patch_name</code> is a patch
 that contains a lot of seasonal snow.</p>
+<p>This works for S1 and S2 patch names!</p>
 
 </div>
 
@@ -403,10 +580,11 @@ that contains a lot of seasonal snow.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="is_cloudy_shadowy_patch" class="doc_header"><code>is_cloudy_shadowy_patch</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L205" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>is_cloudy_shadowy_patch</code>(<strong><code>patch_name</code></strong>:<code>str</code>)</p>
+<h4 id="is_cloudy_shadowy_patch" class="doc_header"><code>is_cloudy_shadowy_patch</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L322" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>is_cloudy_shadowy_patch</code>(<strong><code>patch_name</code></strong>:<code>str</code>)</p>
 </blockquote>
 <p>Fast function that checks whether <code>patch_name</code> is a patch
 that contains a lot of shadow or is obstructed by clouds.</p>
+<p>This works for S1 and S2 patch names!</p>
 
 </div>
 
@@ -436,16 +614,9 @@ that contains a lot of shadow or is obstructed by clouds.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="patches_from_original_train_split" class="doc_header"><code>patches_from_original_train_split</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L215" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>patches_from_original_train_split</code>(<strong><code>split_url</code></strong>:<code>AnyHttpUrl</code>=<em><code>'https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/splits/train.csv'</code></em>, <strong><code>force_download</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
+<h4 id="get_s2_patches_from_original_train_split" class="doc_header"><code>get_s2_patches_from_original_train_split</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L339" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s2_patches_from_original_train_split</code>()</p>
 </blockquote>
-<p>List all train patches from the original train/validation/test split.
-There are two possible sources:</p>
-<ol>
-<li><a href="https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/splits/train.csv">https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/splits/train.csv</a></li>
-<li><a href="https://git.tu-berlin.de/rsim/BigEarthNet-S2_43-classes_models/-/raw/master/splits/train.csv">https://git.tu-berlin.de/rsim/BigEarthNet-S2_43-classes_models/-/raw/master/splits/train.csv</a></li>
-</ol>
-<p>While writing this function, there is <strong>no</strong> difference between these two splits.
-But this may change in the future!</p>
+<p>List all Sentinel-2 train patches from the original train/validation/test split.</p>
 
 </div>
 
@@ -468,16 +639,9 @@ But this may change in the future!</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="patches_from_original_validation_split" class="doc_header"><code>patches_from_original_validation_split</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L234" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>patches_from_original_validation_split</code>(<strong><code>split_url</code></strong>:<code>AnyHttpUrl</code>=<em><code>'https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/splits/val.csv'</code></em>, <strong><code>force_download</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
+<h4 id="get_s1_patches_from_original_train_split" class="doc_header"><code>get_s1_patches_from_original_train_split</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L347" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s1_patches_from_original_train_split</code>()</p>
 </blockquote>
-<p>List all validation patches from the original train/validation/test split.
-There are two possible sources:</p>
-<ol>
-<li><a href="https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/splits/train.csv">https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/splits/train.csv</a>"</li>
-<li>"<a href="https://git.tu-berlin.de/rsim/BigEarthNet-S2_43-classes_models/-/raw/master/splits/train.csv">https://git.tu-berlin.de/rsim/BigEarthNet-S2_43-classes_models/-/raw/master/splits/train.csv</a>"</li>
-</ol>
-<p>While writing this function, there is <strong>no</strong> difference between these two splits.
-But this may change in the future!</p>
+<p>List all Sentinel-1 train patches from the original train/validation/test split.</p>
 
 </div>
 
@@ -500,16 +664,84 @@ But this may change in the future!</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="patches_from_original_test_split" class="doc_header"><code>patches_from_original_test_split</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L253" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>patches_from_original_test_split</code>(<strong><code>split_url</code></strong>:<code>AnyHttpUrl</code>=<em><code>'https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/splits/test.csv'</code></em>, <strong><code>force_download</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
+<h4 id="get_s2_patches_from_original_validation_split" class="doc_header"><code>get_s2_patches_from_original_validation_split</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L356" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s2_patches_from_original_validation_split</code>()</p>
 </blockquote>
-<p>List all test patches from the original train/validation/test split.
-There are two possible sources:</p>
-<ol>
-<li><a href="https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/splits/test.csv">https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/splits/test.csv</a></li>
-<li><a href="https://git.tu-berlin.de/rsim/BigEarthNet-S2_43-classes_models/-/raw/master/splits/test.csv">https://git.tu-berlin.de/rsim/BigEarthNet-S2_43-classes_models/-/raw/master/splits/test.csv</a></li>
-</ol>
-<p>While writing this function, there is <strong>no</strong> difference between these two splits.
-But this may change in the future!</p>
+<p>List all Sentinel-2 validation patches from the original train/validation/test split.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="get_s1_patches_from_original_validation_split" class="doc_header"><code>get_s1_patches_from_original_validation_split</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L364" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s1_patches_from_original_validation_split</code>()</p>
+</blockquote>
+<p>List all Sentinel-1 validation patches from the original train/validation/test split.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="get_s2_patches_from_original_test_split" class="doc_header"><code>get_s2_patches_from_original_test_split</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L373" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s2_patches_from_original_test_split</code>()</p>
+</blockquote>
+<p>List all Sentinel-2 test patches from the original train/validation/test split.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="get_s1_patches_from_original_test_split" class="doc_header"><code>get_s1_patches_from_original_test_split</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L381" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s1_patches_from_original_test_split</code>()</p>
+</blockquote>
+<p>List all Sentinel-1 test patches from the original train/validation/test split.</p>
 
 </div>
 
@@ -539,17 +771,15 @@ But this may change in the future!</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_original_split_from_patch_name" class="doc_header"><code>get_original_split_from_patch_name</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L273" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_original_split_from_patch_name</code>(<strong><code>patch</code></strong>:<code>str</code>)</p>
+<h4 id="get_original_split_from_patch_name" class="doc_header"><code>get_original_split_from_patch_name</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L391" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_original_split_from_patch_name</code>(<strong><code>patch</code></strong>:<code>str</code>)</p>
 </blockquote>
 <p>Returns "train"/"validation"/"test" or <code>None</code>.
-The value is retrieved from the original BigEarthNet
+The value is retrieved from the original BigEarthNet-S1/S2
 train/validation/test split. If the input is not present
 in any split, it will return <code>None</code> and raise a UserWarning.
 This happens for patches that are either in the
 cloud/shadow or seasonal snow set or if there exists no 19-label target.</p>
-<p>The splits are from the 19-classes version.
-While writing this function there was no difference between the
-19-classes and the 43-classes version.</p>
+<p>Note: This works for Sentinel-2 and Sentinel-1 patch names!</p>
 
 </div>
 
@@ -580,6 +810,23 @@ While writing this function there was no difference between the
     <span class="s2">&quot;S2B_MSIL2A_20170812T092029_75_6&quot;</span>
 <span class="p">)</span>
 <span class="k">assert</span> <span class="s2">&quot;test&quot;</span> <span class="o">==</span> <span class="n">get_original_split_from_patch_name</span><span class="p">(</span><span class="s2">&quot;S2A_MSIL2A_20170717T113321_28_88&quot;</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">get_original_split_from_patch_name</span><span class="p">(</span><span class="s2">&quot;wrong_input&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+
+<span class="c1"># snowy patches</span>
+<span class="k">assert</span> <span class="n">get_original_split_from_patch_name</span><span class="p">(</span><span class="s2">&quot;S2B_MSIL2A_20170906T101019_33_85&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+
+<span class="k">assert</span> <span class="s2">&quot;train&quot;</span> <span class="o">==</span> <span class="n">get_original_split_from_patch_name</span><span class="p">(</span>
+    <span class="s2">&quot;S1A_IW_GRDH_1SDV_20170802T163350_34TCR_78_45&quot;</span>
+<span class="p">)</span>
+<span class="k">assert</span> <span class="s2">&quot;validation&quot;</span> <span class="o">==</span> <span class="n">get_original_split_from_patch_name</span><span class="p">(</span>
+    <span class="s2">&quot;S1B_IW_GRDH_1SDV_20170701T182622_29SND_64_30&quot;</span>
+<span class="p">)</span>
+<span class="k">assert</span> <span class="s2">&quot;test&quot;</span> <span class="o">==</span> <span class="n">get_original_split_from_patch_name</span><span class="p">(</span><span class="s2">&quot;S2A_MSIL2A_20170717T113321_28_88&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="p">(</span>
+    <span class="n">get_original_split_from_patch_name</span><span class="p">(</span><span class="s2">&quot;S1A_IW_GRDH_1SDV_20170904T161304_34VDN_33_85&quot;</span><span class="p">)</span>
+    <span class="ow">is</span> <span class="kc">None</span>
+<span class="p">)</span>
 </pre></div>
 
     </div>
@@ -600,7 +847,7 @@ While writing this function there was no difference between the
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="old2new_labels" class="doc_header"><code>old2new_labels</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L318" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>old2new_labels</code>(<strong><code>old_labels</code></strong>:<code>Sequence</code>[<code>str</code>])</p>
+<h4 id="old2new_labels" class="doc_header"><code>old2new_labels</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L437" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>old2new_labels</code>(<strong><code>old_labels</code></strong>:<code>Sequence</code>[<code>str</code>])</p>
 </blockquote>
 <p>Converts a list of old-style BigEarthNet labels
 to a list of labels.</p>
@@ -643,7 +890,7 @@ then the function will return <code>None</code> and raise a user warning.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ben_19_labels_to_multi_hot" class="doc_header"><code>ben_19_labels_to_multi_hot</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L341" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ben_19_labels_to_multi_hot</code>(<strong><code>labels</code></strong>:<code>Sequence</code>[<code>str</code>])</p>
+<h4 id="ben_19_labels_to_multi_hot" class="doc_header"><code>ben_19_labels_to_multi_hot</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L460" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ben_19_labels_to_multi_hot</code>(<strong><code>labels</code></strong>:<code>Sequence</code>[<code>str</code>])</p>
 </blockquote>
 <p>Convenience function that converts an input sequence of labels into
 a multi-hot encoded vector.
@@ -677,7 +924,7 @@ For example, the "Agro-forestry areas" class is only present in Portugal and in 
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ben_43_labels_to_multi_hot" class="doc_header"><code>ben_43_labels_to_multi_hot</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L360" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ben_43_labels_to_multi_hot</code>(<strong><code>labels</code></strong>:<code>Sequence</code>[<code>str</code>])</p>
+<h4 id="ben_43_labels_to_multi_hot" class="doc_header"><code>ben_43_labels_to_multi_hot</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L480" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ben_43_labels_to_multi_hot</code>(<strong><code>labels</code></strong>:<code>Sequence</code>[<code>str</code>])</p>
 </blockquote>
 <p>Convenience function that converts an input sequence of labels into
 a multi-hot encoded vector.
@@ -714,7 +961,7 @@ For example, the "Agro-forestry areas" class is only present in Portugal and in 
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">agro</span> <span class="o">=</span> <span class="n">ben_19_labels_to_multi_hot</span><span class="p">((</span><span class="s2">&quot;Agro-forestry areas&quot;</span><span class="p">,</span> <span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">agro</span> <span class="o">=</span> <span class="n">ben_19_labels_to_multi_hot</span><span class="p">((</span><span class="s2">&quot;Agro-forestry areas&quot;</span><span class="p">,))</span>
 <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">agro</span><span class="p">)</span> <span class="o">==</span> <span class="mi">19</span>
 <span class="k">assert</span> <span class="n">agro</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1.0</span>
 <span class="k">assert</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">agro</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
@@ -727,7 +974,7 @@ For example, the "Agro-forestry areas" class is only present in Portugal and in 
 <span class="k">with</span> <span class="n">fc</span><span class="o">.</span><span class="n">ExceptionExpected</span><span class="p">(</span><span class="n">ex</span><span class="o">=</span><span class="ne">KeyError</span><span class="p">):</span>
     <span class="n">ben_19_labels_to_multi_hot</span><span class="p">([</span><span class="s2">&quot;Airports&quot;</span><span class="p">])</span>
 
-<span class="n">agro43</span> <span class="o">=</span> <span class="n">ben_43_labels_to_multi_hot</span><span class="p">((</span><span class="s2">&quot;Agro-forestry areas&quot;</span><span class="p">,</span> <span class="p">))</span>
+<span class="n">agro43</span> <span class="o">=</span> <span class="n">ben_43_labels_to_multi_hot</span><span class="p">((</span><span class="s2">&quot;Agro-forestry areas&quot;</span><span class="p">,))</span>
 <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">agro43</span><span class="p">)</span> <span class="o">==</span> <span class="mi">43</span>
 <span class="k">assert</span> <span class="n">agro43</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1.0</span>
 <span class="k">assert</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">agro43</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
