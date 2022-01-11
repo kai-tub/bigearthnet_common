@@ -1,3 +1,15 @@
+# v2.0.0 (Tue Jan 11 2022)
+
+#### 💥 Breaking Change
+
+- Complete Sentinel-1 support [#15](https://github.com/kai-tub/bigearthnet_common/pull/15) ([@kai-tub](https://github.com/kai-tub))
+
+#### Authors: 1
+
+- Kai Norman Clasen ([@kai-tub](https://github.com/kai-tub))
+
+---
+
 # v1.0.1 (Mon Jan 10 2022)
 
 #### 🐛 Bug Fix
