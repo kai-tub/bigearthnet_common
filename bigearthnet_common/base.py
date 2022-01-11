@@ -2,49 +2,49 @@
 
 __all__ = ['USER_DIR', 'parse_datetime', 'read_S1_json', 'read_S2_json', 'get_s2_patch_directories',
            'get_s1_patch_directories', 'PATCHES_WITH_SNOW_URL', 'PATCHES_WITH_CLOUD_AND_SHADOW_URL',
-           'get_patches_with_seasonal_snow', 'get_patches_with_cloud_and_shadow', 'is_snowy_patch',
-           'is_cloudy_shadowy_patch', 'patches_from_original_train_split', 'patches_from_original_validation_split',
-           'patches_from_original_test_split', 'get_original_split_from_patch_name', 'old2new_labels',
-           'ben_19_labels_to_multi_hot', 'ben_43_labels_to_multi_hot']
+           'get_complete_s1_to_s2_patch_name_mapping', 'get_complete_s2_to_s1_patch_name_mapping',
+           's1_to_s2_patch_name', 's2_to_s1_patch_name', 'get_s2_patches_with_seasonal_snow',
+           'get_s2_patches_with_cloud_and_shadow', 'get_s1_patches_with_seasonal_snow',
+           'get_s1_patches_with_cloud_and_shadow', 'is_snowy_patch', 'is_cloudy_shadowy_patch',
+           'get_s2_patches_from_original_train_split', 'get_s1_patches_from_original_train_split',
+           'get_s2_patches_from_original_validation_split', 'get_s1_patches_from_original_validation_split',
+           'get_s2_patches_from_original_test_split', 'get_s1_patches_from_original_test_split',
+           'get_original_split_from_patch_name', 'old2new_labels', 'ben_19_labels_to_multi_hot',
+           'ben_43_labels_to_multi_hot']
 
 # Cell
-import json
+import bz2
+import csv
 import functools
-import urllib
+import json
 import warnings
 from datetime import datetime
+from importlib import resources
 from pathlib import Path
-from typing import List, Optional, Set, Union, Sequence, Dict
-import csv
+from typing import Dict, List, Optional, Sequence, Set, Union
 
 import appdirs
 import dateutil
 import fastcore.all as fc
 from fastcore.basics import compose
 from fastcore.dispatch import typedispatch
-from pydantic import AnyHttpUrl, validate_arguments, FilePath, DirectoryPath
+from pydantic import DirectoryPath, FilePath, validate_arguments
 
+import bigearthnet_common
 import bigearthnet_common.constants as ben_constants
 from .constants import OLD2NEW_LABELS_DICT
+
+_patches_with_cloud_and_snow_resource = "patches_with_cloud_and_shadow.csv.bz2"
+_patches_with_seasonal_snow_resource = "patches_with_seasonal_snow.csv.bz2"
+_s1_s2_mapping_resource = "s1_s2_mapping.csv.bz2"
+_test_resource = "test.csv.bz2"
+_train_csv_resource = "train.csv.bz2"
+_val_csv_resource = "val.csv.bz2"
 
 
 # Cell
 USER_DIR = Path(appdirs.user_data_dir("bigearthnet"))
 USER_DIR.mkdir(exist_ok=True, parents=True)
-
-
-# Cell
-@validate_arguments
-def _download_and_cache_url(url: AnyHttpUrl, force_download: bool = False):
-    """
-    Simply download contents of url to the default user directory.
-    Allow to redownload with `force_download`
-    """
-    fp = USER_DIR / Path(url).name
-    if not fp.exists() or force_download:
-        response = urllib.request.urlopen(url).read()
-        fp.write_bytes(response)
-    return fp
 
 
 # Cell
@@ -75,7 +75,9 @@ def _parse_datetime(acquisition_date: object) -> None:
 
 # Cell
 @validate_arguments
-def _read_json(json_fp: FilePath, expected_keys: Set, read_only_expected: bool = True) -> Dict[str, str]:
+def _read_json(
+    json_fp: FilePath, expected_keys: Set, read_only_expected: bool = True
+) -> Dict[str, str]:
     """
     Parse the json file given with the file path `json_fp`.
     The function checks if all of the `expected_keys` are present, which
@@ -124,6 +126,7 @@ def read_S1_json(json_fp: FilePath) -> Dict[str, str]:
         data["coordinates"]["lry"] = data["coordinates"].pop("lly")
     return data
 
+
 def read_S2_json(json_fp: FilePath) -> Dict[str, str]:
     """
     A helper function that *safely* reads a BigEarthNet-S1 json file.
@@ -134,6 +137,7 @@ def read_S2_json(json_fp: FilePath) -> Dict[str, str]:
     """
     return _read_json(json_fp, ben_constants.BEN_S2_V1_0_JSON_KEYS)
 
+
 # Cell
 @validate_arguments
 def get_s2_patch_directories(dir_path: DirectoryPath) -> List[Path]:
@@ -141,7 +145,12 @@ def get_s2_patch_directories(dir_path: DirectoryPath) -> List[Path]:
     Will find all S2 patch directories in the provided `dir_path`.
     Only directories that strictly cohere to the naming convention will be returned.
     """
-    return [p for p in dir_path.iterdir() if ben_constants.BEN_S2_RE.fullmatch(p.name) is not None]
+    return [
+        p
+        for p in dir_path.iterdir()
+        if ben_constants.BEN_S2_RE.fullmatch(p.name) is not None
+    ]
+
 
 @validate_arguments
 def get_s1_patch_directories(dir_path: DirectoryPath) -> List[Path]:
@@ -149,47 +158,150 @@ def get_s1_patch_directories(dir_path: DirectoryPath) -> List[Path]:
     Will find all S1 patch directories in the provided `dir_path`.
     Only directories that strictly cohere to the naming convention will be returned.
     """
-    return [p for p in dir_path.iterdir() if ben_constants.BEN_S1_RE.fullmatch(p.name) is not None]
+    return [
+        p
+        for p in dir_path.iterdir()
+        if ben_constants.BEN_S1_RE.fullmatch(p.name) is not None
+    ]
+
 
 # Cell
-# PATCHES_WITH_SNOW_URL = "http://bigearth.net/static/documents/patches_with_seasonal_snow.csv"
-# PATCHES_WITH_CLOUD_AND_SHADOW_URL = "http://bigearth.net/static/documents/get_patches_with_cloud_and_shadow.csv"
-PATCHES_WITH_SNOW_URL = "https://git.tu-berlin.de/k.clasen/ben-mirror/-/raw/master/patches_with_seasonal_snow.csv"
-PATCHES_WITH_CLOUD_AND_SHADOW_URL = "https://git.tu-berlin.de/k.clasen/ben-mirror/-/raw/master/patches_with_cloud_and_shadow.csv"
+PATCHES_WITH_SNOW_URL = (
+    "http://bigearth.net/static/documents/patches_with_seasonal_snow.csv"
+)
+PATCHES_WITH_CLOUD_AND_SHADOW_URL = (
+    "http://bigearth.net/static/documents/get_patches_with_cloud_and_shadow.csv"
+)
+
+
+# Cell
+@functools.lru_cache()
+def _load_s1_s2_patch_name_mapping(from_s1_to_s2: bool = True) -> Dict[str, str]:
+    """
+    Load a dictionary which maps the S1 patch name to the S2 patch name (if `from_s1_to_s2`) or
+    the S2 patch name to the S1 patch name.
+
+    Stored as bz2 compressed csv file as `s1_s2_mapping.csv.bz2`.
+    The first column is the s1 patch name and the second column the s2 name.
+
+    The data could be regenerated with (requires the output of `bigearthnet_gdf_builder`):
+
+    >>> import geopandas
+    >>> raw_gdf = geopandas.read_parquet("raw_ben_s1_gdf.parquet")
+    >>> s1_s2_map = raw_gdf[["name", "corresponding_s2_patch"]]
+    >>> s1_s2_map.rename({"name": "s1_name", "corresponding_s2_patch": "s2_name"}, axis=1).to_csv("s1_s2_mapping.csv.gzip", index=False)
+    """
+    resource = "s1_s2_mapping.csv.bz2"
+    if not resources.is_resource(bigearthnet_common, resource):
+        raise ValueError(
+            f"{resource} resource is not available! This means that it was forgotten to be packaged."
+        )
+
+    with resources.path(bigearthnet_common, resource) as resource_path:
+        with bz2.open(resource_path, mode="rt") as csv_file:
+            reader = csv.DictReader(
+                csv_file
+            )  # field-names are encoded as first csv row
+            key, value = (
+                ("s1_name", "s2_name") if from_s1_to_s2 else ("s2_name", "s1_name")
+            )
+            return {row[key]: row[value] for row in reader}
+
+
+def get_complete_s1_to_s2_patch_name_mapping() -> Dict[str, str]:
+    """
+    Load entire Sentinel-1 to Sentinel-2 BigEarthNet patch name mapping.
+
+    Returns:
+        Dict[str, str]: Sentinel-1 patch name keys with corresponding Sentinel-2 patch name as value
+    """
+    return _load_s1_s2_patch_name_mapping(from_s1_to_s2=True)
+
+
+def get_complete_s2_to_s1_patch_name_mapping() -> Dict[str, str]:
+    """
+    Load entire Sentinel-2 to Sentinel-1 BigEarthNet patch name mapping.
+
+    Returns:
+        Dict[str, str]: Sentinel-2 patch name keys with corresponding Sentinel-1 patch name as value
+    """
+    return _load_s1_s2_patch_name_mapping(from_s1_to_s2=False)
+
+
+def s1_to_s2_patch_name(s1_patch_name: str) -> str:
+    """
+    Convert BigEarthNet Sentinel-1 patch name to Sentinel-2 patch name.
+    The function caches intermediate results.
+    The function should be highly performant.
+
+    Args:
+        s1_patch_name (str): complete BigEarthNet Sentinel-1 patch name
+
+    Returns:
+        str: Corresponding Sentinel-2 patch name
+    """
+    return get_complete_s1_to_s2_patch_name_mapping()[s1_patch_name]
+
+
+def s2_to_s1_patch_name(s2_patch_name: str) -> str:
+    """
+    Convert BigEarthNet Sentinel-2 patch name to Sentinel-1 patch name.
+    The function caches intermediate results.
+    The function should be highly performant.
+
+    Args:
+        s2_patch_name (str): complete BigEarthNet Sentinel-2 patch name
+
+    Returns:
+        str: Corresponding Sentinel-1 patch name
+    """
+    return get_complete_s2_to_s1_patch_name_mapping()[s2_patch_name]
 
 
 # Cell
 @validate_arguments
-def _conv_single_col_csv_to_set(
-    url: AnyHttpUrl, name: str = "Name", force_download: bool = False
+def _conv_single_col_csv_resource_to_set(
+    resource: str,
 ) -> Set:
     """
-    Given a url to a CSV file *without* a header
+    Given a `resource` name of an encoded CSV file *without* a header
     line and only a single column, return the set of
     all values.
-
-    Will write remote csv to disk for better performance.
-    Set `force_download` to re-download the file.
     """
-    fp = _download_and_cache_url(url, force_download=force_download)
-    with open(fp, mode="r") as csv_file:
-        reader = csv.DictReader(csv_file, fieldnames=[name])
-        return {row[name] for row in reader}
+    if not resources.is_resource(bigearthnet_common, resource):
+        raise ValueError(f"{resource} is an unknown resource!")
 
-@functools.lru_cache()
-def get_patches_with_seasonal_snow(force_download: bool = False) -> Set:
-    """List all patches with seasonal snow from **original** BigEarthNet dataset."""
-    return _conv_single_col_csv_to_set(
-        PATCHES_WITH_SNOW_URL, force_download=force_download
-    )
+    with resources.path(bigearthnet_common, resource) as resource_path:
+        with bz2.open(resource_path, mode="rt") as csv_file:
+            col_name = "Column"
+            reader = csv.DictReader(csv_file, fieldnames=[col_name])
+            return {row[col_name] for row in reader}
 
 
 @functools.lru_cache()
-def get_patches_with_cloud_and_shadow(force_download: bool = False) -> Set:
-    """List all patches with cloud and shadow from **original** BigEarthNet dataset."""
-    return _conv_single_col_csv_to_set(
-        PATCHES_WITH_CLOUD_AND_SHADOW_URL, force_download=force_download
-    )
+def get_s2_patches_with_seasonal_snow() -> Set:
+    """List all patches with seasonal snow from **original** BigEarthNet-S2 dataset."""
+    return _conv_single_col_csv_resource_to_set(_patches_with_seasonal_snow_resource)
+
+
+@functools.lru_cache()
+def get_s2_patches_with_cloud_and_shadow() -> Set:
+    """List all patches with cloud and shadow from **original** BigEarthNet-S2 dataset."""
+    return _conv_single_col_csv_resource_to_set(_patches_with_cloud_and_snow_resource)
+
+
+@functools.lru_cache()
+def get_s1_patches_with_seasonal_snow() -> Set:
+    """List all patches with seasonal snow from **original** BigEarthNet-S1 dataset."""
+    _s2_patches_with_snow = get_s2_patches_with_seasonal_snow()
+    return {s2_to_s1_patch_name(s2_patch) for s2_patch in _s2_patches_with_snow}
+
+
+@functools.lru_cache()
+def get_s1_patches_with_cloud_and_shadow() -> Set:
+    """List all patches with cloud and shadow from **original** BigEarthNet-S1 dataset."""
+    _s2_patches_with_clouds = get_s2_patches_with_cloud_and_shadow()
+    return {s2_to_s1_patch_name(s2_patch) for s2_patch in _s2_patches_with_clouds}
 
 
 # Cell
@@ -198,8 +310,13 @@ def is_snowy_patch(patch_name: str):
     """
     Fast function that checks whether `patch_name` is a patch
     that contains a lot of seasonal snow.
+
+    This works for S1 and S2 patch names!
     """
-    return patch_name in get_patches_with_seasonal_snow()
+    return (
+        patch_name in get_s2_patches_with_seasonal_snow()
+        or patch_name in get_s1_patches_with_seasonal_snow()
+    )
 
 
 @validate_arguments
@@ -207,66 +324,67 @@ def is_cloudy_shadowy_patch(patch_name: str):
     """
     Fast function that checks whether `patch_name` is a patch
     that contains a lot of shadow or is obstructed by clouds.
+
+    This works for S1 and S2 patch names!
     """
-    return patch_name in get_patches_with_cloud_and_shadow()
+    return (
+        patch_name in get_s2_patches_with_cloud_and_shadow()
+        or patch_name in get_s1_patches_with_cloud_and_shadow()
+    )
 
 
 # Cell
+
+# "https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/splits/train.csv",
 @functools.lru_cache()
-@validate_arguments
-def patches_from_original_train_split(
-    split_url: AnyHttpUrl = "https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/splits/train.csv",
-    force_download: bool = False,
-) -> Set:
+def get_s2_patches_from_original_train_split() -> Set:
     """
-    List all train patches from the original train/validation/test split.
-    There are two possible sources:
-
-    1. https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/splits/train.csv
-    2. https://git.tu-berlin.de/rsim/BigEarthNet-S2_43-classes_models/-/raw/master/splits/train.csv
-
-    While writing this function, there is **no** difference between these two splits.
-    But this may change in the future!
+    List all Sentinel-2 train patches from the original train/validation/test split.
     """
-    return _conv_single_col_csv_to_set(split_url, force_download=force_download)
+    return _conv_single_col_csv_resource_to_set(_train_csv_resource)
 
 
 @functools.lru_cache()
-@validate_arguments
-def patches_from_original_validation_split(
-    split_url: AnyHttpUrl = "https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/splits/val.csv",
-    force_download: bool = False,
-) -> Set:
+def get_s1_patches_from_original_train_split() -> Set:
     """
-    List all validation patches from the original train/validation/test split.
-    There are two possible sources:
-
-    1. https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/splits/train.csv"
-    2. "https://git.tu-berlin.de/rsim/BigEarthNet-S2_43-classes_models/-/raw/master/splits/train.csv"
-
-    While writing this function, there is **no** difference between these two splits.
-    But this may change in the future!
+    List all Sentinel-1 train patches from the original train/validation/test split.
     """
-    return _conv_single_col_csv_to_set(split_url, force_download=force_download)
+    s2_train_patches = get_s2_patches_from_original_train_split()
+    return {s2_to_s1_patch_name(s2_patch) for s2_patch in s2_train_patches}
 
 
 @functools.lru_cache()
-@validate_arguments
-def patches_from_original_test_split(
-    split_url: AnyHttpUrl = "https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/splits/test.csv",
-    force_download: bool = False,
-) -> Set:
+def get_s2_patches_from_original_validation_split() -> Set:
     """
-    List all test patches from the original train/validation/test split.
-    There are two possible sources:
-
-    1. https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/splits/test.csv
-    2. https://git.tu-berlin.de/rsim/BigEarthNet-S2_43-classes_models/-/raw/master/splits/test.csv
-
-    While writing this function, there is **no** difference between these two splits.
-    But this may change in the future!
+    List all Sentinel-2 validation patches from the original train/validation/test split.
     """
-    return _conv_single_col_csv_to_set(split_url, force_download=force_download)
+    return _conv_single_col_csv_resource_to_set(_val_csv_resource)
+
+
+@functools.lru_cache()
+def get_s1_patches_from_original_validation_split() -> Set:
+    """
+    List all Sentinel-1 validation patches from the original train/validation/test split.
+    """
+    s2_validation_patches = get_s2_patches_from_original_validation_split()
+    return {s2_to_s1_patch_name(s2_patch) for s2_patch in s2_validation_patches}
+
+
+@functools.lru_cache()
+def get_s2_patches_from_original_test_split() -> Set:
+    """
+    List all Sentinel-2 test patches from the original train/validation/test split.
+    """
+    return _conv_single_col_csv_resource_to_set(_test_resource)
+
+
+@functools.lru_cache()
+def get_s1_patches_from_original_test_split() -> Set:
+    """
+    List all Sentinel-1 test patches from the original train/validation/test split.
+    """
+    s2_test_patches = get_s2_patches_from_original_test_split()
+    return {s2_to_s1_patch_name(s2_patch) for s2_patch in s2_test_patches}
 
 
 # Cell
@@ -274,25 +392,26 @@ def patches_from_original_test_split(
 def get_original_split_from_patch_name(patch: str) -> Optional[str]:
     """
     Returns "train"/"validation"/"test" or `None`.
-    The value is retrieved from the original BigEarthNet
+    The value is retrieved from the original BigEarthNet-S1/S2
     train/validation/test split. If the input is not present
     in any split, it will return `None` and raise a UserWarning.
     This happens for patches that are either in the
     cloud/shadow or seasonal snow set or if there exists no 19-label target.
 
-    The splits are from the 19-classes version.
-    While writing this function there was no difference between the
-    19-classes and the 43-classes version.
+    Note: This works for Sentinel-2 and Sentinel-1 patch names!
     """
-    train = patches_from_original_train_split()
-    validation = patches_from_original_validation_split()
-    test = patches_from_original_test_split()
+    s1_train = get_s1_patches_from_original_train_split()
+    s2_train = get_s2_patches_from_original_train_split()
+    s1_validation = get_s1_patches_from_original_validation_split()
+    s2_validation = get_s2_patches_from_original_validation_split()
+    s1_test = get_s1_patches_from_original_test_split()
+    s2_test = get_s2_patches_from_original_test_split()
 
-    if patch in train:
+    if patch in s1_train or patch in s2_train:
         return "train"
-    elif patch in validation:
+    elif patch in s1_validation or patch in s2_validation:
         return "validation"
-    elif patch in test:
+    elif patch in s1_test or patch in s2_test:
         return "test"
     warnings.warn(
         "Provided an input patch name which was not part of the original split.",
@@ -354,8 +473,9 @@ def ben_19_labels_to_multi_hot(labels: Sequence[str]) -> List[float]:
     """
     idxs = [ben_constants.NEW_LABELS_TO_IDX[label] for label in labels]
     multi_hot = fc.L([0] * len(ben_constants.NEW_LABELS))
-    multi_hot[idxs] = 1.
+    multi_hot[idxs] = 1.0
     return list(multi_hot)
+
 
 @validate_arguments
 def ben_43_labels_to_multi_hot(labels: Sequence[str]) -> List[float]:
@@ -373,5 +493,5 @@ def ben_43_labels_to_multi_hot(labels: Sequence[str]) -> List[float]:
     """
     idxs = [ben_constants.OLD_LABELS_TO_IDX[label] for label in labels]
     multi_hot = fc.L([0] * len(ben_constants.OLD_LABELS))
-    multi_hot[idxs] = 1.
+    multi_hot[idxs] = 1.0
     return list(multi_hot)

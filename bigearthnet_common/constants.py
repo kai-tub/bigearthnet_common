@@ -362,7 +362,7 @@ BEN_RECOMMENDED_SIZE = 519_284
 
 # From: https://depositonce.tu-berlin.de/bitstream/11303/11261/3/BigEarthNetManual.pdf
 # Ignoring the mistakenly leading 0 in vertical and horizontal patch.
-# TODO: Check if this applies to _all_ S2 patches!
+# Ignore the bug where the hour digits do not necessarily have a leading 0
 
 BEN_S2_RE = re.compile(
     r"""
@@ -374,7 +374,7 @@ BEN_S2_RE = re.compile(
         (?P<month>\d{2})
         (?P<day>\d{2})
         T
-        (?P<hour>\d{2})
+        (?P<hour>\d{1,2}) # Bug
         (?P<minute>\d{2})
         (?P<second>\d{2})
         _
@@ -385,9 +385,9 @@ BEN_S2_RE = re.compile(
     re.VERBOSE,
 )
 
+
 # Cell
 
-# TODO: Check if this applies to _all_ S1 patches!
 # https://sentinels.copernicus.eu/web/sentinel/user-guides/sentinel-1-sar/naming-conventions
 BEN_S1_RE = re.compile(
     r"""
@@ -405,7 +405,10 @@ BEN_S1_RE = re.compile(
         (?P<month>\d{2})
         (?P<day>\d{2})
         T
-        (?P<hour>\d{2})
+        # Inspired by the bug from Sentinel-2
+        # Checked all _current_ Sentinel-1 patches
+        # and all of them use two digits for hour
+        (?P<hour>\d{1,2})
         (?P<minute>\d{2})
         (?P<second>\d{2})
         _
@@ -417,6 +420,7 @@ BEN_S1_RE = re.compile(
     """,
     re.VERBOSE,
 )
+
 
 # Cell
 from rich.table import Table
