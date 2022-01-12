@@ -2,6 +2,7 @@
   "bigearthnet_common": {
     "Overview": "/",
     "BigEarthNet Constants": "constants.html",
-    "BigEarthNet Base Functions": "base.html"
+    "BigEarthNet Base Functions": "base.html",
+    "BigEarthNet Sets": "sets.html"
   }
 }

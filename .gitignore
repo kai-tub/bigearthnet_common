@@ -14,6 +14,7 @@ _tmp*
 tmp*
 tags
 node_modules/
+*.parquet
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

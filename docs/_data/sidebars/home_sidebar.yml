@@ -15,6 +15,9 @@ entries:
     - output: web,pdf
       title: BigEarthNet Base Functions
       url: base.html
+    - output: web,pdf
+      title: BigEarthNet Sets
+      url: sets.html
     output: web
     title: bigearthnet_common
   output: web
