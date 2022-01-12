@@ -1,3 +1,15 @@
+# v2.1.0 (Wed Jan 12 2022)
+
+#### 🚀 Enhancement
+
+- Add subset builder functions [#16](https://github.com/kai-tub/bigearthnet_common/pull/16) ([@kai-tub](https://github.com/kai-tub))
+
+#### Authors: 1
+
+- Kai Norman Clasen ([@kai-tub](https://github.com/kai-tub))
+
+---
+
 # v2.0.0 (Tue Jan 11 2022)
 
 #### 💥 Breaking Change
