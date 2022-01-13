@@ -299,6 +299,7 @@ BEN_RGB_CHANNELS = (
 
 BEN_PATCH_SIZE_M = 1200
 
+
 # Cell
 BEN_S1_V1_0_JSON_KEYS = {
     "acquisition_time",
@@ -428,6 +429,7 @@ BEN_S1_RE = re.compile(
 # works because of greedy regex
 BEN_S1_BAND_RE = re.compile(r".*_(?P<band>V[HV])")
 BEN_S2_BAND_RE = re.compile(r".*(?P<band>B\d[0-9A])")
+
 
 # Cell
 from rich.table import Table
