@@ -1,3 +1,15 @@
+# v2.1.1 (Fri Jan 14 2022)
+
+#### 🐛 Bug Fix
+
+- Fix 60m band name [#17](https://github.com/kai-tub/bigearthnet_common/pull/17) ([@kai-tub](https://github.com/kai-tub))
+
+#### Authors: 1
+
+- Kai Norman Clasen ([@kai-tub](https://github.com/kai-tub))
+
+---
+
 # v2.1.0 (Wed Jan 12 2022)
 
 #### 🚀 Enhancement
