@@ -4,10 +4,10 @@ __all__ = ['OLD2NEW_LABELS_DICT', 'OLD_LABELS', 'NEW_LABELS', 'OLD_LABELS_TO_IDX
            'CLC_LV3_TO_LV2', 'CLC_LV2_TO_LV1', 'CLC_LV3_TO_LV1', 'CLC_LV3_LABELS', 'CLC_LV2_LABELS', 'CLC_LV1_LABELS',
            'CLC_LV3_COUNT', 'CLC_LV2_COUNT', 'CLC_LV1_COUNT', 'MAX_VALUES_BY_DTYPE_STR', 'URL', 'BAND_STATS',
            'BAND_STATS_FLOAT32', 'BEN_CHANNELS', 'BEN_10m_CHANNELS', 'BEN_20m_CHANNELS', 'BEN_10m_20m_CHANNELS',
-           'BEN_30m_CHANNELS', 'BEN_RGB_CHANNELS', 'BEN_S1_V1_0_JSON_KEYS', 'BEN_S2_V1_0_JSON_KEYS', 'COUNTRIES',
-           'COUNTRIES_ISO_A2', 'BEN_COMPLETE_SIZE', 'BEN_SNOWY_PATCHES_COUNT', 'BEN_CLOUDY_OR_SHADOWY_PATCHES_COUNT',
-           'BEN_NO_19_CLASS_TARGET_COUNT', 'BEN_RECOMMENDED_SIZE', 'BEN_S2_RE', 'BEN_S1_RE', 'smart_pprint',
-           'print_all_constants', 'constants_prompt']
+           'BEN_60m_CHANNELS', 'BEN_RGB_CHANNELS', 'BEN_PATCH_SIZE_M', 'BEN_S1_V1_0_JSON_KEYS', 'BEN_S2_V1_0_JSON_KEYS',
+           'COUNTRIES', 'COUNTRIES_ISO_A2', 'BEN_COMPLETE_SIZE', 'BEN_SNOWY_PATCHES_COUNT',
+           'BEN_CLOUDY_OR_SHADOWY_PATCHES_COUNT', 'BEN_NO_19_CLASS_TARGET_COUNT', 'BEN_RECOMMENDED_SIZE', 'BEN_S2_RE',
+           'BEN_S1_RE', 'BEN_S1_BAND_RE', 'BEN_S2_BAND_RE', 'smart_pprint', 'print_all_constants', 'constants_prompt']
 
 # Cell
 import fastcore.all as fc
@@ -285,7 +285,7 @@ BEN_20m_CHANNELS = (
 
 BEN_10m_20m_CHANNELS = natsort.natsorted(BEN_10m_CHANNELS + BEN_20m_CHANNELS)
 
-BEN_30m_CHANNELS = (
+BEN_60m_CHANNELS = (
     "B01",
     "B09",
 )
@@ -296,6 +296,8 @@ BEN_RGB_CHANNELS = (
     "B03",
     "B02",
 )
+
+BEN_PATCH_SIZE_M = 1200
 
 
 # Cell
@@ -420,6 +422,13 @@ BEN_S1_RE = re.compile(
     """,
     re.VERBOSE,
 )
+
+
+# Cell
+
+# works because of greedy regex
+BEN_S1_BAND_RE = re.compile(r".*_(?P<band>V[HV])")
+BEN_S2_BAND_RE = re.compile(r".*(?P<band>B\d[0-9A])")
 
 
 # Cell
