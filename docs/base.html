@@ -1062,7 +1062,7 @@ cloud/shadow or seasonal snow set or if there exists no 19-label target.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="old2new_labels" class="doc_header"><code>old2new_labels</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L526" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>old2new_labels</code>(<strong><code>old_labels</code></strong>:<code>Sequence</code>[<code>str</code>])</p>
+<h4 id="old2new_labels" class="doc_header"><code>old2new_labels</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L526" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>old2new_labels</code>(<strong><code>old_labels</code></strong>:<code>Iterable</code>[<code>str</code>])</p>
 </blockquote>
 <p>Converts a list of old-style BigEarthNet labels
 to a list of labels.</p>
@@ -1105,9 +1105,9 @@ then the function will return <code>None</code> and raise a user warning.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ben_19_labels_to_multi_hot" class="doc_header"><code>ben_19_labels_to_multi_hot</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L549" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ben_19_labels_to_multi_hot</code>(<strong><code>labels</code></strong>:<code>Sequence</code>[<code>str</code>])</p>
+<h4 id="ben_19_labels_to_multi_hot" class="doc_header"><code>ben_19_labels_to_multi_hot</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L549" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ben_19_labels_to_multi_hot</code>(<strong><code>labels</code></strong>:<code>Iterable</code>[<code>str</code>])</p>
 </blockquote>
-<p>Convenience function that converts an input sequence of labels into
+<p>Convenience function that converts an input iterable of labels into
 a multi-hot encoded vector.
 The naturally ordered label list is used as an encoder reference</p>
 <ul>
@@ -1139,9 +1139,9 @@ For example, the "Agro-forestry areas" class is only present in Portugal and in 
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ben_43_labels_to_multi_hot" class="doc_header"><code>ben_43_labels_to_multi_hot</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L569" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ben_43_labels_to_multi_hot</code>(<strong><code>labels</code></strong>:<code>Sequence</code>[<code>str</code>])</p>
+<h4 id="ben_43_labels_to_multi_hot" class="doc_header"><code>ben_43_labels_to_multi_hot</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L569" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ben_43_labels_to_multi_hot</code>(<strong><code>labels</code></strong>:<code>Iterable</code>[<code>str</code>])</p>
 </blockquote>
-<p>Convenience function that converts an input sequence of labels into
+<p>Convenience function that converts an input iterable of labels into
 a multi-hot encoded vector.
 The naturally ordered label list is used as an encoder reference</p>
 <ul>
