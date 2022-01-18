@@ -22,7 +22,7 @@ import warnings
 from datetime import datetime
 from importlib import resources
 from pathlib import Path
-from typing import Dict, List, Optional, Sequence, Set, Union
+from typing import Dict, List, Optional, Iterable, Set, Union
 
 import appdirs
 import dateutil
@@ -523,7 +523,7 @@ def _old2new_label(old_label: str) -> Optional[str]:
     return OLD2NEW_LABELS_DICT[old_label]
 
 
-def old2new_labels(old_labels: Sequence[str]) -> Optional[List[str]]:
+def old2new_labels(old_labels: Iterable[str]) -> Optional[List[str]]:
     """
     Converts a list of old-style BigEarthNet labels
     to a list of labels.
@@ -547,9 +547,9 @@ def old2new_labels(old_labels: Sequence[str]) -> Optional[List[str]]:
 
 # Cell
 @validate_arguments
-def ben_19_labels_to_multi_hot(labels: Sequence[str]) -> List[float]:
+def ben_19_labels_to_multi_hot(labels: Iterable[str]) -> List[float]:
     """
-    Convenience function that converts an input sequence of labels into
+    Convenience function that converts an input iterable of labels into
     a multi-hot encoded vector.
     The naturally ordered label list is used as an encoder reference
     - `bigearthnet_common.NEW_LABELS`
@@ -567,9 +567,9 @@ def ben_19_labels_to_multi_hot(labels: Sequence[str]) -> List[float]:
 
 
 @validate_arguments
-def ben_43_labels_to_multi_hot(labels: Sequence[str]) -> List[float]:
+def ben_43_labels_to_multi_hot(labels: Iterable[str]) -> List[float]:
     """
-    Convenience function that converts an input sequence of labels into
+    Convenience function that converts an input iterable of labels into
     a multi-hot encoded vector.
     The naturally ordered label list is used as an encoder reference
     - `bigearthnet_common.OLD_LABELS`
