@@ -1,3 +1,15 @@
+# v2.1.2 (Tue Jan 18 2022)
+
+#### 🐛 Bug Fix
+
+- Fix label type [#18](https://github.com/kai-tub/bigearthnet_common/pull/18) ([@kai-tub](https://github.com/kai-tub))
+
+#### Authors: 1
+
+- Kai Norman Clasen ([@kai-tub](https://github.com/kai-tub))
+
+---
+
 # v2.1.1 (Fri Jan 14 2022)
 
 #### 🐛 Bug Fix
