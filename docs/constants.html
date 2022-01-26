@@ -60,6 +60,122 @@ nb_path: "nbs/00_constants.ipynb"
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">CLC_LV1_TO_CODE</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Artificial Surfaces&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;Agricultural areas&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;Forest and seminatural areas&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="s2">&quot;Wetlands&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="s2">&quot;Water bodies&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">CLC_LV2_TO_CODE</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Urban fabric&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+    <span class="s2">&quot;Industrial, comercial and transport units&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="s2">&quot;Mine, dump and construction sites&quot;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
+    <span class="s2">&quot;Artificial, non-agricultural vegetated areas&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+    <span class="s2">&quot;Arable land&quot;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span>
+    <span class="s2">&quot;Permanent crops&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
+    <span class="s2">&quot;Pastures&quot;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span>
+    <span class="s2">&quot;Heterogeneous agricultural areas&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
+    <span class="s2">&quot;Forest&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span>
+    <span class="s2">&quot;Shrub and/or herbaceous vegetation associations&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+    <span class="s2">&quot;Open spaces with little or no vegetation&quot;</span><span class="p">:</span> <span class="mi">33</span><span class="p">,</span>
+    <span class="s2">&quot;Inland wetlands&quot;</span><span class="p">:</span> <span class="mi">41</span><span class="p">,</span>
+    <span class="s2">&quot;Coastal wetlands&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
+    <span class="s2">&quot;Inland waters&quot;</span><span class="p">:</span> <span class="mi">51</span><span class="p">,</span>
+    <span class="s2">&quot;Marine waters&quot;</span><span class="p">:</span> <span class="mi">52</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># Requires knowledge that dict keep ordering in supported Python version</span>
+<span class="c1"># as well as the correct order in the mappings</span>
+<span class="n">CLC_LV3_TO_CODE</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">lv3_lbl</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">CLC_LV2_TO_CODE</span><span class="p">[</span><span class="n">lv2_lbl</span><span class="p">]</span><span class="si">}{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">for</span> <span class="n">lv2_lbl</span> <span class="ow">in</span> <span class="n">CLC_LV3_TO_LV2</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">lv3_lbl</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">CLC_LV3_TO_LV2</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span> <span class="o">==</span> <span class="n">lv2_lbl</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">CLC_LV3_TO_CODE</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;Continuous urban fabric&#39;: &#39;111&#39;,
+ &#39;Discontinuous urban fabric&#39;: &#39;112&#39;,
+ &#39;Industrial or commercial units&#39;: &#39;121&#39;,
+ &#39;Road and rail networks and associated land&#39;: &#39;122&#39;,
+ &#39;Port areas&#39;: &#39;123&#39;,
+ &#39;Airports&#39;: &#39;124&#39;,
+ &#39;Mineral extraction sites&#39;: &#39;131&#39;,
+ &#39;Dump sites&#39;: &#39;132&#39;,
+ &#39;Construction sites&#39;: &#39;133&#39;,
+ &#39;Green urban areas&#39;: &#39;141&#39;,
+ &#39;Sport and leisure facilities&#39;: &#39;142&#39;,
+ &#39;Non-irrigated arable land&#39;: &#39;211&#39;,
+ &#39;Permanently irrigated land&#39;: &#39;212&#39;,
+ &#39;Rice fields&#39;: &#39;213&#39;,
+ &#39;Vineyards&#39;: &#39;221&#39;,
+ &#39;Fruit trees and berry plantations&#39;: &#39;222&#39;,
+ &#39;Olive groves&#39;: &#39;223&#39;,
+ &#39;Pastures&#39;: &#39;231&#39;,
+ &#39;Annual crops associated with permanent crops&#39;: &#39;241&#39;,
+ &#39;Complex cultivation patterns&#39;: &#39;242&#39;,
+ &#39;Land principally occupied by agriculture, with significant areas of natural vegetation&#39;: &#39;243&#39;,
+ &#39;Agro-forestry areas&#39;: &#39;244&#39;,
+ &#39;Broad-leaved forest&#39;: &#39;311&#39;,
+ &#39;Coniferous forest&#39;: &#39;312&#39;,
+ &#39;Mixed forest&#39;: &#39;313&#39;,
+ &#39;Natural grassland&#39;: &#39;321&#39;,
+ &#39;Moors and heathland&#39;: &#39;322&#39;,
+ &#39;Sclerophyllous vegetation&#39;: &#39;323&#39;,
+ &#39;Transitional woodland/shrub&#39;: &#39;324&#39;,
+ &#39;Beaches, dunes, sands&#39;: &#39;331&#39;,
+ &#39;Bare rock&#39;: &#39;332&#39;,
+ &#39;Sparsely vegetated areas&#39;: &#39;333&#39;,
+ &#39;Burnt areas&#39;: &#39;334&#39;,
+ &#39;Glaciers and perpetual snow&#39;: &#39;335&#39;,
+ &#39;Inland marshes&#39;: &#39;411&#39;,
+ &#39;Peatbogs&#39;: &#39;412&#39;,
+ &#39;Salt marshes&#39;: &#39;421&#39;,
+ &#39;Salines&#39;: &#39;422&#39;,
+ &#39;Intertidal flats&#39;: &#39;423&#39;,
+ &#39;Water courses&#39;: &#39;511&#39;,
+ &#39;Water bodies&#39;: &#39;512&#39;,
+ &#39;Coastal lagoons&#39;: &#39;521&#39;,
+ &#39;Estuaries&#39;: &#39;522&#39;,
+ &#39;Sea and ocean&#39;: &#39;523&#39;}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -124,7 +240,7 @@ nb_path: "nbs/00_constants.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="smart_pprint" class="doc_header"><code>smart_pprint</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/constants.py#L487" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>smart_pprint</code>(<strong><code>name</code></strong>, <strong><code>value</code></strong>)</p>
+<h4 id="smart_pprint" class="doc_header"><code>smart_pprint</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/constants.py#L503" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>smart_pprint</code>(<strong><code>name</code></strong>, <strong><code>value</code></strong>)</p>
 </blockquote>
 <p>A small <code>rich.print</code> wrapper that tries to guess a good representation
 for variable named <code>name</code> with the given <code>value</code>.
@@ -160,7 +276,7 @@ dictionaries will be printed as two-column tables, for example.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="print_all_constants" class="doc_header"><code>print_all_constants</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/constants.py#L499" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>print_all_constants</code>()</p>
+<h4 id="print_all_constants" class="doc_header"><code>print_all_constants</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/constants.py#L515" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>print_all_constants</code>()</p>
 </blockquote>
 <p>A function that shows all of the pre-defined constants of the library.</p>
 
@@ -187,6 +303,28 @@ dictionaries will be printed as two-column tables, for example.</p>
 
 <div class="output_wrapper">
 <div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">PATCH_FROM_RUSSIA:  S2B_MSIL2A_20180221T093029_65_1
+</pre>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">PATCH_IN_TERROTORIAL_WATERS:  S2B_MSIL2A_20170814T100029_33_77
+</pre>
+
+</div>
+
+</div>
 
 <div class="output_area">
 
@@ -678,10 +816,10 @@ dictionaries will be printed as two-column tables, for example.</p>
 ┃<span style="font-weight: bold"> CLC_LV1_LABELS               </span>┃
 ┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
 │ Wetlands                     │
-│ Forest and seminatural areas │
 │ Artificial Surfaces          │
 │ Water bodies                 │
 │ Agricultural areas           │
+│ Forest and seminatural areas │
 └──────────────────────────────┘
 </pre>
 
@@ -894,11 +1032,11 @@ dictionaries will be printed as two-column tables, for example.</p>
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_S1_V1_0_JSON_KEYS: 
 <span style="font-weight: bold">{</span>
     <span style="color: #008000; text-decoration-color: #008000">'coordinates'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'corresponding_s2_patch'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'acquisition_time'</span>,
     <span style="color: #008000; text-decoration-color: #008000">'projection'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'scene_source'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'labels'</span>
+    <span style="color: #008000; text-decoration-color: #008000">'corresponding_s2_patch'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'labels'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'scene_source'</span>
 <span style="font-weight: bold">}</span>
 </pre>
 
@@ -911,7 +1049,7 @@ dictionaries will be printed as two-column tables, for example.</p>
 
 <div class="output_html rendered_html output_subarea ">
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_S2_V1_0_JSON_KEYS: 
-<span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'coordinates'</span>, <span style="color: #008000; text-decoration-color: #008000">'tile_source'</span>, <span style="color: #008000; text-decoration-color: #008000">'projection'</span>, <span style="color: #008000; text-decoration-color: #008000">'labels'</span>, <span style="color: #008000; text-decoration-color: #008000">'acquisition_date'</span><span style="font-weight: bold">}</span>
+<span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'coordinates'</span>, <span style="color: #008000; text-decoration-color: #008000">'projection'</span>, <span style="color: #008000; text-decoration-color: #008000">'tile_source'</span>, <span style="color: #008000; text-decoration-color: #008000">'labels'</span>, <span style="color: #008000; text-decoration-color: #008000">'acquisition_date'</span><span style="font-weight: bold">}</span>
 </pre>
 
 </div>
@@ -1093,7 +1231,7 @@ Resolution\n        _\n        <span style="color: #008080; text-decoration-colo
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="constants_prompt" class="doc_header"><code>constants_prompt</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/constants.py#L546" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>constants_prompt</code>()</p>
+<h4 id="constants_prompt" class="doc_header"><code>constants_prompt</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/constants.py#L562" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>constants_prompt</code>()</p>
 </blockquote>
 <p>A smart prompt to quickly display common BigEarthNet constants.</p>
 
