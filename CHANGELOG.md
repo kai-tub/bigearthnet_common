@@ -1,3 +1,19 @@
+# v2.2.0 (Wed Jan 26 2022)
+
+#### 🚀 Enhancement
+
+- Add clc to code [#21](https://github.com/kai-tub/bigearthnet_common/pull/21) ([@kai-tub](https://github.com/kai-tub))
+
+#### 📝 Documentation
+
+- Fix github link [#19](https://github.com/kai-tub/bigearthnet_common/pull/19) ([@kai-tub](https://github.com/kai-tub))
+
+#### Authors: 1
+
+- Kai Norman Clasen ([@kai-tub](https://github.com/kai-tub))
+
+---
+
 # v2.1.2 (Tue Jan 18 2022)
 
 #### 🐛 Bug Fix
