@@ -1,10 +1,10 @@
 topnav:
-- title: Topnav
-  items:
-    - title: github
-      external_url: https://github.com/k.clasen/bigearthnet_common/tree/main/
+  - title: Topnav
+    items:
+      - title: github
+        external_url: https://github.com/kai-tub/bigearthnet_common/tree/main/
 
 #Topnav dropdowns
 topnav_dropdowns:
-- title: Topnav dropdowns
-  folders:
+  - title: Topnav dropdowns
+    folders:
