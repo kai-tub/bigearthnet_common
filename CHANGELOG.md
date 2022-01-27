@@ -1,3 +1,15 @@
+# v2.2.1 (Thu Jan 27 2022)
+
+#### 🐛 Bug Fix
+
+- Fix missing export on CLC to code mapping [#22](https://github.com/kai-tub/bigearthnet_common/pull/22) ([@kai-tub](https://github.com/kai-tub))
+
+#### Authors: 1
+
+- Kai Norman Clasen ([@kai-tub](https://github.com/kai-tub))
+
+---
+
 # v2.2.0 (Wed Jan 26 2022)
 
 #### 🚀 Enhancement
