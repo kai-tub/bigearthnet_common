@@ -2,13 +2,14 @@
 
 __all__ = ['OLD2NEW_LABELS_DICT', 'OLD_LABELS', 'NEW_LABELS', 'OLD_LABELS_TO_IDX', 'NEW_LABELS_TO_IDX',
            'CLC_LV3_TO_LV2', 'CLC_LV2_TO_LV1', 'CLC_LV3_TO_LV1', 'CLC_LV1_LABELS', 'CLC_LV3_LABELS', 'CLC_LV2_LABELS',
-           'CLC_LV3_COUNT', 'CLC_LV2_COUNT', 'CLC_LV1_COUNT', 'MAX_VALUES_BY_DTYPE_STR', 'URL', 'BAND_STATS',
-           'BAND_STATS_FLOAT32', 'BEN_CHANNELS', 'BEN_10m_CHANNELS', 'BEN_20m_CHANNELS', 'BEN_10m_20m_CHANNELS',
-           'BEN_60m_CHANNELS', 'BEN_RGB_CHANNELS', 'BEN_PATCH_SIZE_M', 'BEN_S1_V1_0_JSON_KEYS', 'BEN_S2_V1_0_JSON_KEYS',
-           'COUNTRIES', 'COUNTRIES_ISO_A2', 'BEN_COMPLETE_SIZE', 'BEN_SNOWY_PATCHES_COUNT',
-           'BEN_CLOUDY_OR_SHADOWY_PATCHES_COUNT', 'BEN_NO_19_CLASS_TARGET_COUNT', 'BEN_RECOMMENDED_SIZE', 'BEN_S2_RE',
-           'BEN_S1_RE', 'BEN_S1_BAND_RE', 'BEN_S2_BAND_RE', 'PATCH_FROM_RUSSIA', 'PATCH_IN_TERROTORIAL_WATERS',
-           'smart_pprint', 'print_all_constants', 'constants_prompt']
+           'CLC_LV3_COUNT', 'CLC_LV2_COUNT', 'CLC_LV1_COUNT', 'CLC_LV1_TO_CLC_CODE', 'CLC_CODE_TO_CLC_LV1',
+           'CLC_LV2_TO_CLC_CODE', 'CLC_CODE_TO_CLC_LV2', 'CLC_LV3_TO_CLC_CODE', 'CLC_CODE_TO_CLC_LV3',
+           'MAX_VALUES_BY_DTYPE_STR', 'URL', 'BAND_STATS', 'BAND_STATS_FLOAT32', 'BEN_CHANNELS', 'BEN_10m_CHANNELS',
+           'BEN_20m_CHANNELS', 'BEN_10m_20m_CHANNELS', 'BEN_60m_CHANNELS', 'BEN_RGB_CHANNELS', 'BEN_PATCH_SIZE_M',
+           'BEN_S1_V1_0_JSON_KEYS', 'BEN_S2_V1_0_JSON_KEYS', 'COUNTRIES', 'COUNTRIES_ISO_A2', 'BEN_COMPLETE_SIZE',
+           'BEN_SNOWY_PATCHES_COUNT', 'BEN_CLOUDY_OR_SHADOWY_PATCHES_COUNT', 'BEN_NO_19_CLASS_TARGET_COUNT',
+           'BEN_RECOMMENDED_SIZE', 'BEN_S2_RE', 'BEN_S1_RE', 'BEN_S1_BAND_RE', 'BEN_S2_BAND_RE', 'PATCH_FROM_RUSSIA',
+           'PATCH_IN_TERROTORIAL_WATERS', 'smart_pprint', 'print_all_constants', 'constants_prompt']
 
 # Cell
 import fastcore.all as fc
@@ -200,6 +201,46 @@ CLC_LV2_LABELS = tuple(CLC_LV2_TO_LV1.keys())
 CLC_LV3_COUNT = 44
 CLC_LV2_COUNT = 15
 CLC_LV1_COUNT = 5
+
+# Cell
+
+CLC_LV1_TO_CLC_CODE = {
+    "Artificial Surfaces": 1,
+    "Agricultural areas": 2,
+    "Forest and seminatural areas": 3,
+    "Wetlands": 4,
+    "Water bodies": 5,
+}
+CLC_CODE_TO_CLC_LV1 = {v: k for k, v in CLC_LV1_TO_CLC_CODE.items()}
+
+CLC_LV2_TO_CLC_CODE = {
+    "Urban fabric": 11,
+    "Industrial, comercial and transport units": 12,
+    "Mine, dump and construction sites": 13,
+    "Artificial, non-agricultural vegetated areas": 14,
+    "Arable land": 21,
+    "Permanent crops": 22,
+    "Pastures": 23,
+    "Heterogeneous agricultural areas": 24,
+    "Forest": 31,
+    "Shrub and/or herbaceous vegetation associations": 32,
+    "Open spaces with little or no vegetation": 33,
+    "Inland wetlands": 41,
+    "Coastal wetlands": 42,
+    "Inland waters": 51,
+    "Marine waters": 52,
+}
+CLC_CODE_TO_CLC_LV2 = {v: k for k, v in CLC_LV2_TO_CLC_CODE.items()}
+
+# Requires knowledge that dict keep ordering in supported Python version
+# as well as the correct order in the mappings
+CLC_LV3_TO_CLC_CODE = {
+    lv3_lbl: f"{CLC_LV2_TO_CLC_CODE[lv2_lbl]}{i}"
+    for lv2_lbl in CLC_LV3_TO_LV2.values()
+    for i, lv3_lbl in enumerate([k for k, v in CLC_LV3_TO_LV2.items() if v == lv2_lbl], 1)
+}
+
+CLC_CODE_TO_CLC_LV3 = {v: k for k, v in CLC_LV3_TO_CLC_CODE.items()}
 
 # Cell
 # Inspired by
@@ -463,7 +504,7 @@ def _single_column_table(col_name, rows):
 def _simple_dict_table(header, dictionary):
     t = Table(title=header, show_header=False)
     for k, v in dictionary.items():
-        t.add_row(k, str(v))
+        t.add_row(str(k), str(v))
     return t
 
 
