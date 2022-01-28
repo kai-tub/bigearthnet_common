@@ -24,6 +24,7 @@ This library provides a collection of high-level tools to better work with the [
    - Get a list of snowy/cloudy patches
    - Convert the _old_ labels to thew _new_ label nomenclature
    - Generate multi-hot encoded label views
+3. Easily filter patches and generate subsets as CSV files
 
 ## Installation
 The package is available via PyPI and can be installed with:
@@ -35,6 +36,17 @@ The package has _Python-only_ dependencies and should cause no issues in more co
 To quickly search for BigEarthNet constants of interest, call:
 - `ben_constants_prompt` or
 - `python -m bigearthnet_common.constants`
+
+## Sets generator
+To generate sets/subsets from the data and to store them as a CSV file, use:
+- `ben_build_csv_sets --help`
+
+This command-line tool let's the user easily create subsets from common constraints.
+To generate a CSV file that contains all Sentinel-2 patches from Serbia only durng the Summer and Spring months, call the function as:
+- `ben_build_csv_sets <FILE_PATH> S2 --seasons Winter --seasons Summer --countries Serbia --remove-unrecommended-dl-patches`
+
+Note: By default this tool will always remove the _unrecommended_ patches, i.e. patches that contain seasonal snow, shadows, clouds, or that have no labels in the 19-class nomenclature
+
 
 ## Contributing
 

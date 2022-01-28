@@ -62,7 +62,7 @@ nb_path: "nbs/01_base.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="parse_datetime" class="doc_header"><code>parse_datetime</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L55" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>parse_datetime</code>(<strong><code>inp</code></strong>:<code>Union</code>[<code>str</code>, <code>datetime</code>])</p>
+<h4 id="parse_datetime" class="doc_header"><code>parse_datetime</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L54" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>parse_datetime</code>(<strong><code>inp</code></strong>:<code>Union</code>[<code>str</code>, <code>datetime</code>])</p>
 </blockquote>
 <p>Parses an input into a <code>datetime</code> object.
 Will try its best to infer the correct format from a string.
@@ -128,7 +128,7 @@ Otherwise it will raise an error.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="read_S1_json" class="doc_header"><code>read_S1_json</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L116" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>read_S1_json</code>(<strong><code>json_fp</code></strong>:<code>FilePath</code>)</p>
+<h4 id="read_S1_json" class="doc_header"><code>read_S1_json</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L115" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>read_S1_json</code>(<strong><code>json_fp</code></strong>:<code>FilePath</code>)</p>
 </blockquote>
 <p>A helper function that <em>safely</em> reads a BigEarthNet-S1 json file.
 It will ensure that all expected entries are present and only read those
@@ -159,7 +159,7 @@ from version: S1_v1.0. A coordinates key is named <code>lly</code> and it should
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="read_S2_json" class="doc_header"><code>read_S2_json</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L134" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>read_S2_json</code>(<strong><code>json_fp</code></strong>:<code>FilePath</code>)</p>
+<h4 id="read_S2_json" class="doc_header"><code>read_S2_json</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L133" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>read_S2_json</code>(<strong><code>json_fp</code></strong>:<code>FilePath</code>)</p>
 </blockquote>
 <p>A helper function that <em>safely</em> reads a BigEarthNet-S1 json file.
 It will ensure that all expected entries are present and only read those
@@ -202,7 +202,7 @@ or partially deleted.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_s2_patch_directories" class="doc_header"><code>get_s2_patch_directories</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L146" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s2_patch_directories</code>(<strong><code>dir_path</code></strong>:<code>DirectoryPath</code>)</p>
+<h4 id="get_s2_patch_directories" class="doc_header"><code>get_s2_patch_directories</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L145" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s2_patch_directories</code>(<strong><code>dir_path</code></strong>:<code>DirectoryPath</code>)</p>
 </blockquote>
 <p>Will find all S2 patch directories in the provided <code>dir_path</code>.
 Only directories that strictly cohere to the naming convention will be returned.</p>
@@ -228,7 +228,7 @@ Only directories that strictly cohere to the naming convention will be returned.
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_s1_patch_directories" class="doc_header"><code>get_s1_patch_directories</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L159" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s1_patch_directories</code>(<strong><code>dir_path</code></strong>:<code>DirectoryPath</code>)</p>
+<h4 id="get_s1_patch_directories" class="doc_header"><code>get_s1_patch_directories</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L158" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s1_patch_directories</code>(<strong><code>dir_path</code></strong>:<code>DirectoryPath</code>)</p>
 </blockquote>
 <p>Will find all S1 patch directories in the provided <code>dir_path</code>.
 Only directories that strictly cohere to the naming convention will be returned.</p>
@@ -292,7 +292,7 @@ All functions use caches to guarantee fast lookups, so feel free to use them on 
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_complete_s1_to_s2_patch_name_mapping" class="doc_header"><code>get_complete_s1_to_s2_patch_name_mapping</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L227" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_complete_s1_to_s2_patch_name_mapping</code>()</p>
+<h4 id="get_complete_s1_to_s2_patch_name_mapping" class="doc_header"><code>get_complete_s1_to_s2_patch_name_mapping</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L226" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_complete_s1_to_s2_patch_name_mapping</code>()</p>
 </blockquote>
 <p>Load entire Sentinel-1 to Sentinel-2 BigEarthNet patch name mapping.</p>
 <p>Returns:
@@ -319,7 +319,7 @@ All functions use caches to guarantee fast lookups, so feel free to use them on 
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_complete_s2_to_s1_patch_name_mapping" class="doc_header"><code>get_complete_s2_to_s1_patch_name_mapping</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L237" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_complete_s2_to_s1_patch_name_mapping</code>()</p>
+<h4 id="get_complete_s2_to_s1_patch_name_mapping" class="doc_header"><code>get_complete_s2_to_s1_patch_name_mapping</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L236" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_complete_s2_to_s1_patch_name_mapping</code>()</p>
 </blockquote>
 <p>Load entire Sentinel-2 to Sentinel-1 BigEarthNet patch name mapping.</p>
 <p>Returns:
@@ -346,7 +346,7 @@ All functions use caches to guarantee fast lookups, so feel free to use them on 
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="s1_to_s2_patch_name" class="doc_header"><code>s1_to_s2_patch_name</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L247" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s1_to_s2_patch_name</code>(<strong><code>s1_patch_name</code></strong>:<code>str</code>)</p>
+<h4 id="s1_to_s2_patch_name" class="doc_header"><code>s1_to_s2_patch_name</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L246" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s1_to_s2_patch_name</code>(<strong><code>s1_patch_name</code></strong>:<code>str</code>)</p>
 </blockquote>
 <p>Convert BigEarthNet Sentinel-1 patch name to Sentinel-2 patch name.
 The function caches intermediate results.
@@ -377,7 +377,7 @@ The function should be highly performant.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="s2_to_s1_patch_name" class="doc_header"><code>s2_to_s1_patch_name</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L262" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s2_to_s1_patch_name</code>(<strong><code>s2_patch_name</code></strong>:<code>str</code>)</p>
+<h4 id="s2_to_s1_patch_name" class="doc_header"><code>s2_to_s1_patch_name</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L261" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s2_to_s1_patch_name</code>(<strong><code>s2_patch_name</code></strong>:<code>str</code>)</p>
 </blockquote>
 <p>Convert BigEarthNet Sentinel-2 patch name to Sentinel-1 patch name.
 The function caches intermediate results.
@@ -415,7 +415,7 @@ The function should be highly performant.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_patches_to_country_mapping" class="doc_header"><code>get_patches_to_country_mapping</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L278" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_patches_to_country_mapping</code>(<strong><code>use_s2_patch_names</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
+<h4 id="get_patches_to_country_mapping" class="doc_header"><code>get_patches_to_country_mapping</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L277" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_patches_to_country_mapping</code>(<strong><code>use_s2_patch_names</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
 </blockquote>
 <p>Return a dictionary that maps a patch name to a country.
 If <code>use_s2_patch_names</code> is set, use the BigEarthNet Sentinel-2 patch names.
@@ -487,7 +487,7 @@ extended_gdf.to_csv("country.csv.bz2", columns=["s1_name", "s2_name", "country"]
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_patches_to_season_mapping" class="doc_header"><code>get_patches_to_season_mapping</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L296" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_patches_to_season_mapping</code>(<strong><code>use_s2_patch_names</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
+<h4 id="get_patches_to_season_mapping" class="doc_header"><code>get_patches_to_season_mapping</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L295" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_patches_to_season_mapping</code>(<strong><code>use_s2_patch_names</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
 </blockquote>
 <p>Return a dictionary that maps a patch name to the season of the acquisition date.
 If <code>use_s2_patch_names</code> is set, use the BigEarthNet Sentinel-2 patch names.
@@ -537,8 +537,9 @@ extended_gdf.to_csv("season.csv.bz2", columns=["s1_name", "s2_name", "season"], 
 
 <span class="c1"># There are only 4 seasons</span>
 <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">s2_season_mapping</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span> <span class="o">==</span> <span class="mi">4</span>
+<span class="k">assert</span> <span class="nb">set</span><span class="p">(</span><span class="n">s2_season_mapping</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="o">==</span> <span class="nb">set</span><span class="p">(</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">ben_constants</span><span class="o">.</span><span class="n">Season</span><span class="p">)</span>
 <span class="c1"># check by inspecting the acquisition time</span>
-<span class="k">assert</span> <span class="n">s2_season_mapping</span><span class="p">[</span><span class="s2">&quot;S2A_MSIL2A_20171221T112501_56_35&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Winter&quot;</span>
+<span class="k">assert</span> <span class="n">s2_season_mapping</span><span class="p">[</span><span class="s2">&quot;S2A_MSIL2A_20171221T112501_56_35&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">ben_constants</span><span class="o">.</span><span class="n">Season</span><span class="o">.</span><span class="n">Winter</span>
 </pre></div>
 
     </div>
@@ -559,7 +560,7 @@ extended_gdf.to_csv("season.csv.bz2", columns=["s1_name", "s2_name", "season"], 
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_s2_patches_with_seasonal_snow" class="doc_header"><code>get_s2_patches_with_seasonal_snow</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L333" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s2_patches_with_seasonal_snow</code>()</p>
+<h4 id="get_s2_patches_with_seasonal_snow" class="doc_header"><code>get_s2_patches_with_seasonal_snow</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L332" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s2_patches_with_seasonal_snow</code>()</p>
 </blockquote>
 <p>List all patches with seasonal snow from <strong>original</strong> BigEarthNet-S2 dataset.</p>
 
@@ -584,7 +585,7 @@ extended_gdf.to_csv("season.csv.bz2", columns=["s1_name", "s2_name", "season"], 
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_s2_patches_with_cloud_and_shadow" class="doc_header"><code>get_s2_patches_with_cloud_and_shadow</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L339" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s2_patches_with_cloud_and_shadow</code>()</p>
+<h4 id="get_s2_patches_with_cloud_and_shadow" class="doc_header"><code>get_s2_patches_with_cloud_and_shadow</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L338" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s2_patches_with_cloud_and_shadow</code>()</p>
 </blockquote>
 <p>List all patches with cloud and shadow from <strong>original</strong> BigEarthNet-S2 dataset.</p>
 
@@ -609,7 +610,7 @@ extended_gdf.to_csv("season.csv.bz2", columns=["s1_name", "s2_name", "season"], 
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_s1_patches_with_seasonal_snow" class="doc_header"><code>get_s1_patches_with_seasonal_snow</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L345" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s1_patches_with_seasonal_snow</code>()</p>
+<h4 id="get_s1_patches_with_seasonal_snow" class="doc_header"><code>get_s1_patches_with_seasonal_snow</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L344" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s1_patches_with_seasonal_snow</code>()</p>
 </blockquote>
 <p>List all patches with seasonal snow from <strong>original</strong> BigEarthNet-S1 dataset.</p>
 
@@ -634,7 +635,7 @@ extended_gdf.to_csv("season.csv.bz2", columns=["s1_name", "s2_name", "season"], 
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_s1_patches_with_cloud_and_shadow" class="doc_header"><code>get_s1_patches_with_cloud_and_shadow</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L352" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s1_patches_with_cloud_and_shadow</code>()</p>
+<h4 id="get_s1_patches_with_cloud_and_shadow" class="doc_header"><code>get_s1_patches_with_cloud_and_shadow</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L351" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s1_patches_with_cloud_and_shadow</code>()</p>
 </blockquote>
 <p>List all patches with cloud and shadow from <strong>original</strong> BigEarthNet-S1 dataset.</p>
 
@@ -697,7 +698,7 @@ extended_gdf.to_csv("season.csv.bz2", columns=["s1_name", "s2_name", "season"], 
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="is_snowy_patch" class="doc_header"><code>is_snowy_patch</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L360" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>is_snowy_patch</code>(<strong><code>patch_name</code></strong>:<code>str</code>)</p>
+<h4 id="is_snowy_patch" class="doc_header"><code>is_snowy_patch</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L359" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>is_snowy_patch</code>(<strong><code>patch_name</code></strong>:<code>str</code>)</p>
 </blockquote>
 <p>Fast function that checks whether <code>patch_name</code> is a patch
 that contains a lot of seasonal snow.</p>
@@ -724,7 +725,7 @@ that contains a lot of seasonal snow.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="is_cloudy_shadowy_patch" class="doc_header"><code>is_cloudy_shadowy_patch</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L374" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>is_cloudy_shadowy_patch</code>(<strong><code>patch_name</code></strong>:<code>str</code>)</p>
+<h4 id="is_cloudy_shadowy_patch" class="doc_header"><code>is_cloudy_shadowy_patch</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L373" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>is_cloudy_shadowy_patch</code>(<strong><code>patch_name</code></strong>:<code>str</code>)</p>
 </blockquote>
 <p>Fast function that checks whether <code>patch_name</code> is a patch
 that contains a lot of shadow or is obstructed by clouds.</p>
@@ -758,7 +759,7 @@ that contains a lot of shadow or is obstructed by clouds.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_s2_patches_with_no_19_class_target" class="doc_header"><code>get_s2_patches_with_no_19_class_target</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L389" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s2_patches_with_no_19_class_target</code>()</p>
+<h4 id="get_s2_patches_with_no_19_class_target" class="doc_header"><code>get_s2_patches_with_no_19_class_target</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L388" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s2_patches_with_no_19_class_target</code>()</p>
 </blockquote>
 <p>List all patches from the BigEarthNet-S2 dataset that
 have <em>no</em> defined classes with the 19-class nomenclature.</p>
@@ -793,7 +794,7 @@ no_19_label_targets.to_csv("patches_with_no_19_class_targets.csv.bz2", columns=[
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_s1_patches_with_no_19_class_target" class="doc_header"><code>get_s1_patches_with_no_19_class_target</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L406" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s1_patches_with_no_19_class_target</code>()</p>
+<h4 id="get_s1_patches_with_no_19_class_target" class="doc_header"><code>get_s1_patches_with_no_19_class_target</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L405" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s1_patches_with_no_19_class_target</code>()</p>
 </blockquote>
 <p>List all patches from the BigEarthNet-S1 dataset that
 have <em>no</em> defined classes with the 19-class nomenclature.</p>
@@ -829,7 +830,7 @@ for compactness.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_s2_patches_from_original_train_split" class="doc_header"><code>get_s2_patches_from_original_train_split</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L428" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s2_patches_from_original_train_split</code>()</p>
+<h4 id="get_s2_patches_from_original_train_split" class="doc_header"><code>get_s2_patches_from_original_train_split</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L427" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s2_patches_from_original_train_split</code>()</p>
 </blockquote>
 <p>List all Sentinel-2 train patches from the original train/validation/test split.</p>
 
@@ -854,7 +855,7 @@ for compactness.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_s1_patches_from_original_train_split" class="doc_header"><code>get_s1_patches_from_original_train_split</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L436" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s1_patches_from_original_train_split</code>()</p>
+<h4 id="get_s1_patches_from_original_train_split" class="doc_header"><code>get_s1_patches_from_original_train_split</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L435" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s1_patches_from_original_train_split</code>()</p>
 </blockquote>
 <p>List all Sentinel-1 train patches from the original train/validation/test split.</p>
 
@@ -879,7 +880,7 @@ for compactness.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_s2_patches_from_original_validation_split" class="doc_header"><code>get_s2_patches_from_original_validation_split</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L445" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s2_patches_from_original_validation_split</code>()</p>
+<h4 id="get_s2_patches_from_original_validation_split" class="doc_header"><code>get_s2_patches_from_original_validation_split</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L444" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s2_patches_from_original_validation_split</code>()</p>
 </blockquote>
 <p>List all Sentinel-2 validation patches from the original train/validation/test split.</p>
 
@@ -904,7 +905,7 @@ for compactness.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_s1_patches_from_original_validation_split" class="doc_header"><code>get_s1_patches_from_original_validation_split</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L453" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s1_patches_from_original_validation_split</code>()</p>
+<h4 id="get_s1_patches_from_original_validation_split" class="doc_header"><code>get_s1_patches_from_original_validation_split</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L452" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s1_patches_from_original_validation_split</code>()</p>
 </blockquote>
 <p>List all Sentinel-1 validation patches from the original train/validation/test split.</p>
 
@@ -929,7 +930,7 @@ for compactness.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_s2_patches_from_original_test_split" class="doc_header"><code>get_s2_patches_from_original_test_split</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L462" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s2_patches_from_original_test_split</code>()</p>
+<h4 id="get_s2_patches_from_original_test_split" class="doc_header"><code>get_s2_patches_from_original_test_split</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L461" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s2_patches_from_original_test_split</code>()</p>
 </blockquote>
 <p>List all Sentinel-2 test patches from the original train/validation/test split.</p>
 
@@ -954,7 +955,7 @@ for compactness.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_s1_patches_from_original_test_split" class="doc_header"><code>get_s1_patches_from_original_test_split</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L470" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s1_patches_from_original_test_split</code>()</p>
+<h4 id="get_s1_patches_from_original_test_split" class="doc_header"><code>get_s1_patches_from_original_test_split</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L469" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_s1_patches_from_original_test_split</code>()</p>
 </blockquote>
 <p>List all Sentinel-1 test patches from the original train/validation/test split.</p>
 
@@ -986,7 +987,7 @@ for compactness.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_original_split_from_patch_name" class="doc_header"><code>get_original_split_from_patch_name</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L480" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_original_split_from_patch_name</code>(<strong><code>patch</code></strong>:<code>str</code>)</p>
+<h4 id="get_original_split_from_patch_name" class="doc_header"><code>get_original_split_from_patch_name</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L479" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_original_split_from_patch_name</code>(<strong><code>patch</code></strong>:<code>str</code>)</p>
 </blockquote>
 <p>Returns "train"/"validation"/"test" or <code>None</code>.
 The value is retrieved from the original BigEarthNet-S1/S2
@@ -1062,7 +1063,7 @@ cloud/shadow or seasonal snow set or if there exists no 19-label target.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="old2new_labels" class="doc_header"><code>old2new_labels</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L526" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>old2new_labels</code>(<strong><code>old_labels</code></strong>:<code>Iterable</code>[<code>str</code>])</p>
+<h4 id="old2new_labels" class="doc_header"><code>old2new_labels</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L525" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>old2new_labels</code>(<strong><code>old_labels</code></strong>:<code>Iterable</code>[<code>str</code>])</p>
 </blockquote>
 <p>Converts a list of old-style BigEarthNet labels
 to a list of labels.</p>
@@ -1105,7 +1106,7 @@ then the function will return <code>None</code> and raise a user warning.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ben_19_labels_to_multi_hot" class="doc_header"><code>ben_19_labels_to_multi_hot</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L549" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ben_19_labels_to_multi_hot</code>(<strong><code>labels</code></strong>:<code>Iterable</code>[<code>str</code>])</p>
+<h4 id="ben_19_labels_to_multi_hot" class="doc_header"><code>ben_19_labels_to_multi_hot</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L548" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ben_19_labels_to_multi_hot</code>(<strong><code>labels</code></strong>:<code>Iterable</code>[<code>str</code>])</p>
 </blockquote>
 <p>Convenience function that converts an input iterable of labels into
 a multi-hot encoded vector.
@@ -1139,7 +1140,7 @@ For example, the "Agro-forestry areas" class is only present in Portugal and in 
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ben_43_labels_to_multi_hot" class="doc_header"><code>ben_43_labels_to_multi_hot</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L569" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ben_43_labels_to_multi_hot</code>(<strong><code>labels</code></strong>:<code>Iterable</code>[<code>str</code>])</p>
+<h4 id="ben_43_labels_to_multi_hot" class="doc_header"><code>ben_43_labels_to_multi_hot</code><a href="https://github.com/kai-tub/bigearthnet_common/tree/main/bigearthnet_common/base.py#L568" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ben_43_labels_to_multi_hot</code>(<strong><code>labels</code></strong>:<code>Iterable</code>[<code>str</code>])</p>
 </blockquote>
 <p>Convenience function that converts an input iterable of labels into
 a multi-hot encoded vector.
