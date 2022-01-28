@@ -1,3 +1,15 @@
+# v2.3.0 (Fri Jan 28 2022)
+
+#### 🚀 Enhancement
+
+- Add CLI utility to quickly generate subsets [#23](https://github.com/kai-tub/bigearthnet_common/pull/23) ([@kai-tub](https://github.com/kai-tub))
+
+#### Authors: 1
+
+- Kai Norman Clasen ([@kai-tub](https://github.com/kai-tub))
+
+---
+
 # v2.2.1 (Thu Jan 27 2022)
 
 #### 🐛 Bug Fix
