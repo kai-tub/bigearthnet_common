@@ -6,12 +6,15 @@ __all__ = ['OLD2NEW_LABELS_DICT', 'OLD_LABELS', 'NEW_LABELS', 'OLD_LABELS_TO_IDX
            'CLC_LV2_TO_CLC_CODE', 'CLC_CODE_TO_CLC_LV2', 'CLC_LV3_TO_CLC_CODE', 'CLC_CODE_TO_CLC_LV3',
            'MAX_VALUES_BY_DTYPE_STR', 'URL', 'BAND_STATS', 'BAND_STATS_FLOAT32', 'BEN_CHANNELS', 'BEN_10m_CHANNELS',
            'BEN_20m_CHANNELS', 'BEN_10m_20m_CHANNELS', 'BEN_60m_CHANNELS', 'BEN_RGB_CHANNELS', 'BEN_PATCH_SIZE_M',
-           'BEN_S1_V1_0_JSON_KEYS', 'BEN_S2_V1_0_JSON_KEYS', 'COUNTRIES', 'COUNTRIES_ISO_A2', 'BEN_COMPLETE_SIZE',
-           'BEN_SNOWY_PATCHES_COUNT', 'BEN_CLOUDY_OR_SHADOWY_PATCHES_COUNT', 'BEN_NO_19_CLASS_TARGET_COUNT',
-           'BEN_RECOMMENDED_SIZE', 'BEN_S2_RE', 'BEN_S1_RE', 'BEN_S1_BAND_RE', 'BEN_S2_BAND_RE', 'PATCH_FROM_RUSSIA',
-           'PATCH_IN_TERROTORIAL_WATERS', 'smart_pprint', 'print_all_constants', 'constants_prompt']
+           'BEN_S1_V1_0_JSON_KEYS', 'BEN_S2_V1_0_JSON_KEYS', 'SentinelSource', 'Season', 'Country', 'Split',
+           'COUNTRIES', 'COUNTRIES_ISO_A2', 'BEN_COMPLETE_SIZE', 'BEN_SNOWY_PATCHES_COUNT',
+           'BEN_CLOUDY_OR_SHADOWY_PATCHES_COUNT', 'BEN_NO_19_CLASS_TARGET_COUNT', 'BEN_RECOMMENDED_SIZE', 'BEN_S2_RE',
+           'BEN_S1_RE', 'BEN_S1_BAND_RE', 'BEN_S2_BAND_RE', 'PATCH_FROM_RUSSIA', 'PATCH_IN_TERROTORIAL_WATERS',
+           'smart_pprint', 'print_all_constants', 'constants_prompt']
 
 # Cell
+from enum import Enum
+
 import fastcore.all as fc
 import natsort
 import rich
@@ -370,32 +373,55 @@ BEN_S2_V1_0_JSON_KEYS = {
 
 
 # Cell
-COUNTRIES = (
-    "Austria",
-    "Belgium",
-    "Finland",
-    "Ireland",
-    "Kosovo",
-    "Lithuania",
-    "Luxembourg",
-    "Portugal",
-    "Serbia",
-    "Switzerland",
-)
+class SentinelSource(str, Enum):
+    S1 = "S1"
+    S2 = "S2"
+
+
+class Season(str, Enum):
+    Winter = "Winter"
+    Fall = "Fall"
+    Summer = "Summer"
+    Spring = "Spring"
+
+_COUNTRY_TO_ISO_A2 = {
+    "Austria": "AT",
+    "Belgium": "BE",
+    "Finland": "FI",
+    "Ireland": "IE",
+    "Kosovo": "XK",
+    "Lithuania": "LT",
+    "Luxembourg": "LU",
+    "Portugal": "PT",
+    "Serbia": "RS",
+    "Switzerland": "CH",
+}
+
+class Country(str, Enum):
+    Austria = "Austria"
+    Belgium = "Belgium"
+    Finland = "Finland"
+    Ireland = "Ireland"
+    Kosovo = "Kosovo"
+    Lithuania = "Lithuania"
+    Luxembourg = "Luxembourg"
+    Portugal = "Portugal"
+    Serbia = "Serbia"
+    Switzerland = "Switzerland"
+
+    def to_iso_A2(self):
+        return _COUNTRY_TO_ISO_A2[self.value]
+
+class Split(str, Enum):
+    train = "train"
+    validation = "validation"
+    test = "test"
+
+# Cell
+COUNTRIES = tuple(c for c in Country)
 
 # NOTE: ISO_A2 because ISO_A3 does is NOT defined for Kosovo!
-COUNTRIES_ISO_A2 = (
-    "AT",
-    "BE",
-    "FI",
-    "IE",
-    "XK",
-    "LT",
-    "LU",
-    "PT",
-    "RS",
-    "CH",
-)
+COUNTRIES_ISO_A2 = tuple(c.to_iso_A2() for c in Country)
 
 
 # Cell

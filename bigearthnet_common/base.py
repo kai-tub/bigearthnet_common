@@ -33,7 +33,6 @@ from pydantic import DirectoryPath, FilePath, validate_arguments
 
 import bigearthnet_common
 import bigearthnet_common.constants as ben_constants
-from .constants import OLD2NEW_LABELS_DICT
 
 _patches_with_cloud_and_snow_resource = "patches_with_cloud_and_shadow.csv.bz2"
 _patches_with_seasonal_snow_resource = "patches_with_seasonal_snow.csv.bz2"
@@ -497,11 +496,11 @@ def get_original_split_from_patch_name(patch: str) -> Optional[str]:
     s2_test = get_s2_patches_from_original_test_split()
 
     if patch in s1_train or patch in s2_train:
-        return "train"
+        return ben_constants.Split.train
     elif patch in s1_validation or patch in s2_validation:
-        return "validation"
+        return ben_constants.Split.validation
     elif patch in s1_test or patch in s2_test:
-        return "test"
+        return ben_constants.Split.test
     warnings.warn(
         "Provided an input patch name which was not part of the original split.",
         UserWarning,
@@ -520,7 +519,7 @@ def _old2new_label(old_label: str) -> Optional[str]:
     will return `None` if the label was removed and
     raise a `KeyError` if the input label is unknown.
     """
-    return OLD2NEW_LABELS_DICT[old_label]
+    return ben_constants.OLD2NEW_LABELS_DICT[old_label]
 
 
 def old2new_labels(old_labels: Iterable[str]) -> Optional[List[str]]:

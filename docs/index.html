@@ -61,6 +61,7 @@ nb_path: "nbs/index.ipynb"
 <li>Generate multi-hot encoded label views</li>
 </ul>
 </li>
+<li>Easily filter patches and generate subsets as CSV files</li>
 </ol>
 
 </div>
@@ -78,6 +79,16 @@ nb_path: "nbs/index.ipynb"
 <li><code>ben_constants_prompt</code> or</li>
 <li><code>python -m bigearthnet_common.constants</code></li>
 </ul>
+<h2 id="Sets-generator">Sets generator<a class="anchor-link" href="#Sets-generator"> </a></h2><p>To generate sets/subsets from the data and to store them as a CSV file, use:</p>
+<ul>
+<li><code>ben_build_csv_sets --help</code></li>
+</ul>
+<p>This command-line tool let's the user easily create subsets from common constraints.
+To generate a CSV file that contains all Sentinel-2 patches from Serbia only durng the Summer and Spring months, call the function as:</p>
+<ul>
+<li><code>ben_build_csv_sets &lt;FILE_PATH&gt; S2 --seasons Winter --seasons Summer --countries Serbia --remove-unrecommended-dl-patches</code></li>
+</ul>
+<p>Note: By default this tool will always remove the <em>unrecommended</em> patches, i.e. patches that contain seasonal snow, shadows, clouds, or that have no labels in the 19-class nomenclature</p>
 
 </div>
 </div>
