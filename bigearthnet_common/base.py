@@ -2,16 +2,18 @@
 
 __all__ = ['USER_DIR', 'parse_datetime', 'read_S1_json', 'read_S2_json', 'get_s2_patch_directories',
            'get_s1_patch_directories', 'PATCHES_WITH_SNOW_URL', 'PATCHES_WITH_CLOUD_AND_SHADOW_URL',
-           'get_complete_s1_to_s2_patch_name_mapping', 'get_complete_s2_to_s1_patch_name_mapping',
-           's1_to_s2_patch_name', 's2_to_s1_patch_name', 'get_patches_to_country_mapping',
-           'get_patches_to_season_mapping', 'get_s2_patches_with_seasonal_snow', 'get_s2_patches_with_cloud_and_shadow',
-           'get_s1_patches_with_seasonal_snow', 'get_s1_patches_with_cloud_and_shadow', 'is_snowy_patch',
-           'is_cloudy_shadowy_patch', 'get_s2_patches_with_no_19_class_target',
-           'get_s1_patches_with_no_19_class_target', 'get_s2_patches_from_original_train_split',
-           'get_s1_patches_from_original_train_split', 'get_s2_patches_from_original_validation_split',
-           'get_s1_patches_from_original_validation_split', 'get_s2_patches_from_original_test_split',
-           'get_s1_patches_from_original_test_split', 'get_original_split_from_patch_name', 'old2new_labels',
-           'ben_19_labels_to_multi_hot', 'ben_43_labels_to_multi_hot']
+           'get_all_s2_patch_names', 'get_all_s1_patch_names', 'get_complete_s1_to_s2_patch_name_mapping',
+           'get_complete_s2_to_s1_patch_name_mapping', 's1_to_s2_patch_name', 's2_to_s1_patch_name',
+           'get_patches_to_country_mapping', 'get_patches_to_season_mapping', 'get_s2_patches_with_seasonal_snow',
+           'get_s2_patches_with_cloud_and_shadow', 'get_s1_patches_with_seasonal_snow',
+           'get_s1_patches_with_cloud_and_shadow', 'is_snowy_patch', 'is_cloudy_shadowy_patch',
+           'get_s2_patches_with_no_19_class_target', 'get_s1_patches_with_no_19_class_target',
+           'get_s2_patches_from_original_train_split', 'get_s1_patches_from_original_train_split',
+           'get_s2_patches_from_original_validation_split', 'get_s1_patches_from_original_validation_split',
+           'get_s2_patches_from_original_test_split', 'get_s1_patches_from_original_test_split',
+           'get_original_split_from_patch_name', 'old2new_labels', 'ben_19_labels_to_multi_hot',
+           'ben_43_labels_to_multi_hot', 'validate_ben_s2_root_directory', 'validate_ben_s1_root_directory',
+           'validate_ben_s2_root_directory_cli', 'validate_ben_s1_root_directory_cli']
 
 # Cell
 import bz2
@@ -23,6 +25,8 @@ from datetime import datetime
 from importlib import resources
 from pathlib import Path
 from typing import Dict, List, Optional, Iterable, Set, Union
+import rich
+import typer
 
 import appdirs
 import dateutil
@@ -206,6 +210,39 @@ def _conv_header_col_bz2_csv_resource_to_dict(
                 )
             return {row[key_column]: row[value_column] for row in reader}
 
+
+# FUTURE: Could merge the underlying logic together
+@functools.lru_cache()
+def _conv_header_col_bz2_csv_resource_to_set(
+    resource, key_column: str
+) -> Set[str]:
+    """
+    Load a dictionary with the provided `key_column` after uncompressing
+    the `bz2` compressed `resource` csv file.
+    """
+    if not resources.is_resource(bigearthnet_common, resource):
+        raise ValueError(
+            f"{resource} resource is not available! This means that it was forgotten to be packaged."
+        )
+
+    with resources.path(bigearthnet_common, resource) as resource_path:
+        with bz2.open(resource_path, mode="rt") as csv_file:
+            reader = csv.DictReader(
+                csv_file
+            )  # field-names are encoded as first csv row
+            if key_column not in reader.fieldnames:
+                raise ValueError(
+                    f"Key {key_column} is unkown! Resource provides: {reader.fieldnames}"
+                )
+            return {row[key_column] for row in reader}
+
+def get_all_s2_patch_names() -> Set[str]:
+    resource = _s1_s2_mapping_resource
+    return _conv_header_col_bz2_csv_resource_to_set(resource, "s2_name")
+
+def get_all_s1_patch_names() -> Set[str]:
+    resource = _s1_s2_mapping_resource
+    return _conv_header_col_bz2_csv_resource_to_set(resource, "s1_name")
 
 def _load_s1_s2_patch_name_mapping(from_s1_to_s2: bool = True) -> Dict[str, str]:
     """
@@ -583,3 +620,91 @@ def ben_43_labels_to_multi_hot(labels: Iterable[str]) -> List[float]:
     multi_hot = fc.L([0] * len(ben_constants.OLD_LABELS))
     multi_hot[idxs] = 1.0
     return list(multi_hot)
+
+
+# Cell
+def _are_s1_files_complete(patch_path: DirectoryPath) -> bool:
+    """
+    Check if all S1-patch files exists (bands and json files) and are not empty.
+    """
+    file_suffixes = ["VV", "VH", "_labels_metadata.json"]
+    for suffix in file_suffixes:
+        file = patch_path / f"{patch_path.name}{suffix}"
+        if not file.exists() or file.stat().st_size == 0:
+            return False
+    return True
+
+def _are_s2_files_complete(patch_path: DirectoryPath) -> bool:
+    """
+    Check if all S2-patch files exists (bands and json files) and are not empty.
+    """
+    file_suffixes = [f"_B{i:02}.tif" for i in range(1, 13) if i != 10] + ["_B8A", "_labels_metadata.json"]
+    for suffix in file_suffixes:
+        file = patch_path / f"{patch_path.name}{suffix}"
+        if not file.exists() or file.stat().st_size == 0:
+            return False
+    return True
+
+def _print_missing_dirs(missing_dirs, show_num: int = 10) -> None:
+    rich.print("There are some missing directories!")
+    rich.print("The following directories are missing compared to the complete BEN archive.")
+    show_num = min(show_num, len(missing_dirs))
+    rich.print(f"Showing only the first {show_num} invalid directories of {len(missing_dirs)}")
+    rich.print([d for _, d in zip(range(show_num), missing_dirs)])
+
+def _print_dirs_with_missing_files(dirs_with_missing_files, show_num: int = 10) -> None:
+    rich.print("There are some invalid directories!")
+    rich.print("The following directories are missing files.")
+    show_num = min(show_num, len(dirs_with_missing_files))
+    rich.print(f"Showing only the first {show_num} invalid directories of {len(dirs_with_missing_files)}")
+    rich.print([d for _, d in zip(range(show_num), dirs_with_missing_files)])
+
+
+@validate_arguments
+def _validate_ben_root_directory(dir_path: DirectoryPath, is_sentinel2: bool) -> Set[str]:
+    files = {f for f in dir_path.glob("*")}
+    patch_names = get_all_s2_patch_names() if is_sentinel2 else get_all_s1_patch_names()
+    expected_directories = {dir_path / patch for patch in patch_names}
+    missing_directories = expected_directories - files
+    ben_dirs = expected_directories & files
+    completeness_checker = _are_s2_files_complete if is_sentinel2 else _are_s1_files_complete
+    directories_with_missing_files = {f for f in ben_dirs if not completeness_checker(f)}
+    if missing_directories == set() and directories_with_missing_files == set():
+        rich.print("Nothing seems to be missing.")
+        rich.print(f"The Sentinel directory {dir_path} looks complete.")
+        return set()
+    if missing_directories != set():
+        _print_missing_dirs(missing_directories)
+    if directories_with_missing_files != set():
+        _print_dirs_with_missing_files(directories_with_missing_files)
+    return missing_directories | directories_with_missing_files
+
+def validate_ben_s2_root_directory(dir_path: Path) -> Set[str]:
+    """
+    Quickly check if all expected files from the BigEarthNet-S2 archive are present.
+
+    This funtion will _not_ check if the files are correct or if they were modified!
+    The function will perform a simple existence check and verify that each file is not empty.
+    Other files will be ignored.
+    """
+    return _validate_ben_root_directory(dir_path, is_sentinel2=True)
+
+def validate_ben_s1_root_directory(dir_path: Path) -> Set[str]:
+    """
+    Quickly check if all expected files from the BigEarthNet-S1 archive are present.
+
+    This funtion will _not_ check if the files are correct or if they were modified!
+    The function will perform a simple existence check and verify that each file is not empty.
+    Other files will be ignored.
+    """
+    return _validate_ben_root_directory(dir_path, is_sentinel2=False)
+
+def validate_ben_s2_root_directory_cli():
+    app = typer.Typer()
+    app.command()(validate_ben_s2_root_directory)
+    app()
+
+def validate_ben_s1_root_directory_cli():
+    app = typer.Typer()
+    app.command()(validate_ben_s1_root_directory)
+    app()
