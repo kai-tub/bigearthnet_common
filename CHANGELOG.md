@@ -1,3 +1,15 @@
+# v2.4.0 (Thu Feb 10 2022)
+
+#### 🚀 Enhancement
+
+- Add archive validator, to quickly check if there are any missing files [#24](https://github.com/kai-tub/bigearthnet_common/pull/24) ([@kai-tub](https://github.com/kai-tub))
+
+#### Authors: 1
+
+- Kai Norman Clasen ([@kai-tub](https://github.com/kai-tub))
+
+---
+
 # v2.3.0 (Fri Jan 28 2022)
 
 #### 🚀 Enhancement
