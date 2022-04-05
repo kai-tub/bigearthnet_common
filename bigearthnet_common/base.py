@@ -10,22 +10,22 @@ import functools
 import json
 import warnings
 from datetime import datetime
+from enum import Enum
 from importlib import resources
 from pathlib import Path
-from typing import Dict, List, Optional, Iterable, Set, Union
-import rich
-import typer
+from typing import Dict, Iterable, List, Optional, Set, Union
 
 import appdirs
 import dateutil
 import fastcore.all as fc
+import rich
+import typer
 from fastcore.basics import compose
 from fastcore.dispatch import typedispatch
 from pydantic import DirectoryPath, FilePath, validate_arguments
 
 import bigearthnet_common
 import bigearthnet_common.constants as ben_constants
-from enum import Enum
 
 
 class Resource(str, Enum):

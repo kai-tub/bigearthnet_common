@@ -12,14 +12,13 @@ __all__ = ['OLD2NEW_LABELS_DICT', 'OLD_LABELS', 'NEW_LABELS', 'OLD_LABELS_TO_IDX
            'BEN_S1_RE', 'BEN_S1_BAND_RE', 'BEN_S2_BAND_RE', 'PATCH_FROM_RUSSIA', 'PATCH_IN_TERROTORIAL_WATERS',
            'smart_pprint', 'print_all_constants', 'constants_prompt']
 
+import re
 # Cell
 from enum import Enum
 
 import fastcore.all as fc
 import natsort
 import rich
-import re
-
 
 # Cell
 
@@ -514,10 +513,11 @@ PATCH_FROM_RUSSIA = "S2B_MSIL2A_20180221T093029_65_1"
 # patch that lies in the sea-region of Finland
 PATCH_IN_TERROTORIAL_WATERS = "S2B_MSIL2A_20170814T100029_33_77"
 
+from collections.abc import Mapping, Sequence
+from functools import singledispatch
+
 # Cell
 from rich.table import Table
-from functools import singledispatch
-from collections.abc import Mapping, Sequence
 
 
 def _single_column_table(col_name, rows):
