@@ -1,1 +1,3 @@
-__version__ = "2.4.0"
+import importlib.metadata
+
+__version__ = importlib.metadata.version("bigearthnet_common")
