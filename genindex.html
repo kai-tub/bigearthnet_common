@@ -1,0 +1,573 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="#" /><link rel="search" title="Search" href="search.html" />
+
+    <meta name="generator" content="sphinx-4.5.0, furo 2022.03.04"/><title>Index - BigEarthNet-Common documentation</title>
+<link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="intro.html"><div class="brand">BigEarthNet-Common  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="intro.html">
+  
+  
+  <span class="sidebar-brand-text">BigEarthNet-Common  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="00_constants.html">BigEarthNet Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_base.html">BigEarthNet Base Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_sets.html">BigEarthNet Set Builder Functions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_constant.html">Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_base.html">Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_sets.html">Sets</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          
+<section class="genindex-section">
+  <h1 id="index">Index</h1>
+  <div class="genindex-jumpbox"><a href="#A"><strong>A</strong></a> | <a href="#B"><strong>B</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#K"><strong>K</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#O"><strong>O</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a> | <a href="#V"><strong>V</strong></a> | <a href="#W"><strong>W</strong></a></div>
+</section>
+<section id="A" class="genindex-section">
+  <h2>A</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_constant.html#bigearthnet_common.constants.Country.Austria">Austria (bigearthnet_common.constants.Country attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="B" class="genindex-section">
+  <h2>B</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_constant.html#bigearthnet_common.constants.Country.Belgium">Belgium (bigearthnet_common.constants.Country attribute)</a>
+</li>
+        <li><a href="api_base.html#bigearthnet_common.base.ben_19_labels_to_multi_hot">ben_19_labels_to_multi_hot() (in module bigearthnet_common.base)</a>
+</li>
+        <li><a href="api_base.html#bigearthnet_common.base.ben_43_labels_to_multi_hot">ben_43_labels_to_multi_hot() (in module bigearthnet_common.base)</a>
+</li>
+        <li>
+    bigearthnet_common.base
+
+        <ul>
+          <li><a href="api_base.html#module-bigearthnet_common.base">module</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    bigearthnet_common.constants
+
+        <ul>
+          <li><a href="api_constant.html#module-bigearthnet_common.constants">module</a>
+</li>
+        </ul></li>
+        <li>
+    bigearthnet_common.sets
+
+        <ul>
+          <li><a href="api_sets.html#module-bigearthnet_common.sets">module</a>
+</li>
+        </ul></li>
+        <li><a href="api_sets.html#bigearthnet_common.sets.build_csv_sets">build_csv_sets() (in module bigearthnet_common.sets)</a>
+</li>
+        <li><a href="api_sets.html#bigearthnet_common.sets.build_set">build_set() (in module bigearthnet_common.sets)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="C" class="genindex-section">
+  <h2>C</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_constant.html#bigearthnet_common.constants.cli">cli() (in module bigearthnet_common.constants)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_constant.html#bigearthnet_common.constants.Country">Country (class in bigearthnet_common.constants)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="F" class="genindex-section">
+  <h2>F</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_constant.html#bigearthnet_common.constants.Season.Fall">Fall (bigearthnet_common.constants.Season attribute)</a>
+</li>
+        <li><a href="api_sets.html#bigearthnet_common.sets.filter_patches_by_country">filter_patches_by_country() (in module bigearthnet_common.sets)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_sets.html#bigearthnet_common.sets.filter_patches_by_season">filter_patches_by_season() (in module bigearthnet_common.sets)</a>
+</li>
+        <li><a href="api_sets.html#bigearthnet_common.sets.filter_patches_by_split">filter_patches_by_split() (in module bigearthnet_common.sets)</a>
+</li>
+        <li><a href="api_constant.html#bigearthnet_common.constants.Country.Finland">Finland (bigearthnet_common.constants.Country attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="G" class="genindex-section">
+  <h2>G</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_sets.html#bigearthnet_common.sets.get_all_s1_patches">get_all_s1_patches() (in module bigearthnet_common.sets)</a>
+</li>
+        <li><a href="api_sets.html#bigearthnet_common.sets.get_all_s2_patches">get_all_s2_patches() (in module bigearthnet_common.sets)</a>
+</li>
+        <li><a href="api_base.html#bigearthnet_common.base.get_complete_s1_to_s2_patch_name_mapping">get_complete_s1_to_s2_patch_name_mapping() (in module bigearthnet_common.base)</a>
+</li>
+        <li><a href="api_base.html#bigearthnet_common.base.get_complete_s2_to_s1_patch_name_mapping">get_complete_s2_to_s1_patch_name_mapping() (in module bigearthnet_common.base)</a>
+</li>
+        <li><a href="api_base.html#bigearthnet_common.base.get_original_split_from_patch_name">get_original_split_from_patch_name() (in module bigearthnet_common.base)</a>
+</li>
+        <li><a href="api_base.html#bigearthnet_common.base.get_patches_to_country_mapping">get_patches_to_country_mapping() (in module bigearthnet_common.base)</a>
+</li>
+        <li><a href="api_base.html#bigearthnet_common.base.get_patches_to_season_mapping">get_patches_to_season_mapping() (in module bigearthnet_common.base)</a>
+</li>
+        <li><a href="api_base.html#bigearthnet_common.base.get_s1_patch_directories">get_s1_patch_directories() (in module bigearthnet_common.base)</a>
+</li>
+        <li><a href="api_base.html#bigearthnet_common.base.get_s1_patches_from_original_test_split">get_s1_patches_from_original_test_split() (in module bigearthnet_common.base)</a>
+</li>
+        <li><a href="api_base.html#bigearthnet_common.base.get_s1_patches_from_original_train_split">get_s1_patches_from_original_train_split() (in module bigearthnet_common.base)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_base.html#bigearthnet_common.base.get_s1_patches_from_original_validation_split">get_s1_patches_from_original_validation_split() (in module bigearthnet_common.base)</a>
+</li>
+        <li><a href="api_base.html#bigearthnet_common.base.get_s1_patches_with_cloud_and_shadow">get_s1_patches_with_cloud_and_shadow() (in module bigearthnet_common.base)</a>
+</li>
+        <li><a href="api_base.html#bigearthnet_common.base.get_s1_patches_with_no_19_class_target">get_s1_patches_with_no_19_class_target() (in module bigearthnet_common.base)</a>
+</li>
+        <li><a href="api_base.html#bigearthnet_common.base.get_s1_patches_with_seasonal_snow">get_s1_patches_with_seasonal_snow() (in module bigearthnet_common.base)</a>
+</li>
+        <li><a href="api_base.html#bigearthnet_common.base.get_s2_patch_directories">get_s2_patch_directories() (in module bigearthnet_common.base)</a>
+</li>
+        <li><a href="api_base.html#bigearthnet_common.base.get_s2_patches_from_original_test_split">get_s2_patches_from_original_test_split() (in module bigearthnet_common.base)</a>
+</li>
+        <li><a href="api_base.html#bigearthnet_common.base.get_s2_patches_from_original_train_split">get_s2_patches_from_original_train_split() (in module bigearthnet_common.base)</a>
+</li>
+        <li><a href="api_base.html#bigearthnet_common.base.get_s2_patches_from_original_validation_split">get_s2_patches_from_original_validation_split() (in module bigearthnet_common.base)</a>
+</li>
+        <li><a href="api_base.html#bigearthnet_common.base.get_s2_patches_with_cloud_and_shadow">get_s2_patches_with_cloud_and_shadow() (in module bigearthnet_common.base)</a>
+</li>
+        <li><a href="api_base.html#bigearthnet_common.base.get_s2_patches_with_no_19_class_target">get_s2_patches_with_no_19_class_target() (in module bigearthnet_common.base)</a>
+</li>
+        <li><a href="api_base.html#bigearthnet_common.base.get_s2_patches_with_seasonal_snow">get_s2_patches_with_seasonal_snow() (in module bigearthnet_common.base)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="I" class="genindex-section">
+  <h2>I</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_constant.html#bigearthnet_common.constants.Country.Ireland">Ireland (bigearthnet_common.constants.Country attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_base.html#bigearthnet_common.base.is_cloudy_shadowy_patch">is_cloudy_shadowy_patch() (in module bigearthnet_common.base)</a>
+</li>
+        <li><a href="api_base.html#bigearthnet_common.base.is_snowy_patch">is_snowy_patch() (in module bigearthnet_common.base)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="K" class="genindex-section">
+  <h2>K</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_constant.html#bigearthnet_common.constants.Country.Kosovo">Kosovo (bigearthnet_common.constants.Country attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="L" class="genindex-section">
+  <h2>L</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_constant.html#bigearthnet_common.constants.Country.Lithuania">Lithuania (bigearthnet_common.constants.Country attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_constant.html#bigearthnet_common.constants.Country.Luxembourg">Luxembourg (bigearthnet_common.constants.Country attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="M" class="genindex-section">
+  <h2>M</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    module
+
+        <ul>
+          <li><a href="api_base.html#module-bigearthnet_common.base">bigearthnet_common.base</a>
+</li>
+          <li><a href="api_constant.html#module-bigearthnet_common.constants">bigearthnet_common.constants</a>
+</li>
+          <li><a href="api_sets.html#module-bigearthnet_common.sets">bigearthnet_common.sets</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="O" class="genindex-section">
+  <h2>O</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_base.html#bigearthnet_common.base.old2new_labels">old2new_labels() (in module bigearthnet_common.base)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="P" class="genindex-section">
+  <h2>P</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_base.html#bigearthnet_common.base.parse_datetime">parse_datetime() (in module bigearthnet_common.base)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_constant.html#bigearthnet_common.constants.Country.Portugal">Portugal (bigearthnet_common.constants.Country attribute)</a>
+</li>
+        <li><a href="api_constant.html#bigearthnet_common.constants.print_all_constants">print_all_constants() (in module bigearthnet_common.constants)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="R" class="genindex-section">
+  <h2>R</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_base.html#bigearthnet_common.base.read_S1_json">read_S1_json() (in module bigearthnet_common.base)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_base.html#bigearthnet_common.base.read_S2_json">read_S2_json() (in module bigearthnet_common.base)</a>
+</li>
+        <li><a href="api_base.html#bigearthnet_common.base.Resource">Resource (class in bigearthnet_common.base)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="S" class="genindex-section">
+  <h2>S</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_constant.html#bigearthnet_common.constants.SentinelSource.S1">S1 (bigearthnet_common.constants.SentinelSource attribute)</a>
+</li>
+        <li><a href="api_base.html#bigearthnet_common.base.s1_to_s2_patch_name">s1_to_s2_patch_name() (in module bigearthnet_common.base)</a>
+</li>
+        <li><a href="api_constant.html#bigearthnet_common.constants.SentinelSource.S2">S2 (bigearthnet_common.constants.SentinelSource attribute)</a>
+</li>
+        <li><a href="api_base.html#bigearthnet_common.base.s2_to_s1_patch_name">s2_to_s1_patch_name() (in module bigearthnet_common.base)</a>
+</li>
+        <li><a href="api_constant.html#bigearthnet_common.constants.Season">Season (class in bigearthnet_common.constants)</a>
+</li>
+        <li><a href="api_constant.html#bigearthnet_common.constants.SentinelSource">SentinelSource (class in bigearthnet_common.constants)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_constant.html#bigearthnet_common.constants.Country.Serbia">Serbia (bigearthnet_common.constants.Country attribute)</a>
+</li>
+        <li><a href="api_constant.html#bigearthnet_common.constants.smart_pprint">smart_pprint() (in module bigearthnet_common.constants)</a>
+</li>
+        <li><a href="api_constant.html#bigearthnet_common.constants.Split">Split (class in bigearthnet_common.constants)</a>
+</li>
+        <li><a href="api_constant.html#bigearthnet_common.constants.Season.Spring">Spring (bigearthnet_common.constants.Season attribute)</a>
+</li>
+        <li><a href="api_constant.html#bigearthnet_common.constants.Season.Summer">Summer (bigearthnet_common.constants.Season attribute)</a>
+</li>
+        <li><a href="api_constant.html#bigearthnet_common.constants.Country.Switzerland">Switzerland (bigearthnet_common.constants.Country attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="T" class="genindex-section">
+  <h2>T</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_constant.html#bigearthnet_common.constants.Split.test">test (bigearthnet_common.constants.Split attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_constant.html#bigearthnet_common.constants.Country.to_iso_A2">to_iso_A2() (bigearthnet_common.constants.Country method)</a>
+</li>
+        <li><a href="api_constant.html#bigearthnet_common.constants.Split.train">train (bigearthnet_common.constants.Split attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="V" class="genindex-section">
+  <h2>V</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_base.html#bigearthnet_common.base.validate_ben_s1_root_directory">validate_ben_s1_root_directory() (in module bigearthnet_common.base)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_base.html#bigearthnet_common.base.validate_ben_s2_root_directory">validate_ben_s2_root_directory() (in module bigearthnet_common.base)</a>
+</li>
+        <li><a href="api_constant.html#bigearthnet_common.constants.Split.validation">validation (bigearthnet_common.constants.Split attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="W" class="genindex-section">
+  <h2>W</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_constant.html#bigearthnet_common.constants.Season.Winter">Winter (bigearthnet_common.constants.Season attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, Kai Norman Clasen
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/kai-tub/bigearthnet_common/" aria-label="GitHub">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+              <a class="muted-link " href="https://www.buymeacoffee.com/kaitub" aria-label="Buy Me A Coffee">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.216 6.415l-.132-.666c-.119-.598-.388-1.163-1.001-1.379-.197-.069-.42-.098-.57-.241-.152-.143-.196-.366-.231-.572-.065-.378-.125-.756-.192-1.133-.057-.325-.102-.69-.25-.987-.195-.4-.597-.634-.996-.788a5.723 5.723 0 00-.626-.194c-1-.263-2.05-.36-3.077-.416a25.834 25.834 0 00-3.7.062c-.915.083-1.88.184-2.75.5-.318.116-.646.256-.888.501-.297.302-.393.77-.177 1.146.154.267.415.456.692.58.36.162.737.284 1.123.366 1.075.238 2.189.331 3.287.37 1.218.05 2.437.01 3.65-.118.299-.033.598-.073.896-.119.352-.054.578-.513.474-.834-.124-.383-.457-.531-.834-.473-.466.074-.96.108-1.382.146-1.177.08-2.358.082-3.536.006a22.228 22.228 0 01-1.157-.107c-.086-.01-.18-.025-.258-.036-.243-.036-.484-.08-.724-.13-.111-.027-.111-.185 0-.212h.005c.277-.06.557-.108.838-.147h.002c.131-.009.263-.032.394-.048a25.076 25.076 0 013.426-.12c.674.019 1.347.067 2.017.144l.228.031c.267.04.533.088.798.145.392.085.895.113 1.07.542.055.137.08.288.111.431l.319 1.484a.237.237 0 01-.199.284h-.003c-.037.006-.075.01-.112.015a36.704 36.704 0 01-4.743.295 37.059 37.059 0 01-4.699-.304c-.14-.017-.293-.042-.417-.06-.326-.048-.649-.108-.973-.161-.393-.065-.768-.032-1.123.161-.29.16-.527.404-.675.701-.154.316-.199.66-.267 1-.069.34-.176.707-.135 1.056.087.753.613 1.365 1.37 1.502a39.69 39.69 0 0011.343.376.483.483 0 01.535.53l-.071.697-1.018 9.907c-.041.41-.047.832-.125 1.237-.122.637-.553 1.028-1.182 1.171-.577.131-1.165.2-1.756.205-.656.004-1.31-.025-1.966-.022-.699.004-1.556-.06-2.095-.58-.475-.458-.54-1.174-.605-1.793l-.731-7.013-.322-3.094c-.037-.351-.286-.695-.678-.678-.336.015-.718.3-.678.679l.228 2.185.949 9.112c.147 1.344 1.174 2.068 2.446 2.272.742.12 1.503.144 2.257.156.966.016 1.942.053 2.892-.122 1.408-.258 2.465-1.198 2.616-2.657.34-3.332.683-6.663 1.024-9.995l.215-2.087a.484.484 0 01.39-.426c.402-.078.787-.212 1.074-.518.455-.488.546-1.124.385-1.766zm-1.478.772c-.145.137-.363.201-.578.233-2.416.359-4.866.54-7.308.46-1.748-.06-3.477-.254-5.207-.498-.17-.024-.353-.055-.47-.18-.22-.236-.111-.71-.054-.995.052-.26.152-.609.463-.646.484-.057 1.046.148 1.526.22.577.088 1.156.159 1.737.212 2.48.226 5.002.19 7.472-.14.45-.06.899-.13 1.345-.21.399-.072.84-.206 1.08.206.166.281.188.657.162.974a.544.544 0 01-.169.364zm-6.159 3.9c-.862.37-1.84.788-3.109.788a5.884 5.884 0 01-1.569-.217l.877 9.004c.065.78.717 1.38 1.5 1.38 0 0 1.243.065 1.658.065.447 0 1.786-.065 1.786-.065.783 0 1.434-.6 1.499-1.38l.94-9.95a3.996 3.996 0 00-1.322-.238c-.826 0-1.491.284-2.26.613z"></path>
+                </svg>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    </body>
+</html>
