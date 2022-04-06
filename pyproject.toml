@@ -15,8 +15,8 @@ include = [
 
 
 [tool.poetry.dependencies]
-# geopandas deprecated Python 3.6
-python = "^3.7"
+# Follow NEP-29
+python = "^3.8"
 rich = "^10|^11|^12"
 pydantic = "^1.8"
 fastcore = "^1.3"
