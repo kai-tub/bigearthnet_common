@@ -12,10 +12,16 @@ import bigearthnet_common.constants as ben_constants
 
 
 def get_all_s2_patches() -> Set[str]:
+    """
+    Returns a set of all S2 patch names.
+    """
     return set(ben_base.get_complete_s2_to_s1_patch_name_mapping().keys())
 
 
 def get_all_s1_patches() -> Set[str]:
+    """
+    Returns a set of all S1 patch names.
+    """
     return set(ben_base.get_complete_s1_to_s2_patch_name_mapping().keys())
 
 
@@ -81,6 +87,10 @@ def filter_patches_by_country(
     patches: Sequence,
     country: ben_constants.Country,
 ):
+    """
+    Given Sentinel-1/2 named-patches, return only those patches that belong to a given
+    country.
+    """
     return (
         filter_s1_patches_by_country(patches, country)
         if sentinel_source == ben_constants.SentinelSource.S1
@@ -153,6 +163,10 @@ def filter_patches_by_split(
     patches: Sequence,
     split: ben_constants.Split,
 ):
+    """
+    Given Sentinel-1/2 named-patches, return only those patches that belong to a given
+    split.
+    """
     return (
         filter_s1_patches_by_split(patches, split)
         if sentinel_source == ben_constants.SentinelSource.S1

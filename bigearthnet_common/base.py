@@ -130,7 +130,7 @@ def read_S1_json(json_fp: FilePath) -> Dict[str, str]:
 
 def read_S2_json(json_fp: FilePath) -> Dict[str, str]:
     """
-    A helper function that *safely* reads a BigEarthNet-S1 json file.
+    A helper function that *safely* reads a BigEarthNet-S2 json file.
     It will ensure that all expected entries are present and only read those
     entries.
     This helps to avoid issues where the JSON files were accidentally modified
@@ -234,6 +234,7 @@ def _load_s1_s2_patch_name_mapping(from_s1_to_s2: bool = True) -> Dict[str, str]
     the S2 patch name to the S1 patch name.
 
     The compressed data could be regenerated with (requires the output of `bigearthnet_gdf_builder`):
+
     >>> import geopandas
     >>> raw_gdf = geopandas.read_parquet("raw_ben_s1_gdf.parquet")
     >>> raw_gdf = raw_gdf.rename({"name": "s1_name", "corresponding_s2_patch": "s2_name"}, axis=1)
@@ -301,6 +302,7 @@ def get_patches_to_country_mapping(use_s2_patch_names: bool = True) -> Dict[str,
     Otherwise, use the Sentinel-1 patch names.
 
     The compressed data could be regenerated with (requires the output of `bigearthnet_gdf_builder`):
+
     >>> import geopandas
     >>> extended_gdf = geopandas.read_parquet("extended_ben_s1_gdf.parquet")
     >>> extended_gdf = raw_gdf.rename({"name": "s1_name", "corresponding_s2_patch": "s2_name"}, axis=1)
@@ -318,6 +320,7 @@ def get_patches_to_season_mapping(use_s2_patch_names: bool = True) -> Dict[str, 
     Otherwise, use the Sentinel-1 patch names.
 
     The compressed data could be regenerated with (requires the output of `bigearthnet_gdf_builder`):
+
     >>> import geopandas
     >>> extended_gdf = geopandas.read_parquet("extended_ben_s1_gdf.parquet")
     >>> extended_gdf = raw_gdf.rename({"name": "s1_name", "corresponding_s2_patch": "s2_name"}, axis=1)
@@ -410,6 +413,7 @@ def get_s2_patches_with_no_19_class_target() -> Set[str]:
     Note: This set still includes patches with snow, clouds, or shadows.
 
     To re-build the file, it is necessary to use the output of `bigearthnet_gdf_builder`:
+
     >>> raw_gdf = geopandas.read_parquet("raw_ben_s2_gdf.parquet")
     >>> raw_gdf["new_labels"] = raw_gdf["labels"].apply(old2new_labels)
     >>> no_19_label_targets = raw_gdf[raw_gdf["new_labels"].isna()]

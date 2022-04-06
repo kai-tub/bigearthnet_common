@@ -352,11 +352,19 @@ BEN_S2_V1_0_JSON_KEYS = {
 
 
 class SentinelSource(str, Enum):
+    """
+    BigEarthNet Sentinel-Source S1 or S2.
+    """
+
     S1 = "S1"
     S2 = "S2"
 
 
 class Season(str, Enum):
+    """
+    Seasons of the year.
+    """
+
     Winter = "Winter"
     Fall = "Fall"
     Summer = "Summer"
@@ -378,6 +386,10 @@ _COUNTRY_TO_ISO_A2 = {
 
 
 class Country(str, Enum):
+    """
+    Official BigEarthNet countries
+    """
+
     Austria = "Austria"
     Belgium = "Belgium"
     Finland = "Finland"
@@ -394,6 +406,10 @@ class Country(str, Enum):
 
 
 class Split(str, Enum):
+    """
+    Official split _names_ to keep the naming consistent.
+    """
+
     train = "train"
     validation = "validation"
     test = "test"
@@ -569,6 +585,10 @@ import click
 
 
 def cli():
+    """
+    A function that returns a `click` based CLI application.
+    Should be called from `__main__`.
+    """
     # where name is selected by user via an option
     # and the value is retrieved from the dictionary
 
