@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "bigearthnet_common"
-version = "2.4.0"
+version = "2.4.1"
 description = "A collection of common tools to interact with the BigEarthNet dataset."
 authors = ["Kai Norman Clasen <k.clasen@protonmail.com>"]
 license = "Apache-2.0"
