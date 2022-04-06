@@ -1,5 +1,4 @@
 import re
-
 from enum import Enum
 
 import fastcore.all as fc
@@ -503,7 +502,6 @@ PATCH_IN_TERROTORIAL_WATERS = "S2B_MSIL2A_20170814T100029_33_77"
 
 from collections.abc import Mapping, Sequence
 from functools import reduce, singledispatch
-
 
 from rich.table import Table
 

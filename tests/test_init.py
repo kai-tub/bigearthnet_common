@@ -1,5 +1,6 @@
-import bigearthnet_common
 from packaging import version
+
+import bigearthnet_common
 
 
 def test_version():

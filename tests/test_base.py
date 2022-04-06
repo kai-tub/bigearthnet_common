@@ -1,12 +1,13 @@
-from typing import Counter
-import pytest
-import bigearthnet_common
-from importlib import resources
-from bigearthnet_common.base import *
 from datetime import date
+from importlib import resources
+from typing import Counter
 
-from dateutil.parser import ParserError
 import fastcore.test as fc_test
+import pytest
+from dateutil.parser import ParserError
+
+import bigearthnet_common
+from bigearthnet_common.base import *
 
 
 @pytest.fixture

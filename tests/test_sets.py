@@ -1,6 +1,8 @@
 from pathlib import Path
-from pydantic import ValidationError
+
 import pytest
+from pydantic import ValidationError
+
 import bigearthnet_common.constants as ben_constants
 from bigearthnet_common.sets import *
 
