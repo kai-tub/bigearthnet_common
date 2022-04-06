@@ -1,9 +1,9 @@
 name: CI
 on:
-  workflow_run:
-    workflows: [Test]
-    types:
-      - "completed"
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   check-documentation:
@@ -29,11 +29,9 @@ jobs:
         run: |
           source $VENV
           sphinx-build docs docs/_build
-      # - name: Deploy 🚀
-      #   uses: JamesIves/github-pages-deploy-action@v4.2.5
-      #   with:
-      #     branch: gh-pages # The branch the action should deploy to.
-      #     folder: docs/_build
+  # Here I am assuming that the tests have been run on the PR
+  # Otherwise it could be possible that a direct push to main
+  # would not run the test code and still publish to PyPI
   release:
     name: Release new version on GitHub
     runs-on: ubuntu-latest
