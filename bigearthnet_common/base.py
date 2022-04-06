@@ -12,6 +12,8 @@ import warnings
 from datetime import datetime
 from enum import Enum
 from importlib import resources
+
+# from importlib_resources import files
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Set, Union
 
@@ -38,6 +40,9 @@ class Resource(str, Enum):
     test_csv = "test.csv.bz2"
     train_csv = "train.csv.bz2"
     val_csv = "val.csv.bz2"
+
+    def __str__(self):
+        return self.value
 
 
 USER_DIR = Path(appdirs.user_data_dir("bigearthnet"))
@@ -173,6 +178,7 @@ def _conv_header_col_bz2_csv_resource_to_dict(
     Load a dictionary with the provided `key_column` and `value_column` after uncompressing
     the `bz2` compressed `resource` csv file.
     """
+    # assert False, files(bigearthnet_common) / ""
     if not resources.is_resource(bigearthnet_common, resource):
         raise ValueError(
             f"{resource} resource is not available! This means that it was forgotten to be packaged."
@@ -201,7 +207,9 @@ def _conv_header_col_bz2_csv_resource_to_set(resource, key_column: str) -> Set[s
     Load a dictionary with the provided `key_column` after uncompressing
     the `bz2` compressed `resource` csv file.
     """
+    print(resource)
     if not resources.is_resource(bigearthnet_common, resource):
+        # if not files(bigearthnet_common) / resource:
         raise ValueError(
             f"{resource} resource is not available! This means that it was forgotten to be packaged."
         )

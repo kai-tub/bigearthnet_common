@@ -27,6 +27,8 @@ appdirs = "^1.4"
 typer = "^0.4"
 python-dateutil = "^2"
 
+[tool.isort]
+profile = "black"
 
 [tool.poetry.dev-dependencies]
 # nbdev = "^1.1"

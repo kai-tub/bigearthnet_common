@@ -358,6 +358,9 @@ class SentinelSource(str, Enum):
     S1 = "S1"
     S2 = "S2"
 
+    def __str__(self):
+        return self.value
+
 
 class Season(str, Enum):
     """
@@ -368,6 +371,9 @@ class Season(str, Enum):
     Fall = "Fall"
     Summer = "Summer"
     Spring = "Spring"
+
+    def __str__(self):
+        return self.value
 
 
 _COUNTRY_TO_ISO_A2 = {
@@ -403,6 +409,9 @@ class Country(str, Enum):
     def to_iso_A2(self):
         return _COUNTRY_TO_ISO_A2[self.value]
 
+    def __str__(self):
+        return self.value
+
 
 class Split(str, Enum):
     """
@@ -412,6 +421,9 @@ class Split(str, Enum):
     train = "train"
     validation = "validation"
     test = "test"
+
+    def __str__(self):
+        return self.value
 
 
 COUNTRIES = tuple(c for c in Country)
