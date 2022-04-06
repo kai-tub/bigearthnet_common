@@ -6,17 +6,18 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  test:
     strategy:
       fail-fast: true
       matrix:
-        python-version: [3.7, 3.8, 3.9]
+        python-version: [3.8, 3.9, "3.10"]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
+      - uses: pre-commit/action@v2.0.3
       - name: Install Poetry
         uses: snok/install-poetry@v1
         with:
@@ -27,40 +28,64 @@ jobs:
         run: poetry install --no-interaction --no-root
       - name: Install library
         run: poetry install --no-interaction
-      - name: Read all notebooks
-        run: |
-          source .venv/bin/activate
-          nbdev_read_nbs
-      - name: Check if all notebooks are cleaned
-        # Local tests will usually have uncommited changes
-        if: ${{ !env.ACT }}
-        run: |
-          source .venv/bin/activate
-          echo "Check we are starting with clean git checkout"
-          if [ -n "$(git status -uno -s)" ]; then echo "git status is not clean"; false; fi
-          echo "Trying to strip out notebooks"
-          nbdev_clean_nbs
-          echo "Check that strip out was unnecessary"
-          git status -s # display the status to see which nbs need cleaning up
-          if [ -n "$(git status -uno -s)" ]; then echo -e "!!! Detected unstripped out notebooks\n!!!Remember to run nbdev_install_git_hooks"; false; fi
-      - name: Check if there is no diff library/notebooks
-        run: |
-          source .venv/bin/activate
-          if [ -n "$(nbdev_diff_nbs)" ]; then echo -e "!!! Detected difference between the notebooks and the library"; false; fi
       - name: Run tests
         run: |
-          source .venv/bin/activate
-          nbdev_test_nbs
+          source $VENV
+          pytest "tests/"
+  check-documentation:
+    name: Build documentation
+    runs-on: ubuntu-latest
+    needs: test
+    # Always try to build the documentation!
+    # if: ${{ github.event_name == 'push' }}
+    steps:
+      - name: Set up Git
+        uses: actions/checkout@v2
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
+      - name: Install dependencies
+        run: poetry install --no-interaction --no-root
+      - name: Install library
+        run: poetry install --no-interaction
+      - name: Build documentation
+        run: |
+          source $VENV
+          sphinx-build docs docs/_build
+      # - name: Deploy 🚀
+      #   uses: JamesIves/github-pages-deploy-action@v4.2.5
+      #   with:
+      #     branch: gh-pages # The branch the action should deploy to.
+      #     folder: docs/_build
   release:
     name: Release new version on GitHub
     runs-on: ubuntu-latest
-    needs: build
+    needs: check-documentation
     if: ${{ github.event_name == 'push' }}
     steps:
       - name: Set up Git
         uses: actions/checkout@v2
-      - name: Prepare repository
-        run: git fetch --unshallow --tags
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Set-Up poetry
+        uses: abatilo/actions-poetry@v2.0.0
+        with:
+          poetry-version: 1.1.12
+      - name: Install library
+        run: poetry install --no-interaction
+      - name: Build documentation
+        run: |
+          source $VENV
+          sphinx-build docs docs/_build
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: docs/_build
       - name: Run release script
         run: bash .auto/run_auto.sh
         env:

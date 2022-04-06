@@ -1,4 +1,5 @@
 ben_common_env/
+docs/jupyter_execute/
 .vscode/
 # hide this for now
 tiny.parquet

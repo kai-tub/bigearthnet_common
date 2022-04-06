@@ -2,7 +2,7 @@
 name = "bigearthnet_common"
 version = "2.4.0"
 description = "A collection of common tools to interact with the BigEarthNet dataset."
-authors = ["Kai Norman Clasen <snakemap_navigation@protonmail.com>"]
+authors = ["Kai Norman Clasen <k.clasen@protonmail.com>"]
 license = "Apache-2.0"
 readme = "README.md"
 homepage = "https://github.com/kai-tub/bigearthnet_common"
@@ -15,9 +15,9 @@ include = [
 
 
 [tool.poetry.dependencies]
-# geopandas deprecated Python 3.6
-python = "^3.7"
-rich = "^10|^11"
+# Follow NEP-29
+python = "^3.8"
+rich = "^10|^11|^12"
 pydantic = "^1.8"
 fastcore = "^1.3"
 natsort = "^8"
@@ -25,19 +25,32 @@ appdirs = "^1.4"
 # typer is only required for CLI interface, but can
 # be listed as true dependency in my opinion
 typer = "^0.4"
-prompt-toolkit = "^3.0.26"
+python-dateutil = "^2"
 
+[tool.isort]
+profile = "black"
 
 [tool.poetry.dev-dependencies]
-nbdev = "^1.1"
+# nbdev = "^1.1"
 # 6.1.13/6.2 seem to be broken in combination with nbdev
-jupyter_client = "<6.1.13"
+# jupyter_client = "<6.1.13"
 black = "*"
 isort = "*"
 numpy = "^1.20"
+pytest = "^7.1.1"
+Sphinx = "^4.5.0"
+furo = "^2022.3.4"
+livereload = "^2.6.3"
+mypy = "^0.942"
+sphinx-external-toc = "^0.2"
+sphinxcontrib-mermaid = "^0.7.1"
+myst-parser = {extras = ["linkify"], version = "^0.17.0"}
+pre-commit = "^2.18.1"
+myst-nb = {git = "https://github.com/executablebooks/MyST-NB.git", rev = "refactor-mystnb"}
+ipykernel = "^6.12.1"
 
 [tool.poetry.scripts]
-ben_constant_prompt = "bigearthnet_common.constants:constants_prompt"
+ben_constant_prompt = "bigearthnet_common.constants:cli"
 ben_build_csv_sets = "bigearthnet_common.sets:build_csv_sets_cli"
 ben_validate_s1_root_dir = "bigearthnet_common.base:validate_ben_s1_root_directory_cli"
 ben_validate_s2_root_dir = "bigearthnet_common.base:validate_ben_s2_root_directory_cli"
