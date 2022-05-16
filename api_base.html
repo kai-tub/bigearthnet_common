@@ -236,6 +236,12 @@ This is not necessarily the case if you are using a subset!
 For example, the “Agro-forestry areas” class is only present in Portugal and in no other country!</p>
 </dd></dl>
 <dl class="py function">
+<dt class="sig sig-object py" id="bigearthnet_common.base.describe_patch">
+<span class="sig-prename descclassname"><span class="pre">bigearthnet_common.base.</span></span><span class="sig-name descname"><span class="pre">describe_patch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patch_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">rich.table.Table</span></span></span><a class="headerlink" href="#bigearthnet_common.base.describe_patch" title="Permalink to this definition">#</a></dt>
+<dd><p>Given a list of patch names return a table that summarizes
+the metadata.</p>
+</dd></dl>
+<dl class="py function">
 <dt class="sig sig-object py" id="bigearthnet_common.base.get_complete_s1_to_s2_patch_name_mapping">
 <span class="sig-prename descclassname"><span class="pre">bigearthnet_common.base.</span></span><span class="sig-name descname"><span class="pre">get_complete_s1_to_s2_patch_name_mapping</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#bigearthnet_common.base.get_complete_s1_to_s2_patch_name_mapping" title="Permalink to this definition">#</a></dt>
 <dd><p>Load entire Sentinel-1 to Sentinel-2 BigEarthNet patch name mapping.</p>
@@ -252,6 +258,12 @@ For example, the “Agro-forestry areas” class is only present in Portugal and
 <dt>Returns:</dt><dd><p>Dict[str, str]: Sentinel-2 patch name keys with corresponding Sentinel-1 patch name as value</p>
 </dd>
 </dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="bigearthnet_common.base.get_country_from_patch_name">
+<span class="sig-prename descclassname"><span class="pre">bigearthnet_common.base.</span></span><span class="sig-name descname"><span class="pre">get_country_from_patch_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patch_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#bigearthnet_common.base.get_country_from_patch_name" title="Permalink to this definition">#</a></dt>
+<dd><p>Fast function that returns the country to which the patch <cite>patch_name</cite> belongs to.</p>
+<p>This works for S1 and S2 patch names!</p>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="bigearthnet_common.base.get_original_split_from_patch_name">
@@ -378,11 +390,34 @@ have _no_ defined classes with the 19-class nomenclature.</p>
 <dd><p>List all patches with seasonal snow from <strong>original</strong> BigEarthNet-S2 dataset.</p>
 </dd></dl>
 <dl class="py function">
+<dt class="sig sig-object py" id="bigearthnet_common.base.get_season_from_patch_name">
+<span class="sig-prename descclassname"><span class="pre">bigearthnet_common.base.</span></span><span class="sig-name descname"><span class="pre">get_season_from_patch_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patch_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#bigearthnet_common.base.get_season_from_patch_name" title="Permalink to this definition">#</a></dt>
+<dd><p>Fast function that returns the season in which the patch <cite>patch_name</cite> was sensed.</p>
+<p>This works for S1 and S2 patch names!</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="bigearthnet_common.base.has_19_class_target">
+<span class="sig-prename descclassname"><span class="pre">bigearthnet_common.base.</span></span><span class="sig-name descname"><span class="pre">has_19_class_target</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patch_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#bigearthnet_common.base.has_19_class_target" title="Permalink to this definition">#</a></dt>
+<dd><p>Fast function that checks whether <cite>patch_name</cite> is a patch
+that has at least a single 19-class target label.</p>
+<p>This works for S1 and S2 patch names!</p>
+</dd></dl>
+<dl class="py function">
 <dt class="sig sig-object py" id="bigearthnet_common.base.is_cloudy_shadowy_patch">
 <span class="sig-prename descclassname"><span class="pre">bigearthnet_common.base.</span></span><span class="sig-name descname"><span class="pre">is_cloudy_shadowy_patch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patch_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bigearthnet_common.base.is_cloudy_shadowy_patch" title="Permalink to this definition">#</a></dt>
 <dd><p>Fast function that checks whether <cite>patch_name</cite> is a patch
 that contains a lot of shadow or is obstructed by clouds.</p>
 <p>This works for S1 and S2 patch names!</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="bigearthnet_common.base.is_s1_patch">
+<span class="sig-prename descclassname"><span class="pre">bigearthnet_common.base.</span></span><span class="sig-name descname"><span class="pre">is_s1_patch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patch_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#bigearthnet_common.base.is_s1_patch" title="Permalink to this definition">#</a></dt>
+<dd><p>Quick regex check if name is a valid S2 patch name</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="bigearthnet_common.base.is_s2_patch">
+<span class="sig-prename descclassname"><span class="pre">bigearthnet_common.base.</span></span><span class="sig-name descname"><span class="pre">is_s2_patch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patch_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#bigearthnet_common.base.is_s2_patch" title="Permalink to this definition">#</a></dt>
+<dd><p>Quick regex check if name is a valid S2 patch name</p>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="bigearthnet_common.base.is_snowy_patch">

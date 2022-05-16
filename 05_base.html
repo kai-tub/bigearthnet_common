@@ -260,6 +260,22 @@ The functions provide two sensible multi-hot encoding strategies:</p>
 </ul>
 </div>
 </section>
+<section id="describe-patch">
+<h2>Describe patch<a class="headerlink" href="#describe-patch" title="Permalink to this headline">#</a></h2>
+<p>The library provides a tool to quickly visualize meta-data information about each patch:</p>
+<ul class="simple">
+<li><p>S1 name</p></li>
+<li><p>S2 name</p></li>
+<li><p>Original Split</p></li>
+<li><p>Country</p></li>
+<li><p>Season</p></li>
+<li><p>Cloudy/Shadowy</p></li>
+<li><p>If it has a valid 19-label target</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ben_describe_patch &lt;S1/S2 patch name<span class="o">(</span>s<span class="o">)</span>&gt;
+</pre></div>
+</div>
+</section>
 <section id="validating-bigearthnet">
 <h2>Validating BigEarthNet<a class="headerlink" href="#validating-bigearthnet" title="Permalink to this headline">#</a></h2>
 <p>One common issue is that due to the size of BigEarthNet, it is not uncommon that the extraction silently fails and that the data is incomplete.
@@ -349,6 +365,7 @@ They <em>will not</em> be validated!</p>
 <li><a class="reference internal" href="#metadata-parsing-utility-functions">Metadata parsing utility functions</a></li>
 <li><a class="reference internal" href="#patch-names-utility">Patch names utility</a></li>
 <li><a class="reference internal" href="#label-utility-functions">Label utility functions</a></li>
+<li><a class="reference internal" href="#describe-patch">Describe patch</a></li>
 <li><a class="reference internal" href="#validating-bigearthnet">Validating BigEarthNet</a></li>
 </ul>
 </li>
