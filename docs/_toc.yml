@@ -7,3 +7,4 @@ entries:
           - file: api_constant
           - file: api_base
           - file: api_sets
+          - file: api_example_data
