@@ -158,10 +158,12 @@
 <li class="toctree-l1"><a class="reference internal" href="00_constants.html">BigEarthNet Constants</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_base.html">BigEarthNet Base Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10_sets.html">BigEarthNet Set Builder Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_example_data.html">BigEarthNet Example Data</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="api.html">API</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="api_constant.html">Constants</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_sets.html">Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_example_data.html">Example Data</a></li>
 </ul>
 </li>
 </ul>
@@ -197,7 +199,7 @@
         </div>
         <article role="main">
           <section class="tex2jax_ignore mathjax_ignore" id="module-bigearthnet_common.base">
-<span id="base"></span><h1>Base<a class="headerlink" href="#module-bigearthnet_common.base" title="Permalink to this headline">#</a></h1>
+<span id="base"></span><span id="api-base"></span><h1>Base<a class="headerlink" href="#module-bigearthnet_common.base" title="Permalink to this headline">#</a></h1>
 <p>BigEarthNet Base Functions:</p>
 <p>A collection of common functions that are frequently used when working with BigEarthNet.</p>
 <dl class="py class">
@@ -207,11 +209,13 @@
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="bigearthnet_common.base.ben_19_labels_to_multi_hot">
-<span class="sig-prename descclassname"><span class="pre">bigearthnet_common.base.</span></span><span class="sig-name descname"><span class="pre">ben_19_labels_to_multi_hot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#bigearthnet_common.base.ben_19_labels_to_multi_hot" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bigearthnet_common.base.</span></span><span class="sig-name descname"><span class="pre">ben_19_labels_to_multi_hot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lex_sorted</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#bigearthnet_common.base.ben_19_labels_to_multi_hot" title="Permalink to this definition">#</a></dt>
 <dd><p>Convenience function that converts an input iterable of labels into
 a multi-hot encoded vector.
-The naturally ordered label list is used as an encoder reference
-- <cite>bigearthnet_common.NEW_LABELS</cite></p>
+If <cite>lex_sorted</cite> is True (default) the classes are lexigraphically ordered, as they are
+in <cite>constants.NEW_LABELS</cite>.
+If <cite>lex_sorted</cite> is False, the original order from the BigEarthNet paper is used, as
+they are given in <cite>constants.NEW_LABELS_ORIGINAL_ORDER</cite>.</p>
 <p>If an unknown label is given, a <cite>KeyError</cite> is raised.</p>
 <p>Be aware that this approach assumes that <strong>all</strong> labels are actually used in the dataset!
 This is not necessarily the case if you are using a subset!
@@ -219,11 +223,13 @@ For example, the “Agro-forestry areas” class is only present in Portugal and
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="bigearthnet_common.base.ben_43_labels_to_multi_hot">
-<span class="sig-prename descclassname"><span class="pre">bigearthnet_common.base.</span></span><span class="sig-name descname"><span class="pre">ben_43_labels_to_multi_hot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#bigearthnet_common.base.ben_43_labels_to_multi_hot" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bigearthnet_common.base.</span></span><span class="sig-name descname"><span class="pre">ben_43_labels_to_multi_hot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lex_sorted</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#bigearthnet_common.base.ben_43_labels_to_multi_hot" title="Permalink to this definition">#</a></dt>
 <dd><p>Convenience function that converts an input iterable of labels into
 a multi-hot encoded vector.
-The naturally ordered label list is used as an encoder reference
-- <cite>bigearthnet_common.OLD_LABELS</cite></p>
+If <cite>lex_sorted</cite> is True (default) the classes are lexigraphically ordered, as they are
+in <cite>constants.OLD_LABELS</cite>.
+If <cite>lex_sorted</cite> is False, the original order from the BigEarthNet paper is used, as
+they are given in <cite>constants.OLD_LABELS_ORIGINAL_ORDER</cite>.</p>
 <p>If an unknown label is given, a <cite>KeyError</cite> is raised.</p>
 <p>Be aware that this approach assumes that <strong>all</strong> labels are actually used in the dataset!
 This is not necessarily the case if you are using a subset!

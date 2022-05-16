@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="BigEarthNet Set Builder Functions" href="10_sets.html" /><link rel="prev" title="BigEarthNet Constants" href="00_constants.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Sets" href="api_sets.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.03.04"/>
-        <title>BigEarthNet Base Functions - BigEarthNet-Common documentation</title>
+        <title>Example Data - BigEarthNet-Common documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -134,7 +134,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -156,14 +156,14 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="00_constants.html">BigEarthNet Constants</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">BigEarthNet Base Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_base.html">BigEarthNet Base Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10_sets.html">BigEarthNet Set Builder Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="15_example_data.html">BigEarthNet Example Data</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="api.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="api.html">API</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="api_constant.html">Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_base.html">Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_sets.html">Sets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_example_data.html">Example Data</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Example Data</a></li>
 </ul>
 </li>
 </ul>
@@ -192,90 +192,49 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="bigearthnet-base-functions">
-<h1>BigEarthNet Base Functions<a class="headerlink" href="#bigearthnet-base-functions" title="Permalink to this headline">#</a></h1>
-<p>The library provides frequently used functions when working with BigEarthNet.</p>
-<section id="metadata-parsing-utility-functions">
-<h2>Metadata parsing utility functions<a class="headerlink" href="#metadata-parsing-utility-functions" title="Permalink to this headline">#</a></h2>
-<p>The package provides a couple of safe parsing functions that guarantee flexible reading of the default BigEarthNet JSON metadata files.</p>
-<p>Usually, you should not use any of these parsing functions directly but use one of the higher-level functions provided by a wrapper library, such as
-<a class="reference external" href="https://github.com/kai-tub/bigearthnet_gdf_builder">bigearthnet_gdf_builder</a>.</p>
-<p>The relevant functions for parsing are:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="api_base.html#bigearthnet_common.base.read_S1_json" title="bigearthnet_common.base.read_S1_json"><code class="xref py py-func docutils literal notranslate"><span class="pre">read_S1_json()</span></code></a></p></li>
-<li><p><a class="reference internal" href="api_base.html#bigearthnet_common.base.read_S2_json" title="bigearthnet_common.base.read_S2_json"><code class="xref py py-func docutils literal notranslate"><span class="pre">read_S2_json()</span></code></a></p></li>
-</ul>
-</section>
-<section id="patch-names-utility">
-<h2>Patch names utility<a class="headerlink" href="#patch-names-utility" title="Permalink to this headline">#</a></h2>
-<p>To efficiently work with the S1 and S2 patch names simultaneously, the following functions can be used to quickly retrieve a list of all patch names and find the corresponding S1/S2 patch given a reference S2/S1 patch.</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="api_base.html#bigearthnet_common.base.s1_to_s2_patch_name" title="bigearthnet_common.base.s1_to_s2_patch_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">s1_to_s2_patch_name()</span></code></a></p></li>
-<li><p><a class="reference internal" href="api_base.html#bigearthnet_common.base.s2_to_s1_patch_name" title="bigearthnet_common.base.s2_to_s1_patch_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">s2_to_s1_patch_name()</span></code></a></p></li>
-</ul>
-<p>If you want to query the properties of a BigEarthNet patch quickly, you can use the following functions (each allows S1 or S2 patch names as input)</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="api_base.html#bigearthnet_common.base.get_original_split_from_patch_name" title="bigearthnet_common.base.get_original_split_from_patch_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_original_split_from_patch_name()</span></code></a></p></li>
-<li><p><a class="reference internal" href="api_base.html#bigearthnet_common.base.is_snowy_patch" title="bigearthnet_common.base.is_snowy_patch"><code class="xref py py-func docutils literal notranslate"><span class="pre">is_snowy_patch()</span></code></a></p></li>
-<li><p><a class="reference internal" href="api_base.html#bigearthnet_common.base.is_cloudy_shadowy_patch" title="bigearthnet_common.base.is_cloudy_shadowy_patch"><code class="xref py py-func docutils literal notranslate"><span class="pre">is_cloudy_shadowy_patch()</span></code></a></p></li>
-</ul>
-<p>Or to get a mapping for all patches for the country/season you can access:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="api_base.html#bigearthnet_common.base.get_patches_to_country_mapping" title="bigearthnet_common.base.get_patches_to_country_mapping"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_patches_to_country_mapping()</span></code></a></p></li>
-<li><p><a class="reference internal" href="api_base.html#bigearthnet_common.base.get_patches_to_season_mapping" title="bigearthnet_common.base.get_patches_to_season_mapping"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_patches_to_season_mapping()</span></code></a></p></li>
-</ul>
-</section>
-<section id="label-utility-functions">
-<h2>Label utility functions<a class="headerlink" href="#label-utility-functions" title="Permalink to this headline">#</a></h2>
-<p>A common first step is to convert the old 43-labels to the new <a class="reference external" href="https://arxiv.org/abs/2105.07921">recommended 19-labels</a> nomenclature.
-The package also provides a deterministic way to convert the old/new label nomenclature to a multi-hot encoded list:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="api_base.html#bigearthnet_common.base.old2new_labels" title="bigearthnet_common.base.old2new_labels"><code class="xref py py-func docutils literal notranslate"><span class="pre">old2new_labels()</span></code></a></p></li>
-<li><p><a class="reference internal" href="api_base.html#bigearthnet_common.base.ben_19_labels_to_multi_hot" title="bigearthnet_common.base.ben_19_labels_to_multi_hot"><code class="xref py py-func docutils literal notranslate"><span class="pre">ben_19_labels_to_multi_hot()</span></code></a></p></li>
-<li><p><a class="reference internal" href="api_base.html#bigearthnet_common.base.ben_43_labels_to_multi_hot" title="bigearthnet_common.base.ben_43_labels_to_multi_hot"><code class="xref py py-func docutils literal notranslate"><span class="pre">ben_43_labels_to_multi_hot()</span></code></a></p></li>
-</ul>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Please be aware that there are multiple ways to multi-hot encode the labels.
-The functions provide two sensible multi-hot encoding strategies:</p>
-<ul class="simple">
-<li><p>By default, the labels are lexicographically sorted and the index of the sorted list is used as the encoding</p>
-<ul>
-<li><p>This is the order of the <code class="docutils literal notranslate"><span class="pre">NEW_LABELS/OLD_LABELS</span></code> constants</p></li>
-<li><p>This ordering is used in the <a class="reference external" href="https://torchgeo.readthedocs.io/en/latest/api/datasets.html#bigearthnet">torchgeo</a> library</p></li>
-</ul>
-</li>
-<li><p>With <code class="docutils literal notranslate"><span class="pre">lex_sorted=False</span></code> the original ordering is used as the encoding</p>
-<ul>
-<li><p>The ordering was defined in the original publication of BigEarthNet in the <a class="reference external" href="https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/label_indices.json">labels_indices.json</a> file</p></li>
-<li><p>This is the order of the <code class="docutils literal notranslate"><span class="pre">NEW_LABELS_ORIGINAL_ORDER/OLD_LABELS_ORIGINAL_ORDER</span></code> constants</p></li>
-</ul>
-</li>
-</ul>
-</div>
-</section>
-<section id="validating-bigearthnet">
-<h2>Validating BigEarthNet<a class="headerlink" href="#validating-bigearthnet" title="Permalink to this headline">#</a></h2>
-<p>One common issue is that due to the size of BigEarthNet, it is not uncommon that the extraction silently fails and that the data is incomplete.
-Or that files are accidentally deleted, or worse, only their contents.
-The following CLI tools can be used to validate the integrity of the BigEarthNet archive:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ben_validate_s1_root_dir --help
-ben_validate_s2_root_dir --help
-</pre></div>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Although the implementation works, the function is slow due to many files to check, especially on hard-drive-based servers.
-Also, the function will only check if the files exist and are not empty.
-They <em>will not</em> be validated!</p>
-</div>
-</section>
+          <section class="tex2jax_ignore mathjax_ignore" id="example-data">
+<span id="api-example-data"></span><h1>Example Data<a class="headerlink" href="#example-data" title="Permalink to this headline">#</a></h1>
+<p>To allow ease-of-use, the data distributed in a compressed format.
+The extraction process is <em>not</em> cached!</p>
+<span class="target" id="module-bigearthnet_common.example_data"></span><dl class="py class">
+<dt class="sig sig-object py" id="bigearthnet_common.example_data.ExampleResource">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bigearthnet_common.example_data.</span></span><span class="sig-name descname"><span class="pre">ExampleResource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bigearthnet_common.example_data.ExampleResource" title="Permalink to this definition">#</a></dt>
+<dd><p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bigearthnet_common.example_data.ExampleResource.s1_example_bz2_tar">
+<span class="sig-name descname"><span class="pre">s1_example_bz2_tar</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'BigEarthNet-S1-Example.tar.bz2'</span></em><a class="headerlink" href="#bigearthnet_common.example_data.ExampleResource.s1_example_bz2_tar" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bigearthnet_common.example_data.ExampleResource.s2_example_bz2_tar">
+<span class="sig-name descname"><span class="pre">s2_example_bz2_tar</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'BigEarthNet-S2-Example.tar.bz2'</span></em><a class="headerlink" href="#bigearthnet_common.example_data.ExampleResource.s2_example_bz2_tar" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="bigearthnet_common.example_data.get_s1_example_folder_path">
+<span class="sig-prename descclassname"><span class="pre">bigearthnet_common.example_data.</span></span><span class="sig-name descname"><span class="pre">get_s1_example_folder_path</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">pathlib.Path</span></span></span><a class="headerlink" href="#bigearthnet_common.example_data.get_s1_example_folder_path" title="Permalink to this definition">#</a></dt>
+<dd><p>Get the path to a tiny subset of BigEarthNet-S1</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="bigearthnet_common.example_data.get_s1_example_patch_path">
+<span class="sig-prename descclassname"><span class="pre">bigearthnet_common.example_data.</span></span><span class="sig-name descname"><span class="pre">get_s1_example_patch_path</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">pathlib.Path</span></span></span><a class="headerlink" href="#bigearthnet_common.example_data.get_s1_example_patch_path" title="Permalink to this definition">#</a></dt>
+<dd><p>Get the path to a single BigEarthNet-S1 patch.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="bigearthnet_common.example_data.get_s2_example_folder_path">
+<span class="sig-prename descclassname"><span class="pre">bigearthnet_common.example_data.</span></span><span class="sig-name descname"><span class="pre">get_s2_example_folder_path</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">pathlib.Path</span></span></span><a class="headerlink" href="#bigearthnet_common.example_data.get_s2_example_folder_path" title="Permalink to this definition">#</a></dt>
+<dd><p>Get the path to a tiny subset of BigEarthNet-S2</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="bigearthnet_common.example_data.get_s2_example_patch_path">
+<span class="sig-prename descclassname"><span class="pre">bigearthnet_common.example_data.</span></span><span class="sig-name descname"><span class="pre">get_s2_example_patch_path</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">pathlib.Path</span></span></span><a class="headerlink" href="#bigearthnet_common.example_data.get_s2_example_patch_path" title="Permalink to this definition">#</a></dt>
+<dd><p>Get the path to a single BigEarthNet-S2 patch.</p>
+</dd></dl>
 </section>
 
         </article>
@@ -283,23 +242,15 @@ They <em>will not</em> be validated!</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="10_sets.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">BigEarthNet Set Builder Functions</div>
-              </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="00_constants.html">
+          
+          <a class="prev-page" href="api_sets.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">BigEarthNet Constants</div>
+                <div class="title">Sets</div>
                 
               </div>
             </a>
@@ -333,30 +284,8 @@ They <em>will not</em> be validated!</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            Contents
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">BigEarthNet Base Functions</a><ul>
-<li><a class="reference internal" href="#metadata-parsing-utility-functions">Metadata parsing utility functions</a></li>
-<li><a class="reference internal" href="#patch-names-utility">Patch names utility</a></li>
-<li><a class="reference internal" href="#label-utility-functions">Label utility functions</a></li>
-<li><a class="reference internal" href="#validating-bigearthnet">Validating BigEarthNet</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

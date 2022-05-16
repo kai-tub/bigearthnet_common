@@ -1,3 +1,4 @@
+(api-sets)=
 # Sets
 
 :::{eval-rst}
