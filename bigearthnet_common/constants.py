@@ -1,7 +1,6 @@
 import re
 from enum import Enum
 
-import fastcore.all as fc
 import natsort
 import rich
 
@@ -46,18 +45,28 @@ def _generate_old2new_labels_dict():
     return old2new_label_mapping
 
 
+# Same order as in the original BigEarthNet code:
+# https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/label_indices.json
 OLD2NEW_LABELS_DICT = {
     "Continuous urban fabric": "Urban fabric",
     "Discontinuous urban fabric": "Urban fabric",
     "Industrial or commercial units": "Industrial or commercial units",
+    "Road and rail networks and associated land": None,
+    "Port areas": None,
+    "Airports": None,
+    "Mineral extraction sites": None,
+    "Dump sites": None,
+    "Construction sites": None,
+    "Green urban areas": None,
+    "Sport and leisure facilities": None,
     "Non-irrigated arable land": "Arable land",
     "Permanently irrigated land": "Arable land",
     "Rice fields": "Arable land",
     "Vineyards": "Permanent crops",
     "Fruit trees and berry plantations": "Permanent crops",
     "Olive groves": "Permanent crops",
-    "Annual crops associated with permanent crops": "Permanent crops",
     "Pastures": "Pastures",
+    "Annual crops associated with permanent crops": "Permanent crops",
     "Complex cultivation patterns": "Complex cultivation patterns",
     "Land principally occupied by agriculture, with significant areas of natural vegetation": "Land principally occupied by agriculture, with significant areas of natural vegetation",
     "Agro-forestry areas": "Agro-forestry areas",
@@ -65,37 +74,57 @@ OLD2NEW_LABELS_DICT = {
     "Coniferous forest": "Coniferous forest",
     "Mixed forest": "Mixed forest",
     "Natural grassland": "Natural grassland and sparsely vegetated areas",
-    "Sparsely vegetated areas": "Natural grassland and sparsely vegetated areas",
     "Moors and heathland": "Moors, heathland and sclerophyllous vegetation",
     "Sclerophyllous vegetation": "Moors, heathland and sclerophyllous vegetation",
     "Transitional woodland/shrub": "Transitional woodland, shrub",
     "Beaches, dunes, sands": "Beaches, dunes, sands",
+    "Bare rock": None,
+    "Sparsely vegetated areas": "Natural grassland and sparsely vegetated areas",
+    "Burnt areas": None,
     "Inland marshes": "Inland wetlands",
     "Peatbogs": "Inland wetlands",
     "Salt marshes": "Coastal wetlands",
     "Salines": "Coastal wetlands",
+    "Intertidal flats": None,
     "Water courses": "Inland waters",
     "Water bodies": "Inland waters",
     "Coastal lagoons": "Marine waters",
     "Estuaries": "Marine waters",
     "Sea and ocean": "Marine waters",
-    "Airports": None,
-    "Bare rock": None,
-    "Dump sites": None,
-    "Port areas": None,
-    "Road and rail networks and associated land": None,
-    "Mineral extraction sites": None,
-    "Construction sites": None,
-    "Sport and leisure facilities": None,
-    "Burnt areas": None,
-    "Intertidal flats": None,
-    "Green urban areas": None,
 }
 
-OLD_LABELS = sorted(tuple({k for k in OLD2NEW_LABELS_DICT.keys()}))
-NEW_LABELS = sorted(tuple({v for v in OLD2NEW_LABELS_DICT.values() if v is not None}))
-OLD_LABELS_TO_IDX = fc.L(OLD_LABELS).val2idx()
-NEW_LABELS_TO_IDX = fc.L(NEW_LABELS).val2idx()
+
+# Use sorted order as default => Same encoding as used in torchgeo
+# https://torchgeo.readthedocs.io/en/latest/api/datasets.html#bigearthnet
+OLD_LABELS_ORIGINAL_ORDER = tuple(k for k in OLD2NEW_LABELS_DICT.keys())
+OLD_LABELS = sorted(OLD_LABELS_ORIGINAL_ORDER)
+
+# The following would break the original order
+# NEW_LABELS_ORIGINAL_ORDER = tuple(
+#     {v for v in OLD2NEW_LABELS_DICT.values() if v is not None}
+# )
+NEW_LABELS_ORIGINAL_ORDER = (
+    "Urban fabric",
+    "Industrial or commercial units",
+    "Arable land",
+    "Permanent crops",
+    "Pastures",
+    "Complex cultivation patterns",
+    "Land principally occupied by agriculture, with significant areas of natural vegetation",
+    "Agro-forestry areas",
+    "Broad-leaved forest",
+    "Coniferous forest",
+    "Mixed forest",
+    "Natural grassland and sparsely vegetated areas",
+    "Moors, heathland and sclerophyllous vegetation",
+    "Transitional woodland, shrub",
+    "Beaches, dunes, sands",
+    "Inland wetlands",
+    "Coastal wetlands",
+    "Inland waters",
+    "Marine waters",
+)
+NEW_LABELS = sorted(NEW_LABELS_ORIGINAL_ORDER)
 
 
 # Manually copied the LVL3 labels to be able to test for typos from both sources
@@ -240,7 +269,7 @@ MAX_VALUES_BY_DTYPE_STR = {
 URL = "http://bigearth.net/downloads/BigEarthNet-v1.0.tar.gz"
 
 # Stats from https://git.tu-berlin.de/rsim/bigearthnet-models-tf/-/blob/master/BigEarthNet.py
-BAND_STATS = {
+BAND_STATS_S2 = {
     "mean": {
         "B01": 340.76769064,
         "B02": 429.9430203,
@@ -270,17 +299,30 @@ BAND_STATS = {
         "B12": 818.86747235,
     },
 }
+BAND_STATS_S1 = {
+    "mean": {
+        "VV": -12.619993741972035,
+        "VH": -19.29044597721542,
+        "VV/VH": 0.6525036195871579,
+    },
+    "std": {
+        "VV": 5.115911777546365,
+        "VH": 5.464428464912864,
+        "VV/VH": 30.75264076801808,
+    },
+}
 
+# I am not sure if this should be used!
 # FUTURE: Double check original values!
 # Custom transformation to float32 values.
 # Assumes that the original means and std values are encoded in uint16
-BAND_STATS_FLOAT32 = {
-    k: {
-        band: band_val / MAX_VALUES_BY_DTYPE_STR["uint16"]
-        for band, band_val in v.items()
-    }
-    for k, v in BAND_STATS.items()
-}
+# BAND_STATS_FLOAT32 = {
+#     k: {
+#         band: band_val / MAX_VALUES_BY_DTYPE_STR["uint16"]
+#         for band, band_val in v.items()
+#     }
+#     for k, v in BAND_STATS.items()
+# }
 
 BEN_CHANNELS = (
     "B01",
@@ -348,6 +390,9 @@ BEN_S2_V1_0_JSON_KEYS = {
     "projection",
     "tile_source",
 }
+
+BEN_S1_V1_0_TAR_MD5SUM = "94ced73440dea8c7b9645ee738c5a172"
+BEN_S2_V1_0_TAR_MD5SUM = "5a64e9ce38deb036a435a7b59494924c"
 
 
 class SentinelSource(str, Enum):
@@ -626,6 +671,6 @@ def cli():
     return cmd()
 
 
-if __name__ == "__main__" and not fc.IN_IPYTHON:
+if __name__ == "__main__":
     # constants_prompt()
     cli()

@@ -1,3 +1,4 @@
+(api-base)=
 # Base
 
 :::{eval-rst}

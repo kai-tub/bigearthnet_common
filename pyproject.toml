@@ -46,8 +46,10 @@ sphinx-external-toc = "^0.2"
 sphinxcontrib-mermaid = "^0.7.1"
 myst-parser = {extras = ["linkify"], version = "^0.17.0"}
 pre-commit = "^2.18.1"
-myst-nb = {git = "https://github.com/executablebooks/MyST-NB.git", rev = "refactor-mystnb"}
+# myst-nb = {git = "https://github.com/executablebooks/MyST-NB.git", rev = "refactor-mystnb"}
 ipykernel = "^6.12.1"
+myst-nb = "^0.15.0"
+jupyter = "^1.0.0"
 
 [tool.poetry.scripts]
 ben_constant_prompt = "bigearthnet_common.constants:cli"

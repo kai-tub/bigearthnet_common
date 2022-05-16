@@ -314,6 +314,19 @@ def test_19_labels_to_multi_hot(inp):
     assert c[0.0] == 19 - len(inp)
 
 
+def test_19_labels_to_multi_hot_order():
+    inp = ("Agro-forestry areas", "Arable land")
+    multi = ben_19_labels_to_multi_hot(inp, lex_sorted=True)
+    assert multi[0] == 1
+    assert multi[1] == 1
+    # https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/label_indices.json
+    multi = ben_19_labels_to_multi_hot(inp, lex_sorted=False)
+    assert multi[0] == 0
+    # This fails!
+    assert multi[7] == 1
+    assert multi[2] == 1
+
+
 def test_19_labels_to_multi_hot_invalid():
     with pytest.raises(KeyError):
         ben_19_labels_to_multi_hot(["Airport"])
@@ -331,6 +344,18 @@ def test_43_labels_to_multi_hot(inp):
     c = Counter(multi43)
     assert c[1.0] == len(inp)
     assert c[0.0] == 43 - len(inp)
+
+
+def test_43_labels_to_multi_hot_order():
+    inp = ("Agro-forestry areas", "Airports")
+    multi = ben_43_labels_to_multi_hot(inp, lex_sorted=True)
+    assert multi[0] == 1
+    assert multi[1] == 1
+    # https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/label_indices.json
+    multi = ben_43_labels_to_multi_hot(inp, lex_sorted=False)
+    assert multi[0] == 0
+    assert multi[21] == 1
+    assert multi[5] == 1
 
 
 def test_43_labels_to_multi_hot_invalid():
