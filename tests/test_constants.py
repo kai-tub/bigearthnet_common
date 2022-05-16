@@ -104,5 +104,15 @@ def test_ben_s1_re_no_match(inp):
     assert BEN_S1_RE.fullmatch(inp) is None
 
 
+def test_new_label_order():
+    assert NEW_LABELS != NEW_LABELS_ORIGINAL_ORDER
+    assert NEW_LABELS == sorted(NEW_LABELS_ORIGINAL_ORDER)
+
+
+def test_old_label_order():
+    assert OLD_LABELS != OLD_LABELS_ORIGINAL_ORDER
+    assert OLD_LABELS == sorted(OLD_LABELS_ORIGINAL_ORDER)
+
+
 def test_print_all():
     print_all_constants()

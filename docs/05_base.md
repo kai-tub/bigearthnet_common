@@ -36,6 +36,20 @@ The package also provides a deterministic way to convert the old/new label nomen
 - {func}`.ben_19_labels_to_multi_hot`
 - {func}`.ben_43_labels_to_multi_hot`
 
+:::{important}
+
+Please be aware that there are multiple ways to multi-hot encode the labels.
+The functions provide two sensible multi-hot encoding strategies:
+
+- By default, the labels are lexicographically sorted and the index of the sorted list is used as the encoding
+    - This is the order of the `NEW_LABELS/OLD_LABELS` constants
+    - This ordering is used in the [torchgeo](https://torchgeo.readthedocs.io/en/latest/api/datasets.html#bigearthnet) library
+- With `lex_sorted=False` the original ordering is used as the encoding
+    - The ordering was defined in the original publication of BigEarthNet in the [labels_indices.json](https://git.tu-berlin.de/rsim/BigEarthNet-S2_19-classes_models/-/raw/master/label_indices.json) file
+    - This is the order of the `NEW_LABELS_ORIGINAL_ORDER/OLD_LABELS_ORIGINAL_ORDER` constants
+
+:::
+
 ## Validating BigEarthNet
 One common issue is that due to the size of BigEarthNet, it is not uncommon that the extraction silently fails and that the data is incomplete.
 Or that files are accidentally deleted, or worse, only their contents.

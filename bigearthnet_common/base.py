@@ -571,12 +571,16 @@ def old2new_labels(old_labels: Iterable[str]) -> Optional[List[str]]:
 
 
 @validate_arguments
-def ben_19_labels_to_multi_hot(labels: Iterable[str]) -> List[float]:
+def ben_19_labels_to_multi_hot(
+    labels: Iterable[str], lex_sorted: bool = True
+) -> List[float]:
     """
     Convenience function that converts an input iterable of labels into
     a multi-hot encoded vector.
-    The naturally ordered label list is used as an encoder reference
-    - `bigearthnet_common.NEW_LABELS`
+    If `lex_sorted` is True (default) the classes are lexigraphically ordered, as they are
+    in `constants.NEW_LABELS`.
+    If `lex_sorted` is False, the original order from the BigEarthNet paper is used, as
+    they are given in `constants.NEW_LABELS_ORIGINAL_ORDER`.
 
     If an unknown label is given, a `KeyError` is raised.
 
@@ -584,19 +588,29 @@ def ben_19_labels_to_multi_hot(labels: Iterable[str]) -> List[float]:
     This is not necessarily the case if you are using a subset!
     For example, the "Agro-forestry areas" class is only present in Portugal and in no other country!
     """
-    idxs = [ben_constants.NEW_LABELS_TO_IDX[label] for label in labels]
+    ordered_lbls = (
+        ben_constants.NEW_LABELS
+        if lex_sorted
+        else ben_constants.NEW_LABELS_ORIGINAL_ORDER
+    )
+    lbls_to_idx = fc.L(ordered_lbls).val2idx()
+    idxs = [lbls_to_idx[label] for label in labels]
     multi_hot = fc.L([0] * len(ben_constants.NEW_LABELS))
     multi_hot[idxs] = 1.0
     return list(multi_hot)
 
 
 @validate_arguments
-def ben_43_labels_to_multi_hot(labels: Iterable[str]) -> List[float]:
+def ben_43_labels_to_multi_hot(
+    labels: Iterable[str], lex_sorted: bool = True
+) -> List[float]:
     """
     Convenience function that converts an input iterable of labels into
     a multi-hot encoded vector.
-    The naturally ordered label list is used as an encoder reference
-    - `bigearthnet_common.OLD_LABELS`
+    If `lex_sorted` is True (default) the classes are lexigraphically ordered, as they are
+    in `constants.OLD_LABELS`.
+    If `lex_sorted` is False, the original order from the BigEarthNet paper is used, as
+    they are given in `constants.OLD_LABELS_ORIGINAL_ORDER`.
 
     If an unknown label is given, a `KeyError` is raised.
 
@@ -604,7 +618,13 @@ def ben_43_labels_to_multi_hot(labels: Iterable[str]) -> List[float]:
     This is not necessarily the case if you are using a subset!
     For example, the "Agro-forestry areas" class is only present in Portugal and in no other country!
     """
-    idxs = [ben_constants.OLD_LABELS_TO_IDX[label] for label in labels]
+    ordered_lbls = (
+        ben_constants.OLD_LABELS
+        if lex_sorted
+        else ben_constants.OLD_LABELS_ORIGINAL_ORDER
+    )
+    lbls_to_idx = fc.L(ordered_lbls).val2idx()
+    idxs = [lbls_to_idx[label] for label in labels]
     multi_hot = fc.L([0] * len(ben_constants.OLD_LABELS))
     multi_hot[idxs] = 1.0
     return list(multi_hot)
