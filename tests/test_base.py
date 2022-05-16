@@ -5,6 +5,8 @@ from typing import Counter
 import fastcore.test as fc_test
 import pytest
 from dateutil.parser import ParserError
+from pydantic import ValidationError
+from rich.table import Table
 
 import bigearthnet_common
 from bigearthnet_common.base import *
@@ -154,6 +156,17 @@ def test_country_mapping():
     assert s2_country_mapping["S2A_MSIL2A_20171221T112501_56_35"] == "Portugal"
 
 
+@pytest.mark.parametrize(
+    "inp",
+    [
+        "S2A_MSIL2A_20171221T112501_56_35",
+        "S1A_IW_GRDH_1SDV_20171221T064238_29SND_56_35",
+    ],
+)
+def test_get_country(inp):
+    assert get_country_from_patch_name(inp) == "Portugal"
+
+
 def test_season_mapping():
     s2_season_mapping = get_patches_to_season_mapping()
     s1_season_mapping = get_patches_to_season_mapping(use_s2_patch_names=False)
@@ -173,6 +186,18 @@ def test_season_mapping():
         s2_season_mapping["S2A_MSIL2A_20171221T112501_56_35"]
         == ben_constants.Season.Winter
     )
+
+
+# examples from above
+@pytest.mark.parametrize(
+    "inp",
+    [
+        "S2A_MSIL2A_20171221T112501_56_35",
+        "S1A_IW_GRDH_1SDV_20171221T064238_29SND_56_35",
+    ],
+)
+def test_get_season(inp):
+    assert get_season_from_patch_name(inp) == ben_constants.Season.Winter
 
 
 def test_s1_and_s2_snow_patches():
@@ -228,6 +253,19 @@ def test_get_patches_with_no_19_class_targets():
     s2_patches_no_19_class = get_s2_patches_with_no_19_class_target()
     no_clouds = {p for p in s2_patches_no_19_class if not is_cloudy_shadowy_patch(p)}
     assert len(no_clouds) < len(s2_patches_no_19_class)
+
+
+@pytest.mark.parametrize(
+    "inp,exp",
+    [
+        ("S2A_MSIL2A_20171221T112501_56_35", True),
+        ("S1A_IW_GRDH_1SDV_20171221T064238_29SND_56_35", True),
+        ("S1A_IW_GRDH_1SDV_20170716T180622_29UPV_72_73", False),
+        ("S2A_MSIL2A_20170717T113321_61_13", False),
+    ],
+)
+def test_has_19_class_target(inp, exp):
+    assert has_19_class_target(inp) == exp
 
 
 def test_original_splits():
@@ -390,3 +428,30 @@ def test_validate_ben_s2_root_directory(s2_json_folder):
         len(validate_ben_s2_root_directory(s2_json_folder))
         == ben_constants.BEN_COMPLETE_SIZE
     )
+
+
+@pytest.mark.parametrize(
+    "inp",
+    [
+        ["S1A_IW_GRDH_1SDV_20170613T165043_33UUP_87_48"],
+        ["S2A_MSIL2A_20170613T101031_87_48"],
+        [
+            "S1A_IW_GRDH_1SDV_20170613T165043_33UUP_87_48",
+            "S2A_MSIL2A_20170613T101031_87_48",
+        ],
+    ],
+)
+def test_describe_patch(inp):
+    t = describe_patch(inp)
+    assert isinstance(t, Table)
+    assert t.row_count == len(inp)
+
+
+def test_describe_patch_invalid_name():
+    with pytest.raises(ValueError, match="not a valid S1/S2 patch name!"):
+        describe_patch(["invalid-patch-name"])
+
+
+def test_describe_patch_invalid_type():
+    with pytest.raises(ValidationError):
+        describe_patch("not-a-list")

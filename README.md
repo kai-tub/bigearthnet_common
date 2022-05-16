@@ -50,3 +50,10 @@ To generate a CSV file that contains all Sentinel-2 patches from Serbia only dur
 By default, this tool will always remove the _unrecommended_ patches, i.e., patches that contain seasonal snow, shadows, clouds, or that have no labels in the 19-class nomenclature
 
 :::
+
+
+## Describe patch
+The library provides a tool to quickly visualize meta-data information about each patch:
+```sh
+ben_describe_patch <S1/S2 patch name>
+```

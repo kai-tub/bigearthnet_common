@@ -50,6 +50,21 @@ The functions provide two sensible multi-hot encoding strategies:
 
 :::
 
+## Describe patch
+The library provides a tool to quickly visualize meta-data information about each patch:
+- S1 name
+- S2 name
+- Original Split
+- Country
+- Season
+- Cloudy/Shadowy
+- If it has a valid 19-label target
+
+```sh
+ben_describe_patch <S1/S2 patch name(s)>
+```
+
+
 ## Validating BigEarthNet
 One common issue is that due to the size of BigEarthNet, it is not uncommon that the extraction silently fails and that the data is incomplete.
 Or that files are accidentally deleted, or worse, only their contents.
