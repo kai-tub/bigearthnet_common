@@ -1,3 +1,15 @@
+# v2.6.0 (Mon May 16 2022)
+
+#### 🚀 Enhancement
+
+- Add describe-patch CLI tool [#33](https://github.com/kai-tub/bigearthnet_common/pull/33) ([@kai-tub](https://github.com/kai-tub))
+
+#### Authors: 1
+
+- Kai Norman Clasen ([@kai-tub](https://github.com/kai-tub))
+
+---
+
 # v2.5.0 (Mon May 16 2022)
 
 #### 🚀 Enhancement
