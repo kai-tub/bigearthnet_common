@@ -391,6 +391,9 @@ BEN_S2_V1_0_JSON_KEYS = {
     "tile_source",
 }
 
+BEN_S1_V1_0_TAR_MD5SUM = "94ced73440dea8c7b9645ee738c5a172"
+BEN_S2_V1_0_TAR_MD5SUM = "5a64e9ce38deb036a435a7b59494924c"
+
 
 class SentinelSource(str, Enum):
     """
