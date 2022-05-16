@@ -12,8 +12,6 @@ import warnings
 from datetime import datetime
 from enum import Enum
 from importlib import resources
-
-# from importlib_resources import files
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Set, Union
 
@@ -25,6 +23,9 @@ import typer
 from fastcore.basics import compose
 from fastcore.dispatch import typedispatch
 from pydantic import DirectoryPath, FilePath, validate_arguments
+
+# from importlib_resources import files
+from rich.table import Table
 
 import bigearthnet_common
 import bigearthnet_common.constants as ben_constants
@@ -321,6 +322,29 @@ def get_patches_to_country_mapping(use_s2_patch_names: bool = True) -> Dict[str,
     return _conv_header_col_bz2_csv_resource_to_dict(resource, key, "country")
 
 
+@validate_arguments
+def is_s2_patch(patch_name: str) -> bool:
+    """Quick regex check if name is a valid S2 patch name"""
+    return ben_constants.BEN_S2_RE.fullmatch(patch_name)
+
+
+@validate_arguments
+def is_s1_patch(patch_name: str) -> bool:
+    """Quick regex check if name is a valid S2 patch name"""
+    return ben_constants.BEN_S1_RE.fullmatch(patch_name)
+
+
+def get_country_from_patch_name(patch_name: str) -> str:
+    """
+    Fast function that returns the country to which the patch `patch_name` belongs to.
+
+    This works for S1 and S2 patch names!
+    """
+    if is_s2_patch(patch_name):
+        return get_patches_to_country_mapping(use_s2_patch_names=True)[patch_name]
+    return get_patches_to_country_mapping(use_s2_patch_names=False)[patch_name]
+
+
 def get_patches_to_season_mapping(use_s2_patch_names: bool = True) -> Dict[str, str]:
     """
     Return a dictionary that maps a patch name to the season of the acquisition date.
@@ -337,6 +361,17 @@ def get_patches_to_season_mapping(use_s2_patch_names: bool = True) -> Dict[str, 
     resource = Resource.season
     key = "s2_name" if use_s2_patch_names else "s1_name"
     return _conv_header_col_bz2_csv_resource_to_dict(resource, key, "season")
+
+
+def get_season_from_patch_name(patch_name: str) -> str:
+    """
+    Fast function that returns the season in which the patch `patch_name` was sensed.
+
+    This works for S1 and S2 patch names!
+    """
+    if is_s2_patch(patch_name):
+        return get_patches_to_season_mapping(use_s2_patch_names=True)[patch_name]
+    return get_patches_to_season_mapping(use_s2_patch_names=False)[patch_name]
 
 
 @validate_arguments
@@ -447,6 +482,20 @@ def get_s1_patches_with_no_19_class_target() -> Set[str]:
         Resource.patches_with_no_19_class_targets
     )
     return {s2_to_s1_patch_name(s2_patch) for s2_patch in s2_patches_no_19_classes}
+
+
+@validate_arguments
+def has_19_class_target(patch_name: str) -> bool:
+    """
+    Fast function that checks whether `patch_name` is a patch
+    that has at least a single 19-class target label.
+
+    This works for S1 and S2 patch names!
+    """
+    return not (
+        patch_name in get_s1_patches_with_no_19_class_target()
+        or patch_name in get_s2_patches_with_no_19_class_target()
+    )
 
 
 # FUTURE: Remove this bz2 file and repackage it inside of the
@@ -736,4 +785,58 @@ def validate_ben_s2_root_directory_cli():
 def validate_ben_s1_root_directory_cli():
     app = typer.Typer()
     app.command()(validate_ben_s1_root_directory)
+    app()
+
+
+@validate_arguments
+def describe_patch(patch_names: List[str]) -> Table:
+    """
+    Given a list of patch names return a table that summarizes
+    the metadata.
+    """
+    columns = [
+        "Sentinel-1 Name",
+        "Sentinel-2 Name",
+        "Original Split",
+        "Country",
+        "Season",
+        "Snowy",
+        "Cloudy / Shadowy",
+        "Valid 19-label",
+    ]
+    y = "✅"
+    n = "❌"
+    t = Table(
+        title=f"Metadata Summary",
+        caption=f"Patch(es): {patch_names}",
+        expand=True,
+        leading=1,
+    )
+    for c in columns:
+        t.add_column(header=c, overflow="fold", justify="center")
+
+    for patch_name in patch_names:
+        if is_s1_patch(patch_name):
+            s1_name = patch_name
+            s2_name = s1_to_s2_patch_name(s1_name)
+        elif is_s2_patch(patch_name):
+            s2_name = patch_name
+            s1_name = s2_to_s1_patch_name(s2_name)
+        else:
+            raise ValueError(f"Input: {patch_name} is not a valid S1/S2 patch name!")
+
+        split = get_original_split_from_patch_name(s2_name)
+        country = get_country_from_patch_name(s2_name)
+        season = get_season_from_patch_name(s2_name)
+        snowy = y if is_snowy_patch(s2_name) else n
+        cloudy = y if is_cloudy_shadowy_patch(s2_name) else n
+        valid_19 = y if has_19_class_target(s2_name) else n
+        t.add_row(s1_name, s2_name, split, country, season, snowy, cloudy, valid_19)
+    rich.print(t)
+    return t
+
+
+def describe_patch_cli():
+    app = typer.Typer()
+    app.command()(describe_patch)
     app()
