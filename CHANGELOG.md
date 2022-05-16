@@ -1,3 +1,19 @@
+# v2.5.0 (Mon May 16 2022)
+
+#### 🚀 Enhancement
+
+- Example data [#32](https://github.com/kai-tub/bigearthnet_common/pull/32) ([@kai-tub](https://github.com/kai-tub))
+
+#### 📝 Documentation
+
+- Add .nojekyll file [#28](https://github.com/kai-tub/bigearthnet_common/pull/28) ([@kai-tub](https://github.com/kai-tub))
+
+#### Authors: 1
+
+- Kai Norman Clasen ([@kai-tub](https://github.com/kai-tub))
+
+---
+
 # v2.4.1 (Wed Apr 06 2022)
 
 #### 🐛 Bug Fix
