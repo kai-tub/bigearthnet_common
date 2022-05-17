@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/asciinema-player.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
     
     
@@ -206,9 +207,13 @@
 </div>
 <p>To generate a CSV file that contains all Sentinel-2 patches from Serbia only during the Summer and Spring months, call the function as:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">ben_build_csv_sets</span> <span class="pre">&lt;FILE_PATH&gt;</span> <span class="pre">S2</span> <span class="pre">--seasons</span> <span class="pre">Winter</span> <span class="pre">--seasons</span> <span class="pre">Summer</span> <span class="pre">--countries</span> <span class="pre">Serbia</span> <span class="pre">--remove-unrecommended-dl-patches</span></code>
-The tool will ensure that the generated splits are not empty.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ben_build_csv_sets</span> <span class="pre">&lt;FILE_PATH&gt;</span> <span class="pre">S2</span> <span class="pre">--seasons</span> <span class="pre">Winter</span> <span class="pre">--seasons</span> <span class="pre">Summer</span> <span class="pre">--countries</span> <span class="pre">Serbia</span> <span class="pre">--remove-unrecommended-dl-patches</span></code></p></li>
 </ul>
+<div class="asciinema" id="asciinema-0">
+</div>
+<script src="_static/asciinema-player.min.js"></script><script>
+AsciinemaPlayer.create('_recs/10_sets-asciinema-0.rec', document.getElementById('asciinema-0'), {"rows": 40, "cols": 90, "idletimelimit": 5, "autoplay": true, "preload": false, "loop": false, "startat": 0, "speed": 1.0, "theme": "asciinema", "poster": null, "fit": "width", "fontsize": "small"});
+</script><p>The tool will ensure that the generated splits are not empty.</p>
 <p>You can also use the <a class="reference internal" href="api_sets.html#module-bigearthnet_common.sets" title="bigearthnet_common.sets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sets</span></code></a> API directly from your Python application to programmatically generate new splits with more refined control:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="api_sets.html#bigearthnet_common.sets.filter_patches_by_country" title="bigearthnet_common.sets.filter_patches_by_country"><code class="xref py py-func docutils literal notranslate"><span class="pre">filter_patches_by_country()</span></code></a></p></li>

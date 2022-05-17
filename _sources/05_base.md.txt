@@ -64,6 +64,21 @@ The library provides a tool to quickly visualize meta-data information about eac
 ben_describe_patch <S1/S2 patch name(s)>
 ```
 
+:::{record_cli_cmd} ben_describe_patch --help
+:rows: 20
+:cols: 90
+:autoplay: "true"
+:::
+
+Example run:
+
+:::{record_cli_cmd} ben_describe_patch S1A_IW_GRDH_1SDV_20170613T165043_33UUP_87_48 S2A_MSIL2A_20170613T101031_87_48
+:rows: 25
+:cols: 90
+:autoplay: "true"
+
+:::
+
 
 ## Validating BigEarthNet
 One common issue is that due to the size of BigEarthNet, it is not uncommon that the extraction silently fails and that the data is incomplete.
