@@ -16,7 +16,7 @@ include = [
 
 [tool.poetry.dependencies]
 # Follow NEP-29
-python = "^3.8"
+python = ">=3.8,<=3.10"
 rich = "^10|^11|^12"
 pydantic = "^1.8"
 fastcore = "^1.3"
@@ -26,6 +26,7 @@ appdirs = "^1.4"
 # be listed as true dependency in my opinion
 typer = "^0.4"
 python-dateutil = "^2"
+rich-click = {extras = ["typer"], version = "^1.3.2"}
 
 [tool.isort]
 profile = "black"
@@ -49,6 +50,8 @@ pre-commit = "^2.18.1"
 ipykernel = "^6.12.1"
 myst-nb = "^0.15.0"
 jupyter = "^1.0.0"
+sphinx-autobuild = "^2021.3.14"
+sphinx-cli-recorder = "^0.1.5"
 
 [tool.poetry.scripts]
 ben_constant_prompt = "bigearthnet_common.constants:cli"

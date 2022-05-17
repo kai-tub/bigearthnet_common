@@ -35,6 +35,7 @@ extensions = [
     # "sphinx_comments",
     # "sphinx.ext.todo",
     "sphinx.ext.intersphinx",
+    "sphinx_cli_recorder",
     "sphinxcontrib.mermaid",
     "sphinx.ext.autodoc",
     # "sphinx_design",

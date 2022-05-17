@@ -19,7 +19,7 @@ import appdirs
 import dateutil
 import fastcore.all as fc
 import rich
-import typer
+import rich_click.typer as typer
 from fastcore.basics import compose
 from fastcore.dispatch import typedispatch
 from pydantic import DirectoryPath, FilePath, validate_arguments

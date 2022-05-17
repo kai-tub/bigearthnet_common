@@ -4,8 +4,11 @@ from typing import List, Sequence, Set
 
 import fastcore.all as fc
 import natsort
-import typer
+import rich_click as click
+import rich_click.typer as typer
 from pydantic import validate_arguments
+
+click.rich_click.USE_MARKDOWN = True
 
 import bigearthnet_common.base as ben_base
 import bigearthnet_common.constants as ben_constants
