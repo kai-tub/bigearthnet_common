@@ -16,7 +16,7 @@ include = [
 
 [tool.poetry.dependencies]
 # Follow NEP-29
-python = ">=3.8,<=3.10"
+python = ">=3.8,<3.11"
 rich = "^10|^11|^12"
 pydantic = "^1.8"
 fastcore = "^1.3"
