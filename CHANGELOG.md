@@ -1,3 +1,19 @@
+# v2.7.0 (Tue May 17 2022)
+
+#### 🚀 Enhancement
+
+- Add rich-click for nicer output [#34](https://github.com/kai-tub/bigearthnet_common/pull/34) ([@kai-tub](https://github.com/kai-tub))
+
+#### 🐛 Bug Fix
+
+- Fix release pipeline [#35](https://github.com/kai-tub/bigearthnet_common/pull/35) ([@kai-tub](https://github.com/kai-tub))
+
+#### Authors: 1
+
+- Kai Norman Clasen ([@kai-tub](https://github.com/kai-tub))
+
+---
+
 # v2.6.0 (Mon May 16 2022)
 
 #### 🚀 Enhancement
