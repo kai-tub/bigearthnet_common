@@ -5,14 +5,13 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="BigEarthNet Base Functions" href="05_base.html" /><link rel="prev" title="BigEarthNet Common" href="intro.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.03.04"/>
-        <title>BigEarthNet Constants - BigEarthNet-Common documentation</title>
+    <meta name="generator" content="sphinx-4.5.0, furo 2022.09.29"/>
+        <title>BigEarthNet Constants - BigEarthNet Common documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/asciinema-player.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
 
@@ -39,10 +38,12 @@
   }
 </style></head>
   <body>
+    
     <script>
       document.body.dataset.theme = localStorage.getItem("theme") || "auto";
     </script>
     
+
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
     <title>Contents</title>
@@ -124,7 +125,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="intro.html"><div class="brand">BigEarthNet-Common  documentation</div></a>
+      <a href="intro.html"><div class="brand">BigEarthNet Common  documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +148,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="intro.html">
   
   
-  <span class="sidebar-brand-text">BigEarthNet-Common  documentation</span>
+  <span class="sidebar-brand-text">BigEarthNet Common  documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -167,6 +168,9 @@
 <li class="toctree-l2"><a class="reference internal" href="api_example_data.html">Example Data</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="general/dependencies.html">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general/code_of_conduct.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general/license.html">License</a></li>
 </ul>
 
 </div>
@@ -185,7 +189,9 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -206,10 +212,11 @@
 </pre></div>
 </div>
 <p>If you are simply looking for a way to quickly check a value from the terminal, see:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ben_constant_prompt --help
-</pre></div>
+<div class="asciinema" id="asciinema-0">
 </div>
-<div class="admonition warning">
+<script src=_static/asciinema-player.min.js></script><script>
+AsciinemaPlayer.create('_recs/00_constants-asciinema-0.rec', document.getElementById('asciinema-0'), {"rows": 60, "cols": 90, "idletimelimit": 5, "autoplay": true, "preload": false, "loop": false, "startat": 0, "speed": 1.0, "theme": "asciinema", "poster": null, "fit": "width", "fontsize": "small"});
+</script><div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The label code contains one special oddity.
 According to the original 19-class nomenclature, the class is named <code class="docutils literal notranslate"><span class="pre">Transitional</span> <span class="pre">woodland,</span> <span class="pre">shrub</span></code> and <strong>not</strong> <code class="docutils literal notranslate"><span class="pre">Transitional</span> <span class="pre">woodland/shrub</span></code>, as it was called in the original 43-class nomenclature.</p>
@@ -224,59 +231,53 @@ According to the original 19-class nomenclature, the class is named <code class=
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-style: italic">                                     OLD2NEW_LABELS_DICT                                     </span>
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ Continuous urban fabric                     ┃ Urban fabric                                ┃
-│ Discontinuous urban fabric                  │ Urban fabric                                │
-│ Industrial or commercial units              │ Industrial or commercial units              │
-│ Road and rail networks and associated land  │ None                                        │
-│ Port areas                                  │ None                                        │
-│ Airports                                    │ None                                        │
-│ Mineral extraction sites                    │ None                                        │
-│ Dump sites                                  │ None                                        │
-│ Construction sites                          │ None                                        │
-│ Green urban areas                           │ None                                        │
-│ Sport and leisure facilities                │ None                                        │
-│ Non-irrigated arable land                   │ Arable land                                 │
-│ Permanently irrigated land                  │ Arable land                                 │
-│ Rice fields                                 │ Arable land                                 │
-│ Vineyards                                   │ Permanent crops                             │
-│ Fruit trees and berry plantations           │ Permanent crops                             │
-│ Olive groves                                │ Permanent crops                             │
-│ Pastures                                    │ Pastures                                    │
-│ Annual crops associated with permanent      │ Permanent crops                             │
-│ crops                                       │                                             │
-│ Complex cultivation patterns                │ Complex cultivation patterns                │
-│ Land principally occupied by agriculture,   │ Land principally occupied by agriculture,   │
-│ with significant areas of natural           │ with significant areas of natural           │
-│ vegetation                                  │ vegetation                                  │
-│ Agro-forestry areas                         │ Agro-forestry areas                         │
-│ Broad-leaved forest                         │ Broad-leaved forest                         │
-│ Coniferous forest                           │ Coniferous forest                           │
-│ Mixed forest                                │ Mixed forest                                │
-│ Natural grassland                           │ Natural grassland and sparsely vegetated    │
-│                                             │ areas                                       │
-│ Moors and heathland                         │ Moors, heathland and sclerophyllous         │
-│                                             │ vegetation                                  │
-│ Sclerophyllous vegetation                   │ Moors, heathland and sclerophyllous         │
-│                                             │ vegetation                                  │
-│ Transitional woodland/shrub                 │ Transitional woodland, shrub                │
-│ Beaches, dunes, sands                       │ Beaches, dunes, sands                       │
-│ Bare rock                                   │ None                                        │
-│ Sparsely vegetated areas                    │ Natural grassland and sparsely vegetated    │
-│                                             │ areas                                       │
-│ Burnt areas                                 │ None                                        │
-│ Inland marshes                              │ Inland wetlands                             │
-│ Peatbogs                                    │ Inland wetlands                             │
-│ Salt marshes                                │ Coastal wetlands                            │
-│ Salines                                     │ Coastal wetlands                            │
-│ Intertidal flats                            │ None                                        │
-│ Water courses                               │ Inland waters                               │
-│ Water bodies                                │ Inland waters                               │
-│ Coastal lagoons                             │ Marine waters                               │
-│ Estuaries                                   │ Marine waters                               │
-│ Sea and ocean                               │ Marine waters                               │
-└─────────────────────────────────────────────┴─────────────────────────────────────────────┘
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-style: italic">                                                OLD2NEW_LABELS_DICT                                                </span>
+┌────────────────────────────────────────────────────────┬────────────────────────────────────────────────────────┐
+│ Continuous urban fabric                                │ Urban fabric                                           │
+│ Discontinuous urban fabric                             │ Urban fabric                                           │
+│ Industrial or commercial units                         │ Industrial or commercial units                         │
+│ Road and rail networks and associated land             │ None                                                   │
+│ Port areas                                             │ None                                                   │
+│ Airports                                               │ None                                                   │
+│ Mineral extraction sites                               │ None                                                   │
+│ Dump sites                                             │ None                                                   │
+│ Construction sites                                     │ None                                                   │
+│ Green urban areas                                      │ None                                                   │
+│ Sport and leisure facilities                           │ None                                                   │
+│ Non-irrigated arable land                              │ Arable land                                            │
+│ Permanently irrigated land                             │ Arable land                                            │
+│ Rice fields                                            │ Arable land                                            │
+│ Vineyards                                              │ Permanent crops                                        │
+│ Fruit trees and berry plantations                      │ Permanent crops                                        │
+│ Olive groves                                           │ Permanent crops                                        │
+│ Pastures                                               │ Pastures                                               │
+│ Annual crops associated with permanent crops           │ Permanent crops                                        │
+│ Complex cultivation patterns                           │ Complex cultivation patterns                           │
+│ Land principally occupied by agriculture, with         │ Land principally occupied by agriculture, with         │
+│ significant areas of natural vegetation                │ significant areas of natural vegetation                │
+│ Agro-forestry areas                                    │ Agro-forestry areas                                    │
+│ Broad-leaved forest                                    │ Broad-leaved forest                                    │
+│ Coniferous forest                                      │ Coniferous forest                                      │
+│ Mixed forest                                           │ Mixed forest                                           │
+│ Natural grassland                                      │ Natural grassland and sparsely vegetated areas         │
+│ Moors and heathland                                    │ Moors, heathland and sclerophyllous vegetation         │
+│ Sclerophyllous vegetation                              │ Moors, heathland and sclerophyllous vegetation         │
+│ Transitional woodland/shrub                            │ Transitional woodland, shrub                           │
+│ Beaches, dunes, sands                                  │ Beaches, dunes, sands                                  │
+│ Bare rock                                              │ None                                                   │
+│ Sparsely vegetated areas                               │ Natural grassland and sparsely vegetated areas         │
+│ Burnt areas                                            │ None                                                   │
+│ Inland marshes                                         │ Inland wetlands                                        │
+│ Peatbogs                                               │ Inland wetlands                                        │
+│ Salt marshes                                           │ Coastal wetlands                                       │
+│ Salines                                                │ Coastal wetlands                                       │
+│ Intertidal flats                                       │ None                                                   │
+│ Water courses                                          │ Inland waters                                          │
+│ Water bodies                                           │ Inland waters                                          │
+│ Coastal lagoons                                        │ Marine waters                                          │
+│ Estuaries                                              │ Marine waters                                          │
+│ Sea and ocean                                          │ Marine waters                                          │
+└────────────────────────────────────────────────────────┴────────────────────────────────────────────────────────┘
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃<span style="font-weight: bold"> OLD_LABELS_ORIGINAL_ORDER                                                              </span>┃
@@ -422,66 +423,58 @@ According to the original 19-class nomenclature, the class is named <code class=
 │ Urban fabric                                                                           │
 └────────────────────────────────────────────────────────────────────────────────────────┘
 </pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-style: italic">                                       CLC_LV3_TO_LV2                                        </span>
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ Continuous urban fabric                     ┃ Urban fabric                                ┃
-│ Discontinuous urban fabric                  │ Urban fabric                                │
-│ Industrial or commercial units              │ Industrial, comercial and transport units   │
-│ Road and rail networks and associated land  │ Industrial, comercial and transport units   │
-│ Port areas                                  │ Industrial, comercial and transport units   │
-│ Airports                                    │ Industrial, comercial and transport units   │
-│ Mineral extraction sites                    │ Mine, dump and construction sites           │
-│ Dump sites                                  │ Mine, dump and construction sites           │
-│ Construction sites                          │ Mine, dump and construction sites           │
-│ Green urban areas                           │ Artificial, non-agricultural vegetated      │
-│                                             │ areas                                       │
-│ Sport and leisure facilities                │ Artificial, non-agricultural vegetated      │
-│                                             │ areas                                       │
-│ Non-irrigated arable land                   │ Arable land                                 │
-│ Permanently irrigated land                  │ Arable land                                 │
-│ Rice fields                                 │ Arable land                                 │
-│ Vineyards                                   │ Permanent crops                             │
-│ Fruit trees and berry plantations           │ Permanent crops                             │
-│ Olive groves                                │ Permanent crops                             │
-│ Pastures                                    │ Pastures                                    │
-│ Annual crops associated with permanent      │ Heterogeneous agricultural areas            │
-│ crops                                       │                                             │
-│ Complex cultivation patterns                │ Heterogeneous agricultural areas            │
-│ Land principally occupied by agriculture,   │ Heterogeneous agricultural areas            │
-│ with significant areas of natural           │                                             │
-│ vegetation                                  │                                             │
-│ Agro-forestry areas                         │ Heterogeneous agricultural areas            │
-│ Broad-leaved forest                         │ Forest                                      │
-│ Coniferous forest                           │ Forest                                      │
-│ Mixed forest                                │ Forest                                      │
-│ Natural grassland                           │ Shrub and/or herbaceous vegetation          │
-│                                             │ associations                                │
-│ Moors and heathland                         │ Shrub and/or herbaceous vegetation          │
-│                                             │ associations                                │
-│ Sclerophyllous vegetation                   │ Shrub and/or herbaceous vegetation          │
-│                                             │ associations                                │
-│ Transitional woodland/shrub                 │ Shrub and/or herbaceous vegetation          │
-│                                             │ associations                                │
-│ Beaches, dunes, sands                       │ Open spaces with little or no vegetation    │
-│ Bare rock                                   │ Open spaces with little or no vegetation    │
-│ Sparsely vegetated areas                    │ Open spaces with little or no vegetation    │
-│ Burnt areas                                 │ Open spaces with little or no vegetation    │
-│ Glaciers and perpetual snow                 │ Open spaces with little or no vegetation    │
-│ Inland marshes                              │ Inland wetlands                             │
-│ Peatbogs                                    │ Inland wetlands                             │
-│ Salt marshes                                │ Coastal wetlands                            │
-│ Salines                                     │ Coastal wetlands                            │
-│ Intertidal flats                            │ Coastal wetlands                            │
-│ Water courses                               │ Inland waters                               │
-│ Water bodies                                │ Inland waters                               │
-│ Coastal lagoons                             │ Marine waters                               │
-│ Estuaries                                   │ Marine waters                               │
-│ Sea and ocean                               │ Marine waters                               │
-└─────────────────────────────────────────────┴─────────────────────────────────────────────┘
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-style: italic">                                                  CLC_LV3_TO_LV2                                                   </span>
+┌───────────────────────────────────────────────────────────────┬─────────────────────────────────────────────────┐
+│ Continuous urban fabric                                       │ Urban fabric                                    │
+│ Discontinuous urban fabric                                    │ Urban fabric                                    │
+│ Industrial or commercial units                                │ Industrial, comercial and transport units       │
+│ Road and rail networks and associated land                    │ Industrial, comercial and transport units       │
+│ Port areas                                                    │ Industrial, comercial and transport units       │
+│ Airports                                                      │ Industrial, comercial and transport units       │
+│ Mineral extraction sites                                      │ Mine, dump and construction sites               │
+│ Dump sites                                                    │ Mine, dump and construction sites               │
+│ Construction sites                                            │ Mine, dump and construction sites               │
+│ Green urban areas                                             │ Artificial, non-agricultural vegetated areas    │
+│ Sport and leisure facilities                                  │ Artificial, non-agricultural vegetated areas    │
+│ Non-irrigated arable land                                     │ Arable land                                     │
+│ Permanently irrigated land                                    │ Arable land                                     │
+│ Rice fields                                                   │ Arable land                                     │
+│ Vineyards                                                     │ Permanent crops                                 │
+│ Fruit trees and berry plantations                             │ Permanent crops                                 │
+│ Olive groves                                                  │ Permanent crops                                 │
+│ Pastures                                                      │ Pastures                                        │
+│ Annual crops associated with permanent crops                  │ Heterogeneous agricultural areas                │
+│ Complex cultivation patterns                                  │ Heterogeneous agricultural areas                │
+│ Land principally occupied by agriculture, with significant    │ Heterogeneous agricultural areas                │
+│ areas of natural vegetation                                   │                                                 │
+│ Agro-forestry areas                                           │ Heterogeneous agricultural areas                │
+│ Broad-leaved forest                                           │ Forest                                          │
+│ Coniferous forest                                             │ Forest                                          │
+│ Mixed forest                                                  │ Forest                                          │
+│ Natural grassland                                             │ Shrub and/or herbaceous vegetation associations │
+│ Moors and heathland                                           │ Shrub and/or herbaceous vegetation associations │
+│ Sclerophyllous vegetation                                     │ Shrub and/or herbaceous vegetation associations │
+│ Transitional woodland/shrub                                   │ Shrub and/or herbaceous vegetation associations │
+│ Beaches, dunes, sands                                         │ Open spaces with little or no vegetation        │
+│ Bare rock                                                     │ Open spaces with little or no vegetation        │
+│ Sparsely vegetated areas                                      │ Open spaces with little or no vegetation        │
+│ Burnt areas                                                   │ Open spaces with little or no vegetation        │
+│ Glaciers and perpetual snow                                   │ Open spaces with little or no vegetation        │
+│ Inland marshes                                                │ Inland wetlands                                 │
+│ Peatbogs                                                      │ Inland wetlands                                 │
+│ Salt marshes                                                  │ Coastal wetlands                                │
+│ Salines                                                       │ Coastal wetlands                                │
+│ Intertidal flats                                              │ Coastal wetlands                                │
+│ Water courses                                                 │ Inland waters                                   │
+│ Water bodies                                                  │ Inland waters                                   │
+│ Coastal lagoons                                               │ Marine waters                                   │
+│ Estuaries                                                     │ Marine waters                                   │
+│ Sea and ocean                                                 │ Marine waters                                   │
+└───────────────────────────────────────────────────────────────┴─────────────────────────────────────────────────┘
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-style: italic">                                  CLC_LV2_TO_LV1                                  </span>
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ Urban fabric                                    ┃ Artificial Surfaces          ┃
+┌─────────────────────────────────────────────────┬──────────────────────────────┐
+│ Urban fabric                                    │ Artificial Surfaces          │
 │ Industrial, comercial and transport units       │ Artificial Surfaces          │
 │ Mine, dump and construction sites               │ Artificial Surfaces          │
 │ Artificial, non-agricultural vegetated areas    │ Artificial Surfaces          │
@@ -498,54 +491,54 @@ According to the original 19-class nomenclature, the class is named <code class=
 │ Marine waters                                   │ Water bodies                 │
 └─────────────────────────────────────────────────┴──────────────────────────────┘
 </pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-style: italic">                                       CLC_LV3_TO_LV1                                        </span>
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ Continuous urban fabric                                    ┃ Artificial Surfaces          ┃
-│ Discontinuous urban fabric                                 │ Artificial Surfaces          │
-│ Industrial or commercial units                             │ Artificial Surfaces          │
-│ Road and rail networks and associated land                 │ Artificial Surfaces          │
-│ Port areas                                                 │ Artificial Surfaces          │
-│ Airports                                                   │ Artificial Surfaces          │
-│ Mineral extraction sites                                   │ Artificial Surfaces          │
-│ Dump sites                                                 │ Artificial Surfaces          │
-│ Construction sites                                         │ Artificial Surfaces          │
-│ Green urban areas                                          │ Artificial Surfaces          │
-│ Sport and leisure facilities                               │ Artificial Surfaces          │
-│ Non-irrigated arable land                                  │ Agricultural areas           │
-│ Permanently irrigated land                                 │ Agricultural areas           │
-│ Rice fields                                                │ Agricultural areas           │
-│ Vineyards                                                  │ Agricultural areas           │
-│ Fruit trees and berry plantations                          │ Agricultural areas           │
-│ Olive groves                                               │ Agricultural areas           │
-│ Pastures                                                   │ Agricultural areas           │
-│ Annual crops associated with permanent crops               │ Agricultural areas           │
-│ Complex cultivation patterns                               │ Agricultural areas           │
-│ Land principally occupied by agriculture, with significant │ Agricultural areas           │
-│ areas of natural vegetation                                │                              │
-│ Agro-forestry areas                                        │ Agricultural areas           │
-│ Broad-leaved forest                                        │ Forest and seminatural areas │
-│ Coniferous forest                                          │ Forest and seminatural areas │
-│ Mixed forest                                               │ Forest and seminatural areas │
-│ Natural grassland                                          │ Forest and seminatural areas │
-│ Moors and heathland                                        │ Forest and seminatural areas │
-│ Sclerophyllous vegetation                                  │ Forest and seminatural areas │
-│ Transitional woodland/shrub                                │ Forest and seminatural areas │
-│ Beaches, dunes, sands                                      │ Forest and seminatural areas │
-│ Bare rock                                                  │ Forest and seminatural areas │
-│ Sparsely vegetated areas                                   │ Forest and seminatural areas │
-│ Burnt areas                                                │ Forest and seminatural areas │
-│ Glaciers and perpetual snow                                │ Forest and seminatural areas │
-│ Inland marshes                                             │ Wetlands                     │
-│ Peatbogs                                                   │ Wetlands                     │
-│ Salt marshes                                               │ Wetlands                     │
-│ Salines                                                    │ Wetlands                     │
-│ Intertidal flats                                           │ Wetlands                     │
-│ Water courses                                              │ Water bodies                 │
-│ Water bodies                                               │ Water bodies                 │
-│ Coastal lagoons                                            │ Water bodies                 │
-│ Estuaries                                                  │ Water bodies                 │
-│ Sea and ocean                                              │ Water bodies                 │
-└────────────────────────────────────────────────────────────┴──────────────────────────────┘
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-style: italic">                                                  CLC_LV3_TO_LV1                                                   </span>
+┌──────────────────────────────────────────────────────────────────────────────────┬──────────────────────────────┐
+│ Continuous urban fabric                                                          │ Artificial Surfaces          │
+│ Discontinuous urban fabric                                                       │ Artificial Surfaces          │
+│ Industrial or commercial units                                                   │ Artificial Surfaces          │
+│ Road and rail networks and associated land                                       │ Artificial Surfaces          │
+│ Port areas                                                                       │ Artificial Surfaces          │
+│ Airports                                                                         │ Artificial Surfaces          │
+│ Mineral extraction sites                                                         │ Artificial Surfaces          │
+│ Dump sites                                                                       │ Artificial Surfaces          │
+│ Construction sites                                                               │ Artificial Surfaces          │
+│ Green urban areas                                                                │ Artificial Surfaces          │
+│ Sport and leisure facilities                                                     │ Artificial Surfaces          │
+│ Non-irrigated arable land                                                        │ Agricultural areas           │
+│ Permanently irrigated land                                                       │ Agricultural areas           │
+│ Rice fields                                                                      │ Agricultural areas           │
+│ Vineyards                                                                        │ Agricultural areas           │
+│ Fruit trees and berry plantations                                                │ Agricultural areas           │
+│ Olive groves                                                                     │ Agricultural areas           │
+│ Pastures                                                                         │ Agricultural areas           │
+│ Annual crops associated with permanent crops                                     │ Agricultural areas           │
+│ Complex cultivation patterns                                                     │ Agricultural areas           │
+│ Land principally occupied by agriculture, with significant areas of natural      │ Agricultural areas           │
+│ vegetation                                                                       │                              │
+│ Agro-forestry areas                                                              │ Agricultural areas           │
+│ Broad-leaved forest                                                              │ Forest and seminatural areas │
+│ Coniferous forest                                                                │ Forest and seminatural areas │
+│ Mixed forest                                                                     │ Forest and seminatural areas │
+│ Natural grassland                                                                │ Forest and seminatural areas │
+│ Moors and heathland                                                              │ Forest and seminatural areas │
+│ Sclerophyllous vegetation                                                        │ Forest and seminatural areas │
+│ Transitional woodland/shrub                                                      │ Forest and seminatural areas │
+│ Beaches, dunes, sands                                                            │ Forest and seminatural areas │
+│ Bare rock                                                                        │ Forest and seminatural areas │
+│ Sparsely vegetated areas                                                         │ Forest and seminatural areas │
+│ Burnt areas                                                                      │ Forest and seminatural areas │
+│ Glaciers and perpetual snow                                                      │ Forest and seminatural areas │
+│ Inland marshes                                                                   │ Wetlands                     │
+│ Peatbogs                                                                         │ Wetlands                     │
+│ Salt marshes                                                                     │ Wetlands                     │
+│ Salines                                                                          │ Wetlands                     │
+│ Intertidal flats                                                                 │ Wetlands                     │
+│ Water courses                                                                    │ Water bodies                 │
+│ Water bodies                                                                     │ Water bodies                 │
+│ Coastal lagoons                                                                  │ Water bodies                 │
+│ Estuaries                                                                        │ Water bodies                 │
+│ Sea and ocean                                                                    │ Water bodies                 │
+└──────────────────────────────────────────────────────────────────────────────────┴──────────────────────────────┘
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃<span style="font-weight: bold"> CLC_LV1_LABELS               </span>┃
@@ -633,8 +626,8 @@ According to the original 19-class nomenclature, the class is named <code class=
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">CLC_LV1_COUNT:  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5</span>
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-style: italic">        CLC_LV1_TO_CLC_CODE         </span>
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━┓
-┃ Artificial Surfaces          ┃ 1 ┃
+┌──────────────────────────────┬───┐
+│ Artificial Surfaces          │ 1 │
 │ Agricultural areas           │ 2 │
 │ Forest and seminatural areas │ 3 │
 │ Wetlands                     │ 4 │
@@ -642,8 +635,8 @@ According to the original 19-class nomenclature, the class is named <code class=
 └──────────────────────────────┴───┘
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-style: italic">        CLC_CODE_TO_CLC_LV1         </span>
-┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ 1 ┃ Artificial Surfaces          ┃
+┌───┬──────────────────────────────┐
+│ 1 │ Artificial Surfaces          │
 │ 2 │ Agricultural areas           │
 │ 3 │ Forest and seminatural areas │
 │ 4 │ Wetlands                     │
@@ -651,8 +644,8 @@ According to the original 19-class nomenclature, the class is named <code class=
 └───┴──────────────────────────────┘
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-style: italic">                  CLC_LV2_TO_CLC_CODE                   </span>
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━┓
-┃ Urban fabric                                    ┃ 11 ┃
+┌─────────────────────────────────────────────────┬────┐
+│ Urban fabric                                    │ 11 │
 │ Industrial, comercial and transport units       │ 12 │
 │ Mine, dump and construction sites               │ 13 │
 │ Artificial, non-agricultural vegetated areas    │ 14 │
@@ -670,8 +663,8 @@ According to the original 19-class nomenclature, the class is named <code class=
 └─────────────────────────────────────────────────┴────┘
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-style: italic">                  CLC_CODE_TO_CLC_LV2                   </span>
-┏━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ 11 ┃ Urban fabric                                    ┃
+┌────┬─────────────────────────────────────────────────┐
+│ 11 │ Urban fabric                                    │
 │ 12 │ Industrial, comercial and transport units       │
 │ 13 │ Mine, dump and construction sites               │
 │ 14 │ Artificial, non-agricultural vegetated areas    │
@@ -688,107 +681,105 @@ According to the original 19-class nomenclature, the class is named <code class=
 │ 52 │ Marine waters                                   │
 └────┴─────────────────────────────────────────────────┘
 </pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-style: italic">                                     CLC_LV3_TO_CLC_CODE                                     </span>
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━┓
-┃ Continuous urban fabric                                                             ┃ 111 ┃
-│ Discontinuous urban fabric                                                          │ 112 │
-│ Industrial or commercial units                                                      │ 121 │
-│ Road and rail networks and associated land                                          │ 122 │
-│ Port areas                                                                          │ 123 │
-│ Airports                                                                            │ 124 │
-│ Mineral extraction sites                                                            │ 131 │
-│ Dump sites                                                                          │ 132 │
-│ Construction sites                                                                  │ 133 │
-│ Green urban areas                                                                   │ 141 │
-│ Sport and leisure facilities                                                        │ 142 │
-│ Non-irrigated arable land                                                           │ 211 │
-│ Permanently irrigated land                                                          │ 212 │
-│ Rice fields                                                                         │ 213 │
-│ Vineyards                                                                           │ 221 │
-│ Fruit trees and berry plantations                                                   │ 222 │
-│ Olive groves                                                                        │ 223 │
-│ Pastures                                                                            │ 231 │
-│ Annual crops associated with permanent crops                                        │ 241 │
-│ Complex cultivation patterns                                                        │ 242 │
-│ Land principally occupied by agriculture, with significant areas of natural         │ 243 │
-│ vegetation                                                                          │     │
-│ Agro-forestry areas                                                                 │ 244 │
-│ Broad-leaved forest                                                                 │ 311 │
-│ Coniferous forest                                                                   │ 312 │
-│ Mixed forest                                                                        │ 313 │
-│ Natural grassland                                                                   │ 321 │
-│ Moors and heathland                                                                 │ 322 │
-│ Sclerophyllous vegetation                                                           │ 323 │
-│ Transitional woodland/shrub                                                         │ 324 │
-│ Beaches, dunes, sands                                                               │ 331 │
-│ Bare rock                                                                           │ 332 │
-│ Sparsely vegetated areas                                                            │ 333 │
-│ Burnt areas                                                                         │ 334 │
-│ Glaciers and perpetual snow                                                         │ 335 │
-│ Inland marshes                                                                      │ 411 │
-│ Peatbogs                                                                            │ 412 │
-│ Salt marshes                                                                        │ 421 │
-│ Salines                                                                             │ 422 │
-│ Intertidal flats                                                                    │ 423 │
-│ Water courses                                                                       │ 511 │
-│ Water bodies                                                                        │ 512 │
-│ Coastal lagoons                                                                     │ 521 │
-│ Estuaries                                                                           │ 522 │
-│ Sea and ocean                                                                       │ 523 │
-└─────────────────────────────────────────────────────────────────────────────────────┴─────┘
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-style: italic">                                      CLC_LV3_TO_CLC_CODE                                       </span>
+┌────────────────────────────────────────────────────────────────────────────────────────┬─────┐
+│ Continuous urban fabric                                                                │ 111 │
+│ Discontinuous urban fabric                                                             │ 112 │
+│ Industrial or commercial units                                                         │ 121 │
+│ Road and rail networks and associated land                                             │ 122 │
+│ Port areas                                                                             │ 123 │
+│ Airports                                                                               │ 124 │
+│ Mineral extraction sites                                                               │ 131 │
+│ Dump sites                                                                             │ 132 │
+│ Construction sites                                                                     │ 133 │
+│ Green urban areas                                                                      │ 141 │
+│ Sport and leisure facilities                                                           │ 142 │
+│ Non-irrigated arable land                                                              │ 211 │
+│ Permanently irrigated land                                                             │ 212 │
+│ Rice fields                                                                            │ 213 │
+│ Vineyards                                                                              │ 221 │
+│ Fruit trees and berry plantations                                                      │ 222 │
+│ Olive groves                                                                           │ 223 │
+│ Pastures                                                                               │ 231 │
+│ Annual crops associated with permanent crops                                           │ 241 │
+│ Complex cultivation patterns                                                           │ 242 │
+│ Land principally occupied by agriculture, with significant areas of natural vegetation │ 243 │
+│ Agro-forestry areas                                                                    │ 244 │
+│ Broad-leaved forest                                                                    │ 311 │
+│ Coniferous forest                                                                      │ 312 │
+│ Mixed forest                                                                           │ 313 │
+│ Natural grassland                                                                      │ 321 │
+│ Moors and heathland                                                                    │ 322 │
+│ Sclerophyllous vegetation                                                              │ 323 │
+│ Transitional woodland/shrub                                                            │ 324 │
+│ Beaches, dunes, sands                                                                  │ 331 │
+│ Bare rock                                                                              │ 332 │
+│ Sparsely vegetated areas                                                               │ 333 │
+│ Burnt areas                                                                            │ 334 │
+│ Glaciers and perpetual snow                                                            │ 335 │
+│ Inland marshes                                                                         │ 411 │
+│ Peatbogs                                                                               │ 412 │
+│ Salt marshes                                                                           │ 421 │
+│ Salines                                                                                │ 422 │
+│ Intertidal flats                                                                       │ 423 │
+│ Water courses                                                                          │ 511 │
+│ Water bodies                                                                           │ 512 │
+│ Coastal lagoons                                                                        │ 521 │
+│ Estuaries                                                                              │ 522 │
+│ Sea and ocean                                                                          │ 523 │
+└────────────────────────────────────────────────────────────────────────────────────────┴─────┘
 </pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-style: italic">                                     CLC_CODE_TO_CLC_LV3                                     </span>
-┏━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ 111 ┃ Continuous urban fabric                                                             ┃
-│ 112 │ Discontinuous urban fabric                                                          │
-│ 121 │ Industrial or commercial units                                                      │
-│ 122 │ Road and rail networks and associated land                                          │
-│ 123 │ Port areas                                                                          │
-│ 124 │ Airports                                                                            │
-│ 131 │ Mineral extraction sites                                                            │
-│ 132 │ Dump sites                                                                          │
-│ 133 │ Construction sites                                                                  │
-│ 141 │ Green urban areas                                                                   │
-│ 142 │ Sport and leisure facilities                                                        │
-│ 211 │ Non-irrigated arable land                                                           │
-│ 212 │ Permanently irrigated land                                                          │
-│ 213 │ Rice fields                                                                         │
-│ 221 │ Vineyards                                                                           │
-│ 222 │ Fruit trees and berry plantations                                                   │
-│ 223 │ Olive groves                                                                        │
-│ 231 │ Pastures                                                                            │
-│ 241 │ Annual crops associated with permanent crops                                        │
-│ 242 │ Complex cultivation patterns                                                        │
-│ 243 │ Land principally occupied by agriculture, with significant areas of natural         │
-│     │ vegetation                                                                          │
-│ 244 │ Agro-forestry areas                                                                 │
-│ 311 │ Broad-leaved forest                                                                 │
-│ 312 │ Coniferous forest                                                                   │
-│ 313 │ Mixed forest                                                                        │
-│ 321 │ Natural grassland                                                                   │
-│ 322 │ Moors and heathland                                                                 │
-│ 323 │ Sclerophyllous vegetation                                                           │
-│ 324 │ Transitional woodland/shrub                                                         │
-│ 331 │ Beaches, dunes, sands                                                               │
-│ 332 │ Bare rock                                                                           │
-│ 333 │ Sparsely vegetated areas                                                            │
-│ 334 │ Burnt areas                                                                         │
-│ 335 │ Glaciers and perpetual snow                                                         │
-│ 411 │ Inland marshes                                                                      │
-│ 412 │ Peatbogs                                                                            │
-│ 421 │ Salt marshes                                                                        │
-│ 422 │ Salines                                                                             │
-│ 423 │ Intertidal flats                                                                    │
-│ 511 │ Water courses                                                                       │
-│ 512 │ Water bodies                                                                        │
-│ 521 │ Coastal lagoons                                                                     │
-│ 522 │ Estuaries                                                                           │
-│ 523 │ Sea and ocean                                                                       │
-└─────┴─────────────────────────────────────────────────────────────────────────────────────┘
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-style: italic">                                      CLC_CODE_TO_CLC_LV3                                       </span>
+┌─────┬────────────────────────────────────────────────────────────────────────────────────────┐
+│ 111 │ Continuous urban fabric                                                                │
+│ 112 │ Discontinuous urban fabric                                                             │
+│ 121 │ Industrial or commercial units                                                         │
+│ 122 │ Road and rail networks and associated land                                             │
+│ 123 │ Port areas                                                                             │
+│ 124 │ Airports                                                                               │
+│ 131 │ Mineral extraction sites                                                               │
+│ 132 │ Dump sites                                                                             │
+│ 133 │ Construction sites                                                                     │
+│ 141 │ Green urban areas                                                                      │
+│ 142 │ Sport and leisure facilities                                                           │
+│ 211 │ Non-irrigated arable land                                                              │
+│ 212 │ Permanently irrigated land                                                             │
+│ 213 │ Rice fields                                                                            │
+│ 221 │ Vineyards                                                                              │
+│ 222 │ Fruit trees and berry plantations                                                      │
+│ 223 │ Olive groves                                                                           │
+│ 231 │ Pastures                                                                               │
+│ 241 │ Annual crops associated with permanent crops                                           │
+│ 242 │ Complex cultivation patterns                                                           │
+│ 243 │ Land principally occupied by agriculture, with significant areas of natural vegetation │
+│ 244 │ Agro-forestry areas                                                                    │
+│ 311 │ Broad-leaved forest                                                                    │
+│ 312 │ Coniferous forest                                                                      │
+│ 313 │ Mixed forest                                                                           │
+│ 321 │ Natural grassland                                                                      │
+│ 322 │ Moors and heathland                                                                    │
+│ 323 │ Sclerophyllous vegetation                                                              │
+│ 324 │ Transitional woodland/shrub                                                            │
+│ 331 │ Beaches, dunes, sands                                                                  │
+│ 332 │ Bare rock                                                                              │
+│ 333 │ Sparsely vegetated areas                                                               │
+│ 334 │ Burnt areas                                                                            │
+│ 335 │ Glaciers and perpetual snow                                                            │
+│ 411 │ Inland marshes                                                                         │
+│ 412 │ Peatbogs                                                                               │
+│ 421 │ Salt marshes                                                                           │
+│ 422 │ Salines                                                                                │
+│ 423 │ Intertidal flats                                                                       │
+│ 511 │ Water courses                                                                          │
+│ 512 │ Water bodies                                                                           │
+│ 521 │ Coastal lagoons                                                                        │
+│ 522 │ Estuaries                                                                              │
+│ 523 │ Sea and ocean                                                                          │
+└─────┴────────────────────────────────────────────────────────────────────────────────────────┘
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-style: italic">MAX_VALUES_BY_DTYPE_STR </span>
-┏━━━━━━━━━┳━━━━━━━━━━━━┓
-┃ uint8   ┃ 255        ┃
+┌─────────┬────────────┐
+│ uint8   │ 255        │
 │ uint16  │ 65535      │
 │ uint32  │ 4294967295 │
 │ float32 │ 1.0        │
@@ -831,11 +822,7 @@ According to the original 19-class nomenclature, the class is named <code class=
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BAND_STATS_S1: 
 <span style="font-weight: bold">{</span>
-    <span style="color: #008000; text-decoration-color: #008000">'mean'</span>: <span style="font-weight: bold">{</span>
-        <span style="color: #008000; text-decoration-color: #008000">'VV'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">-12.619993741972035</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'VH'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">-19.29044597721542</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'VV/VH'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.6525036195871579</span>
-    <span style="font-weight: bold">}</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'mean'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'VV'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">-12.619993741972035</span>, <span style="color: #008000; text-decoration-color: #008000">'VH'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">-19.29044597721542</span>, <span style="color: #008000; text-decoration-color: #008000">'VV/VH'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.6525036195871579</span><span style="font-weight: bold">}</span>,
     <span style="color: #008000; text-decoration-color: #008000">'std'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'VV'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5.115911777546365</span>, <span style="color: #008000; text-decoration-color: #008000">'VH'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5.464428464912864</span>, <span style="color: #008000; text-decoration-color: #008000">'VV/VH'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">30.75264076801808</span><span style="font-weight: bold">}</span>
 <span style="font-weight: bold">}</span>
 </pre>
@@ -867,17 +854,10 @@ According to the original 19-class nomenclature, the class is named <code class=
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_PATCH_SIZE_M:  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1200</span>
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_S1_V1_0_JSON_KEYS: 
-<span style="font-weight: bold">{</span>
-    <span style="color: #008000; text-decoration-color: #008000">'projection'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'coordinates'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'acquisition_time'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'corresponding_s2_patch'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'labels'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'scene_source'</span>
-<span style="font-weight: bold">}</span>
+<span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'scene_source'</span>, <span style="color: #008000; text-decoration-color: #008000">'coordinates'</span>, <span style="color: #008000; text-decoration-color: #008000">'corresponding_s2_patch'</span>, <span style="color: #008000; text-decoration-color: #008000">'acquisition_time'</span>, <span style="color: #008000; text-decoration-color: #008000">'projection'</span>, <span style="color: #008000; text-decoration-color: #008000">'labels'</span><span style="font-weight: bold">}</span>
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_S2_V1_0_JSON_KEYS: 
-<span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'projection'</span>, <span style="color: #008000; text-decoration-color: #008000">'coordinates'</span>, <span style="color: #008000; text-decoration-color: #008000">'tile_source'</span>, <span style="color: #008000; text-decoration-color: #008000">'labels'</span>, <span style="color: #008000; text-decoration-color: #008000">'acquisition_date'</span><span style="font-weight: bold">}</span>
+<span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'acquisition_date'</span>, <span style="color: #008000; text-decoration-color: #008000">'coordinates'</span>, <span style="color: #008000; text-decoration-color: #008000">'projection'</span>, <span style="color: #008000; text-decoration-color: #008000">'tile_source'</span>, <span style="color: #008000; text-decoration-color: #008000">'labels'</span><span style="font-weight: bold">}</span>
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_S1_V1_0_TAR_MD5SUM:  94ced73440dea8c7b9645ee738c5a172
 </pre>
@@ -923,13 +903,13 @@ According to the original 19-class nomenclature, the class is named <code class=
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_RECOMMENDED_SIZE:  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">519284</span>
 </pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_S2_RE:  <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">re.compile</span><span style="font-weight: bold">(</span>'\n        <span style="font-weight: bold">(</span>?P<span style="font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">sentinel_mission</span><span style="font-weight: bold">&gt;</span>S2<span style="font-weight: bold">[</span>AB<span style="font-weight: bold">])</span>\n        _\n        MSIL2A # 
-Sentinel-<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span> data product\n        _\n        <span style="font-weight: bold">(</span>?P<span style="font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">year</span><span style="font-weight: bold">&gt;</span>\\d<span style="font-weight: bold">{</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4</span><span style="font-weight: bold">})</span>\n        <span style="font-weight: bold">(</span>?P<span style="font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">month</span><span style="font-weight: bold">&gt;</span>\\d<span style="font-weight: bold">{</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span><span style="font-weight: bold">})</span>\n    
-<span style="font-weight: bold">(</span>?P<span style="font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">day</span><span style="font-weight: bold">&gt;</span>\\d<span style="font-weight: bold">{</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span><span style="font-weight: bold">})</span>\n        T\n      , re.VERBOSE<span style="font-weight: bold">)</span>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_S2_RE:  <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">re.compile</span><span style="font-weight: bold">(</span>'\n        <span style="font-weight: bold">(</span>?P<span style="font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">sentinel_mission</span><span style="font-weight: bold">&gt;</span>S2<span style="font-weight: bold">[</span>AB<span style="font-weight: bold">])</span>\n        _\n        MSIL2A # Sentinel-<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span> data 
+product\n        _\n        <span style="font-weight: bold">(</span>?P<span style="font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">year</span><span style="font-weight: bold">&gt;</span>\\d<span style="font-weight: bold">{</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4</span><span style="font-weight: bold">})</span>\n        <span style="font-weight: bold">(</span>?P<span style="font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">month</span><span style="font-weight: bold">&gt;</span>\\d<span style="font-weight: bold">{</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span><span style="font-weight: bold">})</span>\n        <span style="font-weight: bold">(</span>?P<span style="font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">day</span><span style="font-weight: bold">&gt;</span>\\d<span style="font-weight: bold">{</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span><span style="font-weight: bold">})</span>\n        T\n      
+, re.VERBOSE<span style="font-weight: bold">)</span>
 </pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_S1_RE:  <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">re.compile</span><span style="font-weight: bold">(</span>'\n        <span style="font-weight: bold">(</span>?P<span style="font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">sentinel_mission</span><span style="font-weight: bold">&gt;</span>S1<span style="font-weight: bold">[</span>AB<span style="font-weight: bold">])</span>\n        _\n        IW # 
-Interferometric Wide swath\n        _\n        GRDH # Ground-Range-Detection High 
-Resolution\n        _\n        <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>   # processing level, re.VERBOSE<span style="font-weight: bold">)</span>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_S1_RE:  <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">re.compile</span><span style="font-weight: bold">(</span>'\n        <span style="font-weight: bold">(</span>?P<span style="font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">sentinel_mission</span><span style="font-weight: bold">&gt;</span>S1<span style="font-weight: bold">[</span>AB<span style="font-weight: bold">])</span>\n        _\n        IW # Interferometric Wide 
+swath\n        _\n        GRDH # Ground-Range-Detection High Resolution\n        _\n        <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>   # processing level,
+re.VERBOSE<span style="font-weight: bold">)</span>
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">BEN_S1_BAND_RE:  <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">re.compile</span><span style="font-weight: bold">(</span><span style="color: #008000; text-decoration-color: #008000">'.*_(?P&lt;band&gt;V[HV])'</span><span style="font-weight: bold">)</span>
 </pre>
@@ -955,10 +935,10 @@ Resolution\n        _\n        <span style="color: #008080; text-decoration-colo
                 </div>
                 <div class="title">BigEarthNet Base Functions</div>
               </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
           <a class="prev-page" href="intro.html">
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
@@ -986,11 +966,6 @@ Resolution\n        _\n        <span style="color: #008080; text-decoration-colo
                     <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
                 </svg>
             </a>
-              <a class="muted-link " href="https://www.buymeacoffee.com/kaitub" aria-label="Buy Me A Coffee">
-                <svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20.216 6.415l-.132-.666c-.119-.598-.388-1.163-1.001-1.379-.197-.069-.42-.098-.57-.241-.152-.143-.196-.366-.231-.572-.065-.378-.125-.756-.192-1.133-.057-.325-.102-.69-.25-.987-.195-.4-.597-.634-.996-.788a5.723 5.723 0 00-.626-.194c-1-.263-2.05-.36-3.077-.416a25.834 25.834 0 00-3.7.062c-.915.083-1.88.184-2.75.5-.318.116-.646.256-.888.501-.297.302-.393.77-.177 1.146.154.267.415.456.692.58.36.162.737.284 1.123.366 1.075.238 2.189.331 3.287.37 1.218.05 2.437.01 3.65-.118.299-.033.598-.073.896-.119.352-.054.578-.513.474-.834-.124-.383-.457-.531-.834-.473-.466.074-.96.108-1.382.146-1.177.08-2.358.082-3.536.006a22.228 22.228 0 01-1.157-.107c-.086-.01-.18-.025-.258-.036-.243-.036-.484-.08-.724-.13-.111-.027-.111-.185 0-.212h.005c.277-.06.557-.108.838-.147h.002c.131-.009.263-.032.394-.048a25.076 25.076 0 013.426-.12c.674.019 1.347.067 2.017.144l.228.031c.267.04.533.088.798.145.392.085.895.113 1.07.542.055.137.08.288.111.431l.319 1.484a.237.237 0 01-.199.284h-.003c-.037.006-.075.01-.112.015a36.704 36.704 0 01-4.743.295 37.059 37.059 0 01-4.699-.304c-.14-.017-.293-.042-.417-.06-.326-.048-.649-.108-.973-.161-.393-.065-.768-.032-1.123.161-.29.16-.527.404-.675.701-.154.316-.199.66-.267 1-.069.34-.176.707-.135 1.056.087.753.613 1.365 1.37 1.502a39.69 39.69 0 0011.343.376.483.483 0 01.535.53l-.071.697-1.018 9.907c-.041.41-.047.832-.125 1.237-.122.637-.553 1.028-1.182 1.171-.577.131-1.165.2-1.756.205-.656.004-1.31-.025-1.966-.022-.699.004-1.556-.06-2.095-.58-.475-.458-.54-1.174-.605-1.793l-.731-7.013-.322-3.094c-.037-.351-.286-.695-.678-.678-.336.015-.718.3-.678.679l.228 2.185.949 9.112c.147 1.344 1.174 2.068 2.446 2.272.742.12 1.503.144 2.257.156.966.016 1.942.053 2.892-.122 1.408-.258 2.465-1.198 2.616-2.657.34-3.332.683-6.663 1.024-9.995l.215-2.087a.484.484 0 01.39-.426c.402-.078.787-.212 1.074-.518.455-.488.546-1.124.385-1.766zm-1.478.772c-.145.137-.363.201-.578.233-2.416.359-4.866.54-7.308.46-1.748-.06-3.477-.254-5.207-.498-.17-.024-.353-.055-.47-.18-.22-.236-.111-.71-.054-.995.052-.26.152-.609.463-.646.484-.057 1.046.148 1.526.22.577.088 1.156.159 1.737.212 2.48.226 5.002.19 7.472-.14.45-.06.899-.13 1.345-.21.399-.072.84-.206 1.08.206.166.281.188.657.162.974a.544.544 0 01-.169.364zm-6.159 3.9c-.862.37-1.84.788-3.109.788a5.884 5.884 0 01-1.569-.217l.877 9.004c.065.78.717 1.38 1.5 1.38 0 0 1.243.065 1.658.065.447 0 1.786-.065 1.786-.065.783 0 1.434-.6 1.499-1.38l.94-9.95a3.996 3.996 0 00-1.322-.238c-.826 0-1.491.284-2.26.613z"></path>
-                </svg>
-            </a>
               
             </div>
           </div>
@@ -1009,11 +984,6 @@ Resolution\n        _\n        <span style="color: #008080; text-decoration-colo
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/scripts/furo.js"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     </body>
