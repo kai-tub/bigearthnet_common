@@ -54,7 +54,7 @@ def get_recommended_s1_patches() -> Set[str]:
 @validate_arguments
 def filter_s2_patches_by_country(
     patches: Iterable, country: ben_constants.Country
-) -> Set[str]:
+) -> List[str]:
     if country not in ben_constants.COUNTRIES:
         raise ValueError(
             f"{country} is not one of the BEN countries: {ben_constants.COUNTRIES}!"
@@ -63,13 +63,13 @@ def filter_s2_patches_by_country(
     patch_country_mapping = ben_base.get_patches_to_country_mapping(
         use_s2_patch_names=True
     )
-    return {p for p in patches if patch_country_mapping[p] == country}
+    return [p for p in patches if patch_country_mapping[p] == country]
 
 
 @validate_arguments
 def filter_s1_patches_by_country(
     patches: Iterable, country: ben_constants.Country
-) -> Set[str]:
+) -> List[str]:
     if country not in ben_constants.COUNTRIES:
         raise ValueError(
             f"{country} is not one of the BEN countries: {ben_constants.COUNTRIES}!"
@@ -78,7 +78,7 @@ def filter_s1_patches_by_country(
     patch_country_mapping = ben_base.get_patches_to_country_mapping(
         use_s2_patch_names=False
     )
-    return {p for p in patches if patch_country_mapping[p] == country}
+    return [p for p in patches if patch_country_mapping[p] == country]
 
 
 @validate_arguments
@@ -86,7 +86,7 @@ def filter_patches_by_country(
     sentinel_source: ben_constants.SentinelSource,
     patches: Iterable,
     country: ben_constants.Country,
-) -> Set[str]:
+) -> List[str]:
     """
     Given Sentinel-1/2 named-patches, return only those patches that belong to a given
     country.
@@ -100,30 +100,30 @@ def filter_patches_by_country(
 
 @validate_arguments
 def filter_s2_patches_by_season(
-    patches: Iterable, season: ben_constants.Season
-) -> Set[str]:
+    patches: Iterable[str], season: ben_constants.Season
+) -> List[str]:
     patch_season_mapping = ben_base.get_patches_to_season_mapping(
         use_s2_patch_names=True
     )
-    return {p for p in patches if patch_season_mapping[p] == season}
+    return [p for p in patches if patch_season_mapping[p] == season]
 
 
 @validate_arguments
 def filter_s1_patches_by_season(
-    patches: Iterable, season: ben_constants.Season
-) -> Set[str]:
+    patches: Iterable[str], season: ben_constants.Season
+) -> List[str]:
     patch_season_mapping = ben_base.get_patches_to_season_mapping(
         use_s2_patch_names=False
     )
-    return {p for p in patches if patch_season_mapping[p] == season}
+    return [p for p in patches if patch_season_mapping[p] == season]
 
 
 @validate_arguments
 def filter_patches_by_season(
     sentinel_source: ben_constants.SentinelSource,
-    patches: Iterable,
+    patches: Iterable[str],
     season: ben_constants.Season,
-):
+) -> List[str]:
     """
     Given Sentinel-1/2 named-patches, return only those patches that belong to a given
     season.
@@ -136,33 +136,37 @@ def filter_patches_by_season(
 
 
 @validate_arguments
-def filter_s1_patches_by_split(patches: Iterable, split: ben_constants.Split):
+def filter_s1_patches_by_split(
+    patches: Iterable[str], split: ben_constants.Split
+) -> List[str]:
     get_split_func = {
         split.train: ben_base.get_s1_patches_from_original_train_split,
         split.validation: ben_base.get_s1_patches_from_original_validation_split,
         split.test: ben_base.get_s1_patches_from_original_test_split,
     }
     split_patches = get_split_func[split]()
-    return patches & split_patches
+    return [p for p in patches if p in split_patches]
 
 
 @validate_arguments
-def filter_s2_patches_by_split(patches: Iterable, split: ben_constants.Split):
+def filter_s2_patches_by_split(
+    patches: Iterable, split: ben_constants.Split
+) -> List[str]:
     get_split_func = {
         split.train: ben_base.get_s2_patches_from_original_train_split,
         split.validation: ben_base.get_s2_patches_from_original_validation_split,
         split.test: ben_base.get_s2_patches_from_original_test_split,
     }
     split_patches = get_split_func[split]()
-    return set(patches) & split_patches
+    return [p for p in patches if p in split_patches]
 
 
 @validate_arguments
 def filter_patches_by_split(
     sentinel_source: ben_constants.SentinelSource,
-    patches: Iterable,
+    patches: Iterable[str],
     split: ben_constants.Split,
-):
+) -> List[str]:
     """
     Given Sentinel-1/2 named-patches, return only those patches that belong to a given
     split.
@@ -180,7 +184,7 @@ def build_set(
     seasons: List[ben_constants.Season] = [s.value for s in ben_constants.Season],
     countries: List[ben_constants.Country] = [c.value for c in ben_constants.Country],
     remove_unrecommended_dl_patches: bool = True,
-) -> Set[str]:
+) -> List[str]:
     """
     Create a subset of the Sentinel-1/Sentinel-2 patches.
     The returned list will be naturally sorted to produce
@@ -196,18 +200,18 @@ def build_set(
         patches = get_all_s1_patches() if use_s1 else get_all_s2_patches()
 
     if len(seasons) > 0:
-        patches = {
+        patches = [
             patch
             for season in seasons
             for patch in filter_patches_by_season(sentinel_source, patches, season)
-        }
+        ]
     if len(countries) > 0:
-        patches = {
+        patches = [
             patch
             for country in countries
             for patch in filter_patches_by_country(sentinel_source, patches, country)
-        }
-    return patches
+        ]
+    return natsort.natsorted(patches)
 
 
 @fc.delegates(build_set)
@@ -249,7 +253,7 @@ def build_csv_sets(
         )
         if min(len(train_patches), len(validation_patches), len(test_patches)) == 0:
             raise RuntimeError("One of the train/val/test splits is empty!")
-        if (train_patches & validation_patches & test_patches) != set():
+        if (set(train_patches) & set(validation_patches) & set(test_patches)) != set():
             raise RuntimeError(
                 "There is an overlap between the train/validation/test patches!"
             )
