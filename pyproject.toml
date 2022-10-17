@@ -1,6 +1,6 @@
 [project]
 name = "bigearthnet-common"
-version = "2.7.2"
+version = "2.7.1"
 description = "A collection of common tools to interact with the BigEarthNet dataset."
 authors = [
     {name = "Kai Norman Clasen", email= "k.clasen@protonmail.com"},
@@ -12,12 +12,11 @@ keywords = ["ben", "bigearthnet", "script", "tools"]
 # deps-start
 requires-python = ">=3.8"
 dependencies = [
-    "rich>=10",
     "pydantic>=1.8",
     "fastcore>=1.3",
     "natsort>=8",
     "appdirs>=1.4",
-    "typer>=0.4",
+    "typer[all]>=0.6",
     "python-dateutil>=2",
 ]
 # deps-end
@@ -81,6 +80,7 @@ exclude = ["tests"]
 
 [tool.isort]
 profile = "black"
+
 [tool.pdm.scripts]
 check-pre-commit = "pre-commit run --all-files"
 check-types = "mypy src"
