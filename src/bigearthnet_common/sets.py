@@ -1,14 +1,11 @@
 import csv
 from pathlib import Path
-from typing import List, Sequence, Set
+from typing import Iterable, List, Set
 
 import fastcore.all as fc
 import natsort
-import rich_click as click
-import rich_click.typer as typer
+import typer
 from pydantic import validate_arguments
-
-click.rich_click.USE_MARKDOWN = True
 
 import bigearthnet_common.base as ben_base
 import bigearthnet_common.constants as ben_constants
@@ -56,7 +53,7 @@ def get_recommended_s1_patches() -> Set[str]:
 
 @validate_arguments
 def filter_s2_patches_by_country(
-    patches: Sequence, country: ben_constants.Country
+    patches: Iterable, country: ben_constants.Country
 ) -> Set[str]:
     if country not in ben_constants.COUNTRIES:
         raise ValueError(
@@ -71,7 +68,7 @@ def filter_s2_patches_by_country(
 
 @validate_arguments
 def filter_s1_patches_by_country(
-    patches: Sequence, country: ben_constants.Country
+    patches: Iterable, country: ben_constants.Country
 ) -> Set[str]:
     if country not in ben_constants.COUNTRIES:
         raise ValueError(
@@ -87,9 +84,9 @@ def filter_s1_patches_by_country(
 @validate_arguments
 def filter_patches_by_country(
     sentinel_source: ben_constants.SentinelSource,
-    patches: Sequence,
+    patches: Iterable,
     country: ben_constants.Country,
-):
+) -> Set[str]:
     """
     Given Sentinel-1/2 named-patches, return only those patches that belong to a given
     country.
@@ -103,7 +100,7 @@ def filter_patches_by_country(
 
 @validate_arguments
 def filter_s2_patches_by_season(
-    patches: Sequence, season: ben_constants.Season
+    patches: Iterable, season: ben_constants.Season
 ) -> Set[str]:
     patch_season_mapping = ben_base.get_patches_to_season_mapping(
         use_s2_patch_names=True
@@ -113,7 +110,7 @@ def filter_s2_patches_by_season(
 
 @validate_arguments
 def filter_s1_patches_by_season(
-    patches: Sequence, season: ben_constants.Season
+    patches: Iterable, season: ben_constants.Season
 ) -> Set[str]:
     patch_season_mapping = ben_base.get_patches_to_season_mapping(
         use_s2_patch_names=False
@@ -124,7 +121,7 @@ def filter_s1_patches_by_season(
 @validate_arguments
 def filter_patches_by_season(
     sentinel_source: ben_constants.SentinelSource,
-    patches: Sequence,
+    patches: Iterable,
     season: ben_constants.Season,
 ):
     """
@@ -139,7 +136,7 @@ def filter_patches_by_season(
 
 
 @validate_arguments
-def filter_s1_patches_by_split(patches: Sequence, split: ben_constants.Split):
+def filter_s1_patches_by_split(patches: Iterable, split: ben_constants.Split):
     get_split_func = {
         split.train: ben_base.get_s1_patches_from_original_train_split,
         split.validation: ben_base.get_s1_patches_from_original_validation_split,
@@ -150,7 +147,7 @@ def filter_s1_patches_by_split(patches: Sequence, split: ben_constants.Split):
 
 
 @validate_arguments
-def filter_s2_patches_by_split(patches: Sequence, split: ben_constants.Split):
+def filter_s2_patches_by_split(patches: Iterable, split: ben_constants.Split):
     get_split_func = {
         split.train: ben_base.get_s2_patches_from_original_train_split,
         split.validation: ben_base.get_s2_patches_from_original_validation_split,
@@ -163,7 +160,7 @@ def filter_s2_patches_by_split(patches: Sequence, split: ben_constants.Split):
 @validate_arguments
 def filter_patches_by_split(
     sentinel_source: ben_constants.SentinelSource,
-    patches: Sequence,
+    patches: Iterable,
     split: ben_constants.Split,
 ):
     """
@@ -266,7 +263,7 @@ def build_csv_sets(
 
 
 def build_csv_sets_cli():
-    app = typer.Typer(name="ben_build_csv_sets")
+    app = typer.Typer(name="ben_build_csv_sets", rich_markup_mode="markdown")
     app.command()(build_csv_sets)
     app()
 

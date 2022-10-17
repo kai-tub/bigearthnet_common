@@ -13,13 +13,13 @@ from datetime import datetime
 from enum import Enum
 from importlib import resources
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional, Set, Union
+from typing import Dict, Iterable, List, Literal, Optional, Sequence, Set, Union
 
 import appdirs
 import dateutil
 import fastcore.all as fc
 import rich
-import rich_click.typer as typer
+import typer
 from fastcore.basics import compose
 from fastcore.dispatch import typedispatch
 from pydantic import DirectoryPath, FilePath, validate_arguments
@@ -55,6 +55,8 @@ PATCHES_WITH_CLOUD_AND_SHADOW_URL = (
     "http://bigearth.net/static/documents/get_patches_with_cloud_and_shadow.csv"
 )
 
+BEN_JSON_DATA = Dict[str, Union[str, Dict[str, int]]]
+
 
 def parse_datetime(inp: Union[str, datetime]) -> datetime:
     """
@@ -84,7 +86,7 @@ def _parse_datetime(acquisition_date: object) -> None:
 @validate_arguments
 def _read_json(
     json_fp: FilePath, expected_keys: Set, read_only_expected: bool = True
-) -> Dict[str, str]:
+) -> BEN_JSON_DATA:
     """
     Parse the json file given with the file path `json_fp`.
     The function checks if all of the `expected_keys` are present, which
@@ -116,7 +118,7 @@ def _read_json(
     return complete_data
 
 
-def read_S1_json(json_fp: FilePath) -> Dict[str, str]:
+def read_S1_json(json_fp: FilePath) -> BEN_JSON_DATA:
     """
     A helper function that *safely* reads a BigEarthNet-S1 json file.
     It will ensure that all expected entries are present and only read those
@@ -134,7 +136,7 @@ def read_S1_json(json_fp: FilePath) -> Dict[str, str]:
     return data
 
 
-def read_S2_json(json_fp: FilePath) -> Dict[str, str]:
+def read_S2_json(json_fp: FilePath) -> BEN_JSON_DATA:
     """
     A helper function that *safely* reads a BigEarthNet-S2 json file.
     It will ensure that all expected entries are present and only read those
@@ -190,13 +192,15 @@ def _conv_header_col_bz2_csv_resource_to_dict(
             reader = csv.DictReader(
                 csv_file
             )  # field-names are encoded as first csv row
+            if reader.fieldnames is None:
+                raise ValueError("Loaded empty csv file!")
             if key_column not in reader.fieldnames:
                 raise ValueError(
-                    f"Key {key_column} is unkown! Resource provides: {reader.fieldnames}"
+                    f"Key {key_column} is unknown! Resource provides: {reader.fieldnames}"
                 )
             if value_column not in reader.fieldnames:
                 raise ValueError(
-                    f"Value {value_column} is unkown! Resource provides: {reader.fieldnames}"
+                    f"Value {value_column} is unknown! Resource provides: {reader.fieldnames}"
                 )
             return {row[key_column]: row[value_column] for row in reader}
 
@@ -220,9 +224,11 @@ def _conv_header_col_bz2_csv_resource_to_set(resource, key_column: str) -> Set[s
             reader = csv.DictReader(
                 csv_file
             )  # field-names are encoded as first csv row
+            if reader.fieldnames is None:
+                raise ValueError("Loaded empty csv file!")
             if key_column not in reader.fieldnames:
                 raise ValueError(
-                    f"Key {key_column} is unkown! Resource provides: {reader.fieldnames}"
+                    f"Key {key_column} is unknown! Resource provides: {reader.fieldnames}"
                 )
             return {row[key_column] for row in reader}
 
@@ -325,13 +331,13 @@ def get_patches_to_country_mapping(use_s2_patch_names: bool = True) -> Dict[str,
 @validate_arguments
 def is_s2_patch(patch_name: str) -> bool:
     """Quick regex check if name is a valid S2 patch name"""
-    return ben_constants.BEN_S2_RE.fullmatch(patch_name)
+    return bool(ben_constants.BEN_S2_RE.fullmatch(patch_name))
 
 
 @validate_arguments
 def is_s1_patch(patch_name: str) -> bool:
     """Quick regex check if name is a valid S2 patch name"""
-    return ben_constants.BEN_S1_RE.fullmatch(patch_name)
+    return bool(ben_constants.BEN_S1_RE.fullmatch(patch_name))
 
 
 def get_country_from_patch_name(patch_name: str) -> str:
@@ -597,7 +603,7 @@ def _old2new_label(old_label: str) -> Optional[str]:
     return ben_constants.OLD2NEW_LABELS_DICT[old_label]
 
 
-def old2new_labels(old_labels: Iterable[str]) -> Optional[List[str]]:
+def old2new_labels(old_labels: Sequence[str]) -> Optional[List[str]]:
     """
     Converts a list of old-style BigEarthNet labels
     to a list of labels.
@@ -777,13 +783,13 @@ def validate_ben_s1_root_directory(dir_path: Path) -> Set[str]:
 
 
 def validate_ben_s2_root_directory_cli():
-    app = typer.Typer()
+    app = typer.Typer(rich_markup_mode="markdown")
     app.command()(validate_ben_s2_root_directory)
     app()
 
 
 def validate_ben_s1_root_directory_cli():
-    app = typer.Typer()
+    app = typer.Typer(rich_markup_mode="markdown")
     app.command()(validate_ben_s1_root_directory)
     app()
 
@@ -837,6 +843,6 @@ def describe_patch(patch_names: List[str]) -> Table:
 
 
 def describe_patch_cli():
-    app = typer.Typer()
+    app = typer.Typer(rich_markup_mode="markdown")
     app.command()(describe_patch)
     app()
