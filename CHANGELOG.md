@@ -1,3 +1,15 @@
+# v2.7.3 (Mon Oct 17 2022)
+
+#### 🐛 Bug Fix
+
+- Fix too low version for typer [#39](https://github.com/kai-tub/bigearthnet_common/pull/39) ([@kai-tub](https://github.com/kai-tub))
+
+#### Authors: 1
+
+- Kai Norman Clasen ([@kai-tub](https://github.com/kai-tub))
+
+---
+
 # v2.7.2 (Mon Oct 17 2022)
 
 #### 🐛 Bug Fix
