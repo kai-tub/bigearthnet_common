@@ -1,65 +1,111 @@
-[tool.poetry]
-name = "bigearthnet_common"
+[project]
+name = "bigearthnet-common"
 version = "2.7.1"
 description = "A collection of common tools to interact with the BigEarthNet dataset."
-authors = ["Kai Norman Clasen <k.clasen@protonmail.com>"]
-license = "Apache-2.0"
-readme = "README.md"
-homepage = "https://github.com/kai-tub/bigearthnet_common"
-repository = "https://github.com/kai-tub/bigearthnet_common"
-documentation = "https://kai-tub.github.io/bigearthnet_common/"
-keywords = ["ben", "bigearthnet", "script", "tools"]
-include = [
-    "LICENSE",
+authors = [
+    {name = "Kai Norman Clasen", email= "k.clasen@protonmail.com"},
 ]
+license = {text = "Apache Software License 2.0"}
+readme = "README.md"
+keywords = ["ben", "bigearthnet", "script", "tools"]
+#- Uses the < syntax instead of <= because conda-forge does not work correctly with <=
+# deps-start
+requires-python = ">=3.8"
+dependencies = [
+    "rich>=10",
+    "pydantic>=1.8",
+    "fastcore>=1.3",
+    "natsort>=8",
+    "appdirs>=1.4",
+    "typer>=0.4",
+    "python-dateutil>=2",
+]
+# deps-end
+
+[project.urls]
+homepage = "https://github.com/kai-tub/bigearthnet_common/"
+repository = "https://github.com/kai-tub/bigearthnet_common/"
+documentation = "https://kai-tub.github.io/bigearthnet_common"
 
 
-[tool.poetry.dependencies]
-# Follow NEP-29
-python = ">=3.8,<3.11"
-rich = "^10|^11|^12"
-pydantic = "^1.8"
-fastcore = "^1.3"
-natsort = "^8"
-appdirs = "^1.4"
-# typer is only required for CLI interface, but can
-# be listed as true dependency in my opinion
-typer = "^0.4"
-python-dateutil = "^2"
-rich-click = {extras = ["typer"], version = "^1.3.2"}
-
-[tool.isort]
-profile = "black"
-
-[tool.poetry.dev-dependencies]
-# nbdev = "^1.1"
-# 6.1.13/6.2 seem to be broken in combination with nbdev
-# jupyter_client = "<6.1.13"
-black = "*"
-isort = "*"
-numpy = "^1.20"
-pytest = "^7.1.1"
-Sphinx = "^4.5.0"
-furo = "^2022.3.4"
-livereload = "^2.6.3"
-mypy = "^0.942"
-sphinx-external-toc = "^0.2"
-sphinxcontrib-mermaid = "^0.7.1"
-myst-parser = {extras = ["linkify"], version = "^0.17.0"}
-pre-commit = "^2.18.1"
-ipykernel = "^6.12.1"
-myst-nb = "^0.15.0"
-jupyter = "^1.0.0"
-sphinx-autobuild = "^2021.3.14"
-sphinx-cli-recorder = "^0.1.5"
-
-[tool.poetry.scripts]
+[project.scripts]
 ben_constant_prompt = "bigearthnet_common.constants:cli"
 ben_build_csv_sets = "bigearthnet_common.sets:build_csv_sets_cli"
 ben_validate_s1_root_dir = "bigearthnet_common.base:validate_ben_s1_root_directory_cli"
 ben_validate_s2_root_dir = "bigearthnet_common.base:validate_ben_s2_root_directory_cli"
 ben_describe_patch = "bigearthnet_common.base:describe_patch_cli"
 
+[project.optional-dependencies]
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["pdm-pep517>=1.0.0"]
+build-backend = "pdm.pep517.api"
+
+[tool.pdm.build]
+includes = [
+    "LICENSE",
+    "src",
+]
+
+[tool.pdm.dev-dependencies]
+docs = [
+    "myst-nb>=0.16",
+    "Sphinx>=4.5",
+    "sphinx-autobuild",
+    "sphinx-external-toc",
+    "linkify-it-py",
+    "furo",
+    "common-nb-preprocessors>=1",
+    "sphinxcontrib-mermaid",
+    "pre-commit",
+    "sphinx-cli-recorder>=0.1.5"
+]
+test = [
+    "numpy>=1.20",
+    "pytest",
+    "pre-commit",
+    "jupyter",
+    "notebook",
+    "types-requests>=2.28.11.2",
+    "types-python-dateutil>=2.8.19.1",
+]
+lint = [
+    "black[jupyter]",
+    "isort",
+    "nbstripout",
+    "mypy",
+]
+[tool.mypy]
+exclude = ["tests"]
+# common plugins:
+# plugins = "numpy.typing.mypy_plugin"
+
+[tool.isort]
+profile = "black"
+[tool.pdm.scripts]
+check-pre-commit = "pre-commit run --all-files"
+check-types = "mypy src"
+
+lint.composite = [
+    "pre-commit",
+    # "check-types", # Re-enable after WIP finished
+]
+lint.help = "Will check if all files are formatted with black & isort"
+
+build-docs.cmd = "sphinx-build docs docs/_build/"
+build-docs.help = "Build Sphinx documentation"
+serve-sphinx-docs.cmd = "sphinx-autobuild docs docs/_build --open-browser"
+serve-sphinx-docs.help = "Serve the Sphinx documentation with sphinx-autobuild"
+
+tests = "pytest tests/"
+# If coverage is desired:
+# tests = "coverage run --parallel --source bigearthnet_common -m pytest tests"
+# coverage_report.composite = [
+#     "coverage combine",
+#     "coverage report --fail-under 95",
+# ]
+# coverage_html_report = "coverage html"
+# coverage_html.composite = [
+#     "tests",
+#     "coverage_html_report"
+# ]
+# coverage_html.help = "Run the coverage with pytest and produce the html"

@@ -1,8 +1,10 @@
-ben_common_env/
+# Personal often required
 docs/jupyter_execute/
 .vscode/
+###
+
+.pdm.toml
 # hide this for now
-tiny.parquet
 *.bak
 .gitattributes
 .last_checked
@@ -81,7 +83,8 @@ instance/
 .scrapy
 
 # Sphinx documentation
-docs/_build/
+docs/_build/*
+!docs/_build/.nojekyll
 
 # PyBuilder
 target/

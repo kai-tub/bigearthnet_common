@@ -23,6 +23,58 @@ def test_get_recommended_s2_patches():
     assert len(get_recommended_s2_patches()) == ben_constants.BEN_RECOMMENDED_SIZE
 
 
+def test_filter_patches_by_season_order():
+    patch_season_mapping = ben_base.get_patches_to_season_mapping(
+        use_s2_patch_names=True
+    )
+    winter_patches = [
+        p for p, s in patch_season_mapping.items() if s == ben_constants.Season.Winter
+    ]
+    winter_patches = winter_patches[:10]
+    assert len(winter_patches) > 1, "Broken test"
+
+    # S2 tests
+    out = filter_s2_patches_by_season(winter_patches, ben_constants.Season.Winter)
+    # assert that the order remains the same
+    assert winter_patches == out
+    winter_patches = winter_patches[::-1]
+    out = filter_s2_patches_by_season(winter_patches, ben_constants.Season.Winter)
+    # assert that the order remains the same
+    assert winter_patches == out
+
+    # S1 tests
+    s1_winter_patches = [ben_base.s2_to_s1_patch_name(p2) for p2 in winter_patches]
+    out = filter_s1_patches_by_season(s1_winter_patches, ben_constants.Season.Winter)
+    assert s1_winter_patches == out
+    s1_winter_patches = s1_winter_patches[::-1]
+    out = filter_s1_patches_by_season(s1_winter_patches, ben_constants.Season.Winter)
+    # assert that the order remains the same
+    assert s1_winter_patches == out
+
+
+def test_filter_patches_by_country_order():
+    patch_country_mapping = ben_base.get_patches_to_country_mapping(
+        use_s2_patch_names=True
+    )
+    lithuania_patches = [
+        p
+        for p, c in patch_country_mapping.items()
+        if c == ben_constants.Country.Lithuania
+    ]
+    lithuania_patches = lithuania_patches[:10]
+    out = filter_s2_patches_by_country(
+        lithuania_patches, ben_constants.Country.Lithuania
+    )
+    # assert that the order remains the same
+    assert lithuania_patches == out
+    lithuania_patches = lithuania_patches[::-1]
+    out = filter_s2_patches_by_country(
+        lithuania_patches, ben_constants.Country.Lithuania
+    )
+    # assert that the order remains the same
+    assert lithuania_patches == out
+
+
 def test_build_sets():
     assert len(build_set("S1", seasons=["Winter"])) < len(
         build_set("S2", seasons=["Winter", "Fall"])

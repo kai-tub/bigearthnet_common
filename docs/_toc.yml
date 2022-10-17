@@ -8,3 +8,6 @@ entries:
           - file: api_base
           - file: api_sets
           - file: api_example_data
+  - file: general/dependencies
+  - file: general/code_of_conduct
+  - file: general/license
