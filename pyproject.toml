@@ -87,7 +87,7 @@ check-types = "mypy src"
 
 lint.composite = [
     "pre-commit",
-    "check-types",
+    # "check-types", # Re-enable after WIP finished
 ]
 lint.help = "Will check if all files are formatted with black & isort"
 

@@ -32,6 +32,10 @@ extensions = [
     "sphinx_external_toc",
     "sphinx.ext.intersphinx",
     "sphinx.ext.autodoc",
+    "sphinx.ext.intersphinx",
+    "sphinx_cli_recorder",
+    "sphinxcontrib.mermaid",
+    "sphinx.ext.autodoc",
     # Other popular choices:
     # "sphinx_design",
     # "myst_parser",
