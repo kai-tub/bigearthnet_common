@@ -1,6 +1,6 @@
 [project]
 name = "bigearthnet-common"
-version = "2.7.3"
+version = "2.7.4"
 description = "A collection of common tools to interact with the BigEarthNet dataset."
 authors = [
     {name = "Kai Norman Clasen", email= "k.clasen@protonmail.com"},
