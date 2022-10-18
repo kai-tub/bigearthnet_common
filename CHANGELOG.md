@@ -1,3 +1,15 @@
+# v2.8.0 (Tue Oct 18 2022)
+
+#### 🚀 Enhancement
+
+- More examples [#40](https://github.com/kai-tub/bigearthnet_common/pull/40) ([@kai-tub](https://github.com/kai-tub))
+
+#### Authors: 1
+
+- Kai Norman Clasen ([@kai-tub](https://github.com/kai-tub))
+
+---
+
 # v2.7.4 (Mon Oct 17 2022)
 
 #### ⚠️ Pushed to `main`
