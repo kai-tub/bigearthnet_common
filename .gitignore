@@ -1,6 +1,7 @@
 # Personal often required
 docs/jupyter_execute/
 .vscode/
+__pypackages__/
 ###
 
 .pdm.toml
