@@ -46,6 +46,7 @@ extensions = [
     # "sphinx_comments",
     # "sphinx.ext.todo",
     # "sphinxcontrib.bibtex",
+    "furo_myst_nb_css_fixes",
 ]
 external_toc_path = "_toc.yml"
 

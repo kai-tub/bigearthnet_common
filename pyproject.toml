@@ -56,7 +56,8 @@ docs = [
     "common-nb-preprocessors>=1",
     "sphinxcontrib-mermaid",
     "pre-commit",
-    "sphinx-cli-recorder>=0.1.5"
+    "sphinx-cli-recorder>=0.1.5",
+    "furo-myst-nb-css-fixes>=0.1.1",
 ]
 test = [
     "numpy>=1.20",

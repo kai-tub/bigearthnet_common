@@ -171,7 +171,7 @@ summary = "Cross-platform colored terminal text."
 
 [[package]]
 name = "common-nb-preprocessors"
-version = "1.0.3"
+version = "1.1.1"
 requires_python = ">=3.8"
 summary = "preprocessors"
 dependencies = [
@@ -222,6 +222,12 @@ requires_python = ">=3.6"
 summary = "Discover and load entry points from installed packages."
 
 [[package]]
+name = "exceptiongroup"
+version = "1.0.0"
+requires_python = ">=3.7"
+summary = "Backport of PEP 654 (exception groups)"
+
+[[package]]
 name = "executing"
 version = "1.1.1"
 summary = "Get the currently executing AST node of a frame, and other information"
@@ -257,6 +263,15 @@ dependencies = [
     "pygments>=2.7",
     "sphinx-basic-ng",
     "sphinx<6.0,>=4.0",
+]
+
+[[package]]
+name = "furo-myst-nb-css-fixes"
+version = "0.1.1"
+requires_python = ">=3.8"
+summary = "A tiny wrapper around a few lines of CSS to better support the MyST-NB Jupyter notebook outputs with the Furo Sphinx theme."
+dependencies = [
+    "sphinx>=4.5",
 ]
 
 [[package]]
@@ -905,17 +920,17 @@ summary = "Persistent/Functional/Immutable data structures"
 
 [[package]]
 name = "pytest"
-version = "7.1.3"
+version = "7.2.0"
 requires_python = ">=3.7"
 summary = "pytest: simple powerful testing with Python"
 dependencies = [
     "attrs>=19.2.0",
     "colorama; sys_platform == \"win32\"",
+    "exceptiongroup>=1.0.0rc8; python_version < \"3.11\"",
     "iniconfig",
     "packaging",
     "pluggy<2.0,>=0.12",
-    "py>=1.8.2",
-    "tomli>=1.0.0",
+    "tomli>=1.0.0; python_version < \"3.11\"",
 ]
 
 [[package]]
@@ -1259,7 +1274,7 @@ dependencies = [
 
 [[package]]
 name = "types-python-dateutil"
-version = "2.8.19.1"
+version = "2.8.19.2"
 summary = "Typing stubs for python-dateutil"
 
 [[package]]
@@ -1348,7 +1363,7 @@ summary = "Backport of pathlib-compatible object wrapper for zip files"
 
 [metadata]
 lock_version = "4.0"
-content_hash = "sha256:fe3fcfa64174d69dd8f2c9080bbfa685ea3317036896ec03975613a568123c57"
+content_hash = "sha256:78ec52fa853973d55be7d2ababa39ea1aca0039cf61a274228742a413bd65056"
 
 [metadata.files]
 "alabaster 0.7.12" = [
@@ -1535,9 +1550,9 @@ content_hash = "sha256:fe3fcfa64174d69dd8f2c9080bbfa685ea3317036896ec03975613a56
     {url = "https://files.pythonhosted.org/packages/2b/65/24d033a9325ce42ccbfa3ca2d0866c7e89cc68e5b9d92ecaba9feef631df/colorama-0.4.5.tar.gz", hash = "sha256:e6c6b4334fc50988a639d9b98aa429a0b57da6e17b9a44f0451f930b6967b7a4"},
     {url = "https://files.pythonhosted.org/packages/77/8b/7550e87b2d308a1b711725dfaddc19c695f8c5fa413c640b2be01662f4e6/colorama-0.4.5-py2.py3-none-any.whl", hash = "sha256:854bf444933e37f5824ae7bfc1e98d5bce2ebe4160d46b5edf346a89358e99da"},
 ]
-"common-nb-preprocessors 1.0.3" = [
-    {url = "https://files.pythonhosted.org/packages/48/99/32fd72373c56103d2bf1f7ad6f5e102dd2e357a7e435af91341cd8af93bc/common-nb-preprocessors-1.0.3.tar.gz", hash = "sha256:94df9da0cf2ead065db3c8b94659bf105e3f325ac7e966ef8efa1cece7ccbd41"},
-    {url = "https://files.pythonhosted.org/packages/db/3e/236baef42dfc666754d60bcda5d53be61dad37f61ddfe1e312f1297ead25/common_nb_preprocessors-1.0.3-py3-none-any.whl", hash = "sha256:440455752482a1853c787e0f8b2e00c6503fc6f75ffb3e90f85985ea9c2af38c"},
+"common-nb-preprocessors 1.1.1" = [
+    {url = "https://files.pythonhosted.org/packages/e4/b5/52ba94af09cf7986019898780136f3e1dd62313671b3ad0e237df485f918/common_nb_preprocessors-1.1.1-py3-none-any.whl", hash = "sha256:f6c8901fb9e6545b72795d955c42841673b674fd4898638f5980fc88a8a37e74"},
+    {url = "https://files.pythonhosted.org/packages/f8/54/fd253fb7c56bb572cde1069bc680e8ef546764a3b6085e15c05558827775/common-nb-preprocessors-1.1.1.tar.gz", hash = "sha256:ae85f98dfc465d1ade78385efe30121319269284eb1bcd17b60c8ff6027e4555"},
 ]
 "commonmark 0.9.1" = [
     {url = "https://files.pythonhosted.org/packages/60/48/a60f593447e8f0894ebb7f6e6c1f25dafc5e89c5879fdc9360ae93ff83f0/commonmark-0.9.1.tar.gz", hash = "sha256:452f9dc859be7f06631ddcb328b6919c67984aca654e5fefb3914d54691aed60"},
@@ -1583,6 +1598,10 @@ content_hash = "sha256:fe3fcfa64174d69dd8f2c9080bbfa685ea3317036896ec03975613a56
     {url = "https://files.pythonhosted.org/packages/35/a8/365059bbcd4572cbc41de17fd5b682be5868b218c3c5479071865cab9078/entrypoints-0.4-py3-none-any.whl", hash = "sha256:f174b5ff827504fd3cd97cc3f8649f3693f51538c7e4bdf3ef002c8429d42f9f"},
     {url = "https://files.pythonhosted.org/packages/ea/8d/a7121ffe5f402dc015277d2d31eb82d2187334503a011c18f2e78ecbb9b2/entrypoints-0.4.tar.gz", hash = "sha256:b706eddaa9218a19ebcd67b56818f05bb27589b1ca9e8d797b74affad4ccacd4"},
 ]
+"exceptiongroup 1.0.0" = [
+    {url = "https://files.pythonhosted.org/packages/4f/7e/eca80dbb5c10ec12ffb50884f52ecbff653cb5f443b0529244a748f114da/exceptiongroup-1.0.0.tar.gz", hash = "sha256:affbabf13fb6e98988c38d9c5650e701569fe3c1de3233cfb61c5f33774690ad"},
+    {url = "https://files.pythonhosted.org/packages/de/4c/2854d9e3dcce78108126aa3634186a64ddbfd06d4d69af74954665529e52/exceptiongroup-1.0.0-py3-none-any.whl", hash = "sha256:2ac84b496be68464a2da60da518af3785fff8b7ec0d090a581604bc870bdee41"},
+]
 "executing 1.1.1" = [
     {url = "https://files.pythonhosted.org/packages/48/5b/f636517f40fc5afb720354236cea729de30d440f06bdafb7f33ca969956c/executing-1.1.1.tar.gz", hash = "sha256:b0d7f8dcc2bac47ce6e39374397e7acecea6fdc380a6d5323e26185d70f38ea8"},
     {url = "https://files.pythonhosted.org/packages/72/ac/593502a97a0bf7968a2c958a25f5f697ef738f6cd9fcc94d0d6a1493e080/executing-1.1.1-py2.py3-none-any.whl", hash = "sha256:236ea5f059a38781714a8bfba46a70fad3479c2f552abee3bbafadc57ed111b8"},
@@ -1602,6 +1621,10 @@ content_hash = "sha256:fe3fcfa64174d69dd8f2c9080bbfa685ea3317036896ec03975613a56
 "furo 2022.9.29" = [
     {url = "https://files.pythonhosted.org/packages/69/98/9610acf8fc202836514cabc08c3f2fdbd1d88e88cd0eb0f94ead15f1a07e/furo-2022.9.29-py3-none-any.whl", hash = "sha256:559ee17999c0f52728481dcf6b1b0cf8c9743e68c5e3a18cb45a7992747869a9"},
     {url = "https://files.pythonhosted.org/packages/ee/6f/6b6466b231a29cc319f8147353c0bb96ac972c54d2101c4eb12447c8136a/furo-2022.9.29.tar.gz", hash = "sha256:d4238145629c623609c2deb5384f8d036e2a1ee2a101d64b67b4348112470dbd"},
+]
+"furo-myst-nb-css-fixes 0.1.1" = [
+    {url = "https://files.pythonhosted.org/packages/58/ed/25d634ae0d8e1eb08649554b391be92e66e0be96efc2f5e44df3e0e12ffb/furo-myst-nb-css-fixes-0.1.1.tar.gz", hash = "sha256:37ee24ada7de1f484be77acb47bc52af38c9c5dd7a48020c8c3aa2fcdf693830"},
+    {url = "https://files.pythonhosted.org/packages/94/3d/3131d2e57ee60e0c8369c2de100e2260d541a8708a97ff7b9cbaf10952d4/furo_myst_nb_css_fixes-0.1.1-py3-none-any.whl", hash = "sha256:9b82462c750b21a0acdaa25e591fcc9750e7b3d338bca8790dc207ff47ff7e82"},
 ]
 "greenlet 1.1.3.post0" = [
     {url = "https://files.pythonhosted.org/packages/06/58/79d818140350ee8e7fa0bfe8c41caa1b389df505b7d465284605c3da03fb/greenlet-1.1.3.post0-cp39-cp39-manylinux1_x86_64.whl", hash = "sha256:8415239c68b2ec9de10a5adf1130ee9cb0ebd3e19573c55ba160ff0ca809e012"},
@@ -2108,9 +2131,9 @@ content_hash = "sha256:fe3fcfa64174d69dd8f2c9080bbfa685ea3317036896ec03975613a56
     {url = "https://files.pythonhosted.org/packages/dc/4f/5588cd16135b6d75a042349df7c4e114eb091ffb213e11c2805a44a7e860/pyrsistent-0.18.1-cp310-cp310-win_amd64.whl", hash = "sha256:636ce2dc235046ccd3d8c56a7ad54e99d5c1cd0ef07d9ae847306c91d11b5fec"},
     {url = "https://files.pythonhosted.org/packages/fa/4b/f051c292400d013523d6ced81af83c313059fd494e45e94ea99ceb549b95/pyrsistent-0.18.1-cp38-cp38-win32.whl", hash = "sha256:b568f35ad53a7b07ed9b1b2bae09eb15cdd671a5ba5d2c66caee40dbf91c68ca"},
 ]
-"pytest 7.1.3" = [
-    {url = "https://files.pythonhosted.org/packages/a4/a7/8c63a4966935b0d0b039fd67ebf2e1ae00f1af02ceb912d838814d772a9a/pytest-7.1.3.tar.gz", hash = "sha256:4f365fec2dff9c1162f834d9f18af1ba13062db0c708bf7b946f8a5c76180c39"},
-    {url = "https://files.pythonhosted.org/packages/e3/b9/3541bbcb412a9fd56593005ff32183825634ef795a1c01ceb6dee86e7259/pytest-7.1.3-py3-none-any.whl", hash = "sha256:1377bda3466d70b55e3f5cecfa55bb7cfcf219c7964629b967c37cf0bda818b7"},
+"pytest 7.2.0" = [
+    {url = "https://files.pythonhosted.org/packages/0b/21/055f39bf8861580b43f845f9e8270c7786fe629b2f8562ff09007132e2e7/pytest-7.2.0.tar.gz", hash = "sha256:c4014eb40e10f11f355ad4e3c2fb2c6c6d1919c73f3b5a433de4708202cade59"},
+    {url = "https://files.pythonhosted.org/packages/67/68/a5eb36c3a8540594b6035e6cdae40c1ef1b6a2bfacbecc3d1a544583c078/pytest-7.2.0-py3-none-any.whl", hash = "sha256:892f933d339f068883b6fd5a459f03d85bfcb355e4981e146d2c7616c21fef71"},
 ]
 "python-dateutil 2.8.2" = [
     {url = "https://files.pythonhosted.org/packages/36/7a/87837f39d0296e723bb9b62bbb257d0355c7f6128853c78955f57342a56d/python_dateutil-2.8.2-py2.py3-none-any.whl", hash = "sha256:961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9"},
@@ -2445,9 +2468,9 @@ content_hash = "sha256:fe3fcfa64174d69dd8f2c9080bbfa685ea3317036896ec03975613a56
     {url = "https://files.pythonhosted.org/packages/cf/f9/27c5cd9ab067e3ece4cecb920c33f38cc986f839b12de19650fd49dc3c63/typer-0.6.1.tar.gz", hash = "sha256:2d5720a5e63f73eaf31edaa15f6ab87f35f0690f8ca233017d7d23d743a91d73"},
     {url = "https://files.pythonhosted.org/packages/e8/9b/7470461c68588ed09c2e53cbb16b802815232796d95f7b4744cc8842f19d/typer-0.6.1-py3-none-any.whl", hash = "sha256:54b19e5df18654070a82f8c2aa1da456a4ac16a2a83e6dcd9f170e291c56338e"},
 ]
-"types-python-dateutil 2.8.19.1" = [
-    {url = "https://files.pythonhosted.org/packages/04/a9/59abe964b1edbe71fee5ec60400ec6dad135d465b25d16ddfdd2d0739c3e/types_python_dateutil-2.8.19.1-py3-none-any.whl", hash = "sha256:a560f63b31ece652e891f9659216fb315abd6dc169f9356c077d11b4f432aa7d"},
-    {url = "https://files.pythonhosted.org/packages/5c/1b/0355035198feade70e27a9116ba99ceed4ed0aa8cd7604bb569e6a5455d0/types-python-dateutil-2.8.19.1.tar.gz", hash = "sha256:d642f7af2bb99fe78f5a776fd0ca4e32932720047f400e25ad62bc2a5b18dc94"},
+"types-python-dateutil 2.8.19.2" = [
+    {url = "https://files.pythonhosted.org/packages/09/e3/cf963dc3054bdede941e11780a6968b99f100e81fafe7b01fa56e3fd6802/types-python-dateutil-2.8.19.2.tar.gz", hash = "sha256:e6e32ce18f37765b08c46622287bc8d8136dc0c562d9ad5b8fd158c59963d7a7"},
+    {url = "https://files.pythonhosted.org/packages/5d/49/1c8a02e3613b95d2c91f67f3402a7132b52178b916b649facfeb95966f2f/types_python_dateutil-2.8.19.2-py3-none-any.whl", hash = "sha256:3f4dbe465e7e0c6581db11fd7a4855d1355b78712b3f292bd399cd332247e9c0"},
 ]
 "types-requests 2.28.11.2" = [
     {url = "https://files.pythonhosted.org/packages/b9/01/d801584a3cc9f80d4bcf2b11cf013a9c203237dc1a30acaafe96ea6ac1d1/types_requests-2.28.11.2-py3-none-any.whl", hash = "sha256:14941f8023a80b16441b3b46caffcbfce5265fd14555844d6029697824b5a2ef"},
